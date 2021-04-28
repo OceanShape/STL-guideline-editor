@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>STLGuideLineEditorClass</class>
+ <widget class="QMainWindow" name="STLGuideLineEditorClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>STLGuideLineEditor</string>
+  </property>
+  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuF_ile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionSave"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuA_p">
+    <property name="title">
+     <string>&amp;AP</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="actionClose"/>
+   </widget>
+   <widget class="QMenu" name="menuL_AT">
+    <property name="title">
+     <string>&amp;LAT</string>
+    </property>
+    <addaction name="actionOpen_2"/>
+    <addaction name="actionClose_2"/>
+   </widget>
+   <widget class="QMenu" name="menuE_xport">
+    <property name="title">
+     <string>&amp;Export</string>
+    </property>
+   </widget>
+   <addaction name="menuF_ile"/>
+   <addaction name="menuA_p"/>
+   <addaction name="menuL_AT"/>
+   <addaction name="menuE_xport"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+  <action name="actionOpen_2">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionClose_2">
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>&amp;Exit</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>&amp;Save</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="STLGuideLineEditor.qrc"/>
+ </resources>
+ <connections/>
+</ui>
