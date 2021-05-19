@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include <QDebug>
+#include <QDir>
+#include <QFileDialog>
+#include <QKeyEvent>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,16 +21,27 @@ public:
     ~MainWindow();
 
 private slots:
-//    void open();
-//    void zoomIn();
-//    void zoomOut();
-//    void fitToWindow();
-//    void about();
+    void openAP();
+    void openLAT();
+    void scaleImage(double rate);
+    void zoomIn()
+    {
+        scaleImage(1.25);
+    }
 
-    void on_pushButton_clicked();
+    void zoomOut()
+    {
+        scaleImage(0.8);
+    }
+
+    void keyPressEvent(QKeyEvent *event);
+
 
 private:
     Ui::MainWindow *ui;
     QPixmap mImage[3];
+    QString LATName;
+    QString APName;
+    float scaleFactor = 1.0f;
 };
 #endif // MAINWINDOW_H
