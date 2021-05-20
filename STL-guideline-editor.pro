@@ -13,6 +13,7 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
+    ZoomScreen.h \
     mainwindow.h
 
 FORMS += \

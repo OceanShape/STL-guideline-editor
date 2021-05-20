@@ -16,6 +16,16 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    if (mImage[Screen::AP] != nullptr)
+    {
+        delete mImage[Screen::AP];
+    }
+
+    if (mImage[Screen::LAT] != nullptr)
+    {
+        delete mImage[Screen::LAT];
+    }
+
     delete ui;
 }
 
@@ -25,12 +35,13 @@ void MainWindow::openAP()
                                "Select AP image",
                                QDir::currentPath(),
                                "*.jpg ;; *.jpeg");
-    mImage[0].load(dir);
+    mImage[Screen::AP] = new QPixmap;
+    mImage[Screen::AP]->load(dir);
 
-    int w = ui->APLabel->width();
-    int h = ui->APLabel->height();
-    ui->APLabel->setPixmap(mImage[0].scaled(w, h, Qt::KeepAspectRatio));
-    //this->resize(w + 200, this->height());
+    mAPwidth = ui->APLabel->width();
+    mAPheight = ui->APLabel->height();
+
+    ui->APLabel->setPixmap(mImage[Screen::AP]->scaled(mAPwidth, mAPheight, Qt::KeepAspectRatio));
 }
 
 void MainWindow::openLAT()
@@ -39,20 +50,45 @@ void MainWindow::openLAT()
                                "Select LAT image",
                                QDir::currentPath(),
                                "*.jpg ;; *.jpeg");
-    mImage[1].load(dir);
+    mImage[Screen::LAT] = new QPixmap;
+    mImage[Screen::LAT]->load(dir);
 
-    int w = ui->LATLabel->width();
-    int h = ui->LATLabel->height();
-    ui->LATLabel->setPixmap(mImage[1].scaled(w, h, Qt::KeepAspectRatio));
+    mLATwidth = ui->LATLabel->width();
+    mLATheight = ui->LATLabel->height();
+
+    ui->LATLabel->setPixmap(mImage[Screen::LAT]->scaled(mLATwidth, mLATheight, Qt::KeepAspectRatio));
 }
 
 void MainWindow::scaleImage(double factor)
 {
-    scaleFactor *= factor;
+    QLabel* screen = nullptr;
+    if (mZoomScreen == Screen::AP)
+    {
+        screen = ui->APLabel;
+    }
+    else // mZoomScreen == ZoomScreen::LAT
+    {
+        screen = ui->LATLabel;
+    }
+
+    if (screen == nullptr)
+    {
+        return;
+    }
+
+
+    qDebug() << factor;
 
     int w = ui->APLabel->width();
     int h = ui->APLabel->height();
-    ui->APLabel->setPixmap(mImage[0].scaled(scaleFactor * w, scaleFactor * h, Qt::KeepAspectRatio));
+
+    qDebug() << "input" << w << "," << h;
+
+    w *= factor;
+    h *= factor;
+    qDebug() << "output" <<w << "," << h;
+
+    ui->APLabel->setPixmap(mImage[mZoomScreen]->scaled(w, h, Qt::KeepAspectRatio));
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *event)
@@ -65,4 +101,18 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     {
         zoomOut();
     }
+    else if(event->key() == Qt::Key_H)
+    {
+        ui->APLabel->adjustSize();
+    }
+}
+
+void MainWindow::zoomIn()
+{
+    scaleImage(1.25);
+}
+
+void MainWindow::zoomOut()
+{
+    scaleImage(0.8);
 }

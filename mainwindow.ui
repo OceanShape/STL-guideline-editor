@@ -68,7 +68,7 @@ color:white;
          <x>0</x>
          <y>0</y>
          <width>638</width>
-         <height>691</height>
+         <height>694</height>
         </rect>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -106,7 +106,7 @@ color:white;
          <x>0</x>
          <y>0</y>
          <width>638</width>
-         <height>691</height>
+         <height>694</height>
         </rect>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -144,7 +144,7 @@ color:white;
      <x>0</x>
      <y>0</y>
      <width>1280</width>
-     <height>24</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

@@ -7,6 +7,8 @@
 #include <QFileDialog>
 #include <QKeyEvent>
 
+#include "ZoomScreen.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -23,25 +25,27 @@ public:
 private slots:
     void openAP();
     void openLAT();
-    void scaleImage(double rate);
-    void zoomIn()
-    {
-        scaleImage(1.25);
-    }
 
-    void zoomOut()
-    {
-        scaleImage(0.8);
-    }
+    void zoomIn();
+    void zoomOut();
+    void scaleImage(double rate);
 
     void keyPressEvent(QKeyEvent *event);
 
-
 private:
     Ui::MainWindow *ui;
-    QPixmap mImage[3];
-    QString LATName;
-    QString APName;
-    float scaleFactor = 1.0f;
+    QPixmap* mImage[2];
+
+    QString mAPName;
+    int mAPwidth;
+    int mAPheight;
+
+    QString mLATName;
+    int mLATwidth;
+    int mLATheight;
+
+    double mScaleFactor = 1.0f;
+
+    Screen mZoomScreen = Screen::AP;
 };
 #endif // MAINWINDOW_H
