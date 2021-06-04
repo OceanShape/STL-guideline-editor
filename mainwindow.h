@@ -6,6 +6,7 @@
 #include <QDir>
 #include <QFileDialog>
 #include <QKeyEvent>
+#include <QLabel>
 
 #include "ZoomScreen.h"
 
@@ -29,23 +30,20 @@ private slots:
     void zoomIn();
     void zoomOut();
     void scaleImage(double rate);
+    void openFile(Screen screen);
 
     void keyPressEvent(QKeyEvent *event);
 
 private:
     Ui::MainWindow *ui;
+    QLabel* mLabel[2];
     QPixmap* mImage[2];
 
-    QString mAPName;
-    int mAPwidth;
-    int mAPheight;
+    int mImageWidth;
+    int mImageHeight;
 
-    QString mLATName;
-    int mLATwidth;
-    int mLATheight;
+    double mScaleFactor;
 
-    double mScaleFactor = 1.0f;
-
-    Screen mZoomScreen = Screen::AP;
+    Screen mZoomScreen;
 };
 #endif // MAINWINDOW_H

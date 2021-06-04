@@ -7,56 +7,56 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    showMaximized();
+
     connect(ui->actionExit, SIGNAL(triggered()), this, SLOT(close()));
     connect(ui->actionOpenAP, SIGNAL(triggered()), this, SLOT(openAP()));
     connect(ui->actionOpenLAT, SIGNAL(triggered()), this, SLOT(openLAT()));
-    connect(ui->actionCloseAP, SIGNAL(triggered()), ui->APLabel, SLOT(clear()));
-    connect(ui->actionCloseLAT, SIGNAL(triggered()), ui->LATLabel, SLOT(clear()));
+//  connect(ui->actionCloseAP, SIGNAL(triggered()), ui->APLabel, SLOT(clear()));
+//  connect(ui->actionCloseLAT, SIGNAL(triggered()), ui->LATLabel, SLOT(clear()));
+
+//  mLabel[Screen::AP] = ui->APLabel;
+//   mLabel[Screen::LAT] = ui->LATLabel;
+
+    mImageWidth = 0;
+    mImageHeight = 0;
+    mScaleFactor = 1.0;
+    mZoomScreen = Screen::AP; // use mouse tracking later
 }
 
 MainWindow::~MainWindow()
 {
-    if (mImage[Screen::AP] != nullptr)
+    for (QPixmap* p : mImage)
     {
-        delete mImage[Screen::AP];
-    }
-
-    if (mImage[Screen::LAT] != nullptr)
-    {
-        delete mImage[Screen::LAT];
+        delete p;
     }
 
     delete ui;
 }
 
-void MainWindow::openAP()
+void MainWindow::openFile(Screen screen)
 {
     QString dir = QFileDialog::getOpenFileName(this,
-                               "Select AP image",
+                               "Select image",
                                QDir::currentPath(),
                                "*.jpg ;; *.jpeg");
-    mImage[Screen::AP] = new QPixmap;
-    mImage[Screen::AP]->load(dir);
+    mImage[screen] = new QPixmap;
+    mImage[screen]->load(dir);
 
-    mAPwidth = ui->APLabel->width();
-    mAPheight = ui->APLabel->height();
+    mLabel[screen]->setPixmap(*mImage[screen]);
+    //mLabel[screen]->adjustSize();
+    //this->resize(1280,720);
+    //this->adjustSize();
+}
 
-    ui->APLabel->setPixmap(mImage[Screen::AP]->scaled(mAPwidth, mAPheight, Qt::KeepAspectRatio));
+void MainWindow::openAP()
+{
+    openFile(Screen::AP);
 }
 
 void MainWindow::openLAT()
 {
-    QString dir = QFileDialog::getOpenFileName(this,
-                               "Select LAT image",
-                               QDir::currentPath(),
-                               "*.jpg ;; *.jpeg");
-    mImage[Screen::LAT] = new QPixmap;
-    mImage[Screen::LAT]->load(dir);
-
-    mLATwidth = ui->LATLabel->width();
-    mLATheight = ui->LATLabel->height();
-
-    ui->LATLabel->setPixmap(mImage[Screen::LAT]->scaled(mLATwidth, mLATheight, Qt::KeepAspectRatio));
+    openFile(Screen::LAT);
 }
 
 void MainWindow::scaleImage(double factor)
@@ -64,11 +64,11 @@ void MainWindow::scaleImage(double factor)
     QLabel* screen = nullptr;
     if (mZoomScreen == Screen::AP)
     {
-        screen = ui->APLabel;
+//        screen = ui->APLabel;
     }
     else // mZoomScreen == ZoomScreen::LAT
     {
-        screen = ui->LATLabel;
+//        screen = ui->LATLabel;
     }
 
     if (screen == nullptr)
@@ -79,16 +79,16 @@ void MainWindow::scaleImage(double factor)
 
     qDebug() << factor;
 
-    int w = ui->APLabel->width();
-    int h = ui->APLabel->height();
+//    int w = ui->APLabel->width();
+//    int h = ui->APLabel->height();
 
-    qDebug() << "input" << w << "," << h;
+//    qDebug() << "input" << w << "," << h;
 
-    w *= factor;
-    h *= factor;
-    qDebug() << "output" <<w << "," << h;
+//    w *= factor;
+//    h *= factor;
+//    qDebug() << "output" <<w << "," << h;
 
-    ui->APLabel->setPixmap(mImage[mZoomScreen]->scaled(w, h, Qt::KeepAspectRatio));
+//    ui->APLabel->setPixmap(mImage[mZoomScreen]->scaled(w, h, Qt::KeepAspectRatio));
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *event)
@@ -100,10 +100,6 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     else if(event->key() == Qt::Key_W)
     {
         zoomOut();
-    }
-    else if(event->key() == Qt::Key_H)
-    {
-        ui->APLabel->adjustSize();
     }
 }
 
