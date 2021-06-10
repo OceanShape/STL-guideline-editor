@@ -198,11 +198,19 @@ color:white;
    </property>
   </action>
   <action name="actionOpenAP">
+   <property name="icon">
+    <iconset resource="icons/resource.qrc">
+     <normaloff>:/icons/AP_icon.jpg</normaloff>:/icons/AP_icon.jpg</iconset>
+   </property>
    <property name="text">
     <string>&amp;Open</string>
    </property>
   </action>
   <action name="actionOpenLAT">
+   <property name="icon">
+    <iconset resource="icons/resource.qrc">
+     <normaloff>:/icons/LAT_icon.jpg</normaloff>:/icons/LAT_icon.jpg</iconset>
+   </property>
    <property name="text">
     <string>&amp;Open</string>
    </property>
@@ -213,11 +221,19 @@ color:white;
    </property>
   </action>
   <action name="actionOpen">
+   <property name="icon">
+    <iconset resource="icons/resource.qrc">
+     <normaloff>:/icons/document-open.png</normaloff>:/icons/document-open.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Open</string>
    </property>
   </action>
   <action name="actionLineAP">
+   <property name="icon">
+    <iconset resource="icons/resource.qrc">
+     <normaloff>:/icons/AP_icon.jpg</normaloff>:/icons/AP_icon.jpg</iconset>
+   </property>
    <property name="text">
     <string>&amp;Line</string>
    </property>
@@ -228,6 +244,10 @@ color:white;
    </property>
   </action>
   <action name="actionLineLAT">
+   <property name="icon">
+    <iconset resource="icons/resource.qrc">
+     <normaloff>:/icons/LAT_icon.jpg</normaloff>:/icons/LAT_icon.jpg</iconset>
+   </property>
    <property name="text">
     <string>&amp;Line</string>
    </property>
@@ -238,16 +258,28 @@ color:white;
    </property>
   </action>
   <action name="actionNew">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/document-new.png</normaloff>:/icons/document-new.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;New</string>
    </property>
   </action>
   <action name="actionClose">
+   <property name="icon">
+    <iconset resource="icons/resource.qrc">
+     <normaloff>:/icons/window-close.png</normaloff>:/icons/window-close.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Close</string>
    </property>
   </action>
   <action name="actionSave">
+   <property name="icon">
+    <iconset resource="icons/resource.qrc">
+     <normaloff>:/icons/document-save.png</normaloff>:/icons/document-save.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Save</string>
    </property>
@@ -258,16 +290,26 @@ color:white;
    </property>
   </action>
   <action name="actionUndo">
+   <property name="icon">
+    <iconset resource="icons/resource.qrc">
+     <normaloff>:/icons/edit-undo.png</normaloff>:/icons/edit-undo.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Undo</string>
    </property>
   </action>
   <action name="actionRedo">
+   <property name="icon">
+    <iconset resource="icons/resource.qrc">
+     <normaloff>:/icons/edit-redo.png</normaloff>:/icons/edit-redo.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Redo</string>
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="icons/resource.qrc"/>
+ </resources>
  <connections/>
 </ui>
