@@ -72,6 +72,11 @@ color:white;
     <property name="title">
      <string>&amp;File</string>
     </property>
+    <addaction name="actionNew"/>
+    <addaction name="actionOpen"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSaveas"/>
+    <addaction name="actionClose"/>
     <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuAP">
@@ -84,8 +89,15 @@ color:white;
     <property name="title">
      <string>&amp;AP</string>
     </property>
+    <widget class="QMenu" name="menuDrawAP">
+     <property name="title">
+      <string>&amp;Draw</string>
+     </property>
+     <addaction name="actionLineAP"/>
+     <addaction name="actionDotAP"/>
+    </widget>
     <addaction name="actionOpenAP"/>
-    <addaction name="actionCloseAP"/>
+    <addaction name="menuDrawAP"/>
    </widget>
    <widget class="QMenu" name="menuLAT">
     <property name="sizePolicy">
@@ -97,8 +109,15 @@ color:white;
     <property name="title">
      <string>&amp;LAT</string>
     </property>
+    <widget class="QMenu" name="menuDrawLAT">
+     <property name="title">
+      <string>&amp;Draw</string>
+     </property>
+     <addaction name="actionLineLAT"/>
+     <addaction name="actionDotLAT"/>
+    </widget>
     <addaction name="actionOpenLAT"/>
-    <addaction name="actionCloseLAT"/>
+    <addaction name="menuDrawLAT"/>
    </widget>
    <widget class="QMenu" name="menuExport">
     <property name="sizePolicy">
@@ -108,7 +127,7 @@ color:white;
      </sizepolicy>
     </property>
     <property name="title">
-     <string>&amp;Export</string>
+     <string>&amp;View</string>
     </property>
     <addaction name="actionViewSTL"/>
    </widget>
@@ -181,6 +200,56 @@ color:white;
   <action name="actionViewSTL">
    <property name="text">
     <string>3D model(.stl)</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>&amp;Open</string>
+   </property>
+  </action>
+  <action name="actionLineAP">
+   <property name="text">
+    <string>&amp;Line</string>
+   </property>
+  </action>
+  <action name="actionDotAP">
+   <property name="text">
+    <string>&amp;Dot</string>
+   </property>
+  </action>
+  <action name="actionLineLAT">
+   <property name="text">
+    <string>&amp;Line</string>
+   </property>
+  </action>
+  <action name="actionDotLAT">
+   <property name="text">
+    <string>&amp;Dot</string>
+   </property>
+  </action>
+  <action name="actionNew">
+   <property name="text">
+    <string>&amp;New</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="text">
+    <string>&amp;Close</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>&amp;Save</string>
+   </property>
+  </action>
+  <action name="action_Exit">
+   <property name="text">
+    <string>&amp;Exit</string>
+   </property>
+  </action>
+  <action name="actionSaveas">
+   <property name="text">
+    <string>Save &amp;As</string>
    </property>
   </action>
  </widget>
