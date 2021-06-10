@@ -18,6 +18,8 @@ MainWindow::MainWindow(QWidget *parent)
 //  mLabel[Screen::AP] = ui->APLabel;
 //   mLabel[Screen::LAT] = ui->LATLabel;
 
+
+
     mImageWidth = 0;
     mImageHeight = 0;
     mScaleFactor = 1.0;
