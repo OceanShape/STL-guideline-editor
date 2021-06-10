@@ -12,11 +12,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->actionExit, SIGNAL(triggered()), this, SLOT(close()));
     connect(ui->actionOpenAP, SIGNAL(triggered()), this, SLOT(openAP()));
     connect(ui->actionOpenLAT, SIGNAL(triggered()), this, SLOT(openLAT()));
-//  connect(ui->actionCloseAP, SIGNAL(triggered()), ui->APLabel, SLOT(clear()));
-//  connect(ui->actionCloseLAT, SIGNAL(triggered()), ui->LATLabel, SLOT(clear()));
 
-//  mLabel[Screen::AP] = ui->APLabel;
-//   mLabel[Screen::LAT] = ui->LATLabel;
+    mLabel[Screen::AP] = ui->labelAP;
+    mLabel[Screen::LAT] = ui->labelLAT;
 
 
 
@@ -45,7 +43,10 @@ void MainWindow::openFile(Screen screen)
     mImage[screen] = new QPixmap;
     mImage[screen]->load(dir);
 
-    mLabel[screen]->setPixmap(*mImage[screen]);
+    int w = mLabel[screen]->width();
+    int h = mLabel[screen]->height();
+
+    mLabel[screen]->setPixmap(mImage[screen]->scaled(w, h, Qt::KeepAspectRatio));
     //mLabel[screen]->adjustSize();
     //this->resize(1280,720);
     //this->adjustSize();
@@ -80,17 +81,6 @@ void MainWindow::scaleImage(double factor)
 
 
     qDebug() << factor;
-
-//    int w = ui->APLabel->width();
-//    int h = ui->APLabel->height();
-
-//    qDebug() << "input" << w << "," << h;
-
-//    w *= factor;
-//    h *= factor;
-//    qDebug() << "output" <<w << "," << h;
-
-//    ui->APLabel->setPixmap(mImage[mZoomScreen]->scaled(w, h, Qt::KeepAspectRatio));
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *event)
