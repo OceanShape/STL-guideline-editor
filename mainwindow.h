@@ -7,6 +7,8 @@
 #include <QFileDialog>
 #include <QKeyEvent>
 #include <QLabel>
+#include <QScrollArea>
+#include <QPalette>
 
 #include "ZoomScreen.h"
 
@@ -36,14 +38,15 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QLabel* mLabel[2];
-    QPixmap* mImage[2];
+    QImage image[2];
+    QLabel imageLabel[2];
+    QScrollArea scrollArea[2];
 
-    int mImageWidth;
-    int mImageHeight;
+    int imageWidth;
+    int imageHeight;
 
-    double mScaleFactor;
+    double scaleFactor;
 
-    Screen mZoomScreen;
+    Screen zoomScreen;
 };
 #endif // MAINWINDOW_H
