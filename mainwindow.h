@@ -2,15 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QDebug>
-#include <QDir>
-#include <QFileDialog>
-#include <QKeyEvent>
 #include <QLabel>
-#include <QScrollArea>
-#include <QPalette>
-
-#include "ZoomScreen.h"
+#include <QDebug>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -22,31 +15,12 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
-    //bool loadFile(const QString &);
     ~MainWindow();
-
-private slots:
-    void openAP();
-    void openLAT();
-
-    void zoomIn();
-    void zoomOut();
-    void scaleImage(double rate);
-    void openFile(Screen screen);
-
-    void keyPressEvent(QKeyEvent *event);
 
 private:
     Ui::MainWindow *ui;
-    QImage image[2];
-    QLabel imageLabel[2];
-    QScrollArea scrollArea[2];
-
-    int imageWidth;
-    int imageHeight;
-
-    double scaleFactor;
-
-    Screen zoomScreen;
+    QImage img[2];
+	QPixmap buf[2];
+    QLabel lbl[2];
 };
 #endif // MAINWINDOW_H

@@ -6,39 +6,33 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
-    <height>480</height>
+    <width>1910</width>
+    <height>1045</height>
    </rect>
   </property>
-  <property name="minimumSize">
-   <size>
-    <width>640</width>
-    <height>480</height>
-   </size>
-  </property>
-  <property name="mouseTracking">
-   <bool>false</bool>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <property name="autoFillBackground">
-   <bool>false</bool>
-  </property>
-  <property name="styleSheet">
-   <string notr="true">background-color: rgb(46, 52, 54);
-selection-background-color: rgb(50, 113, 172);
-color:white;
-</string>
-  </property>
-  <property name="documentMode">
-   <bool>true</bool>
-  </property>
-  <widget class="QWidget" name="centralWidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <property name="spacing">
-     <number>0</number>
-    </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>1920</width>
+     <height>1002</height>
+    </size>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
     <property name="leftMargin">
      <number>0</number>
     </property>
@@ -51,6 +45,83 @@ color:white;
     <property name="bottomMargin">
      <number>0</number>
     </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QWidget" name="widget" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="sizeConstraint">
+        <enum>QLayout::SetMaximumSize</enum>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="labelAP">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="lineWidth">
+          <number>0</number>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelLAT">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="lineWidth">
+          <number>0</number>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -58,60 +129,49 @@ color:white;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>640</width>
+     <width>1910</width>
      <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
     <property name="title">
-     <string>&amp;File</string>
+     <string>File</string>
     </property>
     <addaction name="actionNew"/>
     <addaction name="actionOpen"/>
     <addaction name="actionSave"/>
-    <addaction name="actionSaveas"/>
+    <addaction name="actionSaveAs"/>
     <addaction name="actionClose"/>
     <addaction name="actionExit"/>
    </widget>
-   <widget class="QMenu" name="menuAP">
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
+   <widget class="QMenu" name="menuEdit">
     <property name="title">
-     <string>&amp;AP</string>
+     <string>Edit</string>
     </property>
-    <widget class="QMenu" name="menuDrawAP">
+    <addaction name="actionUndo"/>
+    <addaction name="actionRedo"/>
+   </widget>
+   <widget class="QMenu" name="menuAP">
+    <property name="title">
+     <string>AP</string>
+    </property>
+    <widget class="QMenu" name="menuDraw">
      <property name="title">
-      <string>&amp;Draw</string>
+      <string>Draw</string>
      </property>
      <addaction name="actionLineAP"/>
      <addaction name="actionDotAP"/>
     </widget>
     <addaction name="actionOpenAP"/>
-    <addaction name="menuDrawAP"/>
+    <addaction name="menuDraw"/>
    </widget>
    <widget class="QMenu" name="menuLAT">
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
     <property name="title">
-     <string>&amp;LAT</string>
+     <string>LAT</string>
     </property>
     <widget class="QMenu" name="menuDrawLAT">
      <property name="title">
-      <string>&amp;Draw</string>
+      <string>Draw</string>
      </property>
      <addaction name="actionLineLAT"/>
      <addaction name="actionDotLAT"/>
@@ -119,37 +179,28 @@ color:white;
     <addaction name="actionOpenLAT"/>
     <addaction name="menuDrawLAT"/>
    </widget>
-   <widget class="QMenu" name="menuExport">
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
+   <widget class="QMenu" name="menuView">
     <property name="title">
-     <string>&amp;View</string>
+     <string>View</string>
     </property>
-    <addaction name="actionViewSTL"/>
-   </widget>
-   <widget class="QMenu" name="menu_Edit">
-    <property name="title">
-     <string>&amp;Edit</string>
-    </property>
-    <addaction name="actionUndo"/>
-    <addaction name="actionRedo"/>
+    <addaction name="action3Dmodel"/>
    </widget>
    <addaction name="menuFile"/>
-   <addaction name="menu_Edit"/>
+   <addaction name="menuEdit"/>
    <addaction name="menuAP"/>
    <addaction name="menuLAT"/>
-   <addaction name="menuExport"/>
+   <addaction name="menuView"/>
   </widget>
+  <widget class="QStatusBar" name="statusBar"/>
   <widget class="QToolBar" name="toolBar">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="windowTitle">
     <string>toolBar</string>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QToolButton:checked { color: palette(highlighted-text); background-color: palette(highlight); border: none; padding: 2px }</string>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -157,163 +208,83 @@ color:white;
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionNew"/>
-   <addaction name="actionOpen"/>
-   <addaction name="actionSave"/>
-   <addaction name="actionClose"/>
-   <addaction name="separator"/>
-   <addaction name="actionOpenAP"/>
-   <addaction name="actionLineAP"/>
-   <addaction name="actionOpenLAT"/>
-   <addaction name="actionLineLAT"/>
-   <addaction name="separator"/>
-   <addaction name="actionUndo"/>
-   <addaction name="actionRedo"/>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
-  <action name="actionExit">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
+  <action name="actionNew">
    <property name="text">
-    <string>&amp;Exit</string>
-   </property>
-   <property name="iconText">
-    <string>Exit</string>
-   </property>
-   <property name="statusTip">
-    <string/>
-   </property>
-   <property name="autoRepeat">
-    <bool>true</bool>
-   </property>
-   <property name="visible">
-    <bool>true</bool>
-   </property>
-   <property name="iconVisibleInMenu">
-    <bool>true</bool>
-   </property>
-   <property name="shortcutVisibleInContextMenu">
-    <bool>true</bool>
-   </property>
-  </action>
-  <action name="actionOpenAP">
-   <property name="icon">
-    <iconset resource="icons/resource.qrc">
-     <normaloff>:/icons/AP_icon.jpg</normaloff>:/icons/AP_icon.jpg</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Open</string>
-   </property>
-  </action>
-  <action name="actionOpenLAT">
-   <property name="icon">
-    <iconset resource="icons/resource.qrc">
-     <normaloff>:/icons/LAT_icon.jpg</normaloff>:/icons/LAT_icon.jpg</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Open</string>
-   </property>
-  </action>
-  <action name="actionViewSTL">
-   <property name="text">
-    <string>3D model(.stl)</string>
+    <string>New</string>
    </property>
   </action>
   <action name="actionOpen">
-   <property name="icon">
-    <iconset resource="icons/resource.qrc">
-     <normaloff>:/icons/document-open.png</normaloff>:/icons/document-open.png</iconset>
-   </property>
    <property name="text">
-    <string>&amp;Open</string>
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionSaveAs">
+   <property name="text">
+    <string>SaveAs</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="text">
+    <string>Undo</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="text">
+    <string>Redo</string>
+   </property>
+  </action>
+  <action name="actionOpenAP">
+   <property name="text">
+    <string>Open</string>
    </property>
   </action>
   <action name="actionLineAP">
-   <property name="icon">
-    <iconset resource="icons/resource.qrc">
-     <normaloff>:/icons/AP_icon.jpg</normaloff>:/icons/AP_icon.jpg</iconset>
-   </property>
    <property name="text">
-    <string>&amp;Line</string>
+    <string>Line</string>
    </property>
   </action>
-  <action name="actionDotAP">
+  <action name="actionOpenLAT">
    <property name="text">
-    <string>&amp;Dot</string>
+    <string>Open</string>
    </property>
   </action>
   <action name="actionLineLAT">
-   <property name="icon">
-    <iconset resource="icons/resource.qrc">
-     <normaloff>:/icons/LAT_icon.jpg</normaloff>:/icons/LAT_icon.jpg</iconset>
-   </property>
    <property name="text">
-    <string>&amp;Line</string>
+    <string>Line</string>
    </property>
   </action>
   <action name="actionDotLAT">
    <property name="text">
-    <string>&amp;Dot</string>
+    <string>Dot</string>
    </property>
   </action>
-  <action name="actionNew">
-   <property name="icon">
-    <iconset resource="icons/resource.qrc">
-     <normaloff>:/icons/document-new.png</normaloff>:/icons/document-new.png</iconset>
-   </property>
+  <action name="actionDotAP">
    <property name="text">
-    <string>&amp;New</string>
+    <string>Dot</string>
    </property>
   </action>
-  <action name="actionClose">
-   <property name="icon">
-    <iconset resource="icons/resource.qrc">
-     <normaloff>:/icons/window-close.png</normaloff>:/icons/window-close.png</iconset>
-   </property>
+  <action name="action3Dmodel">
    <property name="text">
-    <string>&amp;Close</string>
-   </property>
-  </action>
-  <action name="actionSave">
-   <property name="icon">
-    <iconset resource="icons/resource.qrc">
-     <normaloff>:/icons/document-save.png</normaloff>:/icons/document-save.png</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Save</string>
-   </property>
-  </action>
-  <action name="actionSaveas">
-   <property name="icon">
-    <iconset resource="icons/resource.qrc">
-     <normaloff>:/icons/document-save.png</normaloff>:/icons/document-save.png</iconset>
-   </property>
-   <property name="text">
-    <string>Save &amp;As</string>
-   </property>
-  </action>
-  <action name="actionUndo">
-   <property name="icon">
-    <iconset resource="icons/resource.qrc">
-     <normaloff>:/icons/edit-undo.png</normaloff>:/icons/edit-undo.png</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Undo</string>
-   </property>
-  </action>
-  <action name="actionRedo">
-   <property name="icon">
-    <iconset resource="icons/resource.qrc">
-     <normaloff>:/icons/edit-redo.png</normaloff>:/icons/edit-redo.png</iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Redo</string>
+    <string>3D model(stl)</string>
    </property>
   </action>
  </widget>
- <resources>
-  <include location="icons/resource.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
