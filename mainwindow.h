@@ -4,6 +4,9 @@
 #include <QMainWindow>
 #include <QLabel>
 #include <QDebug>
+#include <QFileDialog>
+
+#include "Screen.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -22,5 +25,8 @@ private:
     QImage img[2];
 	QPixmap buf[2];
     QLabel lbl[2];
+private slots:
+    void Open();
+    void Close();
 };
 #endif // MAINWINDOW_H

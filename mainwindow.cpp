@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+QString fileName[] = {"AP_sample02.jpg", "LAT_sample02.jpg"};
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -10,26 +12,31 @@ MainWindow::MainWindow(QWidget *parent)
 
     this->setCentralWidget(ui->widget);
 
-    img[0].load("AP_sample02.jpg");
-    buf[0] = QPixmap::fromImage(img[0]);
-    buf[0] = buf[0].scaled(img[0].width(), img[0].height());
 
-    img[1].load("LAT_sample02.jpg");
-    buf[1] = QPixmap::fromImage(img[1]);
-    buf[1] = buf[1].scaled(img[1].width(), img[1].height());
-
-
-    ui->labelAP->setPixmap(
-                buf[0].scaled(ui->labelAP->height() * 0.8, ui->labelAP->height(), Qt::KeepAspectRatio));
-    ui->labelLAT->setPixmap(
-                buf[1].scaled(ui->labelLAT->height() * 0.8, ui->labelLAT->height(), Qt::KeepAspectRatio));
+    connect(ui->actionOpen, SIGNAL(triggered()), this, SLOT(Open()));
 
 
     ui->widget->setContentsMargins(0,0,0,0);
 }
 
-MainWindow::~MainWindow()
-{
-    delete ui;
+MainWindow::~MainWindow() { delete ui; }
+
+void MainWindow::Open() {
+    for (int scr = 0; scr < 2; ++scr) {
+        QString dir = QFileDialog::getOpenFileName(this,
+                                   "Select image",
+                                   QDir::currentPath(),
+                                   "*.jpg ;; *.jpeg");
+
+        img[scr].load(fileName[scr]);
+        buf[scr] = QPixmap::fromImage(img[scr]);
+        buf[scr] = buf[scr].scaled(img[scr].width(), img[scr].height());
+
+        ui->labelAP->setPixmap(
+                    buf[scr].scaled(ui->labelAP->height() * 0.8, ui->labelAP->height(), Qt::KeepAspectRatio));
+    }
 }
 
+void MainWindow::Close() {
+
+}
