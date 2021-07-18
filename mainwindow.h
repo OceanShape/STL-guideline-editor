@@ -5,6 +5,7 @@
 #include <QLabel>
 #include <QDebug>
 #include <QFileDialog>
+#include <QMessageBox>
 
 #include "Screen.h"
 
