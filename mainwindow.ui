@@ -98,7 +98,7 @@ color:white;</string>
           <number>0</number>
          </property>
          <property name="text">
-          <string>TextLabel</string>
+          <string/>
          </property>
         </widget>
        </item>
@@ -120,7 +120,7 @@ color:white;</string>
           <number>0</number>
          </property>
          <property name="text">
-          <string>TextLabel</string>
+          <string/>
          </property>
         </widget>
        </item>

@@ -10,6 +10,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     showMaximized();
 
+    lbl[Screen::AP] = ui->labelAP;
+    lbl[Screen::LAT] = ui->labelLAT;
+
     this->setCentralWidget(ui->widget);
 
 
@@ -32,8 +35,8 @@ void MainWindow::Open() {
         buf[scr] = QPixmap::fromImage(img[scr]);
         buf[scr] = buf[scr].scaled(img[scr].width(), img[scr].height());
 
-        ui->labelAP->setPixmap(
-                    buf[scr].scaled(ui->labelAP->height() * 0.8, ui->labelAP->height(), Qt::KeepAspectRatio));
+        lbl[scr]->setPixmap(
+                    buf[scr].scaled(lbl[scr]->height() * 0.8, lbl[scr]->height(), Qt::KeepAspectRatio));
     }
 }
 
