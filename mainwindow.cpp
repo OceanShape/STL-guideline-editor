@@ -32,12 +32,14 @@ void MainWindow::New() {
                                    QDir::currentPath(),
                                    "*.jpg ;; *.jpeg");
 
-        img[scr].load(dir);
-        buf[scr] = QPixmap::fromImage(img[scr]);
-        buf[scr] = buf[scr].scaled(img[scr].width(), img[scr].height());
+        QImage img;
+        img.load(dir);
+        QPixmap buf = QPixmap::fromImage(img);
+        buf = buf.scaled(img.width(), img.height());
+        float ratio = (float)img.width() / (float)img.height();
 
-        lbl[scr]->setPixmap(
-                    buf[scr].scaled(lbl[scr]->height() * 0.8, lbl[scr]->height(), Qt::KeepAspectRatio));
+        int h = lbl[scr]->height();
+        lbl[scr]->setPixmap(buf.scaled(h * ratio, h, Qt::KeepAspectRatio));
     }
 }
 

@@ -23,8 +23,6 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    QImage img[2];
-	QPixmap buf[2];
     QLabel* lbl[2];
 private slots:
 	void New();
