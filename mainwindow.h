@@ -26,6 +26,7 @@ private:
 	QPixmap buf[2];
     QLabel* lbl[2];
 private slots:
+	void New();
     void Open();
     void Close();
 };

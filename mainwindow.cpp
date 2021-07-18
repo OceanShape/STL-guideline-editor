@@ -1,8 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-QString fileName[] = {"AP_sample02.jpg", "LAT_sample02.jpg"};
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -15,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     this->setCentralWidget(ui->widget);
 
-
+    connect(ui->actionNew, SIGNAL(triggered()), this, SLOT(New()));
     connect(ui->actionOpen, SIGNAL(triggered()), this, SLOT(Open()));
 
 
@@ -24,20 +22,23 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow() { delete ui; }
 
-void MainWindow::Open() {
+void MainWindow::New() {
     for (int scr = 0; scr < 2; ++scr) {
         QString dir = QFileDialog::getOpenFileName(this,
                                    "Select image",
                                    QDir::currentPath(),
                                    "*.jpg ;; *.jpeg");
 
-        img[scr].load(fileName[scr]);
+        img[scr].load(dir);
         buf[scr] = QPixmap::fromImage(img[scr]);
         buf[scr] = buf[scr].scaled(img[scr].width(), img[scr].height());
 
         lbl[scr]->setPixmap(
                     buf[scr].scaled(lbl[scr]->height() * 0.8, lbl[scr]->height(), Qt::KeepAspectRatio));
     }
+}
+
+void MainWindow::Open() {
 }
 
 void MainWindow::Close() {
