@@ -1,32 +1,25 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#pragma once
 
 #include <QMainWindow>
 #include <QLabel>
-#include <QDebug>
 #include <QFileDialog>
 #include <QMessageBox>
-
 #include "Screen.h"
-
-QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
+#include "ui_mainwindow.h"
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    MainWindow(QWidget *parent = Q_NULLPTR);
+    MainWindow::~MainWindow() {}
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindowClass ui;
     QLabel* lbl[2];
 private slots:
-	void New();
+    void New();
     void Open();
     void Close();
 };
-#endif // MAINWINDOW_H

@@ -1,10 +1,7 @@
-#ifndef SCREEN_H
-#define SCREEN_H
+#pragma once
 
 enum Screen
 {
     AP,
     LAT
 };
-
-#endif // SCREEN_H

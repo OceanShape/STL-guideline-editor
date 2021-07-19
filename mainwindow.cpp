@@ -1,36 +1,31 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
 
-QString fileName[] = {"AP_sample02.jpg", "LAT_sample02.jpg"};
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);
+    ui.setupUi(this);
     showMaximized();
 
-    lbl[Screen::AP] = ui->labelAP;
-    lbl[Screen::LAT] = ui->labelLAT;
+    lbl[Screen::AP] = ui.labelAP;
+    lbl[Screen::LAT] = ui.labelLAT;
 
-    this->setCentralWidget(ui->widget);
+    this->setCentralWidget(ui.widget);
 
-    connect(ui->actionNew, SIGNAL(triggered()), this, SLOT(New()));
-    connect(ui->actionOpen, SIGNAL(triggered()), this, SLOT(Open()));
-    connect(ui->actionClose, SIGNAL(triggered()), this, SLOT(Close()));
+    connect(ui.actionNew, SIGNAL(triggered()), this, SLOT(New()));
+    connect(ui.actionOpen, SIGNAL(triggered()), this, SLOT(Open()));
+    connect(ui.actionClose, SIGNAL(triggered()), this, SLOT(Close()));
 
-
-    ui->widget->setContentsMargins(0,0,0,0);
+    ui.widget->setContentsMargins(0, 0, 0, 0);
 }
-
-MainWindow::~MainWindow() { delete ui; }
 
 void MainWindow::New() {
     for (int scr = 0; scr < 2; ++scr) {
         QString dir = QFileDialog::getOpenFileName(this,
-                                   "Select image",
-                                   QDir::currentPath(),
-                                   "*.jpg ;; *.jpeg");
+            "Select image",
+            QDir::currentPath(),
+            "*.jpg ;; *.jpeg");
 
         QImage img;
         img.load(dir);
@@ -39,7 +34,10 @@ void MainWindow::New() {
         float ratio = (float)img.width() / (float)img.height();
 
         int h = lbl[scr]->height();
-        lbl[scr]->setPixmap(buf.scaled(h * ratio, h, Qt::KeepAspectRatio));
+        int w = h * ratio;
+
+        lbl[scr]->resize(w, h);
+        lbl[scr]->setPixmap(buf.scaled(w, h, Qt::KeepAspectRatio));
     }
 }
 
@@ -47,12 +45,12 @@ void MainWindow::Open() {
 }
 
 void MainWindow::Close() {
-    QMessageBox MsgBox;
-    MsgBox.setText(tr("Save all changes?"));
-    MsgBox.setStandardButtons(QMessageBox::Yes |QMessageBox::No);
-    MsgBox.setDefaultButton(QMessageBox::Yes);
+    QMessageBox msgBox;
+    msgBox.setText(tr("Save all changes?"));
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    msgBox.setDefaultButton(QMessageBox::Yes);
 
-    if ( MsgBox.exec() == QMessageBox::Yes) {
+    if (msgBox.exec() == QMessageBox::Yes) {
         // Add saving data func later
     }
     this->close();

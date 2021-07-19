@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>MainWindowClass</class>
+ <widget class="QMainWindow" name="MainWindowClass">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1910</width>
-    <height>1045</height>
+    <width>1920</width>
+    <height>1080</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -24,17 +24,17 @@
 selection-background-color: rgb(50, 113, 172);
 color:white;</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
+  <widget class="QWidget" name="centralWidget">
    <property name="sizePolicy">
     <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
      <horstretch>0</horstretch>
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
-   <property name="maximumSize">
+   <property name="minimumSize">
     <size>
      <width>1920</width>
-     <height>1002</height>
+     <height>0</height>
     </size>
    </property>
    <layout class="QGridLayout" name="gridLayout">
@@ -53,7 +53,7 @@ color:white;</string>
     <property name="spacing">
      <number>0</number>
     </property>
-    <item row="0" column="0">
+    <item row="0" column="0" alignment="Qt::AlignLeft">
      <widget class="QWidget" name="widget" native="true">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
@@ -61,12 +61,15 @@ color:white;</string>
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <property name="spacing">
         <number>0</number>
-       </property>
-       <property name="sizeConstraint">
-        <enum>QLayout::SetMaximumSize</enum>
        </property>
        <property name="leftMargin">
         <number>0</number>
@@ -80,18 +83,18 @@ color:white;</string>
        <property name="bottomMargin">
         <number>0</number>
        </property>
-       <item>
+       <item alignment="Qt::AlignLeft">
         <widget class="QLabel" name="labelAP">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
+          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="maximumSize">
+         <property name="minimumSize">
           <size>
-           <width>16777215</width>
-           <height>16777215</height>
+           <width>0</width>
+           <height>0</height>
           </size>
          </property>
          <property name="lineWidth">
@@ -102,18 +105,18 @@ color:white;</string>
          </property>
         </widget>
        </item>
-       <item>
+       <item alignment="Qt::AlignLeft">
         <widget class="QLabel" name="labelLAT">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
+          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="maximumSize">
+         <property name="minimumSize">
           <size>
-           <width>16777215</width>
-           <height>16777215</height>
+           <width>0</width>
+           <height>0</height>
           </size>
          </property>
          <property name="lineWidth">
@@ -129,13 +132,13 @@ color:white;</string>
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
+  <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1910</width>
-     <height>21</height>
+     <width>1920</width>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -146,6 +149,7 @@ color:white;</string>
     <addaction name="actionOpen"/>
     <addaction name="actionSave"/>
     <addaction name="actionSaveAs"/>
+    <addaction name="separator"/>
     <addaction name="actionClose"/>
     <addaction name="actionExit"/>
    </widget>
@@ -196,17 +200,7 @@ color:white;</string>
    <addaction name="menuLAT"/>
    <addaction name="menuView"/>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
-  <widget class="QToolBar" name="toolBar">
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="windowTitle">
-    <string>toolBar</string>
-   </property>
+  <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
    </attribute>
@@ -226,9 +220,10 @@ color:white;</string>
    <addaction name="actionUndo"/>
    <addaction name="actionRedo"/>
   </widget>
+  <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNew">
    <property name="icon">
-    <iconset resource="resource.qrc">
+    <iconset resource="mainwindow.qrc">
      <normaloff>:/icons/icons/document-new.png</normaloff>:/icons/icons/document-new.png</iconset>
    </property>
    <property name="text">
@@ -237,7 +232,7 @@ color:white;</string>
   </action>
   <action name="actionOpen">
    <property name="icon">
-    <iconset resource="resource.qrc">
+    <iconset resource="mainwindow.qrc">
      <normaloff>:/icons/icons/document-open.png</normaloff>:/icons/icons/document-open.png</iconset>
    </property>
    <property name="text">
@@ -246,7 +241,7 @@ color:white;</string>
   </action>
   <action name="actionSave">
    <property name="icon">
-    <iconset resource="resource.qrc">
+    <iconset resource="mainwindow.qrc">
      <normaloff>:/icons/icons/document-save.png</normaloff>:/icons/icons/document-save.png</iconset>
    </property>
    <property name="text">
@@ -254,13 +249,17 @@ color:white;</string>
    </property>
   </action>
   <action name="actionSaveAs">
+   <property name="icon">
+    <iconset resource="mainwindow.qrc">
+     <normaloff>:/icons/icons/document-save.png</normaloff>:/icons/icons/document-save.png</iconset>
+   </property>
    <property name="text">
     <string>SaveAs</string>
    </property>
   </action>
   <action name="actionClose">
    <property name="icon">
-    <iconset resource="resource.qrc">
+    <iconset resource="mainwindow.qrc">
      <normaloff>:/icons/icons/window-close.png</normaloff>:/icons/icons/window-close.png</iconset>
    </property>
    <property name="text">
@@ -268,13 +267,17 @@ color:white;</string>
    </property>
   </action>
   <action name="actionExit">
+   <property name="icon">
+    <iconset resource="mainwindow.qrc">
+     <normaloff>:/icons/icons/window-close.png</normaloff>:/icons/icons/window-close.png</iconset>
+   </property>
    <property name="text">
     <string>Exit</string>
    </property>
   </action>
   <action name="actionUndo">
    <property name="icon">
-    <iconset resource="resource.qrc">
+    <iconset resource="mainwindow.qrc">
      <normaloff>:/icons/icons/edit-undo.png</normaloff>:/icons/icons/edit-undo.png</iconset>
    </property>
    <property name="text">
@@ -283,7 +286,7 @@ color:white;</string>
   </action>
   <action name="actionRedo">
    <property name="icon">
-    <iconset resource="resource.qrc">
+    <iconset resource="mainwindow.qrc">
      <normaloff>:/icons/icons/edit-redo.png</normaloff>:/icons/icons/edit-redo.png</iconset>
    </property>
    <property name="text">
@@ -292,7 +295,7 @@ color:white;</string>
   </action>
   <action name="actionOpenAP">
    <property name="icon">
-    <iconset resource="resource.qrc">
+    <iconset resource="mainwindow.qrc">
      <normaloff>:/icons/icons/AP_icon.jpg</normaloff>:/icons/icons/AP_icon.jpg</iconset>
    </property>
    <property name="text">
@@ -301,16 +304,21 @@ color:white;</string>
   </action>
   <action name="actionLineAP">
    <property name="icon">
-    <iconset resource="resource.qrc">
+    <iconset resource="mainwindow.qrc">
      <normaloff>:/icons/icons/AP_icon.jpg</normaloff>:/icons/icons/AP_icon.jpg</iconset>
    </property>
    <property name="text">
     <string>Line</string>
    </property>
   </action>
+  <action name="actionDotAP">
+   <property name="text">
+    <string>Dot</string>
+   </property>
+  </action>
   <action name="actionOpenLAT">
    <property name="icon">
-    <iconset resource="resource.qrc">
+    <iconset resource="mainwindow.qrc">
      <normaloff>:/icons/icons/LAT_icon.jpg</normaloff>:/icons/icons/LAT_icon.jpg</iconset>
    </property>
    <property name="text">
@@ -319,7 +327,7 @@ color:white;</string>
   </action>
   <action name="actionLineLAT">
    <property name="icon">
-    <iconset resource="resource.qrc">
+    <iconset resource="mainwindow.qrc">
      <normaloff>:/icons/icons/LAT_icon.jpg</normaloff>:/icons/icons/LAT_icon.jpg</iconset>
    </property>
    <property name="text">
@@ -331,19 +339,15 @@ color:white;</string>
     <string>Dot</string>
    </property>
   </action>
-  <action name="actionDotAP">
-   <property name="text">
-    <string>Dot</string>
-   </property>
-  </action>
   <action name="action3Dmodel">
    <property name="text">
-    <string>3D model(stl)</string>
+    <string>3Dmodel(STL)</string>
    </property>
   </action>
  </widget>
+ <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="resource.qrc"/>
+  <include location="mainwindow.qrc"/>
  </resources>
  <connections/>
 </ui>
