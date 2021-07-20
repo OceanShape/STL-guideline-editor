@@ -16,8 +16,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui.actionNew, SIGNAL(triggered()), this, SLOT(New()));
     connect(ui.actionOpen, SIGNAL(triggered()), this, SLOT(Open()));
     connect(ui.actionClose, SIGNAL(triggered()), this, SLOT(Close()));
-
-    ui.widget->setContentsMargins(0, 0, 0, 0);
 }
 
 void MainWindow::New() {
