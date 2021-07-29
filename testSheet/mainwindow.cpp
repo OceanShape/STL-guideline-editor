@@ -34,11 +34,8 @@ MainWindow::MainWindow(QWidget *parent)
     QPen* p = new QPen(Qt::green);
     p->setWidth(3);
     rect->setPen(*p);
-    QGraphicsRectItem* rect2 = new QGraphicsRectItem(50, 60, 100, 100);
     gs->addItem(item);
     gs->addItem(rect);
-    gs->addItem(rect2);
-
 
     QVBoxLayout* vl = new QVBoxLayout();
     vl->addWidget(gv);
