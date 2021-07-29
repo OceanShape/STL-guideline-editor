@@ -9,11 +9,7 @@
 #include <QGraphicsPixmapItem>
 #include <QGraphicsItem>
 #include <QGraphicsRectItem>
-
-
-QLabel* lb1;
-QLabel* lb2;
-QLabel* lb3;
+#include <QMouseEvent>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -21,29 +17,36 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    QWidget* wg = new QWidget();
-    MainWindow::setCentralWidget(wg);
-
-    QPixmap pix("./b.png");
-
+    QWidget* centWidget = new QWidget();
+    MainWindow::setCentralWidget(centWidget);
 
     QGraphicsScene* gs = new QGraphicsScene();
     QGraphicsView* gv = new QGraphicsView(gs);
+
+
+
+    QPixmap pix("./b.png");
     QGraphicsPixmapItem* item = new QGraphicsPixmapItem(pix);
+
+
     QGraphicsRectItem* rect = new QGraphicsRectItem(20, 30, 200, 100);
     QPen* p = new QPen(Qt::green);
     p->setWidth(3);
+
+
     rect->setPen(*p);
     gs->addItem(item);
     gs->addItem(rect);
 
+
+
+
     QVBoxLayout* vl = new QVBoxLayout();
     vl->addWidget(gv);
-    wg->setLayout(vl);
+    centWidget->setLayout(vl);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-
