@@ -1,7 +1,5 @@
 #include "mainwindow.h"
 
-#include <QDebug>
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -16,6 +14,15 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui.actionNew, SIGNAL(triggered()), this, SLOT(New()));
     connect(ui.actionOpen, SIGNAL(triggered()), this, SLOT(Open()));
     connect(ui.actionClose, SIGNAL(triggered()), this, SLOT(Close()));
+
+
+    QGraphicsScene* s = new QGraphicsScene();
+
+    QPixmap pix("./AP_sample01.jpg");
+    QGraphicsPixmapItem* item = new QGraphicsPixmapItem(pix);
+    s->addItem(item);
+
+    ui.graphicsView->setScene(s);
 }
 
 void MainWindow::New() {
