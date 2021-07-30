@@ -16,13 +16,18 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui.actionClose, SIGNAL(triggered()), this, SLOT(Close()));
 
 
-    QGraphicsScene* s = new QGraphicsScene();
+    QGraphicsScene* sceneAP = new QGraphicsScene();
+    QGraphicsScene* sceneLAT = new QGraphicsScene();
 
-    QPixmap pix("./AP_sample01.jpg");
-    QGraphicsPixmapItem* item = new QGraphicsPixmapItem(pix);
-    s->addItem(item);
+    QPixmap pixAP("./AP_sample01.jpg");
+    QPixmap pixLAT("./LAT_sample01.jpg");
+    QGraphicsPixmapItem* itemAP = new QGraphicsPixmapItem(pixAP);
+    QGraphicsPixmapItem* itemLAT = new QGraphicsPixmapItem(pixLAT);
+    sceneAP->addItem(itemAP);
+    sceneLAT->addItem(itemLAT);
 
-    ui.graphicsView->setScene(s);
+    ui.viewAP->setScene(sceneAP);
+    ui.viewLAT->setScene(sceneLAT);
 }
 
 void MainWindow::New() {
