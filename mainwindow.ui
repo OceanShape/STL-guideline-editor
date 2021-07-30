@@ -64,13 +64,7 @@ color:white;</string>
         <height>0</height>
        </size>
       </property>
-      <layout class="QFormLayout" name="formLayout">
-       <property name="horizontalSpacing">
-        <number>0</number>
-       </property>
-       <property name="verticalSpacing">
-        <number>0</number>
-       </property>
+      <layout class="QGridLayout" name="gridLayout">
        <property name="leftMargin">
         <number>0</number>
        </property>
@@ -81,6 +75,9 @@ color:white;</string>
         <number>0</number>
        </property>
        <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <property name="spacing">
         <number>0</number>
        </property>
        <item row="0" column="0">
@@ -129,6 +126,9 @@ color:white;</string>
           <string/>
          </property>
         </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="view" name="graphicsView"/>
        </item>
       </layout>
      </widget>
@@ -349,6 +349,13 @@ color:white;</string>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>view</class>
+   <extends>QGraphicsView</extends>
+   <header>view.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="mainwindow.qrc"/>
  </resources>
