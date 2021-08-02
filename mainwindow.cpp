@@ -37,11 +37,15 @@ void MainWindow::Open() {}
 void MainWindow::Close() {
   QMessageBox msgBox;
   msgBox.setText(tr("Save all changes?"));
-  msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+  msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No |
+                            QMessageBox::Cancel);
   msgBox.setDefaultButton(QMessageBox::Yes);
 
-  if (msgBox.exec() == QMessageBox::Yes) {
+  int msg = msgBox.exec();
+  if (msg == QMessageBox::Yes) {
     // Add saving data func later
+    this->close();
+  } else if (msg == QMessageBox::No) {
+    this->close();
   }
-  this->close();
 }
