@@ -19,7 +19,6 @@
     <QtMoc Include="mainwindow.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Screen.h" />
     <QtMoc Include="view.h" />
   </ItemGroup>
   <ItemGroup>

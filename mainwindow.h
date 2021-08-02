@@ -6,7 +6,6 @@
 #include <QMessageBox>
 #include <QGraphicsView>
 #include <QGraphicsPixmapItem>
-#include "Screen.h"
 #include "ui_mainwindow.h"
 
 class MainWindow : public QMainWindow

@@ -4,9 +4,6 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
   ui.setupUi(this);
   showMaximized();
 
-  lbl[Screen::AP] = ui.labelAP;
-  lbl[Screen::LAT] = ui.labelLAT;
-
   this->setCentralWidget(ui.widget);
 
   connect(ui.actionNew, SIGNAL(triggered()), this, SLOT(New()));
