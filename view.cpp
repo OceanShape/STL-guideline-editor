@@ -1,11 +1,11 @@
 #include "view.h"
 
-view::view(QWidget *parent) : QGraphicsView(parent)
+View::View(QWidget *parent) : QGraphicsView(parent)
 {
 
 }
 
-void view::mousePressEvent(QMouseEvent *event) {
+void View::mousePressEvent(QMouseEvent *event) {
     QPointF scenePosition = mapToScene(event->pos());
     QPen* pen = new QPen(Qt::green);
     pen->setWidth(3);

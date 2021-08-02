@@ -81,57 +81,10 @@ color:white;</string>
         <number>0</number>
        </property>
        <item row="0" column="0">
-        <widget class="view" name="viewAP"/>
-       </item>
-       <item row="0" column="2">
-        <widget class="QLabel" name="labelAP">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="lineWidth">
-          <number>0</number>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="3">
-        <widget class="QLabel" name="labelLAT">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="lineWidth">
-          <number>0</number>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
+        <widget class="View" name="viewAP"/>
        </item>
        <item row="0" column="1">
-        <widget class="view" name="viewLAT"/>
+        <widget class="View" name="viewLAT"/>
        </item>
       </layout>
      </widget>
@@ -354,7 +307,7 @@ color:white;</string>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
-   <class>view</class>
+   <class>View</class>
    <extends>QGraphicsView</extends>
    <header>view.h</header>
   </customwidget>

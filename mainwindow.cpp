@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
 }
 
 void MainWindow::New() {
-  view* v[2] = {ui.viewAP, ui.viewLAT};
+  View* v[2] = {ui.viewAP, ui.viewLAT};
   QGraphicsScene* s[2] = {new QGraphicsScene(), new QGraphicsScene()};
 
   for (int i = 0; i < 2; ++i) {

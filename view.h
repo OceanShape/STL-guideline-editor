@@ -5,11 +5,11 @@
 #include <QMouseEvent>
 #include <QPoint>
 
-class view : public QGraphicsView
+class View : public QGraphicsView
 {
     Q_OBJECT
 public:
-    explicit view(QWidget *parent = nullptr);
+    explicit View(QWidget *parent = nullptr);
 
 signals:
 
