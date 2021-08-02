@@ -1,67 +1,65 @@
 #include "mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-{
-    ui.setupUi(this);
-    showMaximized();
+MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
+  ui.setupUi(this);
+  showMaximized();
 
-    lbl[Screen::AP] = ui.labelAP;
-    lbl[Screen::LAT] = ui.labelLAT;
+  lbl[Screen::AP] = ui.labelAP;
+  lbl[Screen::LAT] = ui.labelLAT;
 
-    this->setCentralWidget(ui.widget);
+  this->setCentralWidget(ui.widget);
 
-    connect(ui.actionNew, SIGNAL(triggered()), this, SLOT(New()));
-    connect(ui.actionOpen, SIGNAL(triggered()), this, SLOT(Open()));
-    connect(ui.actionClose, SIGNAL(triggered()), this, SLOT(Close()));
+  connect(ui.actionNew, SIGNAL(triggered()), this, SLOT(New()));
+  connect(ui.actionOpen, SIGNAL(triggered()), this, SLOT(Open()));
+  connect(ui.actionClose, SIGNAL(triggered()), this, SLOT(Close()));
 
+  QGraphicsScene* sceneAP = new QGraphicsScene();
+  QGraphicsScene* sceneLAT = new QGraphicsScene();
 
-    QGraphicsScene* sceneAP = new QGraphicsScene();
-    QGraphicsScene* sceneLAT = new QGraphicsScene();
+  QImage* img = new QImage("./AP_sample02.jpg");
+  ui.viewAP->setScene(sceneAP);
+  sceneAP->addPixmap(QPixmap::fromImage(*img));
+  ui.viewAP->fitInView(QRectF(0, 0, sceneAP->sceneRect().width(),
+                              sceneAP->sceneRect().height() + 200),
+                       Qt::KeepAspectRatio);
 
-    QPixmap pixAP("./AP_sample01.jpg");
-    QPixmap pixLAT("./LAT_sample01.jpg");
-    QGraphicsPixmapItem* itemAP = new QGraphicsPixmapItem(pixAP);
-    QGraphicsPixmapItem* itemLAT = new QGraphicsPixmapItem(pixLAT);
-    sceneAP->addItem(itemAP);
-    sceneLAT->addItem(itemLAT);
-
-    ui.viewAP->setScene(sceneAP);
-    ui.viewLAT->setScene(sceneLAT);
+  QImage* img2 = new QImage("./LAT_sample02.jpg");
+  ui.viewLAT->setScene(sceneLAT);
+  sceneLAT->addPixmap(QPixmap::fromImage(*img2));
+  ui.viewLAT->fitInView(QRectF(0, 0, sceneLAT->sceneRect().width(),
+                               sceneLAT->sceneRect().height() + 200),
+                        Qt::KeepAspectRatio);
 }
 
 void MainWindow::New() {
-    for (int scr = 0; scr < 2; ++scr) {
-        QString dir = QFileDialog::getOpenFileName(this,
-            "Select image",
-            QDir::currentPath(),
-            "*.jpg ;; *.jpeg ;; *.png");
+  for (int scr = 0; scr < 2; ++scr) {
+    QString dir = QFileDialog::getOpenFileName(
+        this, "Select image", QDir::currentPath(), "*.jpg ;; *.jpeg ;; *.png");
 
-        QImage img;
-        img.load(dir);
-        QPixmap buf = QPixmap::fromImage(img);
-        buf = buf.scaled(img.width(), img.height());
-        float ratio = (float)img.width() / (float)img.height();
+    QImage img;
+    img.load(dir);
+    QPixmap buf = QPixmap::fromImage(img);
+    buf = buf.scaled(img.width(), img.height());
+    float ratio = (float)img.width() / (float)img.height();
 
-        int h = lbl[scr]->height();
-        int w = h * ratio;
+    int h = lbl[scr]->height();
+    int w = h * ratio;
 
-        lbl[scr]->resize(w, h);
-        lbl[scr]->setPixmap(buf.scaled(w, h, Qt::KeepAspectRatio));
-    }
+    lbl[scr]->resize(w, h);
+    lbl[scr]->setPixmap(buf.scaled(w, h, Qt::KeepAspectRatio));
+  }
 }
 
-void MainWindow::Open() {
-}
+void MainWindow::Open() {}
 
 void MainWindow::Close() {
-    QMessageBox msgBox;
-    msgBox.setText(tr("Save all changes?"));
-    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-    msgBox.setDefaultButton(QMessageBox::Yes);
+  QMessageBox msgBox;
+  msgBox.setText(tr("Save all changes?"));
+  msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+  msgBox.setDefaultButton(QMessageBox::Yes);
 
-    if (msgBox.exec() == QMessageBox::Yes) {
-        // Add saving data func later
-    }
-    this->close();
+  if (msgBox.exec() == QMessageBox::Yes) {
+    // Add saving data func later
+  }
+  this->close();
 }
