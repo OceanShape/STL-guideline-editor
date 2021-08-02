@@ -12,41 +12,23 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
   connect(ui.actionNew, SIGNAL(triggered()), this, SLOT(New()));
   connect(ui.actionOpen, SIGNAL(triggered()), this, SLOT(Open()));
   connect(ui.actionClose, SIGNAL(triggered()), this, SLOT(Close()));
-
-  QGraphicsScene* sceneAP = new QGraphicsScene();
-  QGraphicsScene* sceneLAT = new QGraphicsScene();
-
-  QImage* img = new QImage("./AP_sample02.jpg");
-  ui.viewAP->setScene(sceneAP);
-  sceneAP->addPixmap(QPixmap::fromImage(*img));
-  ui.viewAP->fitInView(QRectF(0, 0, sceneAP->sceneRect().width(),
-                              sceneAP->sceneRect().height() + 200),
-                       Qt::KeepAspectRatio);
-
-  QImage* img2 = new QImage("./LAT_sample02.jpg");
-  ui.viewLAT->setScene(sceneLAT);
-  sceneLAT->addPixmap(QPixmap::fromImage(*img2));
-  ui.viewLAT->fitInView(QRectF(0, 0, sceneLAT->sceneRect().width(),
-                               sceneLAT->sceneRect().height() + 200),
-                        Qt::KeepAspectRatio);
 }
 
 void MainWindow::New() {
-  for (int scr = 0; scr < 2; ++scr) {
+  view* v[2] = {ui.viewAP, ui.viewLAT};
+  QGraphicsScene* s[2] = {new QGraphicsScene(), new QGraphicsScene()};
+
+  for (int i = 0; i < 2; ++i) {
     QString dir = QFileDialog::getOpenFileName(
         this, "Select image", QDir::currentPath(), "*.jpg ;; *.jpeg ;; *.png");
+    if (dir == nullptr) return;
+    QImage* img = new QImage(dir);
 
-    QImage img;
-    img.load(dir);
-    QPixmap buf = QPixmap::fromImage(img);
-    buf = buf.scaled(img.width(), img.height());
-    float ratio = (float)img.width() / (float)img.height();
-
-    int h = lbl[scr]->height();
-    int w = h * ratio;
-
-    lbl[scr]->resize(w, h);
-    lbl[scr]->setPixmap(buf.scaled(w, h, Qt::KeepAspectRatio));
+    v[i]->setScene(s[i]);
+    s[i]->addPixmap(QPixmap::fromImage(*img));
+    v[i]->fitInView(
+        QRectF(0, 0, s[i]->sceneRect().width(), s[i]->sceneRect().height()),
+        Qt::KeepAspectRatio);
   }
 }
 
