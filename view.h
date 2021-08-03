@@ -5,18 +5,17 @@
 #include <QMouseEvent>
 #include <QPoint>
 
-class View : public QGraphicsView
-{
-    Q_OBJECT
-public:
-    explicit View(QWidget *parent = nullptr);
+class View : public QGraphicsView {
+  Q_OBJECT
+ public:
+  explicit View(QWidget *parent = nullptr);
 
-signals:
+ signals:
 
-public slots:
+ public slots:
 
-protected:
-    void mousePressEvent(QMouseEvent *event) override;
+ protected:
+  void mousePressEvent(QMouseEvent *event) override;
 };
 
-#endif // VIEW_H
+#endif  // VIEW_H
