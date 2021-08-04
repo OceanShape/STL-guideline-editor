@@ -3,9 +3,9 @@
 View::View(QWidget *parent) : QGraphicsView(parent) {}
 
 void View::mousePressEvent(QMouseEvent *event) {
-  QPointF scenePosition = mapToScene(event->pos());
+  QPointF pos = mapToScene(event->pos());
   QPen *pen = new QPen(Qt::green);
-  pen->setWidth(3);
-  scene()->addLine(scenePosition.x(), scenePosition.y(),
-                   scenePosition.x() + 100, scenePosition.y() + 100, *pen);
+  QBrush* brush = new QBrush(Qt::white);
+  pen->setWidth(10);
+  scene()->addEllipse(pos.x() - 10, pos.y() - 10, 50, 50 , *pen, *brush);
 }
