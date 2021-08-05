@@ -14,11 +14,10 @@ class MainWindow : public QMainWindow {
 
  public:
   MainWindow(QWidget* parent = Q_NULLPTR);
-  MainWindow::~MainWindow() {}
+  MainWindow::~MainWindow();
 
  private:
   Ui::MainWindowClass ui;
-  QLabel* lbl[2];
  private slots:
   void New();
   void Open();
