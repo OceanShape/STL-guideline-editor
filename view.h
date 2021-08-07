@@ -6,6 +6,11 @@
 #include <QMouseEvent>
 #include <QPoint>
 
+typedef struct {
+  QGraphicsEllipseItem* item;
+  QPointF position;
+} point;
+
 class View : public QGraphicsView {
   Q_OBJECT
  public:
@@ -17,6 +22,8 @@ class View : public QGraphicsView {
  public slots:
 
  protected:
+  std::vector<point> points;
+
   void mousePressEvent(QMouseEvent* event) override;
 };
 

@@ -1,14 +1,8 @@
 #include "view.h"
 
-typedef struct {
-  QGraphicsEllipseItem* item;
-  QPointF position;
-} point;
-
-const qreal clickCorrectionWidth = 20;
-const qreal clickRangeWidth = 50;
-const qreal pointRadius = 50;
-std::vector<point> points;
+qreal clickCorrectionWidth = 20;
+qreal clickRangeWidth = 50;
+qreal pointRadius = 50;
 
 View::View(QWidget* parent) : QGraphicsView(parent) {}
 
