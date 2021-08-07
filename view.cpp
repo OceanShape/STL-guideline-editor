@@ -1,9 +1,14 @@
 #include "view.h"
 
+typedef struct {
+  QGraphicsEllipseItem* item;
+  QPointF position;
+} point;
+
 const qreal clickCorrectionWidth = 20;
 const qreal clickRangeWidth = 50;
 const qreal pointRadius = 50;
-std::vector<QPair<QGraphicsEllipseItem*, QPointF>> point;
+std::vector<point> points;
 
 View::View(QWidget* parent) : QGraphicsView(parent) {}
 
@@ -17,9 +22,9 @@ void View::mousePressEvent(QMouseEvent* event) {
 
   if (event->button() == Qt::LeftButton) {
     if (clickRangedEllipseItemOrNull(pos) == false) {
-      point.push_back({scene()->addEllipse(pos.x(), pos.y(), pointRadius,
-                                           pointRadius, *pen, *brush),
-                       pos});
+      points.push_back({scene()->addEllipse(pos.x(), pos.y(), pointRadius,
+                                            pointRadius, *pen, *brush),
+                        pos});
     }
   }
   // else {
@@ -31,9 +36,9 @@ void View::mousePressEvent(QMouseEvent* event) {
 }
 
 bool View::clickRangedEllipseItemOrNull(const QPointF& pos) {
-  for (const auto& p : point) {
-    qreal x = p.second.x();
-    qreal y = p.second.y();
+  for (const auto& p : points) {
+    qreal x = p.position.x();
+    qreal y = p.position.y();
     if ((x - clickRangeWidth <= pos.x() && pos.x() <= x + clickRangeWidth) &&
         (y - clickRangeWidth <= pos.y() && pos.y() <= y + clickRangeWidth)) {
       return true;
