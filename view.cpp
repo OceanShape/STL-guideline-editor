@@ -2,7 +2,7 @@
 
 qreal clickCorrectionWidth = 20;
 qreal clickRangeWidth = 50;
-qreal pointRadius = 50;
+qreal pointRadius = 40;
 
 View::View(QWidget* parent) : QGraphicsView(parent) {}
 
@@ -20,13 +20,24 @@ void View::mousePressEvent(QMouseEvent* event) {
                                             pointRadius, *pen, *brush),
                         pos});
     }
+    if (points.size() % 4 == 0) {
+      pen->setWidth(7);
+      int idx = points.size() - 4;
+      for (int i = 0; i < 4; ++i) {
+        scene()->addLine(
+            points[idx + i].position.x() + clickCorrectionWidth,
+            points[idx + i].position.y() + clickCorrectionWidth,
+            points[idx + (i + 1) % 4].position.x() + clickCorrectionWidth,
+            points[idx + (i + 1) % 4].position.y() + clickCorrectionWidth,
+            *pen);
+      }
+    }
+  } else {
+    if (!points.empty()) {
+      scene()->removeItem((QGraphicsItem*)points.back().item);
+      points.pop_back();
+    }
   }
-  // else {
-  // if (!point.empty()) {
-  //  scene()->removeItem((QGraphicsItem*)point.back());
-  //  point.pop_back();
-  //}
-  //}
 }
 
 bool View::clickRangedEllipseItemOrNull(const QPointF& pos) {
