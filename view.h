@@ -14,8 +14,11 @@ typedef struct {
 class View : public QGraphicsView {
 	Q_OBJECT
 public:
+	View::~View();
 	explicit View(QWidget* parent = nullptr);
 	bool clickRangedEllipseItemOrNull(const QPointF& pos);
+	void drawBaseLine(const QPointF& pos, const Qt::MouseButton& btn);
+	void drawPointAndLine(const QPointF& pos, const Qt::MouseButton& btn);
 
 signals:
 

@@ -19,12 +19,14 @@ View::~View() {
     delete brush;
 }
 
-void View::mousePressEvent(QMouseEvent* event) {
-    QPointF pos = mapToScene(event->pos());
-    pos.setX(pos.x() - clickCorrectionWidth);
-    pos.setY(pos.y() - clickCorrectionWidth);
+void View::drawBaseLine(const QPointF& pos, const Qt::MouseButton& btn) {
+    if (btn == Qt::LeftButton) {
 
-    if (event->button() == Qt::LeftButton) {
+    }
+}
+
+void View::drawPointAndLine(const QPointF& pos, const Qt::MouseButton& btn) {
+    if (btn == Qt::LeftButton) {
         if (clickRangedEllipseItemOrNull(pos) == false) {
             points.push_back({ scene()->addEllipse(pos.x(), pos.y(), pointRadius,
                                                   pointRadius, *pen, *brush),
@@ -48,6 +50,14 @@ void View::mousePressEvent(QMouseEvent* event) {
         scene()->removeItem((QGraphicsItem*)points.back().item);
         points.pop_back();
     }
+}
+
+void View::mousePressEvent(QMouseEvent* event) {
+    QPointF pos = mapToScene(event->pos());
+    pos.setX(pos.x() - clickCorrectionWidth);
+    pos.setY(pos.y() - clickCorrectionWidth);
+
+    drawPointAndLine(pos, event->button());
 }
 
 bool View::clickRangedEllipseItemOrNull(const QPointF& pos) {
