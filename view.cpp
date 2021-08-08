@@ -4,7 +4,9 @@ qreal clickCorrectionWidth = 20;
 qreal clickRangeWidth = 50;
 qreal pointRadius = 40;
 
-View::View(QWidget* parent) : QGraphicsView(parent) {}
+std::vector<QGraphicsLineItem*> lines;
+
+View::View(QWidget* parent) : QGraphicsView(parent) { lines.reserve(4 * 7); }
 
 void View::mousePressEvent(QMouseEvent* event) {
   QPointF pos = mapToScene(event->pos());
@@ -24,19 +26,18 @@ void View::mousePressEvent(QMouseEvent* event) {
       pen->setWidth(7);
       int idx = points.size() - 4;
       for (int i = 0; i < 4; ++i) {
-        scene()->addLine(
+        lines.push_back(scene()->addLine(
             points[idx + i].position.x() + clickCorrectionWidth,
             points[idx + i].position.y() + clickCorrectionWidth,
             points[idx + (i + 1) % 4].position.x() + clickCorrectionWidth,
             points[idx + (i + 1) % 4].position.y() + clickCorrectionWidth,
-            *pen);
+            *pen));
       }
     }
   } else {
-    if (!points.empty()) {
-      scene()->removeItem((QGraphicsItem*)points.back().item);
-      points.pop_back();
-    }
+    if (points.empty()) return;
+    scene()->removeItem((QGraphicsItem*)points.back().item);
+    points.pop_back();
   }
 }
 
