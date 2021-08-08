@@ -7,24 +7,25 @@
 #include <QPoint>
 
 typedef struct {
-  QGraphicsEllipseItem* item;
-  QPointF position;
+	QGraphicsEllipseItem* item;
+	QPointF position;
 } point;
 
 class View : public QGraphicsView {
-  Q_OBJECT
- public:
-  explicit View(QWidget* parent = nullptr);
-  bool clickRangedEllipseItemOrNull(const QPointF& pos);
+	Q_OBJECT
+public:
+	explicit View(QWidget* parent = nullptr);
+	bool clickRangedEllipseItemOrNull(const QPointF& pos);
 
- signals:
+signals:
 
- public slots:
+public slots:
 
- protected:
-  std::vector<point> points;
-
-  void mousePressEvent(QMouseEvent* event) override;
+private:
+	std::vector<point> points;
+	QPen* pen;
+	QBrush* brush;
+	void mousePressEvent(QMouseEvent* event) override;
 };
 
 #endif  // VIEW_H
