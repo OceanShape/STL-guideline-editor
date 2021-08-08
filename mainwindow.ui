@@ -81,10 +81,10 @@ color:white;</string>
         <number>0</number>
        </property>
        <item row="0" column="0">
-        <widget class="View" name="viewAP"/>
+        <widget class="ViewAP" name="viewAP"/>
        </item>
        <item row="0" column="1">
-        <widget class="View" name="viewLAT"/>
+        <widget class="ViewLAT" name="viewLAT"/>
        </item>
       </layout>
      </widget>
@@ -307,9 +307,14 @@ color:white;</string>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
-   <class>View</class>
+   <class>ViewAP</class>
    <extends>QGraphicsView</extends>
-   <header>view.h</header>
+   <header>viewap.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ViewLAT</class>
+   <extends>QGraphicsView</extends>
+   <header>viewlat.h</header>
   </customwidget>
  </customwidgets>
  <resources>

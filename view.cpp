@@ -64,16 +64,6 @@ void View::drawPointAndLine(QPointF pos, const Qt::MouseButton& btn) {
   }
 }
 
-void View::mousePressEvent(QMouseEvent* event) {
-  QPointF pos = mapToScene(event->pos());
-  Qt::MouseButton btn = event->button();
-
-  if (isBaseLineDrawn == false)
-    drawBaseLine(pos, btn);
-  else
-    drawPointAndLine(pos, btn);
-}
-
 bool View::clickRangedEllipseItemOrNull(const QPointF& pos) {
   for (const auto& p : points) {
     qreal x = p.position.x();

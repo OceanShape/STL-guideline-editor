@@ -6,15 +6,14 @@
 class ViewAP : public View {
   Q_OBJECT
  public:
-  ViewAP::~ViewAP();
-  explicit ViewAP(QWidget* parent = nullptr);
+  explicit ViewAP(QWidget* parent = nullptr) : View(parent){};
 
  signals:
 
  public slots:
 
  private:
-  // void mousePressEvent(QMouseEvent* event) override;
+  void mousePressEvent(QMouseEvent* event) override;
 };
 
 #endif  // VIEWAP_H

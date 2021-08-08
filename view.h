@@ -12,9 +12,9 @@ typedef struct {
 } point;
 
 class View : public QGraphicsView {
-  Q_OBJECT
+	Q_OBJECT
  public:
-  virtual View::~View();
+  View::~View();
   explicit View(QWidget* parent = nullptr);
   bool clickRangedEllipseItemOrNull(const QPointF& pos);
   void drawBaseLine(const QPointF& pos, const Qt::MouseButton& btn);
@@ -24,12 +24,11 @@ class View : public QGraphicsView {
 
  public slots:
 
- private:
+ protected:
   std::vector<point> points;
   QPen* pen;
   QBrush* brush;
   bool isBaseLineDrawn;
-  void mousePressEvent(QMouseEvent* event) override;
 };
 
 #endif  // VIEW_H

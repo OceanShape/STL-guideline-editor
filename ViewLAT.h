@@ -6,15 +6,14 @@
 class ViewLAT : public View {
   Q_OBJECT
  public:
-  ViewLAT::~ViewLAT();
-  explicit ViewLAT(QWidget* parent = nullptr);
+  explicit ViewLAT(QWidget* parent = nullptr) : View(parent){};
 
  signals:
 
  public slots:
 
  private:
-  // void mousePressEvent(QMouseEvent* event) override;
+  void mousePressEvent(QMouseEvent* event) override;
 };
 
 #endif  // VIEWLAT_H
