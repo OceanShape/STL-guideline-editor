@@ -27,6 +27,10 @@
   <ItemGroup>
     <QtUic Include="MainWindow.ui" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ViewAP.h" />
+    <ClInclude Include="ViewLAT.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BB95B378-28BA-4D77-ADB7-7D0B3BDCA856}</ProjectGuid>
     <Keyword>QtVS_v304</Keyword>
