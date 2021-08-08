@@ -12,20 +12,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="mainwindow.cpp" />
-    <ClCompile Include="view.cpp" />
+    <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="View.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="mainwindow.h" />
+    <QtMoc Include="MainWindow.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="view.h" />
+    <QtMoc Include="View.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="mainwindow.qrc" />
+    <QtRcc Include="MainWindow.qrc" />
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="mainwindow.ui" />
+    <QtUic Include="MainWindow.ui" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BB95B378-28BA-4D77-ADB7-7D0B3BDCA856}</ProjectGuid>

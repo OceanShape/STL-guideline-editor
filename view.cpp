@@ -1,8 +1,8 @@
-#include "view.h"
+#include "View.h"
 
 qreal clickCorrectionWidth = 20;
-qreal clickRangeWidth = 50;
-qreal pointRadius = 40;
+qreal clickRangeWidth = 20;
+qreal pointRadius = 50;
 
 std::vector<QGraphicsLineItem*> lines;
 
