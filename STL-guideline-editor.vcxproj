@@ -33,6 +33,9 @@
     <QtMoc Include="ViewAP.h" />
     <QtMoc Include="ViewLAT.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Mode.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BB95B378-28BA-4D77-ADB7-7D0B3BDCA856}</ProjectGuid>
     <Keyword>QtVS_v304</Keyword>
