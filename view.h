@@ -6,14 +6,18 @@
 #include <QMouseEvent>
 #include <QPoint>
 
+#include "Mode.h"
+
 typedef struct {
   QGraphicsEllipseItem* item;
   QPointF position;
 } point;
 
 class View : public QGraphicsView {
-	Q_OBJECT
+  Q_OBJECT
  public:
+  Mode currentMode = Mode::BASE_LINE;
+
   View::~View();
   explicit View(QWidget* parent = nullptr);
   bool clickRangedEllipseItemOrNull(const QPointF& pos);

@@ -9,3 +9,10 @@ void ViewAP::mousePressEvent(QMouseEvent* event) {
   else
     drawPointAndLine(pos, btn);
 }
+
+void ViewAP::keyPressEvent(QKeyEvent* event) {
+    if (event->key() == Qt::Key_1)
+        currentMode = Mode::BASE_LINE;
+    if (event->key() == Qt::Key_2)
+        currentMode = Mode::SPINE;
+}
