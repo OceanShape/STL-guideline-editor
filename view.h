@@ -13,6 +13,9 @@ typedef struct {
   QPointF position;
 } point;
 
+const int spineCount = 5;
+const int pointCountInOneSpine = 4;
+
 class View : public QGraphicsView {
   Q_OBJECT
  public:
@@ -29,7 +32,9 @@ class View : public QGraphicsView {
  public slots:
 
  protected:
+  point spine[pointCountInOneSpine * spineCount];
   std::vector<point> points;
+  int currentPointCount;
   QPen* pen;
   QBrush* brush;
   bool isBaseLineDrawn;
