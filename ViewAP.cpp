@@ -7,7 +7,7 @@ void ViewAP::mousePressEvent(QMouseEvent* event) {
   if (currentMode == Mode::BASE_LINE) {
     if (isBaseLineDrawn == false) drawBaseLine(pos, btn);
   } else if (currentMode == Mode::SPINE) {
-    drawPointAndLine(pos, btn);
+    drawSpinePoint(pos, btn);
   }
 }
 

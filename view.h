@@ -14,7 +14,8 @@ typedef struct {
 } point;
 
 const int spineCount = 5;
-const int pointCountInOneSpine = 4;
+const int pointCountForOneSpine = 4;
+//const int totalSpinePointCount = spineCount * pointCountForOneSpine;
 
 class View : public QGraphicsView {
   Q_OBJECT
@@ -23,18 +24,24 @@ class View : public QGraphicsView {
 
   View::~View();
   explicit View(QWidget* parent = nullptr);
-  bool clickRangedEllipseItemOrNull(const QPointF& pos);
+  void initSpineArray();
+  bool isPointInvalid(const point& p);
+  bool isClickRanged(const QPointF& pos);
   void drawBaseLine(const QPointF& pos, const Qt::MouseButton& btn);
-  void drawPointAndLine(QPointF pos, const Qt::MouseButton& btn);
+  void drawSpinePoint(QPointF pos, const Qt::MouseButton& btn);
+  void drawSpineLine();
+  void removeAllLine();
 
  signals:
 
  public slots:
 
  protected:
-  point spine[pointCountInOneSpine * spineCount];
-  std::vector<point> points;
+  point spine[spineCount][pointCountForOneSpine];
+  QGraphicsLineItem* spineLine[spineCount][pointCountForOneSpine];
+  int currentSpine;
   int currentPointCount;
+  std::vector<point> points;
   QPen* pen;
   QBrush* brush;
   bool isBaseLineDrawn;

@@ -7,5 +7,5 @@ void ViewLAT::mousePressEvent(QMouseEvent* event) {
     if (isBaseLineDrawn == false)
         drawBaseLine(pos, btn);
     else
-        drawPointAndLine(pos, btn);
+      drawSpinePoint(pos, btn);
 }

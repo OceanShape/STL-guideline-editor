@@ -7,6 +7,13 @@ qreal pointRadius = 50;
 std::vector<QGraphicsLineItem*> lines;
 
 View::View(QWidget* parent) : QGraphicsView(parent) {
+  currentSpine = 0;
+  currentPointCount = 0;
+
+  initSpineArray();
+  for (int i = 0; i < spineCount; ++i)
+    for (int j = 0; j < pointCountForOneSpine; ++j) spineLine[i][j] = nullptr;
+
   lines.reserve(4 * 7);
 
   pen = new QPen(Qt::green);
@@ -19,6 +26,12 @@ View::View(QWidget* parent) : QGraphicsView(parent) {
 View::~View() {
   delete pen;
   delete brush;
+}
+
+void View::initSpineArray() {
+  for (size_t i = 0; i < spineCount; ++i)
+    for (size_t j = 0; j < pointCountForOneSpine; ++j)
+      spine[i][j].position = {-FLT_MAX, -FLT_MAX};
 }
 
 void View::drawBaseLine(const QPointF& pos, const Qt::MouseButton& btn) {
@@ -35,43 +48,103 @@ void View::drawBaseLine(const QPointF& pos, const Qt::MouseButton& btn) {
   }
 }
 
-void View::drawPointAndLine(QPointF pos, const Qt::MouseButton& btn) {
+bool View::isPointInvalid(const point& p) {
+  return (p.position.x() <= static_cast<qreal>(-4480)) ||
+         (p.position.y() <= static_cast<qreal>(-3600));
+}
+
+void View::removeAllLine() {
+  for (int i = 0; i < spineCount; ++i)
+    for (int j = 0; j < pointCountForOneSpine; ++j)
+      if (spineLine[i][j] != nullptr) {
+        scene()->removeItem(spineLine[i][j]);
+        spineLine[i][j] = nullptr;
+      }
+}
+
+void View::drawSpineLine() {
+  // 선 모두 지우기
+  removeAllLine();
+
+  // 모든 선 다시 그리기
+  for (int i = 0; i < spineCount; ++i) {
+    bool isAllPointSet = true;
+    for (int j = 0; j < pointCountForOneSpine; ++j) {
+      if (isPointInvalid(spine[i][j])) isAllPointSet = false;
+    }
+
+    if (isAllPointSet) {
+      // 점 정렬
+      point tmp[pointCountForOneSpine];
+
+      for (int j = 0; j < pointCountForOneSpine; ++j) {
+        int rightPointCount = 0;
+        int downPointCount = 0;
+        for (int k = 0; k < pointCountForOneSpine; ++k) {
+          if (j == k) continue;
+          if (spine[i][j].position.x() < spine[i][k].position.x())
+            ++rightPointCount;
+          if (spine[i][j].position.y() < spine[i][k].position.y())
+            ++downPointCount;
+        }
+        if (rightPointCount >= 2) {
+          if (downPointCount >= 2)
+            tmp[0] = spine[i][j];
+          else
+            tmp[3] = spine[i][j];
+        } else {
+          if (downPointCount >= 2)
+            tmp[1] = spine[i][j];
+          else
+            tmp[2] = spine[i][j];
+        }
+      }
+
+      for (int j = 0; j < pointCountForOneSpine; ++j) spine[i][j] = tmp[j];
+
+      // 선 긋기
+      pen->setWidth(7);
+      for (int j = 0; j < pointCountForOneSpine; ++j) {
+        spineLine[i][j] = scene()->addLine(
+            spine[i][j].position.x() + clickCorrectionWidth,
+            spine[i][j].position.y() + clickCorrectionWidth,
+            spine[i][(j + 1) % 4].position.x() + clickCorrectionWidth,
+            spine[i][(j + 1) % 4].position.y() + clickCorrectionWidth, *pen);
+      }
+    }
+  }
+}
+
+void View::drawSpinePoint(QPointF pos, const Qt::MouseButton& btn) {
   pos.setX(pos.x() - clickCorrectionWidth);
   pos.setY(pos.y() - clickCorrectionWidth);
   if (btn == Qt::LeftButton) {
-    if (clickRangedEllipseItemOrNull(pos) == false) {
-      pen->setWidth(10);
-      points.push_back({scene()->addEllipse(pos.x(), pos.y(), pointRadius,
-                                            pointRadius, *pen, *brush),
-                        pos});
-    }
-    if (points.size() % 4 == 0) {
-      pen->setWidth(7);
-      size_t idx = points.size() - 4;
-      for (size_t i = 0; i < 4; ++i) {
-        lines.push_back(scene()->addLine(
-            points[idx + i].position.x() + clickCorrectionWidth,
-            points[idx + i].position.y() + clickCorrectionWidth,
-            points[idx + (i + 1) % 4].position.x() + clickCorrectionWidth,
-            points[idx + (i + 1) % 4].position.y() + clickCorrectionWidth,
-            *pen));
-      }
+    if (currentSpine >= spineCount) return;
+    if (isClickRanged(pos)) return;
+    pen->setWidth(10);
+    spine[currentSpine][currentPointCount++] = {
+        scene()->addEllipse(pos.x(), pos.y(), pointRadius, pointRadius, *pen,
+                            *brush),
+        pos};
+    if (currentPointCount == 4) {
+      currentPointCount = 0;
+      ++currentSpine;
     }
   } else {
     if (points.empty()) return;
     scene()->removeItem((QGraphicsItem*)points.back().item);
     points.pop_back();
   }
+  drawSpineLine();
 }
 
-bool View::clickRangedEllipseItemOrNull(const QPointF& pos) {
+bool View::isClickRanged(const QPointF& pos) {
   for (const auto& p : points) {
     qreal x = p.position.x();
     qreal y = p.position.y();
     if ((x - clickRangeWidth <= pos.x() && pos.x() <= x + clickRangeWidth) &&
-        (y - clickRangeWidth <= pos.y() && pos.y() <= y + clickRangeWidth)) {
+        (y - clickRangeWidth <= pos.y() && pos.y() <= y + clickRangeWidth))
       return true;
-    }
   }
   return false;
 }
