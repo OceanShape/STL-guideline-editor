@@ -5,6 +5,7 @@
 #include <QGraphicsView>
 #include <QMouseEvent>
 #include <QPoint>
+#include <stack>
 
 #include "Mode.h"
 
@@ -21,24 +22,28 @@ class View : public QGraphicsView {
   Q_OBJECT
  public:
   Mode currentMode = Mode::BASE_LINE;
+  std::stack<std::pair<int, int>> removedPoint;
 
   View::~View();
   explicit View(QWidget* parent = nullptr);
+  void initSpinePoint(point* p);
   void initSpineArray();
   bool isPointInvalid(const point& p);
-  bool isClickRanged(const QPointF& pos);
+  point* clickRangedPointOrNull(const QPointF& pos, int& outCurrentSpine, int& outCurrentPoint);
   void drawBaseLine(const QPointF& pos, const Qt::MouseButton& btn);
   void drawSpinePoint(QPointF pos, const Qt::MouseButton& btn);
   void drawSpineLine();
   void removeAllLine();
+  void update();
 
  signals:
 
  public slots:
 
  protected:
-  point spine[spineCount][pointCountForOneSpine];
+  point spinePoint[spineCount][pointCountForOneSpine];
   QGraphicsLineItem* spineLine[spineCount][pointCountForOneSpine];
+  QPointF spineCenter[spineCount];
   int currentSpine;
   int currentPointCount;
   std::vector<point> points;

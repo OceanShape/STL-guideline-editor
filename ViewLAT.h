@@ -14,6 +14,7 @@ class ViewLAT : public View {
 
  private:
   void mousePressEvent(QMouseEvent* event) override;
+  void keyPressEvent(QKeyEvent* event) override;
 };
 
 #endif  // VIEWLAT_H

@@ -9,3 +9,10 @@ void ViewLAT::mousePressEvent(QMouseEvent* event) {
     else
       drawSpinePoint(pos, btn);
 }
+
+void ViewLAT::keyPressEvent(QKeyEvent* event) {
+  if (event->key() == Qt::Key_1)
+    currentMode = Mode::BASE_LINE;
+  else if (event->key() == Qt::Key_2)
+    currentMode = Mode::SPINE;
+}
