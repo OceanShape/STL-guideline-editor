@@ -120,6 +120,16 @@ void View::drawSpineLine() {
             spinePoint[i][(j + 1) % 4].position.y() + clickCorrectionWidth,
             *pen);
       }
+
+      qreal x = 0, y = 0;
+      for (int j = 0; j < pointCountForOneSpine; ++j) {
+        x += spinePoint[i][j].position.x();
+        y += spinePoint[i][j].position.y();
+      }
+      spineCenter[i] = { x / 4, y / 4 };
+
+
+      int a = 0;
     }
   }
 }
