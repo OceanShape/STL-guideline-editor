@@ -16,7 +16,7 @@ typedef struct {
 
 const int spineCount = 5;
 const int pointCountForOneSpine = 4;
-//const int totalSpinePointCount = spineCount * pointCountForOneSpine;
+// const int totalSpinePointCount = spineCount * pointCountForOneSpine;
 
 class View : public QGraphicsView {
   Q_OBJECT
@@ -29,7 +29,8 @@ class View : public QGraphicsView {
   void initSpinePoint(point* p);
   void initSpineArray();
   bool isPointInvalid(const point& p);
-  point* clickRangedPointOrNull(const QPointF& pos, int& outCurrentSpine, int& outCurrentPoint);
+  point* clickRangedPointOrNull(const QPointF& pos, int& outCurrentSpine,
+                                int& outCurrentPoint);
   void drawBaseLine(const QPointF& pos, const Qt::MouseButton& btn);
   void drawSpinePoint(QPointF pos, const Qt::MouseButton& btn);
   void drawSpineLine();
@@ -46,7 +47,6 @@ class View : public QGraphicsView {
   QPointF spineCenter[spineCount];
   int currentSpine;
   int currentPointCount;
-  std::vector<point> points;
   QPen* pen;
   QBrush* brush;
   bool isBaseLineDrawn;

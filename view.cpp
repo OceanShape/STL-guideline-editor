@@ -4,8 +4,6 @@ qreal clickCorrectionWidth = 20;
 qreal clickRangeWidth = 50;
 qreal pointRadius = 50;
 
-std::vector<QGraphicsLineItem*> lines;
-
 View::View(QWidget* parent) : QGraphicsView(parent) {
   currentSpine = 0;
   currentPointCount = 0;
@@ -15,8 +13,6 @@ View::View(QWidget* parent) : QGraphicsView(parent) {
 
   for (int i = 0; i < spineCount; ++i)
     for (int j = 0; j < pointCountForOneSpine; ++j) spineLine[i][j] = nullptr;
-
-  lines.reserve(4 * 7);
 
   pen = new QPen(Qt::green);
   pen->setWidth(10);
@@ -126,10 +122,7 @@ void View::drawSpineLine() {
         x += spinePoint[i][j].position.x();
         y += spinePoint[i][j].position.y();
       }
-      spineCenter[i] = { x / 4, y / 4 };
-
-
-      int a = 0;
+      spineCenter[i] = {x / 4, y / 4};
     }
   }
 }
