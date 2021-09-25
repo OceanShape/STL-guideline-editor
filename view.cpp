@@ -1,14 +1,13 @@
 #include "View.h"
 
-qreal clickCorrectionWidth = 20;
-qreal clickRangeWidth = 50;
-qreal pointRadius = 50;
-
 View::View(QWidget* parent) : QGraphicsView(parent) {
   currentSpine = 0;
-  currentPointCount = 0;
+  currentSpinePoint = 0;
 
-  initSpineArray();
+  for (int i = 0; i < spineCount; ++i)
+    for (int j = 0; j < pointCountForOneSpine; ++j)
+      initPoint(&spinePoint[i][j]);
+
   for (int i = 0; i < spineCount; ++i) spineCenter[i] = {-FLT_MAX, -FLT_MAX};
 
   for (int i = 0; i < spineCount; ++i)
@@ -26,14 +25,15 @@ View::~View() {
   delete brush;
 }
 
-void View::initSpinePoint(point* p) {
+void View::resetPenSetting() {
+  pen->setWidth(10);
+  pen->setColor(Qt::green);
+  pen->setStyle(Qt::SolidLine);
+}
+
+void View::initPoint(point* p) {
   p->position = {-FLT_MAX, -FLT_MAX};
   p->item = nullptr;
-}
-void View::initSpineArray() {
-  for (size_t i = 0; i < spineCount; ++i)
-    for (size_t j = 0; j < pointCountForOneSpine; ++j)
-      initSpinePoint(&spinePoint[i][j]);
 }
 
 void View::drawBaseLine(const QPointF& pos, const Qt::MouseButton& btn) {
@@ -44,13 +44,12 @@ void View::drawBaseLine(const QPointF& pos, const Qt::MouseButton& btn) {
     pen->setStyle(Qt::DotLine);
     scene()->addLine(0 + 10, pos.y(), static_cast<qreal>(3600 - 10), pos.y(),
                      *pen);
-    pen->setColor(Qt::green);
-    pen->setStyle(Qt::SolidLine);
+    resetPenSetting();
     isBaseLineDrawn = true;
   }
 }
 
-void View::removeAllLine() {
+void View::removeAllSpineLine() {
   for (int i = 0; i < spineCount; ++i)
     for (int j = 0; j < pointCountForOneSpine; ++j)
       if (spineLine[i][j] != nullptr) {
@@ -66,7 +65,7 @@ bool View::isPointInvalid(const point& p) {
 
 void View::drawSpineLine() {
   // 선 모두 지우기
-  removeAllLine();
+  removeAllSpineLine();
 
   // 모든 선 다시 그리기
   for (int i = 0; i < spineCount; ++i) {
@@ -127,8 +126,6 @@ void View::drawSpineLine() {
   }
 }
 
-void View::update() { drawSpineLine(); }
-
 void View::drawSpinePoint(QPointF pos, const Qt::MouseButton& btn) {
   int removeSpineIndex, removePointIndex;
   pos.setX(pos.x() - clickCorrectionWidth);
@@ -140,34 +137,35 @@ void View::drawSpinePoint(QPointF pos, const Qt::MouseButton& btn) {
       return;
 
     pen->setWidth(10);
-    spinePoint[currentSpine][currentPointCount] = {
+    spinePoint[currentSpine][currentSpinePoint] = {
         scene()->addEllipse(pos.x(), pos.y(), pointRadius, pointRadius, *pen,
                             *brush),
         pos};
 
-    if (removedPoint.empty() == false) {
-      auto t = removedPoint.top();
-      removedPoint.pop();
+    if (removedSpinePoint.empty() == false) {
+      auto t = removedSpinePoint.top();
+      removedSpinePoint.pop();
       currentSpine = t.first;
-      currentPointCount = t.second;
+      currentSpinePoint = t.second;
     } else {
-      ++currentPointCount;
-      if (currentPointCount == 4) {
-        currentPointCount = 0;
+      ++currentSpinePoint;
+      if (currentSpinePoint == 4) {
+        currentSpinePoint = 0;
         ++currentSpine;
       }
     }
   } else {
     point* p = clickRangedPointOrNull(pos, removeSpineIndex, removePointIndex);
     if (p == nullptr) return;
-    removedPoint.push({currentSpine, currentPointCount});
+    removedSpinePoint.push({currentSpine, currentSpinePoint});
     currentSpine = removeSpineIndex;
-    currentPointCount = removePointIndex;
+    currentSpinePoint = removePointIndex;
 
     scene()->removeItem((QGraphicsItem*)p->item);
-    initSpinePoint(p);
+    initPoint(p);
   }
-  update();
+  drawSpineLine();
+  resetPenSetting();
 }
 
 point* View::clickRangedPointOrNull(const QPointF& pos, int& outCurrentSpine,
