@@ -70,8 +70,8 @@ void ViewAP::drawPelvisLine() {
   }
 
   pelvisCenter = {
-      (pelvisPoint[0].position.x() + pelvisPoint[0].position.y()) / 2,
-      (pelvisPoint[1].position.x() + pelvisPoint[1].position.y()) / 2};
+      (pelvisPoint[0].position.x() + pelvisPoint[1].position.x()) / 2,
+      (pelvisPoint[0].position.y() + pelvisPoint[1].position.y()) / 2};
 }
 
 void ViewAP::drawPelvisPoint(QPointF pos, const Qt::MouseButton& btn) {
