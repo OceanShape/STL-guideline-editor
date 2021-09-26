@@ -24,23 +24,6 @@ void ViewAP::mousePressEvent(QMouseEvent* event) {
   resetPenSetting();
 }
 
-void ViewAP::mouseMoveEvent(QMouseEvent* event) {
-  moveBaseLine(mapToScene(event->pos()));
-}
-
-void ViewAP::mouseReleaseEvent(QMouseEvent* event) {
-  releaseBaseLine(mapToScene(event->pos()));
-}
-
-void ViewAP::keyPressEvent(QKeyEvent* event) {
-  if (event->key() == Qt::Key_1)
-    currentMode = Mode::BASE_LINE;
-  else if (event->key() == Qt::Key_2)
-    currentMode = Mode::SPINE;
-  else if (event->key() == Qt::Key_3)
-    currentMode = Mode::AP_PELVIS;
-}
-
 void ViewAP::removeAllSpineLine() {
   for (int i = 0; i < pelvisPointCount; ++i)
     if (pelvisLine != nullptr) {

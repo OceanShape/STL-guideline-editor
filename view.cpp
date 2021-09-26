@@ -42,6 +42,41 @@ void View::initPoint(point* p) {
   p->item = nullptr;
 }
 
+void View::mouseMoveEvent(QMouseEvent* event) {
+  moveBaseLine(mapToScene(event->pos()));
+}
+
+void View::mouseReleaseEvent(QMouseEvent* event) {
+  releaseBaseLine(mapToScene(event->pos()));
+}
+
+void View::keyPressEvent(QKeyEvent* event) {
+  if (event->key() == Qt::Key_1)
+    currentMode = Mode::BASE_LINE;
+  else if (event->key() == Qt::Key_2)
+    currentMode = Mode::SPINE;
+  else if (event->key() == Qt::Key_3)
+    currentMode = Mode::AP_PELVIS;
+}
+
+void View::redrawBaseLine(const QPointF& pos,
+                          const BaseLineType& baseLineType) {
+  QLineF tmpLine = baseLine[baseLineType]->line();
+  scene()->removeItem(baseLine[baseLineType]);
+
+  if (baseLineType == BaseLineType::VERTICAL) {
+    tmpLine.setP1({pos.x(), tmpLine.y1()});
+    tmpLine.setP2({pos.x(), tmpLine.y2()});
+  } else if (baseLineType == BaseLineType::HORIZONTAL) {
+    tmpLine.setP1({tmpLine.x1(), pos.y()});
+    tmpLine.setP2({tmpLine.x2(), pos.y()});
+    pen->setColor(Qt::red);
+    pen->setStyle(Qt::DotLine);
+  }
+  baseLine[baseLineType] = scene()->addLine(tmpLine, *pen);
+  resetPenSetting();
+}
+
 void View::drawBaseLine(const QPointF& pos, const Qt::MouseButton& btn) {
   if (btn == Qt::LeftButton) {
     if (baseLineStatus == BaseLineStatus::NOT_DRAWN) {
@@ -87,24 +122,6 @@ void View::releaseBaseLine(const QPointF& pos) {
     redrawBaseLine(pos, baseLineType);
     baseLineStatus = BaseLineStatus::NOT_SELECTED;
   }
-}
-
-void View::redrawBaseLine(const QPointF& pos,
-                          const BaseLineType& baseLineType) {
-  QLineF tmpLine = baseLine[baseLineType]->line();
-  scene()->removeItem(baseLine[baseLineType]);
-
-  if (baseLineType == BaseLineType::VERTICAL) {
-    tmpLine.setP1({pos.x(), tmpLine.y1()});
-    tmpLine.setP2({pos.x(), tmpLine.y2()});
-  } else if (baseLineType == BaseLineType::HORIZONTAL) {
-    tmpLine.setP1({tmpLine.x1(), pos.y()});
-    tmpLine.setP2({tmpLine.x2(), pos.y()});
-    pen->setColor(Qt::red);
-    pen->setStyle(Qt::DotLine);
-  }
-  baseLine[baseLineType] = scene()->addLine(tmpLine, *pen);
-  resetPenSetting();
 }
 
 void View::removeAllSpineLine() {

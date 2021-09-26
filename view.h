@@ -37,6 +37,9 @@ class View : public QGraphicsView {
   point* clickRangedPointOrNull(const QPointF& pos, int& outCurrentSpine,
                                 int& outCurrentPoint);
   BaseLineType clickRangedBaseLine(const QPointF& pos);
+  void mouseReleaseEvent(QMouseEvent* event) override;
+  void mouseMoveEvent(QMouseEvent* event) override;
+  void keyPressEvent(QKeyEvent* event) override;
   void drawBaseLine(const QPointF& pos, const Qt::MouseButton& btn);
   void moveBaseLine(const QPointF& pos);
   void releaseBaseLine(const QPointF& pos);
