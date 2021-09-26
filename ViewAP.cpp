@@ -15,13 +15,21 @@ void ViewAP::mousePressEvent(QMouseEvent* event) {
   Qt::MouseButton btn = event->button();
 
   if (currentMode == Mode::BASE_LINE) {
-    if (isBaseLineDrawn == false) drawBaseLine(pos, btn);
+    drawBaseLine(pos, btn);
   } else if (currentMode == Mode::SPINE) {
     drawSpinePoint(pos, btn);
   } else if (currentMode == Mode::AP_PELVIS) {
     drawPelvisPoint(pos, btn);
   }
   resetPenSetting();
+}
+
+void ViewAP::mouseMoveEvent(QMouseEvent* event) {
+  moveBaseLine(mapToScene(event->pos()));
+}
+
+void ViewAP::mouseReleaseEvent(QMouseEvent* event) {
+  releaseBaseLine(mapToScene(event->pos()));
 }
 
 void ViewAP::keyPressEvent(QKeyEvent* event) {

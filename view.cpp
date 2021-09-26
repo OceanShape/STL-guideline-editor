@@ -1,23 +1,29 @@
 #include "View.h"
 
 View::View(QWidget* parent) : QGraphicsView(parent) {
+  // baseline 초기화
+  isBaseLineDrawn = false;
+  baseLineStatus = BaseLineStatus::NOT_DRAWN;
+  for (int i = 0; i < baseLineCount; ++i) baseLine[i] = nullptr;
+
+  // spine 초기화
   currentSpine = 0;
   currentSpinePoint = 0;
 
-  for (int i = 0; i < spineCount; ++i)
-    for (int j = 0; j < pointCountForOneSpine; ++j)
+  for (int i = 0; i < spineCount; ++i) {
+    for (int j = 0; j < pointCountForOneSpine; ++j) {
       initPoint(&spinePoint[i][j]);
+    }
 
-  for (int i = 0; i < spineCount; ++i) spineCenter[i] = {-FLT_MAX, -FLT_MAX};
+    spineCenter[i] = {-FLT_MAX, -FLT_MAX};
 
-  for (int i = 0; i < spineCount; ++i)
     for (int j = 0; j < pointCountForOneSpine; ++j) spineLine[i][j] = nullptr;
+  }
 
+  // pen,brush 설정 초기화
   pen = new QPen(Qt::green);
   pen->setWidth(10);
   brush = new QBrush(Qt::white);
-
-  isBaseLineDrawn = false;
 }
 
 View::~View() {
@@ -38,15 +44,67 @@ void View::initPoint(point* p) {
 
 void View::drawBaseLine(const QPointF& pos, const Qt::MouseButton& btn) {
   if (btn == Qt::LeftButton) {
-    scene()->addLine(pos.x(), 0 + 10, pos.x(), static_cast<qreal>(4480 - 10),
-                     *pen);
+    if (baseLineStatus == BaseLineStatus::NOT_DRAWN) {
+      baseLine[BaseLineType::VERTICAL] = scene()->addLine(
+          pos.x(), 0 + 10, pos.x(), static_cast<qreal>(4480 - 10), *pen);
+
+      pen->setColor(Qt::red);
+      pen->setStyle(Qt::DotLine);
+
+      baseLine[BaseLineType::HORIZONTAL] = scene()->addLine(
+          0 + 10, pos.y(), static_cast<qreal>(3600 - 10), pos.y(), *pen);
+      baseLineStatus = BaseLineStatus::NOT_SELECTED;
+    } else if (baseLineStatus == BaseLineStatus::NOT_SELECTED) {
+      BaseLineType clickedBaseLineType = clickRangedBaseLine(pos);
+      if (clickedBaseLineType != BaseLineType::NONE) {
+        redrawBaseLine(pos, clickedBaseLineType);
+        baseLineStatus = (clickedBaseLineType == BaseLineType::VERTICAL)
+                             ? BaseLineStatus::MOVE_VERTICAL
+                             : BaseLineStatus::MOVE_HORIZONTAL;
+      }
+    }
+  }
+}
+
+void View::moveBaseLine(const QPointF& pos) {
+  if (baseLineStatus == BaseLineStatus::MOVE_VERTICAL ||
+      baseLineStatus == BaseLineStatus::MOVE_HORIZONTAL) {
+    BaseLineType baseLineType =
+        (baseLineStatus == BaseLineStatus::MOVE_VERTICAL)
+            ? BaseLineType::VERTICAL
+            : BaseLineType::HORIZONTAL;
+    redrawBaseLine(pos, baseLineType);
+  }
+}
+
+void View::releaseBaseLine(const QPointF& pos) {
+  if (baseLineStatus == BaseLineStatus::MOVE_VERTICAL ||
+      baseLineStatus == BaseLineStatus::MOVE_HORIZONTAL) {
+    BaseLineType baseLineType =
+        (baseLineStatus == BaseLineStatus::MOVE_VERTICAL)
+            ? BaseLineType::VERTICAL
+            : BaseLineType::HORIZONTAL;
+    redrawBaseLine(pos, baseLineType);
+    baseLineStatus = BaseLineStatus::NOT_SELECTED;
+  }
+}
+
+void View::redrawBaseLine(const QPointF& pos,
+                          const BaseLineType& baseLineType) {
+  QLineF tmpLine = baseLine[baseLineType]->line();
+  scene()->removeItem(baseLine[baseLineType]);
+
+  if (baseLineType == BaseLineType::VERTICAL) {
+    tmpLine.setP1({pos.x(), tmpLine.y1()});
+    tmpLine.setP2({pos.x(), tmpLine.y2()});
+  } else if (baseLineType == BaseLineType::HORIZONTAL) {
+    tmpLine.setP1({tmpLine.x1(), pos.y()});
+    tmpLine.setP2({tmpLine.x2(), pos.y()});
     pen->setColor(Qt::red);
     pen->setStyle(Qt::DotLine);
-    scene()->addLine(0 + 10, pos.y(), static_cast<qreal>(3600 - 10), pos.y(),
-                     *pen);
-    resetPenSetting();
-    isBaseLineDrawn = true;
   }
+  baseLine[baseLineType] = scene()->addLine(tmpLine, *pen);
+  resetPenSetting();
 }
 
 void View::removeAllSpineLine() {
@@ -183,4 +241,17 @@ point* View::clickRangedPointOrNull(const QPointF& pos, int& outCurrentSpine,
     }
   }
   return nullptr;
+}
+
+BaseLineType View::clickRangedBaseLine(const QPointF& pos) {
+  qreal x = baseLine[BaseLineType::VERTICAL]->line().x1();
+  qreal y = baseLine[BaseLineType::HORIZONTAL]->line().y1();
+
+  if (x - clickRangeWidth <= pos.x() && pos.x() <= x + clickRangeWidth) {
+    return BaseLineType::VERTICAL;
+  } else if (y - clickRangeWidth <= pos.y() && pos.y() <= y + clickRangeWidth) {
+    return BaseLineType::HORIZONTAL;
+  }
+
+  return BaseLineType::NONE;
 }

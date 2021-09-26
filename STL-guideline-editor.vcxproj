@@ -34,6 +34,8 @@
     <QtMoc Include="ViewLAT.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseLineStatus.h" />
+    <ClInclude Include="BaseLineType.h" />
     <ClInclude Include="Mode.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

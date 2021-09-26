@@ -7,6 +7,8 @@
 #include <QPoint>
 #include <stack>
 
+#include "BaseLineStatus.h"
+#include "BaseLineType.h"
 #include "Mode.h"
 
 typedef struct {
@@ -14,6 +16,7 @@ typedef struct {
   QPointF position;
 } point;
 
+const int baseLineCount = 2;
 const int spineCount = 5;
 const int pointCountForOneSpine = 4;
 static qreal clickCorrectionWidth = 20;
@@ -33,7 +36,11 @@ class View : public QGraphicsView {
   bool isPointInvalid(const point& p);
   point* clickRangedPointOrNull(const QPointF& pos, int& outCurrentSpine,
                                 int& outCurrentPoint);
+  BaseLineType clickRangedBaseLine(const QPointF& pos);
   void drawBaseLine(const QPointF& pos, const Qt::MouseButton& btn);
+  void moveBaseLine(const QPointF& pos);
+  void releaseBaseLine(const QPointF& pos);
+  void redrawBaseLine(const QPointF& pos, const BaseLineType& baseLineType);
   void drawSpinePoint(QPointF pos, const Qt::MouseButton& btn);
   void drawSpineLine();
   void removeAllSpineLine();
@@ -43,6 +50,10 @@ class View : public QGraphicsView {
  public slots:
 
  protected:
+   bool isBaseLineDrawn;
+  BaseLineStatus baseLineStatus;
+  QGraphicsLineItem* baseLine[baseLineCount];
+
   point spinePoint[spineCount][pointCountForOneSpine];
   QGraphicsLineItem* spineLine[spineCount][pointCountForOneSpine];
   QPointF spineCenter[spineCount];
@@ -52,7 +63,5 @@ class View : public QGraphicsView {
 
   QPen* pen;
   QBrush* brush;
-  bool isBaseLineDrawn;
 };
-
 #endif  // VIEW_H

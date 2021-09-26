@@ -16,6 +16,8 @@ class ViewAP : public View {
 
  private:
   void mousePressEvent(QMouseEvent* event) override;
+  void mouseReleaseEvent(QMouseEvent* event) override;
+  void mouseMoveEvent(QMouseEvent* event) override;
   void keyPressEvent(QKeyEvent* event) override;
   point* clickRangedPointOrNull(const QPointF& pos, int& outCurrentPoint);
   void drawPelvisPoint(QPointF pos, const Qt::MouseButton& btn);
