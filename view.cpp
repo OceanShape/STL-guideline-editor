@@ -71,11 +71,13 @@ void View::redrawBaseLine(const QPointF& pos,
   if (baseLineType == BaseLineType::VERTICAL) {
     tmpLine.setP1({pos.x(), tmpLine.y1()});
     tmpLine.setP2({pos.x(), tmpLine.y2()});
+    setCursor(Qt::SizeHorCursor);
   } else if (baseLineType == BaseLineType::HORIZONTAL) {
     tmpLine.setP1({tmpLine.x1(), pos.y()});
     tmpLine.setP2({tmpLine.x2(), pos.y()});
     pen->setColor(Qt::red);
     pen->setStyle(Qt::DotLine);
+    setCursor(Qt::SizeVerCursor);
   }
   baseLine[baseLineType] = scene()->addLine(tmpLine, *pen);
   resetPenSetting();
@@ -124,6 +126,7 @@ void View::releaseBaseLine(const QPointF& pos) {
             ? BaseLineType::VERTICAL
             : BaseLineType::HORIZONTAL;
     redrawBaseLine(pos, baseLineType);
+    setCursor(Qt::ArrowCursor);
     baseLineStatus = BaseLineStatus::NOT_SELECTED;
   }
 }
