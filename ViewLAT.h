@@ -3,10 +3,12 @@
 
 #include "View.h"
 
+const int tailbonePointCount = 3;
+
 class ViewLAT : public View {
   Q_OBJECT
  public:
-  explicit ViewLAT(QWidget* parent = nullptr) : View(parent){};
+  explicit ViewLAT(QWidget* parent = nullptr);
 
  signals:
 
@@ -14,7 +16,17 @@ class ViewLAT : public View {
 
  private:
   void mousePressEvent(QMouseEvent* event) override;
-  void keyPressEvent(QKeyEvent* event) override;
+
+  point* clickRangedTailbonePointOrNull(const QPointF& pos, int& outCurrentPoint);
+  void drawTailbonePoint(QPointF pos, const Qt::MouseButton& btn);
+  void drawTailboneLine();
+  void removeAllTailboneLine();
+
+public:
+  point tailbonePoint[tailbonePointCount];
+  QGraphicsItem* tailboneLine[tailbonePointCount];
+  int currentTailbonePoint;
+  std::stack<int> removedTailbonePoint;
 };
 
 #endif  // VIEWLAT_H

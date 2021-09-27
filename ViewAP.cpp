@@ -2,8 +2,11 @@
 
 ViewAP::ViewAP(QWidget* parent) : View(parent) {
   currentPelvisPoint = 0;
+  currentSpinousProcessPoint = 0;
 
   for (int i = 0; i < pelvisPointCount; ++i) initPoint(&pelvisPoint[i]);
+  for (int i = 0; i < spinousProcessPointCount; ++i)
+    initPoint(&spinousProcessPoint[i]);
 
   pelvisCenter = {-FLT_MAX, -FLT_MAX};
 
@@ -20,20 +23,21 @@ void ViewAP::mousePressEvent(QMouseEvent* event) {
     drawSpinePoint(pos, btn);
   } else if (currentMode == Mode::AP_PELVIS) {
     drawPelvisPoint(pos, btn);
+  } else if (currentMode == Mode::AP_SPINOUS_PROCESS) {
+    drawSpinousProcessPoint(pos, btn);
   }
   resetPenSetting();
 }
 
-void ViewAP::removeAllSpineLine() {
-  for (int i = 0; i < pelvisPointCount; ++i)
-    if (pelvisLine != nullptr) {
-      scene()->removeItem(pelvisLine);
-      pelvisLine = nullptr;
-    }
+void ViewAP::removeAllPelvisLine() {
+  if (pelvisLine != nullptr) {
+    scene()->removeItem(pelvisLine);
+    pelvisLine = nullptr;
+  }
 }
 
 void ViewAP::drawPelvisLine() {
-  removeAllSpineLine();
+  removeAllPelvisLine();
 
   bool isAllPointSet = true;
   for (int i = 0; i < pelvisPointCount; ++i) {
@@ -72,7 +76,7 @@ void ViewAP::drawPelvisPoint(QPointF pos, const Qt::MouseButton& btn) {
 
   if (btn == Qt::LeftButton) {
     if (currentPelvisPoint >= pelvisPointCount) return;
-    if (clickRangedPointOrNull(pos, removePointIndex) != nullptr) return;
+    if (clickRangedPelvisPointOrNull(pos, removePointIndex) != nullptr) return;
 
     pen->setColor(Qt::blue);
     pelvisPoint[currentPelvisPoint] = {
@@ -88,7 +92,7 @@ void ViewAP::drawPelvisPoint(QPointF pos, const Qt::MouseButton& btn) {
       ++currentPelvisPoint;
     }
   } else {
-    point* p = clickRangedPointOrNull(pos, removePointIndex);
+    point* p = clickRangedPelvisPointOrNull(pos, removePointIndex);
     if (p == nullptr) return;
     removedPelvisPoint.push(currentPelvisPoint);
     currentPelvisPoint = removePointIndex;
@@ -100,8 +104,8 @@ void ViewAP::drawPelvisPoint(QPointF pos, const Qt::MouseButton& btn) {
   resetPenSetting();
 }
 
-point* ViewAP::clickRangedPointOrNull(const QPointF& pos,
-                                      int& outCurrentPoint) {
+point* ViewAP::clickRangedPelvisPointOrNull(const QPointF& pos,
+                                            int& outCurrentPoint) {
   for (int i = 0; i < pelvisPointCount; ++i) {
     qreal x = pelvisPoint[i].position.x();
     qreal y = pelvisPoint[i].position.y();
@@ -109,6 +113,80 @@ point* ViewAP::clickRangedPointOrNull(const QPointF& pos,
         (y - clickRangeWidth <= pos.y() && pos.y() <= y + clickRangeWidth)) {
       outCurrentPoint = i;
       return &pelvisPoint[i];
+    }
+  }
+  return nullptr;
+}
+
+void ViewAP::sortSpinousProcessPoint() {
+
+  bool isAllPointSet = true;
+  for (int i = 0; i < spinousProcessPointCount; ++i) {
+    if (isPointInvalid(spinousProcessPoint[i])) {
+      isAllPointSet = false;
+    }
+  }
+
+  if (isAllPointSet) {
+    for (int i = 0; i < spinousProcessPointCount; ++i) {
+      for (int j = 0; j < spinousProcessPointCount - (i + 1); ++j) {
+        if (spinousProcessPoint[j].position.y() >
+          spinousProcessPoint[j + 1].position.y()) {
+          point tmp;
+          tmp = spinousProcessPoint[j+1];
+          spinousProcessPoint[j+1] = spinousProcessPoint[j];
+          spinousProcessPoint[j] = tmp;
+        }
+      }
+    }
+  }
+}
+
+void ViewAP::drawSpinousProcessPoint(QPointF pos, const Qt::MouseButton& btn) {
+  int removePointIndex;
+  pos.setX(pos.x() - clickCorrectionWidth);
+  pos.setY(pos.y() - clickCorrectionWidth);
+
+  if (btn == Qt::LeftButton) {
+    if (currentSpinousProcessPoint >= spinousProcessPointCount) return;
+    if (clickRangedSpinousProcessPointOrNull(pos, removePointIndex) != nullptr)
+      return;
+
+    pen->setColor(Qt::yellow);
+    spinousProcessPoint[currentSpinousProcessPoint] = {
+    scene()->addEllipse(pos.x(), pos.y(), pointRadius, pointRadius, *pen,
+                        *brush),
+    pos };
+
+    if (removedSpinousProcessPoint.empty() == false) {
+      int t = removedSpinousProcessPoint.top();
+      removedSpinousProcessPoint.pop();
+      currentSpinousProcessPoint = t;
+    } else {
+      ++currentSpinousProcessPoint;
+    }
+  } else {
+    point* p = clickRangedSpinousProcessPointOrNull(pos, removePointIndex);
+    if (p == nullptr) return;
+    removedSpinousProcessPoint.push(currentSpinousProcessPoint);
+    currentSpinousProcessPoint = removePointIndex;
+
+    scene()->removeItem((QGraphicsItem*)p->item);
+    initPoint(p);
+  }
+  sortSpinousProcessPoint();
+  resetPenSetting();
+}
+
+point* ViewAP::clickRangedSpinousProcessPointOrNull(const QPointF& pos,
+                                                    int& outCurrentPoint) {
+  for (int i = 0; i < spinousProcessPointCount; ++i) {
+    qreal x = spinousProcessPoint[i].position.x();
+    qreal y = spinousProcessPoint[i].position.y();
+    if ((x - clickRangeWidth <= pos.x() && pos.x() <= x + clickRangeWidth) &&
+        (y - clickRangeWidth <= pos.y() && pos.y() <= y + clickRangeWidth)) {
+      outCurrentPoint = i;
+      return &spinousProcessPoint[i];
     }
   }
   return nullptr;

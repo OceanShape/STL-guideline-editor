@@ -57,6 +57,10 @@ void View::keyPressEvent(QKeyEvent* event) {
     currentMode = Mode::SPINE;
   else if (event->key() == Qt::Key_3)
     currentMode = Mode::AP_PELVIS;
+  else if (event->key() == Qt::Key_4)
+    currentMode = Mode::AP_SPINOUS_PROCESS;
+  else if (event->key() == Qt::Key_5)
+    currentMode = Mode::LAT_TAILBONE;
 }
 
 void View::redrawBaseLine(const QPointF& pos,
