@@ -41,6 +41,11 @@ void MainWindow::New() {
 
 void MainWindow::Open() {}
 
+void MainWindow::Save() {
+  View* v[2] = { ui.viewAP, ui.viewLAT };
+  QGraphicsScene* s[2] = { ui.viewAP->scene(), ui.viewLAT->scene() };
+}
+
 void MainWindow::Close() {
   QMessageBox msgBox;
   msgBox.setText(tr("Save all changes?"));

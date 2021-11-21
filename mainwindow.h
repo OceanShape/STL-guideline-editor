@@ -21,5 +21,6 @@ class MainWindow : public QMainWindow {
  private slots:
   void New();
   void Open();
+  void Save();
   void Close();
 };

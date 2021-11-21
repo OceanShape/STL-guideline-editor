@@ -26,9 +26,10 @@ static qreal pointRadius = 50;
 
 class View : public QGraphicsView {
   Q_OBJECT
- public:
+public:
   Mode currentMode = Mode::BASE_LINE;
 
+ public:
   View::~View();
   explicit View(QWidget* parent = nullptr);
   void resetPenSetting();
@@ -51,9 +52,8 @@ class View : public QGraphicsView {
  signals:
 
  public slots:
-
  protected:
-   bool isBaseLineDrawn;
+  bool isBaseLineDrawn;
   BaseLineStatus baseLineStatus;
   QGraphicsLineItem* baseLine[baseLineCount];
 
