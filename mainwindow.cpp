@@ -51,23 +51,21 @@ void MainWindow::Save() {
     return;
   }
   QTextStream out(&file);
-  out << ", x, y, y, z" << '\n';
-  out << "AP_BASE, 0, 0,," << '\n';
-  out << "LAT_BASE,,, 0, 0" << '\n';
+  QString str[9] = { "AP_BASE", "LAT_BASE", "AP_SPINE", "LAT_SPINE", "AP_PELVIS", "LAT_TAILBONE", "LAT_TAILBONE_ANGLE_ALPHA", "LAT_TAILBONE_ANGLE_BETA", "SPINOUS_PROCESS"};
+  out << ", x(x-y), y(x-y), y(y-z), z(y-z), x(x-y-z), y(x-y-z), z(x-y-z), alpha, beta" << endl;
+  out << str[0] << ',' << "0, 0,  ,  ,  ,  ,  ,  ,  " << endl;
+  out << str[1] << ',' << " ,  , 0, 0,  ,  ,  ,  ,  " << endl;
 
-  out << "AP_SPINE_1, 0, 0,," << '\n';
-  out << "AP_SPINE_2, 0, 0,," << '\n';
-  out << "AP_SPINE_3, 0, 0,," << '\n';
-  out << "AP_SPINE_4, 0, 0,," << '\n';
-  out << "AP_SPINE_5, 0, 0,," << '\n';
-  out << "LAT_SPINE_1,,, 0, 0" << '\n';
-  out << "LAT_SPINE_2,,, 0, 0" << '\n';
-  out << "LAT_SPINE_3,,, 0, 0" << '\n';
-  out << "LAT_SPINE_4,,, 0, 0" << '\n';
-  out << "LAT_SPINE_5,,, 0, 0" << '\n';
+  for (int i = 1; i <= 5; ++i) {
+    out << str[2] << '_' << i << ',' << " 0, 0,  ,  ,  ,  ,  ,  ,  " << endl;
+  }
+  for (int i = 1; i <= 5; ++i) {
+    out << str[3] << '_' << i << ',' << "  ,  , 0, 0,  ,  ,  ,  ,  " << endl;
+  }
 
-  out << "AP_PELVIS_1, 0, 0,," << '\n';
-  out << "AP_PELVIS_2, 0, 0,," << '\n';
+  for (int i = 1; i <= 2; ++i) {
+    out << str[4] << '_' << i << ',' << " 0, 0,  ,  ,  ,  ,  ,  ,  " << endl;
+  }
 
   file.flush();
   file.close();
