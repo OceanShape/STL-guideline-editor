@@ -54,6 +54,18 @@ void MainWindow::Save() {
   out << ", x, y, y, z" << '\n';
   out << "AP_BASE, 0, 0,," << '\n';
   out << "LAT_BASE,,, 0, 0" << '\n';
+
+  out << "AP_SPINE_1, 0, 0,," << '\n';
+  out << "AP_SPINE_2, 0, 0,," << '\n';
+  out << "AP_SPINE_3, 0, 0,," << '\n';
+  out << "AP_SPINE_4, 0, 0,," << '\n';
+  out << "AP_SPINE_5, 0, 0,," << '\n';
+  out << "LAT_SPINE_1,,, 0, 0" << '\n';
+  out << "LAT_SPINE_2,,, 0, 0" << '\n';
+  out << "LAT_SPINE_3,,, 0, 0" << '\n';
+  out << "LAT_SPINE_4,,, 0, 0" << '\n';
+  out << "LAT_SPINE_5,,, 0, 0" << '\n';
+
   file.flush();
   file.close();
 }
