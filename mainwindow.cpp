@@ -66,6 +66,9 @@ void MainWindow::Save() {
   out << "LAT_SPINE_4,,, 0, 0" << '\n';
   out << "LAT_SPINE_5,,, 0, 0" << '\n';
 
+  out << "AP_PELVIS_1, 0, 0,," << '\n';
+  out << "AP_PELVIS_2, 0, 0,," << '\n';
+
   file.flush();
   file.close();
 }
