@@ -6,6 +6,8 @@
 #include <QLabel>
 #include <QMainWindow>
 #include <QMessageBox>
+#include <QFile>
+#include <QTextStream>
 
 #include "ui_mainwindow.h"
 

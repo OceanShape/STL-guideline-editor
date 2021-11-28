@@ -4,6 +4,9 @@
 # image and project files
 *.jpg
 
+# test output file
+*.csv
+
 # Visual Studio generated files
 x64/
 

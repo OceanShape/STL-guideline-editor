@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
 
   connect(ui.actionNew, SIGNAL(triggered()), this, SLOT(New()));
   connect(ui.actionOpen, SIGNAL(triggered()), this, SLOT(Open()));
+  connect(ui.actionSave, SIGNAL(triggered()), this, SLOT(Save()));
   connect(ui.actionClose, SIGNAL(triggered()), this, SLOT(Close()));
 
   ui.viewAP->setScene(new QGraphicsScene);
@@ -44,6 +45,17 @@ void MainWindow::Open() {}
 void MainWindow::Save() {
   View* v[2] = { ui.viewAP, ui.viewLAT };
   QGraphicsScene* s[2] = { ui.viewAP->scene(), ui.viewLAT->scene() };
+
+  QFile file("output.csv");
+  if (!file.open(QFile::WriteOnly | QFile::Text)){
+    return;
+  }
+  QTextStream out(&file);
+  out << ", x, y, z" << '\n';
+  out << "AP_BASE, 0, 0, 0" << '\n';
+  out << "LAT_BASE, 0, 0, 0" << '\n';
+  file.flush();
+  file.close();
 }
 
 void MainWindow::Close() {
