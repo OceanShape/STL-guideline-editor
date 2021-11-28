@@ -51,9 +51,9 @@ void MainWindow::Save() {
     return;
   }
   QTextStream out(&file);
-  out << ", x, y, z" << '\n';
-  out << "AP_BASE, 0, 0, 0" << '\n';
-  out << "LAT_BASE, 0, 0, 0" << '\n';
+  out << ", x, y, y, z" << '\n';
+  out << "AP_BASE, 0, 0,," << '\n';
+  out << "LAT_BASE,,, 0, 0" << '\n';
   file.flush();
   file.close();
 }
