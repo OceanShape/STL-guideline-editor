@@ -67,6 +67,12 @@ void MainWindow::Save() {
     out << str[4] << '_' << i << ',' << " 0, 0,  ,  ,  ,  ,  ,  ,  " << endl;
   }
 
+  for (int i = 1; i <= 3; ++i) {
+    out << str[5] << '_' << i << ',' << "  ,  , 0, 0,  ,  ,  ,  ,  " << endl;
+  }
+  out << str[6] << ',' << "  ,  ,  ,  ,  ,  ,  , 0, 0" << endl;
+  out << str[7] << ',' << "  ,  ,  ,  ,  ,  ,  , 0, 0" << endl;
+
   file.flush();
   file.close();
 }
