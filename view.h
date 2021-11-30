@@ -33,6 +33,9 @@ public:
   View::~View();
   explicit View(QWidget* parent = nullptr);
   QPointF getBasePoint();
+  QPointF getSpinePoint(int spineIdx, int pointIdx) {
+    return spinePoint[spineIdx][pointIdx].position;
+  }
   void resetPenSetting();
   void initPoint(point* p);
   bool isPointInvalid(const point& p);

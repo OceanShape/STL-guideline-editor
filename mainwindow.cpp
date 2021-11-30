@@ -59,11 +59,17 @@ void MainWindow::Save() {
   out << str[0] << ',' << x << ", " << 4480 - y << ",  ,  ,  ,  ,  ,  ,  " << endl;
   y = v[1]->getBasePoint().y();
   z = v[1]->getBasePoint().x();
-  out << str[1] << ',' << y << ", " << 4480 - z << ",  ,  ,  ,  ,  ,  ,  " << endl;
+  out << str[1] << ",,," << 4480 - y << ", " << z << ",  ,  ,  ,  ,  " << endl;
 
-  for (int i = 1; i <= 5; ++i) {
-    out << str[2] << '_' << i << ',' << " 0, 0,  ,  ,  ,  ,  ,  ,  " << endl;
+  for (int i = 0; i < spineCount; ++i) {
+    for (int j = 0; j < pointCountForOneSpine; ++j) {
+      QPointF tmp = v[0]->getSpinePoint(i, j);
+      x = tmp.x();
+      y = tmp.y();
+      out << str[2] << '_' << i + 1 << '_' << j + 1 << ',' << x << ',' << 4480 - y << ",  ,  ,  ,  ,  ,  " << endl;
+    }
   }
+
   for (int i = 1; i <= 5; ++i) {
     out << str[3] << '_' << i << ',' << "  ,  , 0, 0,  ,  ,  ,  ,  " << endl;
   }
