@@ -87,8 +87,11 @@ void MainWindow::Save() {
     out << str[4] << '_' << i + 1 << ',' << x << y << ",  ,  ,  ,  ,  ,  " << endl;
   }
 
-  for (int i = 1; i <= 3; ++i) {
-    out << str[5] << '_' << i << ',' << "  ,  , 0, 0,  ,  ,  ,  ,  " << endl;
+  for (int i = 0; i < tailbonePointCount; ++i) {
+    QPointF tmp = lat->getTailbonePoint(i);
+    y = tmp.y();
+    z = tmp.x();
+    out << str[5] << '_' << i + 1 << ",,," << 4480 - y << ',' << z << ",  ,  ,  ,  ,  " << endl;
   }
   out << str[6] << ',' << "  ,  ,  ,  ,  ,  ,  , 0, 0" << endl;
   out << str[7] << ',' << "  ,  ,  ,  ,  ,  ,  , 0, 0" << endl;

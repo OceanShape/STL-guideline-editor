@@ -10,6 +10,10 @@ class ViewLAT : public View {
  public:
   explicit ViewLAT(QWidget* parent = nullptr);
 
+  QPointF getTailbonePoint(int pointIdx) {
+    return tailbonePoint[pointIdx].position;
+  }
+
  signals:
 
  public slots:
