@@ -31,6 +31,10 @@ View::~View() {
   delete brush;
 }
 
+QPointF View::getBasePoint() {
+  return { baseLine[BaseLineType::VERTICAL]->x(), baseLine[BaseLineType::HORIZONTAL]->y() };
+}
+
 void View::resetPenSetting() {
   pen->setWidth(10);
   pen->setColor(Qt::green);

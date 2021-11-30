@@ -32,6 +32,7 @@ public:
  public:
   View::~View();
   explicit View(QWidget* parent = nullptr);
+  QPointF getBasePoint();
   void resetPenSetting();
   void initPoint(point* p);
   bool isPointInvalid(const point& p);

@@ -53,7 +53,9 @@ void MainWindow::Save() {
   QTextStream out(&file);
   QString str[9] = { "AP_BASE", "LAT_BASE", "AP_SPINE", "LAT_SPINE", "AP_PELVIS", "LAT_TAILBONE", "LAT_TAILBONE_ANGLE_ALPHA", "LAT_TAILBONE_ANGLE_BETA", "SPINOUS_PROCESS"};
   out << ", x(x-y), y(x-y), y(y-z), z(y-z), x(x-y-z), y(x-y-z), z(x-y-z), alpha, beta" << endl;
-  out << str[0] << ',' << "0, 0,  ,  ,  ,  ,  ,  ,  " << endl;
+  int x, y, z;
+  x = v[0]->getBasePoint().x(); y = v[0]->getBasePoint().y();
+  out << str[0] << ',' << -x << ", " << -y << ",  ,  ,  ,  ,  ,  ,  " << endl;
   out << str[1] << ',' << " ,  , 0, 0,  ,  ,  ,  ,  " << endl;
 
   for (int i = 1; i <= 5; ++i) {
