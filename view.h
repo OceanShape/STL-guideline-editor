@@ -32,7 +32,10 @@ public:
  public:
   View::~View();
   explicit View(QWidget* parent = nullptr);
-  QPointF getBasePoint();
+  QPointF getBasePoint() {
+    return { baseLine[BaseLineType::VERTICAL]->line().p1().x(),
+            baseLine[BaseLineType::HORIZONTAL]->line().p1().y() };
+  }
   QPointF getSpinePoint(int spineIdx, int pointIdx) {
     return spinePoint[spineIdx][pointIdx].position;
   }

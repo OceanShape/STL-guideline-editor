@@ -9,7 +9,11 @@ const int spinousProcessPointCount = 5;
 class ViewAP : public View {
   Q_OBJECT
  public:
-   explicit ViewAP(QWidget* parent = nullptr);
+  explicit ViewAP(QWidget* parent = nullptr);
+
+  QPointF getPelvisPoint(int pointIdx) {
+    return pelvisPoint[pointIdx].position;
+  }
 
  signals:
 
