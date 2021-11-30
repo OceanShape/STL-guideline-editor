@@ -32,7 +32,8 @@ View::~View() {
 }
 
 QPointF View::getBasePoint() {
-  return { baseLine[BaseLineType::VERTICAL]->x(), baseLine[BaseLineType::HORIZONTAL]->y() };
+  return {baseLine[BaseLineType::VERTICAL]->line().p1().x(),
+          baseLine[BaseLineType::HORIZONTAL]->line().p1().y()};
 }
 
 void View::resetPenSetting() {
