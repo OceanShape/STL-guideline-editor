@@ -54,44 +54,42 @@ void MainWindow::Save() {
   QTextStream out(&file);
   QString str[9] = { "AP_BASE", "LAT_BASE", "AP_SPINE", "LAT_SPINE", "AP_PELVIS", "LAT_TAILBONE", "LAT_TAILBONE_ANGLE_ALPHA", "LAT_TAILBONE_ANGLE_BETA", "SPINOUS_PROCESS"};
   out << ", x(x-y), y(x-y), y(y-z), z(y-z), x(x-y-z), y(x-y-z), z(x-y-z), alpha, beta" << endl;
-  int x, y, z;
-  x = ap->getBasePoint().x();
-  y = ap->getBasePoint().y();
-  out << str[0] << ',' << x << ", " << 4480 - y << ",  ,  ,  ,  ,  ,  ,  " << endl;
-  y = lat->getBasePoint().y();
-  z = lat->getBasePoint().x();
-  out << str[1] << ",,," << 4480 - y << ", " << z << ",  ,  ,  ,  ,  " << endl;
-
+  int baseAPx = ap->getBasePoint().x();
+  int baseAPy = ap->getBasePoint().y();
+  int baseLATy = lat->getBasePoint().y();
+  int baseLATz = lat->getBasePoint().x();
+  out << str[0] << ',' << baseAPx << ", " << 4480 - baseAPy << ",  ,  ,  ,  ,  ,  ,  " << endl;
+  out << str[1] << ",,," << 4480 - baseLATy << ", " << baseLATz << ",  ,  ,  ,  ,  " << endl;
   for (int i = 0; i < spineCount; ++i) {
     for (int j = 0; j < pointCountForOneSpine; ++j) {
       QPointF tmp = ap->getSpinePoint(i, j);
-      x = tmp.x();
-      y = tmp.y();
-      out << str[2] << '_' << i + 1 << '_' << j + 1 << ',' << x << ',' << 4480 - y << ",  ,  ,  ,  ,  ,  " << endl;
+      int x = tmp.x() - baseAPx;
+      int y = baseAPy - tmp.y();
+      out << str[2] << '_' << i + 1 << '_' << j + 1 << ',' << x << ',' << y << ",  ,  ,  ,  ,  ,  " << endl;
     }
   }
 
   for (int i = 0; i < spineCount; ++i) {
     for (int j = 0; j < pointCountForOneSpine; ++j) {
       QPointF tmp = lat->getSpinePoint(i, j);
-      y = tmp.y();
-      z = tmp.x();
-      out << str[3] << '_' << i + 1 << '_' << j + 1 << ",,," << 4480 - y << ", " << z << ",  ,  ,  ,  ,  " << endl;
+      int y = baseLATy - tmp.y();
+      int z = tmp.x() - baseLATz;
+      out << str[3] << '_' << i + 1 << '_' << j + 1 << ",,," << y << ", " << z << ",  ,  ,  ,  ,  " << endl;
     }
   }
 
   for (int i = 0; i < pelvisPointCount; ++i) {
     QPointF tmp = ap->getPelvisPoint(i);
-    x = tmp.x();
-    y = tmp.y();
+    int x = tmp.x() - baseAPx;
+    int y = baseAPy - tmp.y();
     out << str[4] << '_' << i + 1 << ',' << x << y << ",  ,  ,  ,  ,  ,  " << endl;
   }
 
   for (int i = 0; i < tailbonePointCount; ++i) {
     QPointF tmp = lat->getTailbonePoint(i);
-    y = tmp.y();
-    z = tmp.x();
-    out << str[5] << '_' << i + 1 << ",,," << 4480 - y << ',' << z << ",  ,  ,  ,  ,  " << endl;
+    int y = baseLATy - tmp.y();
+    int z = tmp.x() - baseLATz;
+    out << str[5] << '_' << i + 1 << ",,," << y << ',' << z << ",  ,  ,  ,  ,  " << endl;
   }
   out << str[6] << ',' << "  ,  ,  ,  ,  ,  ,  , 0, 0" << endl;
   out << str[7] << ',' << "  ,  ,  ,  ,  ,  ,  , 0, 0" << endl;
