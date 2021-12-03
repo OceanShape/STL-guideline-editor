@@ -111,7 +111,7 @@ void MainWindow::Close() {
 
   int msg = msgBox.exec();
   if (msg == QMessageBox::Yes) {
-    // Add saving data func later
+    Save();
     this->close();
   } else if (msg == QMessageBox::No) {
     this->close();
