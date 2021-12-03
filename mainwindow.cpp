@@ -91,8 +91,8 @@ void MainWindow::Save() {
     int z = tmp.x() - baseLATz;
     out << str[5] << '_' << i + 1 << ",,," << y << ',' << z << ",  ,  ,  ,  ,  " << endl;
   }
-  out << str[6] << ',' << "  ,  ,  ,  ,  ,  ,  , 0, 0" << endl;
-  out << str[7] << ',' << "  ,  ,  ,  ,  ,  ,  , 0, 0" << endl;
+  out << str[6] << ",,,,,,,," << lat->getTailboneAlpha() << ',' << endl;
+  out << str[7] << ",,,,,,,,," << lat->getTailboneBeta() << endl;
 
   for (int i = 1; i <= 5; ++i) {
     out << str[8] << '_' << i << ',' << "  ,  ,  ,  , 0, 0, 0,  ,  " << endl;

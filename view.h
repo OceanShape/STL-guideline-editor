@@ -5,6 +5,7 @@
 #include <QGraphicsView>
 #include <QMouseEvent>
 #include <QPoint>
+#include <QtMath>
 #include <stack>
 
 #include "BaseLineStatus.h"
