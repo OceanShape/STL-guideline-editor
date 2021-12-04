@@ -16,8 +16,10 @@ void ViewLAT::mousePressEvent(QMouseEvent* event) {
     drawBaseLine(pos, btn);
   } else if (currentMode == Mode::SPINE) {
     drawSpinePoint(pos, btn);
-  } else if (currentMode == Mode::LAT_TAILBONE) {
+  } else if (currentMode == Mode::PELVIS_OR_TAILBONE) {
     drawTailbonePoint(pos, btn);
+  } else if (currentMode == Mode::AP_SPINOUS_PROCESS) {
+    drawSpinousProcessPoint(pos, btn);
   }
   resetPenSetting();
 }

@@ -20,6 +20,7 @@ typedef struct {
 const int baseLineCount = 2;
 const int spineCount = 5;
 const int pointCountForOneSpine = 4;
+const int spinousProcessPointCount = 5;
 static qreal clickCorrectionWidth = 20;
 static qreal clickRangeWidth = 50;
 static qreal pointRadius = 50;
@@ -56,6 +57,9 @@ public:
   void drawSpinePoint(QPointF pos, const Qt::MouseButton& btn);
   void drawSpineLine();
   void removeAllSpineLine();
+  void sortSpinousProcessPoint();
+  point* clickRangedSpinousProcessPointOrNull(const QPointF& pos, int& outCurrentPoint);
+  void drawSpinousProcessPoint(QPointF pos, const Qt::MouseButton& btn);
 
  signals:
 
@@ -71,6 +75,9 @@ public:
   int currentSpine;
   int currentSpinePoint;
   std::stack<std::pair<int, int>> removedSpinePoint;
+  point spinousProcessPoint[spinousProcessPointCount];
+  int currentSpinousProcessPoint;
+  std::stack<int> removedSpinousProcessPoint;
 
   QPen* pen;
   QBrush* brush;
