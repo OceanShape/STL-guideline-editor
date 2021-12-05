@@ -12,22 +12,6 @@ ViewAP::ViewAP(QWidget* parent) : View(parent) {
   pelvisLine = nullptr;
 }
 
-void ViewAP::mousePressEvent(QMouseEvent* event) {
-  QPointF pos = mapToScene(event->pos());
-  Qt::MouseButton btn = event->button();
-
-  if (currentMode == Mode::BASE_LINE) {
-    drawBaseLine(pos, btn);
-  } else if (currentMode == Mode::SPINE) {
-    drawSpinePoint(pos, btn);
-  } else if (currentMode == Mode::PELVIS_OR_TAILBONE) {
-    drawPelvisPoint(pos, btn);
-  } else if (currentMode == Mode::AP_SPINOUS_PROCESS) {
-    drawSpinousProcessPoint(pos, btn);
-  }
-  resetPenSetting();
-}
-
 void ViewAP::removeAllPelvisLine() {
   if (pelvisLine != nullptr) {
     scene()->removeItem(pelvisLine);

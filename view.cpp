@@ -43,6 +43,25 @@ void View::initPoint(point* p) {
   p->item = nullptr;
 }
 
+void View::mousePressEvent(QMouseEvent* event) {
+  QPointF pos = mapToScene(event->pos());
+  Qt::MouseButton btn = event->button();
+
+  if (currentMode == Mode::BASE_LINE) {
+    drawBaseLine(pos, btn);
+  }
+  else if (currentMode == Mode::SPINE) {
+    drawSpinePoint(pos, btn);
+  }
+  else if (currentMode == Mode::PELVIS_OR_TAILBONE) {
+    drawPelvisORTailbonePoint(pos, btn);
+  }
+  else if (currentMode == Mode::AP_SPINOUS_PROCESS) {
+    drawSpinousProcessPoint(pos, btn);
+  }
+  resetPenSetting();
+}
+
 void View::mouseMoveEvent(QMouseEvent* event) {
   moveBaseLine(mapToScene(event->pos()));
 }

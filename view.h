@@ -34,6 +34,7 @@ public:
  public:
   View::~View();
   explicit View(QWidget* parent = nullptr);
+  virtual void drawPelvisORTailbonePoint(const QPointF& pos, const Qt::MouseButton& btn) {};
   QPointF getBasePoint() {
     return { baseLine[BaseLineType::VERTICAL]->line().p1().x(),
             baseLine[BaseLineType::HORIZONTAL]->line().p1().y() };
@@ -47,6 +48,7 @@ public:
   point* clickRangedPointOrNull(const QPointF& pos, int& outCurrentSpine,
                                 int& outCurrentPoint);
   BaseLineType clickRangedBaseLine(const QPointF& pos);
+  void mousePressEvent(QMouseEvent* event) override;
   void mouseReleaseEvent(QMouseEvent* event) override;
   void mouseMoveEvent(QMouseEvent* event) override;
   void keyPressEvent(QKeyEvent* event) override;

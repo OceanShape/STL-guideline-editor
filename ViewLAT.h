@@ -10,6 +10,11 @@ class ViewLAT : public View {
  public:
   explicit ViewLAT(QWidget* parent = nullptr);
 
+  void drawPelvisORTailbonePoint(const QPointF& pos,
+                                 const Qt::MouseButton& btn) {
+    drawTailbonePoint(pos, btn);
+  }
+
   QPointF getTailbonePoint(int pointIdx) {
     return tailbonePoint[pointIdx].position;
   }
@@ -29,8 +34,6 @@ class ViewLAT : public View {
  public slots:
 
  private:
-  void mousePressEvent(QMouseEvent* event) override;
-
   point* clickRangedTailbonePointOrNull(const QPointF& pos, int& outCurrentPoint);
   void drawTailbonePoint(QPointF pos, const Qt::MouseButton& btn);
   void drawTailboneLine();
