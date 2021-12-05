@@ -62,14 +62,14 @@ void MainWindow::Save() {
   int baseAPy = ap->getBasePoint().y();
   int baseLATy = lat->getBasePoint().y();
   int baseLATz = lat->getBasePoint().x();
-  out << str[0] << ',' << baseAPx << ", " << 4480 - baseAPy << ",  ,  ,  ,  ,  ,  ,  " << endl;
-  out << str[1] << ",,," << 4480 - baseLATy << ", " << baseLATz << ",  ,  ,  ,  ,  " << endl;
+  out << str[0] << ',' << baseAPx << ", " << 4480 - baseAPy << endl;
+  out << str[1] << ",,," << 4480 - baseLATy << ", " << baseLATz << endl;
   for (int i = 0; i < spineCount; ++i) {
     for (int j = 0; j < pointCountForOneSpine; ++j) {
       QPointF tmp = ap->getSpinePoint(i, j);
       int x = tmp.x() - baseAPx;
       int y = baseAPy - tmp.y();
-      out << str[2] << '_' << i + 1 << '_' << j + 1 << ',' << x << ',' << y << ",  ,  ,  ,  ,  ,  " << endl;
+      out << str[2] << '_' << i + 1 << '_' << j + 1 << ',' << x << ',' << y << endl;
     }
   }
 
@@ -78,7 +78,7 @@ void MainWindow::Save() {
       QPointF tmp = lat->getSpinePoint(i, j);
       int y = baseLATy - tmp.y();
       int z = tmp.x() - baseLATz;
-      out << str[3] << '_' << i + 1 << '_' << j + 1 << ",,," << y << ", " << z << ",  ,  ,  ,  ,  " << endl;
+      out << str[3] << '_' << i + 1 << '_' << j + 1 << ",,," << y << ", " << z << endl;
     }
   }
 
@@ -86,20 +86,20 @@ void MainWindow::Save() {
     QPointF tmp = ap->getPelvisPoint(i);
     int x = tmp.x() - baseAPx;
     int y = baseAPy - tmp.y();
-    out << str[4] << '_' << i + 1 << ',' << x << y << ",  ,  ,  ,  ,  ,  " << endl;
+    out << str[4] << '_' << i + 1 << ',' << x << ',' << y << endl;
   }
 
   for (int i = 0; i < tailbonePointCount; ++i) {
     QPointF tmp = lat->getTailbonePoint(i);
     int y = baseLATy - tmp.y();
     int z = tmp.x() - baseLATz;
-    out << str[5] << '_' << i + 1 << ",,," << y << ',' << z << ",  ,  ,  ,  ,  " << endl;
+    out << str[5] << '_' << i + 1 << ",,," << y << ',' << z << endl;
   }
-  out << str[6] << ",,,,,,,," << lat->getTailboneAlpha() << ',' << endl;
+  out << str[6] << ",,,,,,,," << lat->getTailboneAlpha() << endl;
   out << str[7] << ",,,,,,,,," << lat->getTailboneBeta() << endl;
 
   for (int i = 1; i <= 5; ++i) {
-    out << str[8] << '_' << i << ',' << "  ,  ,  ,  , 0, 0, 0,  ,  " << endl;
+    out << str[8] << '_' << i << ',' << "  ,  ,  ,  , 0, 0, 0" << endl;
   }
 
   file.flush();
