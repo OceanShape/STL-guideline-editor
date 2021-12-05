@@ -20,14 +20,14 @@ class ViewLAT : public View {
   }
 
   qreal getTailboneAlpha() {
-    return atan2(
+    return -atan2(
                tailbonePoint[0].position.y() - tailbonePoint[1].position.y(),
                tailbonePoint[0].position.x() - tailbonePoint[1].position.x()) *
            180 / M_PI;
   }
 
   qreal getTailboneBeta() {
-    return atan2(
+    return -atan2(
                tailbonePoint[1].position.y() - tailbonePoint[2].position.y(),
                tailbonePoint[2].position.x() - tailbonePoint[1].position.x()) *
            180 / M_PI;
