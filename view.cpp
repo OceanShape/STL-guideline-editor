@@ -101,26 +101,28 @@ void View::redrawBaseLine(const QPointF& pos,
   resetPenSetting();
 }
 
+void View::drawDefaultBaseLine(const QPointF& pos) {
+  baseLine[BaseLineType::VERTICAL] = scene()->addLine(
+    pos.x(), 0 + 10, pos.x(), static_cast<qreal>(4480 - 10), *pen);
+
+  pen->setColor(Qt::red);
+  pen->setStyle(Qt::DotLine);
+
+  baseLine[BaseLineType::HORIZONTAL] = scene()->addLine(
+    0 + 10, pos.y(), static_cast<qreal>(3600 - 10), pos.y(), *pen);
+  baseLineStatus = BaseLineStatus::NOT_SELECTED;
+
+  resetPenSetting();
+}
+
 void View::drawBaseLine(const QPointF& pos, const Qt::MouseButton& btn) {
-  if (btn == Qt::LeftButton) {
-    if (baseLineStatus == BaseLineStatus::NOT_DRAWN) {
-      baseLine[BaseLineType::VERTICAL] = scene()->addLine(
-          pos.x(), 0 + 10, pos.x(), static_cast<qreal>(4480 - 10), *pen);
-
-      pen->setColor(Qt::red);
-      pen->setStyle(Qt::DotLine);
-
-      baseLine[BaseLineType::HORIZONTAL] = scene()->addLine(
-          0 + 10, pos.y(), static_cast<qreal>(3600 - 10), pos.y(), *pen);
-      baseLineStatus = BaseLineStatus::NOT_SELECTED;
-    } else if (baseLineStatus == BaseLineStatus::NOT_SELECTED) {
-      BaseLineType clickedBaseLineType = clickRangedBaseLine(pos);
-      if (clickedBaseLineType != BaseLineType::NONE) {
-        redrawBaseLine(pos, clickedBaseLineType);
-        baseLineStatus = (clickedBaseLineType == BaseLineType::VERTICAL)
-                             ? BaseLineStatus::MOVE_VERTICAL
-                             : BaseLineStatus::MOVE_HORIZONTAL;
-      }
+  if (btn == Qt::LeftButton && baseLineStatus == BaseLineStatus::NOT_SELECTED) {
+    BaseLineType clickedBaseLineType = clickRangedBaseLine(pos);
+    if (clickedBaseLineType != BaseLineType::NONE) {
+      redrawBaseLine(pos, clickedBaseLineType);
+      baseLineStatus = (clickedBaseLineType == BaseLineType::VERTICAL)
+                           ? BaseLineStatus::MOVE_VERTICAL
+                           : BaseLineStatus::MOVE_HORIZONTAL;
     }
   }
 }

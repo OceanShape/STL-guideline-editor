@@ -24,7 +24,10 @@ const int spinousProcessPointCount = 5;
 static qreal clickCorrectionWidth = 20;
 static qreal clickRangeWidth = 50;
 static qreal pointRadius = 50;
-// const int totalSpinePointCount = spineCount * pointCountForOneSpine;
+static qreal defaultBaseLineAPX = 1920;
+static qreal defaultBaseLineAPY = 2800;
+static qreal defaultBaseLineLATY = 2876;
+static qreal defaultBaseLineLATZ = 1513;
 
 class View : public QGraphicsView {
   Q_OBJECT
@@ -52,6 +55,7 @@ public:
   void mouseReleaseEvent(QMouseEvent* event) override;
   void mouseMoveEvent(QMouseEvent* event) override;
   void keyPressEvent(QKeyEvent* event) override;
+  void drawDefaultBaseLine(const QPointF& pos);
   void drawBaseLine(const QPointF& pos, const Qt::MouseButton& btn);
   void moveBaseLine(const QPointF& pos);
   void releaseBaseLine(const QPointF& pos);

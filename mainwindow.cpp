@@ -21,8 +21,11 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::New() {
-  View* v[2] = {ui.viewAP, ui.viewLAT};
-  QGraphicsScene* s[2] = {ui.viewAP->scene(), ui.viewLAT->scene()};
+  View* view[2] = {ui.viewAP, ui.viewLAT};
+  QPointF defaultBaseLinePoint[2] = {
+      {defaultBaseLineAPX, defaultBaseLineAPY},
+      {defaultBaseLineLATZ, defaultBaseLineLATY}};
+  QGraphicsScene* scene[2] = {ui.viewAP->scene(), ui.viewLAT->scene()};
 
   for (int i = 0; i < 2; ++i) {
     QString dir = QFileDialog::getOpenFileName(
@@ -30,13 +33,14 @@ void MainWindow::New() {
     if (dir == nullptr) return;
     QImage* img = new QImage(dir);
 
-    delete s[i];
-    s[i] = new QGraphicsScene;
-    v[i]->setScene(s[i]);
-    s[i]->addPixmap(QPixmap::fromImage(*img));
-    v[i]->fitInView(
-        QRectF(0, 0, s[i]->sceneRect().width(), s[i]->sceneRect().height()),
-        Qt::KeepAspectRatio);
+    delete scene[i];
+    scene[i] = new QGraphicsScene;
+    view[i]->setScene(scene[i]);
+    scene[i]->addPixmap(QPixmap::fromImage(*img));
+    view[i]->fitInView(QRectF(0, 0, scene[i]->sceneRect().width(),
+                              scene[i]->sceneRect().height()),
+                       Qt::KeepAspectRatio);
+    view[i]->drawDefaultBaseLine(defaultBaseLinePoint[i]);
   }
 }
 
