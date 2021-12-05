@@ -2,9 +2,10 @@
 
 ViewLAT::ViewLAT(QWidget* parent) : View(parent) {
   currentTailbonePoint = 0;
-  currentTailbonePoint = 0;
 
   for (int i = 0; i < tailbonePointCount; ++i) initPoint(&tailbonePoint[i]);
+  for (int i = 0; i < spinousProcessPointCount; ++i)
+    initPoint(&spinousProcessPoint[i]);
   for (int i = 0; i < tailbonePointCount; ++i) tailboneLine[i] = nullptr;
 }
 

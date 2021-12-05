@@ -6,9 +6,7 @@ ViewAP::ViewAP(QWidget* parent) : View(parent) {
   for (int i = 0; i < pelvisPointCount; ++i) initPoint(&pelvisPoint[i]);
   for (int i = 0; i < spinousProcessPointCount; ++i)
     initPoint(&spinousProcessPoint[i]);
-
   pelvisCenter = {-FLT_MAX, -FLT_MAX};
-
   pelvisLine = nullptr;
 }
 

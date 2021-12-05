@@ -98,8 +98,13 @@ void MainWindow::Save() {
   out << str[6] << ",,,,,,,," << lat->getTailboneAlpha() << endl;
   out << str[7] << ",,,,,,,,," << lat->getTailboneBeta() << endl;
 
-  for (int i = 1; i <= 5; ++i) {
-    out << str[8] << '_' << i << ',' << "  ,  ,  ,  , 0, 0, 0" << endl;
+  for (int i = 0; i < spinousProcessPointCount; ++i) {
+    QPointF tmpAP = ap->getSpinousProcessPoint(i);
+    QPointF tmpLAT = lat->getSpinousProcessPoint(i);
+    int x = tmpAP.x() - baseAPx;
+    int y = baseAPy - tmpAP.y();
+    int z = tmpLAT.x() - baseLATz;
+    out << str[8] << '_' << i + 1 << ',' << "  ,  ,  ,  ," << x << ',' << y << ',' << z << endl;
   }
 
   file.flush();

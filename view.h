@@ -45,6 +45,9 @@ public:
   QPointF getSpinePoint(int spineIdx, int pointIdx) {
     return spinePoint[spineIdx][pointIdx].position;
   }
+  QPointF getSpinousProcessPoint(int spineIdx) {
+    return spinousProcessPoint[spineIdx].position;
+  }
   void resetPenSetting();
   void initPoint(point* p);
   bool isPointInvalid(const point& p);
