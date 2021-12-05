@@ -20,13 +20,17 @@ class ViewLAT : public View {
   }
 
   qreal getTailboneAlpha() {
-    return atan2(tailbonePoint[0].position.y() - tailbonePoint[1].position.y(),
-      tailbonePoint[0].position.x() - tailbonePoint[1].position.x()) * 180 / M_PI;
+    return atan2(
+               tailbonePoint[0].position.y() - tailbonePoint[1].position.y(),
+               tailbonePoint[0].position.x() - tailbonePoint[1].position.x()) *
+           180 / M_PI;
   }
 
   qreal getTailboneBeta() {
-    return atan2(tailbonePoint[1].position.y() - tailbonePoint[2].position.y(),
-      tailbonePoint[2].position.x() - tailbonePoint[1].position.x()) * 180 / M_PI;
+    return atan2(
+               tailbonePoint[1].position.y() - tailbonePoint[2].position.y(),
+               tailbonePoint[2].position.x() - tailbonePoint[1].position.x()) *
+           180 / M_PI;
   }
 
  signals:
@@ -34,12 +38,13 @@ class ViewLAT : public View {
  public slots:
 
  private:
-  point* clickRangedTailbonePointOrNull(const QPointF& pos, int& outCurrentPoint);
+  point* clickRangedTailbonePointOrNull(const QPointF& pos,
+                                        int& outCurrentPoint);
   void drawTailbonePoint(QPointF pos, const Qt::MouseButton& btn);
   void drawTailboneLine();
   void removeAllTailboneLine();
 
-public:
+ public:
   point tailbonePoint[tailbonePointCount];
   QGraphicsItem* tailboneLine[tailbonePointCount];
   int currentTailbonePoint;

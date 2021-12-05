@@ -29,8 +29,7 @@ void ViewLAT::drawTailboneLine() {
   if (isAllPointSet) {
     for (int i = 0; i < tailbonePointCount; ++i) {
       for (int j = 0; j < tailbonePointCount - (i + 1); ++j) {
-        if (tailbonePoint[j].position.y() >
-          tailbonePoint[j + 1].position.y()) {
+        if (tailbonePoint[j].position.y() > tailbonePoint[j + 1].position.y()) {
           point tmp;
           tmp = tailbonePoint[j + 1];
           tailbonePoint[j + 1] = tailbonePoint[j];
@@ -43,11 +42,10 @@ void ViewLAT::drawTailboneLine() {
     pen->setWidth(7);
     for (int i = 0; i < tailbonePointCount; ++i) {
       tailboneLine[i] = scene()->addLine(
-        tailbonePoint[i].position.x() + clickCorrectionWidth,
-        tailbonePoint[i].position.y() + clickCorrectionWidth,
-        tailbonePoint[(i + 1) % 3].position.x() + clickCorrectionWidth,
-        tailbonePoint[(i + 1) % 3].position.y() + clickCorrectionWidth,
-        *pen);
+          tailbonePoint[i].position.x() + clickCorrectionWidth,
+          tailbonePoint[i].position.y() + clickCorrectionWidth,
+          tailbonePoint[(i + 1) % 3].position.x() + clickCorrectionWidth,
+          tailbonePoint[(i + 1) % 3].position.y() + clickCorrectionWidth, *pen);
     }
   }
 }
@@ -64,20 +62,18 @@ void ViewLAT::drawTailbonePoint(QPointF pos, const Qt::MouseButton& btn) {
 
     pen->setColor(Qt::blue);
     tailbonePoint[currentTailbonePoint] = {
-    scene()->addEllipse(pos.x(), pos.y(), pointRadius, pointRadius, *pen,
-                        *brush),
-    pos };
+        scene()->addEllipse(pos.x(), pos.y(), pointRadius, pointRadius, *pen,
+                            *brush),
+        pos};
 
     if (removedTailbonePoint.empty() == false) {
       int t = removedTailbonePoint.top();
       removedTailbonePoint.pop();
       currentTailbonePoint = t;
-    }
-    else {
+    } else {
       ++currentTailbonePoint;
     }
-  }
-  else {
+  } else {
     point* p = clickRangedTailbonePointOrNull(pos, removePointIndex);
     if (p == nullptr) return;
     removedTailbonePoint.push(currentTailbonePoint);
@@ -96,7 +92,7 @@ point* ViewLAT::clickRangedTailbonePointOrNull(const QPointF& pos,
     qreal x = tailbonePoint[i].position.x();
     qreal y = tailbonePoint[i].position.y();
     if ((x - clickRangeWidth <= pos.x() && pos.x() <= x + clickRangeWidth) &&
-      (y - clickRangeWidth <= pos.y() && pos.y() <= y + clickRangeWidth)) {
+        (y - clickRangeWidth <= pos.y() && pos.y() <= y + clickRangeWidth)) {
       outCurrentPoint = i;
       return &tailbonePoint[i];
     }
