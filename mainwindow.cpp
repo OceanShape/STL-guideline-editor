@@ -56,20 +56,20 @@ void MainWindow::Save() {
     return;
   }
   QTextStream out(&file);
-  QString str[11] = { "AP_BASE", "LAT_BASE", "AP_SPINE", "LAT_SPINE", "AP_PELVIS", "LAT_TAILBONE", "LAT_TAILBONE_ANGLE_ALPHA", "LAT_TAILBONE_ANGLE_BETA", "SPINOUS_PROCESS", "SPINOUS_PROCESS_ROTATE_Y", "SPINOUS_PROCESS_ROTATE_Z" };
+  QString dataType[11] = { "AP_BASE", "LAT_BASE", "AP_SPINE", "LAT_SPINE", "AP_PELVIS", "LAT_TAILBONE", "LAT_TAILBONE_ANGLE_ALPHA", "LAT_TAILBONE_ANGLE_BETA", "SPINOUS_PROCESS", "SPINOUS_PROCESS_ROTATE_Y", "SPINOUS_PROCESS_ROTATE_Z" };
   out << ", x(x-y), y(x-y), y(y-z), z(y-z), x(x-y-z), y(x-y-z), z(x-y-z), alpha, beta" << endl;
   int baseAPx = ap->getBasePoint().x();
   int baseAPy = ap->getBasePoint().y();
   int baseLATy = lat->getBasePoint().y();
   int baseLATz = lat->getBasePoint().x();
-  out << str[0] << ',' << baseAPx << ", " << 4480 - baseAPy << endl;
-  out << str[1] << ",,," << 4480 - baseLATy << ", " << baseLATz << endl;
+  out << dataType[0] << ',' << baseAPx << ", " << 4480 - baseAPy << endl;
+  out << dataType[1] << ",,," << 4480 - baseLATy << ", " << baseLATz << endl;
   for (int i = 0; i < spineCount; ++i) {
     for (int j = 0; j < pointCountForOneSpine; ++j) {
       QPointF tmp = ap->getSpinePoint(i, j);
       int x = tmp.x() - baseAPx;
       int y = baseAPy - tmp.y();
-      out << str[2] << '_' << i + 1 << '_' << j + 1 << ',' << x << ',' << y << endl;
+      out << dataType[2] << '_' << i + 1 << '_' << j + 1 << ',' << x << ',' << y << endl;
     }
   }
 
@@ -78,7 +78,7 @@ void MainWindow::Save() {
       QPointF tmp = lat->getSpinePoint(i, j);
       int y = baseLATy - tmp.y();
       int z = tmp.x() - baseLATz;
-      out << str[3] << '_' << i + 1 << '_' << j + 1 << ",,," << y << ", " << z << endl;
+      out << dataType[3] << '_' << i + 1 << '_' << j + 1 << ",,," << y << ", " << z << endl;
     }
   }
 
@@ -86,17 +86,17 @@ void MainWindow::Save() {
     QPointF tmp = ap->getPelvisPoint(i);
     int x = tmp.x() - baseAPx;
     int y = baseAPy - tmp.y();
-    out << str[4] << '_' << i + 1 << ',' << x << ',' << y << endl;
+    out << dataType[4] << '_' << i + 1 << ',' << x << ',' << y << endl;
   }
 
   for (int i = 0; i < tailbonePointCount; ++i) {
     QPointF tmp = lat->getTailbonePoint(i);
     int y = baseLATy - tmp.y();
     int z = tmp.x() - baseLATz;
-    out << str[5] << '_' << i + 1 << ",,," << y << ',' << z << endl;
+    out << dataType[5] << '_' << i + 1 << ",,," << y << ',' << z << endl;
   }
-  out << str[6] << ",,,,,,,," << lat->getTailboneAlpha() << endl;
-  out << str[7] << ",,,,,,,,," << lat->getTailboneBeta() << endl;
+  out << dataType[6] << ",,,,,,,," << lat->getTailboneAlpha() << endl;
+  out << dataType[7] << ",,,,,,,,," << lat->getTailboneBeta() << endl;
 
   for (int i = 0; i < spinousProcessPointCount; ++i) {
     QPointF tmpAP = ap->getSpinousProcessPoint(i);
@@ -104,7 +104,7 @@ void MainWindow::Save() {
     int x = tmpAP.x() - baseAPx;
     int y = baseAPy - tmpAP.y();
     int z = tmpLAT.x() - baseLATz;
-    out << str[8] << '_' << i + 1 << ',' << "  ,  ,  ,  ," << x << ',' << y << ',' << z << endl;
+    out << dataType[8] << '_' << i + 1 << ',' << "  ,  ,  ,  ," << x << ',' << y << ',' << z << endl;
   }
 
   file.flush();
