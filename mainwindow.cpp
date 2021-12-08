@@ -57,6 +57,8 @@ void MainWindow::Save() {
   }
   QTextStream out(&file);
   QString dataType[11] = { "AP_BASE", "LAT_BASE", "AP_SPINE", "LAT_SPINE", "AP_PELVIS", "LAT_TAILBONE", "LAT_TAILBONE_ANGLE_ALPHA", "LAT_TAILBONE_ANGLE_BETA", "SPINOUS_PROCESS", "SPINOUS_PROCESS_ROTATE_Y", "SPINOUS_PROCESS_ROTATE_Z" };
+  QString patientType[4] = { "AP_name", "LAT_name", "date", "remarks(proof)" };
+  out << patientType[0] << ',' << patientType[1] << ',' << patientType[2] << ',' << patientType[3] << "\n\n";
   out << ", x(x-y), y(x-y), y(y-z), z(y-z), x(x-y-z), y(x-y-z), z(x-y-z), alpha, beta" << endl;
   int baseAPx = ap->getBasePoint().x();
   int baseAPy = ap->getBasePoint().y();
