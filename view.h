@@ -74,7 +74,6 @@ public:
 
  public slots:
  protected:
-  bool isBaseLineDrawn;
   BaseLineStatus baseLineStatus;
   QGraphicsLineItem* baseLine[baseLineCount];
 

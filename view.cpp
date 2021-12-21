@@ -2,8 +2,7 @@
 
 View::View(QWidget* parent) : QGraphicsView(parent) {
   // baseline √ ±‚»≠
-  isBaseLineDrawn = false;
-  baseLineStatus = BaseLineStatus::NOT_DRAWN;
+  baseLineStatus = BaseLineStatus::NOT_SELECTED;
   currentSpinousProcessPoint = 0;
   for (int i = 0; i < baseLineCount; ++i) baseLine[i] = nullptr;
 
