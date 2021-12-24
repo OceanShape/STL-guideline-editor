@@ -51,7 +51,9 @@ void MainWindow::Save() {
   ViewLAT* lat = ui.viewLAT;
   QGraphicsScene* s[2] = { ui.viewAP->scene(), ui.viewLAT->scene() };
 
-  QFile file("output.csv");
+  QString dir = QFileDialog::getSaveFileName(
+    this, "Save file", QDir::currentPath(), "*.csv");
+  QFile file(dir);
   if (!file.open(QFile::WriteOnly | QFile::Text)){
     return;
   }
