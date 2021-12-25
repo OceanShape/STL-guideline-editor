@@ -112,40 +112,17 @@ color:white;</string>
     <addaction name="actionClose"/>
     <addaction name="actionExit"/>
    </widget>
-   <widget class="QMenu" name="menuEdit">
-    <property name="title">
-     <string>Edit</string>
-    </property>
-    <addaction name="actionUndo"/>
-    <addaction name="actionRedo"/>
-   </widget>
    <widget class="QMenu" name="menuAP">
     <property name="title">
      <string>AP</string>
     </property>
-    <widget class="QMenu" name="menuDraw">
-     <property name="title">
-      <string>Draw</string>
-     </property>
-     <addaction name="actionLineAP"/>
-     <addaction name="actionDotAP"/>
-    </widget>
     <addaction name="actionOpenAP"/>
-    <addaction name="menuDraw"/>
    </widget>
    <widget class="QMenu" name="menuLAT">
     <property name="title">
      <string>LAT</string>
     </property>
-    <widget class="QMenu" name="menuDrawLAT">
-     <property name="title">
-      <string>Draw</string>
-     </property>
-     <addaction name="actionLineLAT"/>
-     <addaction name="actionDotLAT"/>
-    </widget>
     <addaction name="actionOpenLAT"/>
-    <addaction name="menuDrawLAT"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
@@ -154,7 +131,6 @@ color:white;</string>
     <addaction name="action3Dmodel"/>
    </widget>
    <addaction name="menuFile"/>
-   <addaction name="menuEdit"/>
    <addaction name="menuAP"/>
    <addaction name="menuLAT"/>
    <addaction name="menuView"/>
@@ -172,12 +148,7 @@ color:white;</string>
    <addaction name="actionClose"/>
    <addaction name="separator"/>
    <addaction name="actionOpenAP"/>
-   <addaction name="actionLineAP"/>
    <addaction name="actionOpenLAT"/>
-   <addaction name="actionLineLAT"/>
-   <addaction name="separator"/>
-   <addaction name="actionUndo"/>
-   <addaction name="actionRedo"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNew">
