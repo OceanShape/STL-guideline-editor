@@ -149,6 +149,7 @@ color:white;</string>
    <addaction name="separator"/>
    <addaction name="actionOpenAP"/>
    <addaction name="actionOpenLAT"/>
+   <addaction name="separator"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNew">
