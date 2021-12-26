@@ -106,10 +106,12 @@ void MainWindow::Save() {
                           "SPINOUS_PROCESS",
                           "SPINOUS_PROCESS_ROTATE_Y",
                           "SPINOUS_PROCESS_ROTATE_Z"};
-  QString patientType[4] = {"AP_name", "LAT_name", "date", "remarks(proof)"};
+  QString patientType[5] = {"AP_name", "LAT_name", "date", "symptom",
+                            "remarks(proof)"};
   out << patientType[0] << ',' << patientType[1] << ',' << patientType[2] << ','
-      << patientType[3] << "\n";
-  out << imageFileName[0] << ',' << imageFileName[1] << ',' << currentTimeStr << '\n';
+      << patientType[3] << ',' << patientType[4] << "\n";
+  out << imageFileName[0] << ',' << imageFileName[1] << ',' << currentTimeStr
+      << '\n';
   out << ", x(x-y), y(x-y), y(y-z), z(y-z), x(x-y-z), y(x-y-z), z(x-y-z), "
          "alpha, beta"
       << endl;
