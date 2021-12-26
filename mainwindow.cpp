@@ -56,7 +56,20 @@ void MainWindow::New() {
   }
 }
 
-void MainWindow::Open() {}
+void MainWindow::Open() {
+  QString dir = QFileDialog::getOpenFileName(this, "Select .csv file",
+                                             QDir::currentPath(), "*.csv");
+  QFile file(dir);
+  if (!file.open(QFile::ReadOnly | QFile::Text)) {
+    return;
+  }
+  QTextStream OpenFile(&file);
+  QVector<QString> buf;
+  while (!OpenFile.atEnd()) {
+    buf.push_back(OpenFile.readLine());
+  }
+  file.close();
+}
 
 void MainWindow::Save() {
   ViewAP* ap = ui.viewAP;
