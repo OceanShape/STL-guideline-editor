@@ -98,7 +98,10 @@ void MainWindow::Save() {
   QString patientType[4] = {"AP_name", "LAT_name", "date", "remarks(proof)"};
   out << patientType[0] << ',' << patientType[1] << ',' << patientType[2] << ','
       << patientType[3] << "\n";
-  out << imageFileName[0] << ',' << imageFileName[1] << '\n';
+  QDateTime currentTime = QDateTime::currentDateTimeUtc();
+  currentTime = currentTime.addSecs(UTC_TIME_ASIA_SEOUL);
+  QString currentTimeStr = currentTime.toString("yyyy-MM-dd");
+  out << imageFileName[0] << ',' << imageFileName[1] << ',' << currentTimeStr << '\n';
   out << ", x(x-y), y(x-y), y(y-z), z(y-z), x(x-y-z), y(x-y-z), z(x-y-z), "
          "alpha, beta"
       << endl;
