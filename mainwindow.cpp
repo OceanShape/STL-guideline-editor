@@ -77,8 +77,19 @@ void MainWindow::Save() {
   ViewLAT* lat = ui.viewLAT;
   QGraphicsScene* s[2] = {ui.viewAP->scene(), ui.viewLAT->scene()};
 
-  QString dir = QFileDialog::getSaveFileName(this, "Save file",
-                                             QDir::currentPath(), "*.csv");
+  QString patientNum;
+  bool ok;
+  do {
+    patientNum = QInputDialog::getText(this, tr("Input patient number"),
+                                       tr("Patient number:"), QLineEdit::Normal,
+                                       QDir::home().dirName(), &ok);
+  } while (!ok);
+
+  QDateTime currentTime = QDateTime::currentDateTimeUtc();
+  currentTime = currentTime.addSecs(UTC_TIME_ASIA_SEOUL);
+  QString currentTimeStr = currentTime.toString("yyyy-MM-dd");
+
+  QString dir = QDir::currentPath() + '/' + patientNum + '-' + currentTimeStr + ".csv";
   QFile file(dir);
   if (!file.open(QFile::WriteOnly | QFile::Text)) {
     return;
@@ -98,9 +109,6 @@ void MainWindow::Save() {
   QString patientType[4] = {"AP_name", "LAT_name", "date", "remarks(proof)"};
   out << patientType[0] << ',' << patientType[1] << ',' << patientType[2] << ','
       << patientType[3] << "\n";
-  QDateTime currentTime = QDateTime::currentDateTimeUtc();
-  currentTime = currentTime.addSecs(UTC_TIME_ASIA_SEOUL);
-  QString currentTimeStr = currentTime.toString("yyyy-MM-dd");
   out << imageFileName[0] << ',' << imageFileName[1] << ',' << currentTimeStr << '\n';
   out << ", x(x-y), y(x-y), y(y-z), z(y-z), x(x-y-z), y(x-y-z), z(x-y-z), "
          "alpha, beta"

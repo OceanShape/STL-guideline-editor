@@ -11,6 +11,8 @@
 #include <QFile>
 #include <QTextStream>
 #include <QDateTime>
+#include <QLineedit>
+#include <QInputDialog>
 
 #include "ui_mainwindow.h"
 
