@@ -43,6 +43,7 @@ void MainWindow::New() {
     QString dir = QFileDialog::getOpenFileName(
         this, "Select image", QDir::currentPath(), "*.jpg ;; *.jpeg ;; *.png");
     if (dir == nullptr) return;
+    imageFileName[i] = dir;
     QImage* img = new QImage(dir);
 
     delete scene[i];

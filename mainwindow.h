@@ -20,6 +20,7 @@ class MainWindow : public QMainWindow {
 
  private:
   Ui::MainWindowClass ui;
+  QString imageFileName[2];
  private slots:
   void New();
   void Open();
