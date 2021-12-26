@@ -110,7 +110,6 @@ color:white;</string>
     <addaction name="actionSaveAs"/>
     <addaction name="separator"/>
     <addaction name="actionClose"/>
-    <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuAP">
     <property name="title">
@@ -145,7 +144,6 @@ color:white;</string>
    <addaction name="actionNew"/>
    <addaction name="actionOpen"/>
    <addaction name="actionSave"/>
-   <addaction name="actionClose"/>
    <addaction name="separator"/>
    <addaction name="actionOpenAP"/>
    <addaction name="actionOpenLAT"/>
