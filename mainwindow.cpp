@@ -11,14 +11,20 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
   connect(ui.actionSave, SIGNAL(triggered()), this, SLOT(Save()));
   connect(ui.actionClose, SIGNAL(triggered()), this, SLOT(Close()));
 
+  createScene();
+}
+
+void MainWindow::releaseScene() {
+  delete ui.viewAP->scene();
+  delete ui.viewLAT->scene();
+}
+
+void MainWindow::createScene() {
   ui.viewAP->setScene(new QGraphicsScene);
   ui.viewLAT->setScene(new QGraphicsScene);
 }
 
-MainWindow::~MainWindow() {
-  delete ui.viewAP->scene();
-  delete ui.viewLAT->scene();
-}
+MainWindow::~MainWindow() { releaseScene(); }
 
 void MainWindow::New() {
   View* view[2] = {ui.viewAP, ui.viewLAT};
@@ -49,19 +55,32 @@ void MainWindow::Open() {}
 void MainWindow::Save() {
   ViewAP* ap = ui.viewAP;
   ViewLAT* lat = ui.viewLAT;
-  QGraphicsScene* s[2] = { ui.viewAP->scene(), ui.viewLAT->scene() };
+  QGraphicsScene* s[2] = {ui.viewAP->scene(), ui.viewLAT->scene()};
 
-  QString dir = QFileDialog::getSaveFileName(
-    this, "Save file", QDir::currentPath(), "*.csv");
+  QString dir = QFileDialog::getSaveFileName(this, "Save file",
+                                             QDir::currentPath(), "*.csv");
   QFile file(dir);
-  if (!file.open(QFile::WriteOnly | QFile::Text)){
+  if (!file.open(QFile::WriteOnly | QFile::Text)) {
     return;
   }
   QTextStream out(&file);
-  QString dataType[11] = { "AP_BASE", "LAT_BASE", "AP_SPINE", "LAT_SPINE", "AP_PELVIS", "LAT_TAILBONE", "LAT_TAILBONE_ANGLE_ALPHA", "LAT_TAILBONE_ANGLE_BETA", "SPINOUS_PROCESS", "SPINOUS_PROCESS_ROTATE_Y", "SPINOUS_PROCESS_ROTATE_Z" };
-  QString patientType[4] = { "AP_name", "LAT_name", "date", "remarks(proof)" };
-  out << patientType[0] << ',' << patientType[1] << ',' << patientType[2] << ',' << patientType[3] << "\n\n";
-  out << ", x(x-y), y(x-y), y(y-z), z(y-z), x(x-y-z), y(x-y-z), z(x-y-z), alpha, beta" << endl;
+  QString dataType[11] = {"AP_BASE",
+                          "LAT_BASE",
+                          "AP_SPINE",
+                          "LAT_SPINE",
+                          "AP_PELVIS",
+                          "LAT_TAILBONE",
+                          "LAT_TAILBONE_ANGLE_ALPHA",
+                          "LAT_TAILBONE_ANGLE_BETA",
+                          "SPINOUS_PROCESS",
+                          "SPINOUS_PROCESS_ROTATE_Y",
+                          "SPINOUS_PROCESS_ROTATE_Z"};
+  QString patientType[4] = {"AP_name", "LAT_name", "date", "remarks(proof)"};
+  out << patientType[0] << ',' << patientType[1] << ',' << patientType[2] << ','
+      << patientType[3] << "\n\n";
+  out << ", x(x-y), y(x-y), y(y-z), z(y-z), x(x-y-z), y(x-y-z), z(x-y-z), "
+         "alpha, beta"
+      << endl;
   int baseAPx = ap->getBasePoint().x();
   int baseAPy = ap->getBasePoint().y();
   int baseLATy = lat->getBasePoint().y();
@@ -73,7 +92,8 @@ void MainWindow::Save() {
       QPointF tmp = ap->getSpinePoint(i, j);
       int x = tmp.x() - baseAPx;
       int y = baseAPy - tmp.y();
-      out << dataType[2] << '_' << i + 1 << '_' << j + 1 << ',' << x << ',' << y << endl;
+      out << dataType[2] << '_' << i + 1 << '_' << j + 1 << ',' << x << ',' << y
+          << endl;
     }
   }
 
@@ -82,7 +102,8 @@ void MainWindow::Save() {
       QPointF tmp = lat->getSpinePoint(i, j);
       int y = baseLATy - tmp.y();
       int z = tmp.x() - baseLATz;
-      out << dataType[3] << '_' << i + 1 << '_' << j + 1 << ",,," << y << ", " << z << endl;
+      out << dataType[3] << '_' << i + 1 << '_' << j + 1 << ",,," << y << ", "
+          << z << endl;
     }
   }
 
@@ -108,7 +129,8 @@ void MainWindow::Save() {
     int x = tmpAP.x() - baseAPx;
     int y = baseAPy - tmpAP.y();
     int z = tmpLAT.x() - baseLATz;
-    out << dataType[8] << '_' << i + 1 << ',' << "  ,  ,  ,  ," << x << ',' << y << ',' << z << endl;
+    out << dataType[8] << '_' << i + 1 << ',' << "  ,  ,  ,  ," << x << ',' << y
+        << ',' << z << endl;
   }
 
   file.flush();

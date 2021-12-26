@@ -25,4 +25,6 @@ class MainWindow : public QMainWindow {
   void Open();
   void Save();
   void Close();
+  void releaseScene();
+  void createScene();
 };
