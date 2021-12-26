@@ -43,7 +43,7 @@ void MainWindow::New() {
     QString dir = QFileDialog::getOpenFileName(
         this, "Select image", QDir::currentPath(), "*.jpg ;; *.jpeg ;; *.png");
     if (dir == nullptr) return;
-    imageFileName[i] = dir;
+    imageFileName[i] = QFileInfo(dir).fileName();
     QImage* img = new QImage(dir);
 
     delete scene[i];
@@ -97,7 +97,8 @@ void MainWindow::Save() {
                           "SPINOUS_PROCESS_ROTATE_Z"};
   QString patientType[4] = {"AP_name", "LAT_name", "date", "remarks(proof)"};
   out << patientType[0] << ',' << patientType[1] << ',' << patientType[2] << ','
-      << patientType[3] << "\n\n";
+      << patientType[3] << "\n";
+  out << imageFileName[0] << ',' << imageFileName[1] << '\n';
   out << ", x(x-y), y(x-y), y(y-z), z(y-z), x(x-y-z), y(x-y-z), z(x-y-z), "
          "alpha, beta"
       << endl;

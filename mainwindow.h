@@ -1,5 +1,7 @@
 #pragma once
 
+#define UTC_TIME_ASIA_SEOUL 9 * 60 * 60
+
 #include <QFileDialog>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsView>
@@ -8,6 +10,7 @@
 #include <QMessageBox>
 #include <QFile>
 #include <QTextStream>
+#include <QDateTime>
 
 #include "ui_mainwindow.h"
 
