@@ -79,21 +79,19 @@ void MainWindow::Save() {
 
   QString patientNum;
   bool ok;
-  do {
-    patientNum = QInputDialog::getText(this, tr("Input patient number"),
-                                       tr("Patient number:"), QLineEdit::Normal,
-                                       QDir::home().dirName(), &ok);
-  } while (!ok);
+  patientNum = QInputDialog::getText(this, tr("Input patient number"),
+                                     tr("Patient number:"), QLineEdit::Normal,
+                                     QDir::home().dirName(), &ok);
+  if (!ok) return;
 
   QDateTime currentTime = QDateTime::currentDateTimeUtc();
   currentTime = currentTime.addSecs(UTC_TIME_ASIA_SEOUL);
   QString currentTimeStr = currentTime.toString("yyyy-MM-dd");
 
-  QString dir = QDir::currentPath() + '/' + patientNum + '-' + currentTimeStr + ".csv";
+  QString dir =
+      QDir::currentPath() + '/' + patientNum + '-' + currentTimeStr + ".csv";
   QFile file(dir);
-  if (!file.open(QFile::WriteOnly | QFile::Text)) {
-    return;
-  }
+  if (!file.open(QFile::WriteOnly | QFile::Text)) return;
   QTextStream out(&file);
   QString dataType[11] = {"AP_BASE",
                           "LAT_BASE",
