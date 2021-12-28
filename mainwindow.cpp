@@ -87,9 +87,11 @@ void MainWindow::Save() {
   QDateTime currentTime = QDateTime::currentDateTimeUtc();
   currentTime = currentTime.addSecs(UTC_TIME_ASIA_SEOUL);
   QString currentTimeStr = currentTime.toString("yyyy-MM-dd");
+  
+  QString fileName = patientNum + '-' + currentTimeStr;
+  QString dir = QFileDialog::getSaveFileName(this, "Select .csv file",
+    QDir::currentPath() + '/' + fileName, "*.csv");
 
-  QString dir =
-      QDir::currentPath() + '/' + patientNum + '-' + currentTimeStr + ".csv";
   QFile file(dir);
   if (!file.open(QFile::WriteOnly | QFile::Text)) return;
   QTextStream out(&file);
