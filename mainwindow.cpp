@@ -95,15 +95,14 @@ void MainWindow::Save() {
   QFile file(dir);
   if (!file.open(QFile::WriteOnly | QFile::Text)) return;
   QTextStream out(&file);
-  QString dataType[12] = {"AP_BASE",
+  QString dataType[11] = {"AP_BASE",
                           "LAT_BASE",
                           "AP_SPINE",
                           "LAT_SPINE",
                           "AP_PELVIS",
-                          "AP_PELVIS_ANGLE_ALPHA",
+                          "AP_PELVIS_ANGLE",
                           "LAT_TAILBONE",
-                          "LAT_TAILBONE_ANGLE_ALPHA",
-                          "LAT_TAILBONE_ANGLE_BETA",
+                          "LAT_TAILBONE_ANGLE",
                           "SPINOUS_PROCESS",
                           "SPINOUS_PROCESS_ROTATE_Y",
                           "SPINOUS_PROCESS_ROTATE_Z"};
@@ -156,8 +155,8 @@ void MainWindow::Save() {
     int z = tmp.x() - baseLATz;
     out << dataType[6] << '_' << i + 1 << ",,," << y << ',' << z << endl;
   }
-  out << dataType[7] << ",,,,,,,," << lat->getTailboneAlpha() << endl;
-  out << dataType[8] << ",,,,,,,,," << lat->getTailboneBeta() << endl;
+  out << dataType[7] << ",,,,,,,," << lat->getTailboneAlpha() << ','
+      << lat->getTailboneBeta() << endl;
 
   for (int i = 0; i < spinousProcessPointCount; ++i) {
     QPointF tmpAP = ap->getSpinousProcessPoint(i);
@@ -165,7 +164,7 @@ void MainWindow::Save() {
     int x = tmpAP.x() - baseAPx;
     int y = baseAPy - tmpAP.y();
     int z = tmpLAT.x() - baseLATz;
-    out << dataType[9] << '_' << i + 1 << ',' << "  ,  ,  ,  ," << x << ',' << y
+    out << dataType[8] << '_' << i + 1 << ',' << "  ,  ,  ,  ," << x << ',' << y
         << ',' << z << endl;
   }
 
