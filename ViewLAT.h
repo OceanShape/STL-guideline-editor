@@ -27,7 +27,7 @@ class ViewLAT : public View {
   }
 
   qreal getTailboneBeta() {
-    return -atan2(
+    return atan2(
                tailbonePoint[1].position.y() - tailbonePoint[2].position.y(),
                tailbonePoint[2].position.x() - tailbonePoint[1].position.x()) *
            180 / M_PI;
