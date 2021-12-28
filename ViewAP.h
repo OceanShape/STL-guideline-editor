@@ -19,6 +19,12 @@ class ViewAP : public View {
     return pelvisPoint[pointIdx].position;
   }
 
+  qreal getPelvisAlpha() {
+    return -atan2(pelvisPoint[1].position.y() - pelvisPoint[0].position.y(),
+                 pelvisPoint[1].position.x() - pelvisPoint[0].position.x()) *
+           180 / M_PI;
+  }
+
  signals:
 
  public slots:
