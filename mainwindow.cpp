@@ -10,8 +10,6 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
   connect(ui.actionOpen, SIGNAL(triggered()), this, SLOT(Open()));
   connect(ui.actionSave, SIGNAL(triggered()), this, SLOT(Save()));
   connect(ui.actionClose, SIGNAL(triggered()), this, SLOT(Close()));
-  connect(ui.actionOpenAP, SIGNAL(triggered()), this, SLOT(OpenAP()));
-  connect(ui.actionOpenLAT, SIGNAL(triggered()), this, SLOT(OpenLAT()));
 
   ui.viewAP->setScene(new QGraphicsScene);
   ui.viewLAT->setScene(new QGraphicsScene);
@@ -20,16 +18,6 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
 MainWindow::~MainWindow() {
   delete ui.viewAP->scene();
   delete ui.viewLAT->scene();
-}
-
-void MainWindow::OpenAP() {
-  delete ui.viewAP->scene();
-  ui.viewAP->setScene(new QGraphicsScene);
-}
-
-void MainWindow::OpenLAT() {
-  delete ui.viewLAT->scene();
-  ui.viewLAT->setScene(new QGraphicsScene);
 }
 
 void MainWindow::New() {

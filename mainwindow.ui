@@ -143,21 +143,8 @@ color:white;</string>
     <addaction name="actionNew"/>
     <addaction name="actionOpen"/>
     <addaction name="actionSave"/>
-    <addaction name="actionSaveAs"/>
     <addaction name="separator"/>
     <addaction name="actionClose"/>
-   </widget>
-   <widget class="QMenu" name="menuAP">
-    <property name="title">
-     <string>AP</string>
-    </property>
-    <addaction name="actionOpenAP"/>
-   </widget>
-   <widget class="QMenu" name="menuLAT">
-    <property name="title">
-     <string>LAT</string>
-    </property>
-    <addaction name="actionOpenLAT"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
@@ -166,8 +153,6 @@ color:white;</string>
     <addaction name="action3Dmodel"/>
    </widget>
    <addaction name="menuFile"/>
-   <addaction name="menuAP"/>
-   <addaction name="menuLAT"/>
    <addaction name="menuView"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
@@ -180,10 +165,7 @@ color:white;</string>
    <addaction name="actionNew"/>
    <addaction name="actionOpen"/>
    <addaction name="actionSave"/>
-   <addaction name="separator"/>
-   <addaction name="actionOpenAP"/>
-   <addaction name="actionOpenLAT"/>
-   <addaction name="separator"/>
+   <addaction name="actionClose"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNew">
