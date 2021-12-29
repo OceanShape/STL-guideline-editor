@@ -112,7 +112,7 @@ void MainWindow::Save() {
       << patientType[3] << ',' << patientType[4] << "\n";
   out << imageFileName[0] << ',' << imageFileName[1] << ',' << currentTimeStr
       << '\n';
-  out << ", x(x-y), y(x-y), y(y-z), z(y-z), x(x-y-z), y(x-y-z), z(x-y-z), "
+  out << ", x(x-y), y(x-y), y(y-z), z(y-z), y(rot), z(rot), x(x-y-z), y(x-y-z), z(x-y-z), "
          "alpha, beta"
       << endl;
   int baseAPx = ap->getBasePoint().x();
@@ -126,8 +126,12 @@ void MainWindow::Save() {
       QPointF tmp = ap->getSpinePoint(i, j);
       int x = tmp.x() - baseAPx;
       int y = baseAPy - tmp.y();
-      out << dataType[2] << '_' << i + 1 << '_' << j + 1 << ',' << x << ',' << y
-          << endl;
+      out << dataType[2] << '_' << i + 1 << '_' << j + 1 << ',' << x << ','
+          << y;
+      if (j == 0) {
+        out << ",,,," << ap->getSpineRotateZ(i);  // Yrot
+      }
+      out << endl;
     }
   }
 
@@ -147,7 +151,7 @@ void MainWindow::Save() {
     int y = baseAPy - tmp.y();
     out << dataType[4] << '_' << i + 1 << ',' << x << ',' << y << endl;
   }
-  out << dataType[5] << ",,,,,,,," << ap->getPelvisAlpha() << endl;
+  out << dataType[5] << ",,,,,,,,,," << ap->getPelvisAlpha() << endl;
 
   for (int i = 0; i < tailbonePointCount; ++i) {
     QPointF tmp = lat->getTailbonePoint(i);
@@ -155,7 +159,7 @@ void MainWindow::Save() {
     int z = tmp.x() - baseLATz;
     out << dataType[6] << '_' << i + 1 << ",,," << y << ',' << z << endl;
   }
-  out << dataType[7] << ",,,,,,,," << lat->getTailboneAlpha() << ','
+  out << dataType[7] << ",,,,,,,,,," << lat->getTailboneAlpha() << ','
       << lat->getTailboneBeta() << endl;
 
   for (int i = 0; i < spinousProcessPointCount; ++i) {
@@ -164,7 +168,7 @@ void MainWindow::Save() {
     int x = tmpAP.x() - baseAPx;
     int y = baseAPy - tmpAP.y();
     int z = tmpLAT.x() - baseLATz;
-    out << dataType[8] << '_' << i + 1 << ',' << "  ,  ,  ,  ," << x << ',' << y
+    out << dataType[8] << '_' << i + 1 << ',' << ",,,,,," << x << ',' << y
         << ',' << z << endl;
   }
 
