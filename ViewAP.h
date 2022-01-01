@@ -41,31 +41,6 @@ class ViewAP : public View {
     return -atan2(dY, dX) * 180 / M_PI;
   }
 
-  qreal getD2(int spineIdx) {
-    qreal x1, y1, x2, y2, m, b, x3, y3;
-    x1 = (spinePoint[spineIdx][0].position.x() +
-          spinePoint[spineIdx][1].position.x()) /
-         2;
-    x2 = (spinePoint[spineIdx][2].position.x() +
-          spinePoint[spineIdx][3].position.x()) /
-         2;
-    y1 = (spinePoint[spineIdx][0].position.y() +
-          spinePoint[spineIdx][1].position.y()) /
-         2;
-    y2 = (spinePoint[spineIdx][2].position.y() +
-          spinePoint[spineIdx][3].position.y()) /
-         2;
-    x3 = spinousProcessPoint[spineIdx].position.x();
-    y3 = spinousProcessPoint[spineIdx].position.y();
-    m = (y2 - y1) / (x1 - x2);
-    b = -m * x1 + y1;
-    qreal res = abs(m * x3 - y3 + b) / sqrt(m * m + 1);
-    if (x3 > (x1 + x2) / 2) {
-      res *= -1;
-    }
-    return res;
-  }
-
  signals:
 
  public slots:
