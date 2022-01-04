@@ -48,14 +48,11 @@ void View::mousePressEvent(QMouseEvent* event) {
 
   if (currentMode == Mode::BASE_LINE) {
     drawBaseLine(pos, btn);
-  }
-  else if (currentMode == Mode::SPINE) {
+  } else if (currentMode == Mode::SPINE) {
     drawSpinePoint(pos, btn);
-  }
-  else if (currentMode == Mode::PELVIS_OR_TAILBONE) {
+  } else if (currentMode == Mode::PELVIS_OR_TAILBONE) {
     drawPelvisORTailbonePoint(pos, btn);
-  }
-  else if (currentMode == Mode::AP_SPINOUS_PROCESS) {
+  } else if (currentMode == Mode::AP_SPINOUS_PROCESS) {
     drawSpinousProcessPoint(pos, btn);
   }
   resetPenSetting();
@@ -102,13 +99,13 @@ void View::redrawBaseLine(const QPointF& pos,
 
 void View::drawDefaultBaseLine(const QPointF& pos) {
   baseLine[BaseLineType::VERTICAL] = scene()->addLine(
-    pos.x(), 0 + 10, pos.x(), static_cast<qreal>(4480 - 10), *pen);
+      pos.x(), 0 + 10, pos.x(), static_cast<qreal>(4480 - 10), *pen);
 
   pen->setColor(Qt::red);
   pen->setStyle(Qt::DotLine);
 
   baseLine[BaseLineType::HORIZONTAL] = scene()->addLine(
-    0 + 10, pos.y(), static_cast<qreal>(3600 - 10), pos.y(), *pen);
+      0 + 10, pos.y(), static_cast<qreal>(3600 - 10), pos.y(), *pen);
   baseLineStatus = BaseLineStatus::NOT_SELECTED;
 
   resetPenSetting();
@@ -300,7 +297,6 @@ BaseLineType View::clickRangedBaseLine(const QPointF& pos) {
 }
 
 void View::sortSpinousProcessPoint() {
-
   bool isAllPointSet = true;
   for (int i = 0; i < spinousProcessPointCount; ++i) {
     if (isPointInvalid(spinousProcessPoint[i])) {
@@ -312,7 +308,7 @@ void View::sortSpinousProcessPoint() {
     for (int i = 0; i < spinousProcessPointCount; ++i) {
       for (int j = 0; j < spinousProcessPointCount - (i + 1); ++j) {
         if (spinousProcessPoint[j].position.y() >
-          spinousProcessPoint[j + 1].position.y()) {
+            spinousProcessPoint[j + 1].position.y()) {
           point tmp;
           tmp = spinousProcessPoint[j + 1];
           spinousProcessPoint[j + 1] = spinousProcessPoint[j];
@@ -335,20 +331,18 @@ void View::drawSpinousProcessPoint(QPointF pos, const Qt::MouseButton& btn) {
 
     pen->setColor(Qt::yellow);
     spinousProcessPoint[currentSpinousProcessPoint] = {
-    scene()->addEllipse(pos.x(), pos.y(), pointRadius, pointRadius, *pen,
-                        *brush),
-    pos };
+        scene()->addEllipse(pos.x(), pos.y(), pointRadius, pointRadius, *pen,
+                            *brush),
+        pos};
 
     if (removedSpinousProcessPoint.empty() == false) {
       int t = removedSpinousProcessPoint.top();
       removedSpinousProcessPoint.pop();
       currentSpinousProcessPoint = t;
-    }
-    else {
+    } else {
       ++currentSpinousProcessPoint;
     }
-  }
-  else {
+  } else {
     point* p = clickRangedSpinousProcessPointOrNull(pos, removePointIndex);
     if (p == nullptr) return;
     removedSpinousProcessPoint.push(currentSpinousProcessPoint);
@@ -362,12 +356,12 @@ void View::drawSpinousProcessPoint(QPointF pos, const Qt::MouseButton& btn) {
 }
 
 point* View::clickRangedSpinousProcessPointOrNull(const QPointF& pos,
-  int& outCurrentPoint) {
+                                                  int& outCurrentPoint) {
   for (int i = 0; i < spinousProcessPointCount; ++i) {
     qreal x = spinousProcessPoint[i].position.x();
     qreal y = spinousProcessPoint[i].position.y();
     if ((x - clickRangeWidth <= pos.x() && pos.x() <= x + clickRangeWidth) &&
-      (y - clickRangeWidth <= pos.y() && pos.y() <= y + clickRangeWidth)) {
+        (y - clickRangeWidth <= pos.y() && pos.y() <= y + clickRangeWidth)) {
       outCurrentPoint = i;
       return &spinousProcessPoint[i];
     }

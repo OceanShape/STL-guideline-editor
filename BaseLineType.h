@@ -1,6 +1,2 @@
 #pragma once
-enum BaseLineType {
-	VERTICAL,
-	HORIZONTAL,
-	NONE
-};
+enum BaseLineType { VERTICAL, HORIZONTAL, NONE };

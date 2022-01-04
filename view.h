@@ -31,16 +31,17 @@ static qreal defaultBaseLineLATZ = 1513;
 
 class View : public QGraphicsView {
   Q_OBJECT
-public:
+ public:
   Mode currentMode = Mode::BASE_LINE;
 
  public:
   View::~View();
   explicit View(QWidget* parent = nullptr);
-  virtual void drawPelvisORTailbonePoint(const QPointF& pos, const Qt::MouseButton& btn) {};
+  virtual void drawPelvisORTailbonePoint(const QPointF& pos,
+                                         const Qt::MouseButton& btn){};
   QPointF getBasePoint() {
-    return { baseLine[BaseLineType::VERTICAL]->line().p1().x(),
-            baseLine[BaseLineType::HORIZONTAL]->line().p1().y() };
+    return {baseLine[BaseLineType::VERTICAL]->line().p1().x(),
+            baseLine[BaseLineType::HORIZONTAL]->line().p1().y()};
   }
   QPointF getSpinePoint(int spineIdx, int pointIdx) {
     return spinePoint[spineIdx][pointIdx].position;
@@ -67,7 +68,8 @@ public:
   void drawSpineLine();
   void removeAllSpineLine();
   void sortSpinousProcessPoint();
-  point* clickRangedSpinousProcessPointOrNull(const QPointF& pos, int& outCurrentPoint);
+  point* clickRangedSpinousProcessPointOrNull(const QPointF& pos,
+                                              int& outCurrentPoint);
   void drawSpinousProcessPoint(QPointF pos, const Qt::MouseButton& btn);
 
  signals:

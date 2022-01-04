@@ -75,10 +75,10 @@ void MainWindow::Save() {
   QDateTime currentTime = QDateTime::currentDateTimeUtc();
   currentTime = currentTime.addSecs(UTC_TIME_ASIA_SEOUL);
   QString currentTimeStr = currentTime.toString("yyyy-MM-dd");
-  
+
   QString fileName = patientNum + '-' + currentTimeStr;
-  QString dir = QFileDialog::getSaveFileName(this, "Select .csv file",
-    QDir::currentPath() + '/' + fileName, "*.csv");
+  QString dir = QFileDialog::getSaveFileName(
+      this, "Select .csv file", QDir::currentPath() + '/' + fileName, "*.csv");
 
   QFile file(dir);
   if (!file.open(QFile::WriteOnly | QFile::Text)) return;
@@ -100,7 +100,8 @@ void MainWindow::Save() {
       << patientType[3] << ',' << patientType[4] << "\n";
   out << imageFileName[0] << ',' << imageFileName[1] << ',' << currentTimeStr
       << '\n';
-  out << ", x(x-y), y(x-y), y(y-z), z(y-z), y(rot), z(rot), x(x-y-z), y(x-y-z), z(x-y-z), "
+  out << ", x(x-y), y(x-y), y(y-z), z(y-z), y(rot), z(rot), x(x-y-z), "
+         "y(x-y-z), z(x-y-z), "
          "alpha, beta"
       << endl;
   int baseAPx = ap->getBasePoint().x();
@@ -110,15 +111,6 @@ void MainWindow::Save() {
   out << dataType[0] << ',' << baseAPx << ", " << 4480 - baseAPy << endl;
   out << dataType[1] << ",,," << 4480 - baseLATy << ", " << baseLATz << endl;
 
-  // get Yrot
-
-  /*qreal test1 = ap->getD2(0);
-  qreal test2 = ap->getD2(1);*/
-  qreal test3 = lat->getD1(0);
-  qreal test4 = lat->getD1(1);
-  qreal test5 = lat->getD1(2);
-  qreal test6 = lat->getD1(3);
-
   for (int i = 0; i < spineCount; ++i) {
     for (int j = 0; j < pointCountForOneSpine; ++j) {
       QPointF tmp = ap->getSpinePoint(i, j);
@@ -127,7 +119,8 @@ void MainWindow::Save() {
       out << dataType[2] << '_' << i + 1 << '_' << j + 1 << ',' << x << ','
           << y;
       if (j == 0) {
-        out << ",,,," << ap->getSpineRotateZ(i);  // Yrot
+        // ¡Ø NOTICE: Put Yrot value in here
+        out << ",,,," << ap->getSpineRotateZ(i);
       }
       out << endl;
     }
