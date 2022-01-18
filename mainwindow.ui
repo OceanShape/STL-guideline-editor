@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1920</width>
-    <height>1088</height>
+    <width>1918</width>
+    <height>1084</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -122,6 +122,11 @@ color:white;</string>
              <height>20</height>
             </size>
            </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
            <property name="text">
             <string>Status</string>
            </property>
@@ -166,6 +171,11 @@ color:white;</string>
              <height>20</height>
             </size>
            </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
            <property name="text">
             <string>Symptom</string>
            </property>
@@ -206,6 +216,11 @@ color:white;</string>
              <width>0</width>
              <height>20</height>
             </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
            </property>
            <property name="text">
             <string>Remarks(proof)</string>
@@ -249,7 +264,7 @@ color:white;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1920</width>
+     <width>1918</width>
      <height>22</height>
     </rect>
    </property>
