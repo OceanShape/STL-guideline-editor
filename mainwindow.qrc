@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="/icons">
+    <file>icons/menu_pelvis.jpg</file>
     <file>icons/menu_spinous.jpg</file>
     <file>icons/menu_spine.png</file>
     <file>icons/menu_baseline.jpg</file>
