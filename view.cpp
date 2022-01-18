@@ -52,7 +52,7 @@ void View::mousePressEvent(QMouseEvent* event) {
     drawSpinePoint(pos, btn);
   } else if (currentMode == Mode::PELVIS_OR_TAILBONE) {
     drawPelvisORTailbonePoint(pos, btn);
-  } else if (currentMode == Mode::AP_SPINOUS_PROCESS) {
+  } else if (currentMode == Mode::SPINOUS_PROCESS) {
     drawSpinousProcessPoint(pos, btn);
   }
   resetPenSetting();
@@ -72,7 +72,7 @@ void View::keyPressEvent(QKeyEvent* event) {
   else if (event->key() == Qt::Key_2)
     currentMode = Mode::SPINE;
   else if (event->key() == Qt::Key_3)
-    currentMode = Mode::AP_SPINOUS_PROCESS;
+    currentMode = Mode::SPINOUS_PROCESS;
   else if (event->key() == Qt::Key_4)
     currentMode = Mode::PELVIS_OR_TAILBONE;
 }

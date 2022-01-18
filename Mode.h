@@ -3,5 +3,5 @@ enum class Mode {
   BASE_LINE,
   SPINE,
   PELVIS_OR_TAILBONE,
-  AP_SPINOUS_PROCESS,  // 部府 倒扁
+  SPINOUS_PROCESS,  // 部府 倒扁
 };
