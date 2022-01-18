@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1926</width>
+    <width>1920</width>
     <height>1088</height>
    </rect>
   </property>
@@ -249,7 +249,7 @@ color:white;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1926</width>
+     <width>1920</width>
      <height>22</height>
     </rect>
    </property>
@@ -269,7 +269,13 @@ color:white;</string>
     </property>
     <addaction name="action3Dmodel"/>
    </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
    <addaction name="menuView"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
@@ -283,6 +289,7 @@ color:white;</string>
    <addaction name="actionOpen"/>
    <addaction name="actionSave"/>
    <addaction name="actionClose"/>
+   <addaction name="separator"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNew">
