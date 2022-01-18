@@ -334,6 +334,7 @@ color:white;</string>
    <addaction name="separator"/>
    <addaction name="actionBaseLine"/>
    <addaction name="actionSpine"/>
+   <addaction name="actionSpinousProcess"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNew">
@@ -474,7 +475,19 @@ color:white;</string>
      <normaloff>:/icons/icons/menu_spine.png</normaloff>:/icons/icons/menu_spine.png</iconset>
    </property>
    <property name="text">
-    <string>spine</string>
+    <string>Spine</string>
+   </property>
+   <property name="toolTip">
+    <string>Spine</string>
+   </property>
+  </action>
+  <action name="actionSpinousProcess">
+   <property name="icon">
+    <iconset resource="mainwindow.qrc">
+     <normaloff>:/icons/icons/menu_spinous.jpg</normaloff>:/icons/icons/menu_spinous.jpg</iconset>
+   </property>
+   <property name="text">
+    <string>SpinousProcess</string>
    </property>
   </action>
  </widget>
