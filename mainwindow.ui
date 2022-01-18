@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1918</width>
+    <width>1920</width>
     <height>1084</height>
    </rect>
   </property>
@@ -155,6 +155,11 @@ color:white;</string>
              <height>16777215</height>
             </size>
            </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
           </widget>
          </item>
          <item>
@@ -200,6 +205,17 @@ color:white;</string>
              <width>450</width>
              <height>100</height>
             </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Write symptom</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
            </property>
           </widget>
          </item>
@@ -250,6 +266,17 @@ color:white;</string>
              <height>16777215</height>
             </size>
            </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Write remarks</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+           </property>
           </widget>
          </item>
         </layout>
@@ -264,7 +291,7 @@ color:white;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1918</width>
+     <width>1920</width>
      <height>22</height>
     </rect>
    </property>
