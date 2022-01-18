@@ -337,6 +337,7 @@ color:white;</string>
    <addaction name="actionSpinousProcess"/>
    <addaction name="separator"/>
    <addaction name="actionPelvis"/>
+   <addaction name="actionTailbone"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNew">
@@ -499,6 +500,15 @@ color:white;</string>
    </property>
    <property name="text">
     <string>Pelvis</string>
+   </property>
+  </action>
+  <action name="actionTailbone">
+   <property name="icon">
+    <iconset resource="mainwindow.qrc">
+     <normaloff>:/icons/icons/menu_tailbone.jpg</normaloff>:/icons/icons/menu_tailbone.jpg</iconset>
+   </property>
+   <property name="text">
+    <string>Tailbone</string>
    </property>
   </action>
  </widget>
