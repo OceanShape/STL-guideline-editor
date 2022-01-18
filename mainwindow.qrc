@@ -1,12 +1,13 @@
 <RCC>
-    <qresource prefix="/icons">
-        <file>icons/AP_icon.jpg</file>
-        <file>icons/document-new.png</file>
-        <file>icons/document-open.png</file>
-        <file>icons/document-save.png</file>
-        <file>icons/edit-redo.png</file>
-        <file>icons/edit-undo.png</file>
-        <file>icons/LAT_icon.jpg</file>
-        <file>icons/window-close.png</file>
-    </qresource>
+  <qresource prefix="/icons">
+    <file>icons/menu_baseline.jpg</file>
+    <file>icons/AP_icon.jpg</file>
+    <file>icons/document-new.png</file>
+    <file>icons/document-open.png</file>
+    <file>icons/document-save.png</file>
+    <file>icons/edit-redo.png</file>
+    <file>icons/edit-undo.png</file>
+    <file>icons/LAT_icon.jpg</file>
+    <file>icons/window-close.png</file>
+  </qresource>
 </RCC>

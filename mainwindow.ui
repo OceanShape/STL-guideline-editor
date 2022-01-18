@@ -332,6 +332,7 @@ color:white;</string>
    <addaction name="actionSave"/>
    <addaction name="actionClose"/>
    <addaction name="separator"/>
+   <addaction name="actionBaseLine"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNew">
@@ -455,6 +456,15 @@ color:white;</string>
   <action name="action3Dmodel">
    <property name="text">
     <string>3Dmodel(STL)</string>
+   </property>
+  </action>
+  <action name="actionBaseLine">
+   <property name="icon">
+    <iconset resource="mainwindow.qrc">
+     <normaloff>:/icons/icons/menu_baseline.jpg</normaloff>:/icons/icons/menu_baseline.jpg</iconset>
+   </property>
+   <property name="text">
+    <string>BaseLine</string>
    </property>
   </action>
  </widget>
