@@ -50,10 +50,10 @@ void View::mousePressEvent(QMouseEvent* event) {
     drawBaseLine(pos, btn);
   } else if (currentMode == Mode::SPINE) {
     drawSpinePoint(pos, btn);
-  } else if (currentMode == Mode::PELVIS_OR_TAILBONE) {
-    drawPelvisORTailbonePoint(pos, btn);
   } else if (currentMode == Mode::SPINOUS_PROCESS) {
     drawSpinousProcessPoint(pos, btn);
+  } else if (currentMode == Mode::PELVIS_OR_TAILBONE) {
+    drawPelvisORTailbonePoint(pos, btn);
   }
   resetPenSetting();
 }
