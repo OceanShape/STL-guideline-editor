@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1920</width>
-    <height>1084</height>
+    <width>1922</width>
+    <height>1088</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -291,7 +291,7 @@ color:white;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1920</width>
+     <width>1922</width>
      <height>22</height>
     </rect>
    </property>
@@ -333,6 +333,7 @@ color:white;</string>
    <addaction name="actionClose"/>
    <addaction name="separator"/>
    <addaction name="actionBaseLine"/>
+   <addaction name="actionSpine"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNew">
@@ -465,6 +466,15 @@ color:white;</string>
    </property>
    <property name="text">
     <string>BaseLine</string>
+   </property>
+  </action>
+  <action name="actionSpine">
+   <property name="icon">
+    <iconset resource="mainwindow.qrc">
+     <normaloff>:/icons/icons/menu_spine.png</normaloff>:/icons/icons/menu_spine.png</iconset>
+   </property>
+   <property name="text">
+    <string>spine</string>
    </property>
   </action>
  </widget>

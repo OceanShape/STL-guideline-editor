@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="/icons">
+    <file>icons/menu_spine.png</file>
     <file>icons/menu_baseline.jpg</file>
     <file>icons/AP_icon.jpg</file>
     <file>icons/document-new.png</file>
