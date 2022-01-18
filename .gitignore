@@ -2,7 +2,8 @@
 # ----------------------------------------------------------------------------
 
 # image and project files
-*.jpg
+AP_sample.jpg
+LAT_sample.jpg
 
 # test output file
 *.csv
