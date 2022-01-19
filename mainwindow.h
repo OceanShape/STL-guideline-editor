@@ -32,4 +32,5 @@ class MainWindow : public QMainWindow {
   void Save();
   void Close();
   void BaseLine();
+  void Spine();
 };
