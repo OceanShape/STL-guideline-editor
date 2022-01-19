@@ -66,17 +66,6 @@ void View::mouseReleaseEvent(QMouseEvent* event) {
   releaseBaseLine(mapToScene(event->pos()));
 }
 
-void View::keyPressEvent(QKeyEvent* event) {
-  if (event->key() == Qt::Key_1)
-    currentMode = Mode::BASE_LINE;
-  else if (event->key() == Qt::Key_2)
-    currentMode = Mode::SPINE;
-  else if (event->key() == Qt::Key_3)
-    currentMode = Mode::SPINOUS_PROCESS;
-  else if (event->key() == Qt::Key_4)
-    currentMode = Mode::PELVIS_OR_TAILBONE;
-}
-
 void View::redrawBaseLine(const QPointF& pos,
                           const BaseLineType& baseLineType) {
   QLineF tmpLine = baseLine[baseLineType]->line();
