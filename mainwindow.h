@@ -33,4 +33,5 @@ class MainWindow : public QMainWindow {
   void Close();
   void BaseLine();
   void Spine();
+  void SpinousProcess();
 };

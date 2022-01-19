@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
   connect(ui.actionClose, SIGNAL(triggered()), this, SLOT(Close()));
   connect(ui.actionBaseLine, SIGNAL(triggered()), this, SLOT(BaseLine()));
   connect(ui.actionSpine, SIGNAL(triggered()), this, SLOT(Spine()));
+  connect(ui.actionSpinousProcess, SIGNAL(triggered()), this, SLOT(SpinousProcess()));
 
   ui.viewAP->setScene(new QGraphicsScene);
   ui.viewLAT->setScene(new QGraphicsScene);
@@ -194,4 +195,9 @@ void MainWindow::BaseLine() {
 void MainWindow::Spine() {
   ui.viewAP->currentMode = Mode::SPINE;
   ui.viewLAT->currentMode = Mode::SPINE;
+}
+
+void MainWindow::SpinousProcess() {
+  ui.viewAP->currentMode = Mode::SPINOUS_PROCESS;
+  ui.viewLAT->currentMode = Mode::SPINOUS_PROCESS;
 }
