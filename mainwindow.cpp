@@ -99,7 +99,8 @@ void MainWindow::Save() {
   out << patientType[0] << ',' << patientType[1] << ',' << patientType[2] << ','
       << patientType[3] << ',' << patientType[4] << "\n";
   out << imageFileName[0] << ',' << imageFileName[1] << ',' << currentTimeStr
-      << ui.remarksEdit->text() << ',' << ui.symptomEdit->text() << '\n';
+      << ',' << ui.symptomEdit->text() << ',' << ui.remarksEdit->text() << ','
+      << '\n';
   out << ", x(x-y), y(x-y), y(y-z), z(y-z), y(rot), z(rot), x(x-y-z), "
          "y(x-y-z), z(x-y-z), "
          "alpha, beta"
