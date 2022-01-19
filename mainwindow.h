@@ -34,4 +34,6 @@ class MainWindow : public QMainWindow {
   void BaseLine();
   void Spine();
   void SpinousProcess();
+  void Pelvis();
+  void Tailbone();
 };
