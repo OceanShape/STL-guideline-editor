@@ -22,6 +22,7 @@ class MainWindow : public QMainWindow {
  public:
   MainWindow(QWidget* parent = Q_NULLPTR);
   MainWindow::~MainWindow();
+  void update();
 
  private:
   Ui::MainWindowClass ui;

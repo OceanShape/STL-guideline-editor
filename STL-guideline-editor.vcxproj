@@ -36,6 +36,7 @@
   <ItemGroup>
     <ClInclude Include="BaseLineStatus.h" />
     <ClInclude Include="BaseLineType.h" />
+    <ClInclude Include="GlobalState.h" />
     <ClInclude Include="Mode.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

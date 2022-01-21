@@ -25,6 +25,10 @@ MainWindow::~MainWindow() {
   delete ui.viewLAT->scene();
 }
 
+void MainWindow::update() {
+  // update ui.status
+}
+
 void MainWindow::New() {
   View* view[2] = {ui.viewAP, ui.viewLAT};
   QPointF defaultBaseLinePoint[2] = {
