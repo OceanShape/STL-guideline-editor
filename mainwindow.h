@@ -15,6 +15,7 @@
 #include <QTextStream>
 
 #include "ui_mainwindow.h"
+#include "GlobalState.h"
 
 class MainWindow : public QMainWindow {
   Q_OBJECT
