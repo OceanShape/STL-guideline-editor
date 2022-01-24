@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
   ui.viewAP->setScene(new QGraphicsScene);
   ui.viewLAT->setScene(new QGraphicsScene);
 
-  GlobalState::instance();
+  //GlobalState::instance();
 }
 
 MainWindow::~MainWindow() {
