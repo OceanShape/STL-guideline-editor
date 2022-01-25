@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef VIEWLAT_H
 #define VIEWLAT_H
 

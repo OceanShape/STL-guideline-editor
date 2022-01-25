@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef VIEWAP_H
 #define VIEWAP_H
 

@@ -1,3 +1,5 @@
+#pragma once
+
 #include <QtWidgets/QApplication>
 
 #include "MainWindow.h"
