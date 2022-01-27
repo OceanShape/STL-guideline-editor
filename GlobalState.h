@@ -11,20 +11,20 @@
 #define defaultBaseLineAPY 2800
 #define defaultBaseLineLATY 2876
 #define defaultBaseLineLATZ 1513
-#define pelvisPointCount 2
-#define tailbonePointCount 3
+//#define pelvisPointCount 2
+//#define tailbonePointCount 3
 
 #include <qgraphicsitem.h>
 #include <stack>
 
 #include "BaseLineStatus.h"
 
-typedef struct {
-  QGraphicsEllipseItem* item;
-  QPointF position;
-} point;
+//typedef struct {
+//  QGraphicsEllipseItem* item;
+//  QPointF position;
+//} point;
 
-typedef GlobalState GS;
+// typedef GlobalState GS;
 
 class GlobalState {
  public:
@@ -33,34 +33,34 @@ class GlobalState {
     return *instance;
   }
 
-  BaseLineStatus baseLineStatus;
-  static QGraphicsLineItem* baseLine[baseLineCount];
+  //BaseLineStatus baseLineStatus;
+  //static QGraphicsLineItem* baseLine[baseLineCount];
 
-  point spinePoint[spineCount][pointCountForOneSpine];
-  QGraphicsLineItem* spineLine[spineCount][pointCountForOneSpine];
-  QPointF spineCenter[spineCount];
-  int currentSpine;
-  int currentSpinePoint;
-  std::stack<std::pair<int, int>> removedSpinePoint;
-  point spinousProcessPoint[spinousProcessPointCount];
-  int currentSpinousProcessPoint;
-  std::stack<int> removedSpinousProcessPoint;
+  //point spinePoint[spineCount][pointCountForOneSpine];
+  //QGraphicsLineItem* spineLine[spineCount][pointCountForOneSpine];
+  //QPointF spineCenter[spineCount];
+  //int currentSpine;
+  //int currentSpinePoint;
+  //std::stack<std::pair<int, int>> removedSpinePoint;
+  //point spinousProcessPoint[spinousProcessPointCount];
+  //int currentSpinousProcessPoint;
+  //std::stack<int> removedSpinousProcessPoint;
 
-  QPen* pen;
-  QBrush* brush;
+  //QPen* pen;
+  //QBrush* brush;
 
   // LAT
-  point tailbonePoint[tailbonePointCount];
-  QGraphicsItem* tailboneLine[tailbonePointCount];
-  int currentTailbonePoint;
-  std::stack<int> removedTailbonePoint;
+  // point tailbonePoint[tailbonePointCount];
+  // QGraphicsItem* tailboneLine[tailbonePointCount];
+  /*int currentTailbonePoint;
+  std::stack<int> removedTailbonePoint;*/
 
   // AP
-  point pelvisPoint[pelvisPointCount];
-  QGraphicsItem* pelvisLine;
+  // point pelvisPoint[pelvisPointCount];
+  /*QGraphicsItem* pelvisLine;
   QPointF pelvisCenter;
   int currentPelvisPoint;
-  std::stack<int> removedPelvisPoint;
+  std::stack<int> removedPelvisPoint;*/
 
  private:
   GlobalState() {}
