@@ -18,11 +18,12 @@
 #define pelvisPointCount 2
 #define tailbonePointCount 3
 
+#include <qbrush.h>
 #include <qgraphicsitem.h>
+#include <qpen.h>
+
 #include <qpoint>
 #include <stack>
-#include <qpen.h>
-#include <qbrush.h>
 
 #include "BaseLineStatus.h"
 
@@ -31,13 +32,10 @@ typedef struct {
   QPointF position;
 } point;
 
-typedef enum Screen {
-  AP,
-  LAT
-} SCR;
+typedef enum Screen { AP, LAT } SCR;
 
 class GlobalState {
-public:
+ public:
   GlobalState* instance;
 
   BaseLineStatus baseLineStatus[screenCount];
@@ -59,7 +57,7 @@ public:
   QPointF pelvisCenter;
   int currentPelvisPoint;
   std::stack<int> removedPelvisPoint;
-  
+
   // ViewLAT data
   point tailbonePoint[tailbonePointCount];
   QGraphicsItem* tailboneLine[tailbonePointCount];
@@ -69,19 +67,20 @@ public:
   QPen* pen[screenCount];
   QBrush* brush[screenCount];
 
-public:
+ public:
   static GlobalState& getIncetance() {
     static GlobalState gs;
     return gs;
   }
   void initPoint(point* p) {
-    p->position = { -FLT_MAX, -FLT_MAX };
+    p->position = {-FLT_MAX, -FLT_MAX};
     p->item = nullptr;
   }
 
-private:
-  GlobalState();
-  GlobalState(const GlobalState& ref) {}
+ private:
+  void initState();
+  GlobalState() { initState(); }
+  GlobalState(const GlobalState& ref) { initState(); }
   GlobalState& operator=(const GlobalState& ref) {}
   ~GlobalState() {
     for (int scr = 0; scr < screenCount; ++scr) {

@@ -1,6 +1,6 @@
 #include "GlobalState.h"
 
-GlobalState::GlobalState() {
+void GlobalState::initState() {
   for (int scr = 0; scr < screenCount; ++scr) {
     baseLineStatus[scr] = BaseLineStatus::NOT_SELECTED;
     currentSpinousProcessPoint[scr] = 0;
