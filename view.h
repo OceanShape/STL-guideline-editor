@@ -15,23 +15,6 @@
 #include "Mode.h"
 #include "GlobalState.h"
 
-typedef struct {
-  QGraphicsEllipseItem* item;
-  QPointF position;
-} point;
-
-//const int baseLineCount = 2;
-//const int spineCount = 5;
-//const int pointCountForOneSpine = 4;
-//const int spinousProcessPointCount = 5;
-//static qreal clickCorrectionWidth = 20;
-//static qreal clickRangeWidth = 50;
-//static qreal pointRadius = 50;
-//static qreal defaultBaseLineAPX = 1920;
-//static qreal defaultBaseLineAPY = 2800;
-//static qreal defaultBaseLineLATY = 2876;
-//static qreal defaultBaseLineLATZ = 1513;
-
 class View : public QGraphicsView {
   Q_OBJECT
  public:

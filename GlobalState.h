@@ -13,3 +13,8 @@
 #define defaultBaseLineLATZ 1513
 //#define pelvisPointCount 2
 //#define tailbonePointCount 3
+
+typedef struct {
+  QGraphicsEllipseItem* item;
+  QPointF position;
+} point;
