@@ -5,8 +5,6 @@
 
 #include "View.h"
 
-const int pelvisPointCount = 2;
-
 class ViewAP : public View {
   Q_OBJECT
  public:
@@ -29,13 +27,13 @@ class ViewAP : public View {
 
   qreal getSpineRotateZ(int spineIdx) {
     qreal x1, y1, x2, y2;
-    x1 = spineCenter[spineIdx].x();
-    y1 = spineCenter[spineIdx].y();
-    x2 = (spinePoint[spineIdx][1].position.x() +
-          spinePoint[spineIdx][2].position.x()) /
+    x1 = gs.spineCenter[scr][spineIdx].x();
+    y1 = gs.spineCenter[scr][spineIdx].y();
+    x2 = (gs.spinePoint[scr][spineIdx][1].position.x() +
+      gs.spinePoint[scr][spineIdx][2].position.x()) /
          2;
-    y2 = (spinePoint[spineIdx][1].position.y() +
-          spinePoint[spineIdx][2].position.y()) /
+    y2 = (gs.spinePoint[scr][spineIdx][1].position.y() +
+      gs.spinePoint[scr][spineIdx][2].position.y()) /
          2;
 
     double dY = y2 - y1;

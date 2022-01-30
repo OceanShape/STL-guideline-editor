@@ -5,8 +5,6 @@
 
 #include "View.h"
 
-const int tailbonePointCount = 3;
-
 class ViewLAT : public View {
   Q_OBJECT
  public:
@@ -37,20 +35,20 @@ class ViewLAT : public View {
 
   qreal getD1(int spineIdx) {
     qreal x1, y1, x2, y2, m, b, x3, y3;
-    x1 = (spinePoint[spineIdx][0].position.x() +
-          spinePoint[spineIdx][1].position.x()) /
+    x1 = (gs.spinePoint[scr][spineIdx][0].position.x() +
+      gs.spinePoint[scr][spineIdx][1].position.x()) /
          2;
-    x2 = (spinePoint[spineIdx][2].position.x() +
-          spinePoint[spineIdx][3].position.x()) /
+    x2 = (gs.spinePoint[scr][spineIdx][2].position.x() +
+      gs.spinePoint[scr][spineIdx][3].position.x()) /
          2;
-    y1 = (spinePoint[spineIdx][0].position.y() +
-          spinePoint[spineIdx][1].position.y()) /
+    y1 = (gs.spinePoint[scr][spineIdx][0].position.y() +
+      gs.spinePoint[scr][spineIdx][1].position.y()) /
          2;
-    y2 = (spinePoint[spineIdx][2].position.y() +
-          spinePoint[spineIdx][3].position.y()) /
+    y2 = (gs.spinePoint[scr][spineIdx][2].position.y() +
+      gs.spinePoint[scr][spineIdx][3].position.y()) /
          2;
-    x3 = spinousProcessPoint[spineIdx].position.x();
-    y3 = spinousProcessPoint[spineIdx].position.y();
+    x3 = gs.spinousProcessPoint[scr][spineIdx].position.x();
+    y3 = gs.spinousProcessPoint[scr][spineIdx].position.y();
     m = abs((y2 - y1) / (x1 - x2));
     b = -m * x1 + y1;
     return abs(m * x3 - y3 + b) / sqrt(m * m + 1);

@@ -1,45 +1,9 @@
 #include "View.h"
 
-View::View(QWidget* parent) : QGraphicsView(parent) {
-  // baseline 초기화
-  baseLineStatus = BaseLineStatus::NOT_SELECTED;
-  currentSpinousProcessPoint = 0;
-  for (int i = 0; i < baseLineCount; ++i) baseLine[i] = nullptr;
-
-  // spine 초기화
-  currentSpine = 0;
-  currentSpinePoint = 0;
-
-  for (int i = 0; i < spineCount; ++i) {
-    for (int j = 0; j < pointCountForOneSpine; ++j) {
-      initPoint(&spinePoint[i][j]);
-    }
-
-    spineCenter[i] = {-FLT_MAX, -FLT_MAX};
-
-    for (int j = 0; j < pointCountForOneSpine; ++j) spineLine[i][j] = nullptr;
-  }
-
-  // pen,brush 설정 초기화
-  pen = new QPen(Qt::green);
-  pen->setWidth(10);
-  brush = new QBrush(Qt::white);
-}
-
-View::~View() {
-  delete pen;
-  delete brush;
-}
-
 void View::resetPenSetting() {
-  pen->setWidth(10);
-  pen->setColor(Qt::green);
-  pen->setStyle(Qt::SolidLine);
-}
-
-void View::initPoint(point* p) {
-  p->position = {-FLT_MAX, -FLT_MAX};
-  p->item = nullptr;
+  gs.pen[scr]->setWidth(10);
+  gs.pen[scr]->setColor(Qt::green);
+  gs.pen[scr]->setStyle(Qt::SolidLine);
 }
 
 void View::mousePressEvent(QMouseEvent* event) {
@@ -68,8 +32,8 @@ void View::mouseReleaseEvent(QMouseEvent* event) {
 
 void View::redrawBaseLine(const QPointF& pos,
                           const BaseLineType& baseLineType) {
-  QLineF tmpLine = baseLine[baseLineType]->line();
-  scene()->removeItem(baseLine[baseLineType]);
+  QLineF tmpLine = gs.baseLine[scr][baseLineType]->line();
+  scene()->removeItem(gs.baseLine[scr][baseLineType]);
 
   if (baseLineType == BaseLineType::VERTICAL) {
     tmpLine.setP1({pos.x(), tmpLine.y1()});
@@ -78,45 +42,46 @@ void View::redrawBaseLine(const QPointF& pos,
   } else if (baseLineType == BaseLineType::HORIZONTAL) {
     tmpLine.setP1({tmpLine.x1(), pos.y()});
     tmpLine.setP2({tmpLine.x2(), pos.y()});
-    pen->setColor(Qt::red);
-    pen->setStyle(Qt::DotLine);
+    gs.pen[scr]->setColor(Qt::red);
+    gs.pen[scr]->setStyle(Qt::DotLine);
     setCursor(Qt::SizeVerCursor);
   }
-  baseLine[baseLineType] = scene()->addLine(tmpLine, *pen);
+  gs.baseLine[scr][baseLineType] = scene()->addLine(tmpLine, *gs.pen[scr]);
   resetPenSetting();
 }
 
 void View::drawDefaultBaseLine(const QPointF& pos) {
-  baseLine[BaseLineType::VERTICAL] = scene()->addLine(
-      pos.x(), 0 + 10, pos.x(), static_cast<qreal>(4480 - 10), *pen);
+  gs.baseLine[scr][BaseLineType::VERTICAL] = scene()->addLine(
+      pos.x(), 0 + 10, pos.x(), static_cast<qreal>(4480 - 10), *gs.pen[scr]);
 
-  pen->setColor(Qt::red);
-  pen->setStyle(Qt::DotLine);
+  gs.pen[scr]->setColor(Qt::red);
+  gs.pen[scr]->setStyle(Qt::DotLine);
 
-  baseLine[BaseLineType::HORIZONTAL] = scene()->addLine(
-      0 + 10, pos.y(), static_cast<qreal>(3600 - 10), pos.y(), *pen);
-  baseLineStatus = BaseLineStatus::NOT_SELECTED;
+  gs.baseLine[scr][BaseLineType::HORIZONTAL] = scene()->addLine(
+      0 + 10, pos.y(), static_cast<qreal>(3600 - 10), pos.y(), *gs.pen[scr]);
+  gs.baseLineStatus[scr] = BaseLineStatus::NOT_SELECTED;
 
   resetPenSetting();
 }
 
 void View::drawBaseLine(const QPointF& pos, const Qt::MouseButton& btn) {
-  if (btn == Qt::LeftButton && baseLineStatus == BaseLineStatus::NOT_SELECTED) {
+  if (btn == Qt::LeftButton &&
+    gs.baseLineStatus[scr] == BaseLineStatus::NOT_SELECTED) {
     BaseLineType clickedBaseLineType = clickRangedBaseLine(pos);
     if (clickedBaseLineType != BaseLineType::NONE) {
       redrawBaseLine(pos, clickedBaseLineType);
-      baseLineStatus = (clickedBaseLineType == BaseLineType::VERTICAL)
-                           ? BaseLineStatus::MOVE_VERTICAL
-                           : BaseLineStatus::MOVE_HORIZONTAL;
+      gs.baseLineStatus[scr] = (clickedBaseLineType == BaseLineType::VERTICAL)
+                                ? BaseLineStatus::MOVE_VERTICAL
+                                : BaseLineStatus::MOVE_HORIZONTAL;
     }
   }
 }
 
 void View::moveBaseLine(const QPointF& pos) {
-  if (baseLineStatus == BaseLineStatus::MOVE_VERTICAL ||
-      baseLineStatus == BaseLineStatus::MOVE_HORIZONTAL) {
+  if (gs.baseLineStatus[scr] == BaseLineStatus::MOVE_VERTICAL ||
+    gs.baseLineStatus[scr] == BaseLineStatus::MOVE_HORIZONTAL) {
     BaseLineType baseLineType =
-        (baseLineStatus == BaseLineStatus::MOVE_VERTICAL)
+        (gs.baseLineStatus[scr] == BaseLineStatus::MOVE_VERTICAL)
             ? BaseLineType::VERTICAL
             : BaseLineType::HORIZONTAL;
     redrawBaseLine(pos, baseLineType);
@@ -124,24 +89,24 @@ void View::moveBaseLine(const QPointF& pos) {
 }
 
 void View::releaseBaseLine(const QPointF& pos) {
-  if (baseLineStatus == BaseLineStatus::MOVE_VERTICAL ||
-      baseLineStatus == BaseLineStatus::MOVE_HORIZONTAL) {
+  if (gs.baseLineStatus[scr] == BaseLineStatus::MOVE_VERTICAL ||
+    gs.baseLineStatus[scr] == BaseLineStatus::MOVE_HORIZONTAL) {
     BaseLineType baseLineType =
-        (baseLineStatus == BaseLineStatus::MOVE_VERTICAL)
+        (gs.baseLineStatus[scr] == BaseLineStatus::MOVE_VERTICAL)
             ? BaseLineType::VERTICAL
             : BaseLineType::HORIZONTAL;
     redrawBaseLine(pos, baseLineType);
     setCursor(Qt::ArrowCursor);
-    baseLineStatus = BaseLineStatus::NOT_SELECTED;
+    gs.baseLineStatus[scr] = BaseLineStatus::NOT_SELECTED;
   }
 }
 
 void View::removeAllSpineLine() {
   for (int i = 0; i < spineCount; ++i)
     for (int j = 0; j < pointCountForOneSpine; ++j)
-      if (spineLine[i][j] != nullptr) {
-        scene()->removeItem(spineLine[i][j]);
-        spineLine[i][j] = nullptr;
+      if (gs.spineLine[i][j] != nullptr) {
+        scene()->removeItem(gs.spineLine[scr][i][j]);
+        gs.spineLine[scr][i][j] = nullptr;
       }
 }
 
@@ -158,7 +123,7 @@ void View::drawSpineLine() {
   for (int i = 0; i < spineCount; ++i) {
     bool isAllPointSet = true;
     for (int j = 0; j < pointCountForOneSpine; ++j) {
-      if (isPointInvalid(spinePoint[i][j])) {
+      if (isPointInvalid(gs.spinePoint[scr][i][j])) {
         isAllPointSet = false;
       }
     }
@@ -172,43 +137,46 @@ void View::drawSpineLine() {
         int downPointCount = 0;
         for (int k = 0; k < pointCountForOneSpine; ++k) {
           if (j == k) continue;
-          if (spinePoint[i][j].position.x() < spinePoint[i][k].position.x())
+          if (gs.spinePoint[scr][i][j].position.x() <
+            gs.spinePoint[scr][i][k].position.x())
             ++rightPointCount;
-          if (spinePoint[i][j].position.y() < spinePoint[i][k].position.y())
+          if (gs.spinePoint[scr][i][j].position.y() <
+            gs.spinePoint[scr][i][k].position.y())
             ++downPointCount;
         }
         if (rightPointCount >= 2) {
           if (downPointCount >= 2)
-            tmp[0] = spinePoint[i][j];
+            tmp[0] = gs.spinePoint[scr][i][j];
           else
-            tmp[3] = spinePoint[i][j];
+            tmp[3] = gs.spinePoint[scr][i][j];
         } else {
           if (downPointCount >= 2)
-            tmp[1] = spinePoint[i][j];
+            tmp[1] = gs.spinePoint[scr][i][j];
           else
-            tmp[2] = spinePoint[i][j];
+            tmp[2] = gs.spinePoint[scr][i][j];
         }
       }
 
-      for (int j = 0; j < pointCountForOneSpine; ++j) spinePoint[i][j] = tmp[j];
+      for (int j = 0; j < pointCountForOneSpine; ++j)
+        gs.spinePoint[scr][i][j] = tmp[j];
 
       // 선 긋기
-      pen->setWidth(7);
+      gs.pen[scr]->setWidth(7);
       for (int j = 0; j < pointCountForOneSpine; ++j) {
-        spineLine[i][j] = scene()->addLine(
-            spinePoint[i][j].position.x() + clickCorrectionWidth,
-            spinePoint[i][j].position.y() + clickCorrectionWidth,
-            spinePoint[i][(j + 1) % 4].position.x() + clickCorrectionWidth,
-            spinePoint[i][(j + 1) % 4].position.y() + clickCorrectionWidth,
-            *pen);
+        gs.spineLine[scr][i][j] = scene()->addLine(
+          gs.spinePoint[scr][i][j].position.x() + clickCorrectionWidth,
+          gs.spinePoint[scr][i][j].position.y() + clickCorrectionWidth,
+          gs.spinePoint[scr][i][(j + 1) % 4].position.x() + clickCorrectionWidth,
+          gs.spinePoint[scr][i][(j + 1) % 4].position.y() + clickCorrectionWidth,
+            *gs.pen[scr]);
       }
 
       qreal x = 0, y = 0;
       for (int j = 0; j < pointCountForOneSpine; ++j) {
-        x += spinePoint[i][j].position.x();
-        y += spinePoint[i][j].position.y();
+        x += gs.spinePoint[scr][i][j].position.x();
+        y += gs.spinePoint[scr][i][j].position.y();
       }
-      spineCenter[i] = {x / 4, y / 4};
+      gs.spineCenter[scr][i] = {x / 4, y / 4};
     }
   }
 }
@@ -218,38 +186,38 @@ void View::drawSpinePoint(QPointF pos, const Qt::MouseButton& btn) {
   pos.setX(pos.x() - clickCorrectionWidth);
   pos.setY(pos.y() - clickCorrectionWidth);
   if (btn == Qt::LeftButton) {
-    if (currentSpine >= spineCount) return;
+    if (gs.currentSpine[scr] >= spineCount) return;
     if (clickRangedPointOrNull(pos, removeSpineIndex, removePointIndex) !=
         nullptr)
       return;
 
-    pen->setWidth(10);
-    spinePoint[currentSpine][currentSpinePoint] = {
-        scene()->addEllipse(pos.x(), pos.y(), pointRadius, pointRadius, *pen,
-                            *brush),
+    gs.pen[scr]->setWidth(10);
+    gs.spinePoint[scr][gs.currentSpine[scr]][gs.currentSpinePoint[scr]] = {
+        scene()->addEllipse(pos.x(), pos.y(), pointRadius, pointRadius,
+                            *gs.pen[scr], *gs.brush[scr]),
         pos};
 
-    if (removedSpinePoint.empty() == false) {
-      auto t = removedSpinePoint.top();
-      removedSpinePoint.pop();
-      currentSpine = t.first;
-      currentSpinePoint = t.second;
+    if (gs.removedSpinePoint[scr].empty() == false) {
+      auto t = gs.removedSpinePoint[scr].top();
+      gs.removedSpinePoint[scr].pop();
+      gs.currentSpine[scr] = t.first;
+      gs.currentSpinePoint[scr] = t.second;
     } else {
-      ++currentSpinePoint;
-      if (currentSpinePoint == 4) {
-        currentSpinePoint = 0;
-        ++currentSpine;
+      ++gs.currentSpinePoint[scr];
+      if (gs.currentSpinePoint[scr] == 4) {
+        gs.currentSpinePoint[scr] = 0;
+        ++gs.currentSpine[scr];
       }
     }
   } else {
     point* p = clickRangedPointOrNull(pos, removeSpineIndex, removePointIndex);
     if (p == nullptr) return;
-    removedSpinePoint.push({currentSpine, currentSpinePoint});
-    currentSpine = removeSpineIndex;
-    currentSpinePoint = removePointIndex;
+    gs.removedSpinePoint[scr].push({ gs.currentSpine[scr], gs.currentSpinePoint[scr]});
+    gs.currentSpine[scr] = removeSpineIndex;
+    gs.currentSpinePoint[scr] = removePointIndex;
 
     scene()->removeItem((QGraphicsItem*)p->item);
-    initPoint(p);
+    gs.initPoint(p);
   }
   drawSpineLine();
   resetPenSetting();
@@ -259,13 +227,13 @@ point* View::clickRangedPointOrNull(const QPointF& pos, int& outCurrentSpine,
                                     int& outCurrentPoint) {
   for (int i = 0; i < spineCount; ++i) {
     for (int j = 0; j < pointCountForOneSpine; ++j) {
-      qreal x = spinePoint[i][j].position.x();
-      qreal y = spinePoint[i][j].position.y();
+      qreal x = gs.spinePoint[scr][i][j].position.x();
+      qreal y = gs.spinePoint[scr][i][j].position.y();
       if ((x - clickRangeWidth <= pos.x() && pos.x() <= x + clickRangeWidth) &&
           (y - clickRangeWidth <= pos.y() && pos.y() <= y + clickRangeWidth)) {
         outCurrentSpine = i;
         outCurrentPoint = j;
-        return &spinePoint[i][j];
+        return &gs.spinePoint[scr][i][j];
       }
     }
   }
@@ -273,8 +241,8 @@ point* View::clickRangedPointOrNull(const QPointF& pos, int& outCurrentSpine,
 }
 
 BaseLineType View::clickRangedBaseLine(const QPointF& pos) {
-  qreal x = baseLine[BaseLineType::VERTICAL]->line().x1();
-  qreal y = baseLine[BaseLineType::HORIZONTAL]->line().y1();
+  qreal x = gs.baseLine[scr][BaseLineType::VERTICAL]->line().x1();
+  qreal y = gs.baseLine[scr][BaseLineType::HORIZONTAL]->line().y1();
 
   if (x - clickRangeWidth <= pos.x() && pos.x() <= x + clickRangeWidth) {
     return BaseLineType::VERTICAL;
@@ -288,7 +256,7 @@ BaseLineType View::clickRangedBaseLine(const QPointF& pos) {
 void View::sortSpinousProcessPoint() {
   bool isAllPointSet = true;
   for (int i = 0; i < spinousProcessPointCount; ++i) {
-    if (isPointInvalid(spinousProcessPoint[i])) {
+    if (isPointInvalid(gs.spinousProcessPoint[scr][i])) {
       isAllPointSet = false;
     }
   }
@@ -296,12 +264,12 @@ void View::sortSpinousProcessPoint() {
   if (isAllPointSet) {
     for (int i = 0; i < spinousProcessPointCount; ++i) {
       for (int j = 0; j < spinousProcessPointCount - (i + 1); ++j) {
-        if (spinousProcessPoint[j].position.y() >
-            spinousProcessPoint[j + 1].position.y()) {
+        if (gs.spinousProcessPoint[scr][j].position.y() >
+          gs.spinousProcessPoint[scr][j + 1].position.y()) {
           point tmp;
-          tmp = spinousProcessPoint[j + 1];
-          spinousProcessPoint[j + 1] = spinousProcessPoint[j];
-          spinousProcessPoint[j] = tmp;
+          tmp = gs.spinousProcessPoint[scr][j + 1];
+          gs.spinousProcessPoint[scr][j + 1] = gs.spinousProcessPoint[scr][j];
+          gs.spinousProcessPoint[scr][j] = tmp;
         }
       }
     }
@@ -314,31 +282,31 @@ void View::drawSpinousProcessPoint(QPointF pos, const Qt::MouseButton& btn) {
   pos.setY(pos.y() - clickCorrectionWidth);
 
   if (btn == Qt::LeftButton) {
-    if (currentSpinousProcessPoint >= spinousProcessPointCount) return;
+    if (gs.currentSpinousProcessPoint[scr] >= spinousProcessPointCount) return;
     if (clickRangedSpinousProcessPointOrNull(pos, removePointIndex) != nullptr)
       return;
 
-    pen->setColor(Qt::yellow);
-    spinousProcessPoint[currentSpinousProcessPoint] = {
-        scene()->addEllipse(pos.x(), pos.y(), pointRadius, pointRadius, *pen,
-                            *brush),
+    gs.pen[scr]->setColor(Qt::yellow);
+    gs.spinousProcessPoint[scr][gs.currentSpinousProcessPoint[scr]] = {
+        scene()->addEllipse(pos.x(), pos.y(), pointRadius, pointRadius,
+                            *gs.pen[scr], *gs.brush[scr]),
         pos};
 
-    if (removedSpinousProcessPoint.empty() == false) {
-      int t = removedSpinousProcessPoint.top();
-      removedSpinousProcessPoint.pop();
-      currentSpinousProcessPoint = t;
+    if (gs.removedSpinousProcessPoint[scr].empty() == false) {
+      int t = gs.removedSpinousProcessPoint[scr].top();
+      gs.removedSpinousProcessPoint[scr].pop();
+      gs.currentSpinousProcessPoint[scr] = t;
     } else {
-      ++currentSpinousProcessPoint;
+      ++gs.currentSpinousProcessPoint[scr];
     }
   } else {
     point* p = clickRangedSpinousProcessPointOrNull(pos, removePointIndex);
     if (p == nullptr) return;
-    removedSpinousProcessPoint.push(currentSpinousProcessPoint);
-    currentSpinousProcessPoint = removePointIndex;
+    gs.removedSpinousProcessPoint[scr].push(gs.currentSpinousProcessPoint[scr]);
+    gs.currentSpinousProcessPoint[scr] = removePointIndex;
 
     scene()->removeItem((QGraphicsItem*)p->item);
-    initPoint(p);
+    gs.initPoint(p);
   }
   sortSpinousProcessPoint();
   resetPenSetting();
@@ -347,12 +315,12 @@ void View::drawSpinousProcessPoint(QPointF pos, const Qt::MouseButton& btn) {
 point* View::clickRangedSpinousProcessPointOrNull(const QPointF& pos,
                                                   int& outCurrentPoint) {
   for (int i = 0; i < spinousProcessPointCount; ++i) {
-    qreal x = spinousProcessPoint[i].position.x();
-    qreal y = spinousProcessPoint[i].position.y();
+    qreal x = gs.spinousProcessPoint[scr][i].position.x();
+    qreal y = gs.spinousProcessPoint[scr][i].position.y();
     if ((x - clickRangeWidth <= pos.x() && pos.x() <= x + clickRangeWidth) &&
         (y - clickRangeWidth <= pos.y() && pos.y() <= y + clickRangeWidth)) {
       outCurrentPoint = i;
-      return &spinousProcessPoint[i];
+      return &gs.spinousProcessPoint[scr][i];
     }
   }
   return nullptr;

@@ -2,10 +2,7 @@
 
 ViewLAT::ViewLAT(QWidget* parent) : View(parent) {
   currentTailbonePoint = 0;
-
-  for (int i = 0; i < tailbonePointCount; ++i) initPoint(&tailbonePoint[i]);
-  for (int i = 0; i < spinousProcessPointCount; ++i)
-    initPoint(&spinousProcessPoint[i]);
+  for (int i = 0; i < tailbonePointCount; ++i) gs.initPoint(&tailbonePoint[i]);
   for (int i = 0; i < tailbonePointCount; ++i) tailboneLine[i] = nullptr;
 }
 
@@ -40,13 +37,14 @@ void ViewLAT::drawTailboneLine() {
     }
 
     // ¼± ±ß±â
-    pen->setWidth(7);
+    gs.pen[scr]->setWidth(7);
     for (int i = 0; i < tailbonePointCount; ++i) {
       tailboneLine[i] = scene()->addLine(
           tailbonePoint[i].position.x() + clickCorrectionWidth,
           tailbonePoint[i].position.y() + clickCorrectionWidth,
           tailbonePoint[(i + 1) % 3].position.x() + clickCorrectionWidth,
-          tailbonePoint[(i + 1) % 3].position.y() + clickCorrectionWidth, *pen);
+          tailbonePoint[(i + 1) % 3].position.y() + clickCorrectionWidth,
+          *gs.pen[scr]);
     }
   }
 }
@@ -61,10 +59,10 @@ void ViewLAT::drawTailbonePoint(QPointF pos, const Qt::MouseButton& btn) {
     if (clickRangedTailbonePointOrNull(pos, removePointIndex) != nullptr)
       return;
 
-    pen->setColor(Qt::blue);
+    gs.pen[scr]->setColor(Qt::blue);
     tailbonePoint[currentTailbonePoint] = {
-        scene()->addEllipse(pos.x(), pos.y(), pointRadius, pointRadius, *pen,
-                            *brush),
+        scene()->addEllipse(pos.x(), pos.y(), pointRadius, pointRadius,
+                            *gs.pen[scr], *gs.brush[scr]),
         pos};
 
     if (removedTailbonePoint.empty() == false) {
@@ -81,7 +79,7 @@ void ViewLAT::drawTailbonePoint(QPointF pos, const Qt::MouseButton& btn) {
     currentTailbonePoint = removePointIndex;
 
     scene()->removeItem((QGraphicsItem*)p->item);
-    initPoint(p);
+    gs.initPoint(p);
   }
   drawTailboneLine();
   resetPenSetting();

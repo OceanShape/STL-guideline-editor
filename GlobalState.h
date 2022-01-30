@@ -1,5 +1,9 @@
 #pragma once
 
+#ifndef GLOBALSTATE_H
+#define GLOBALSTATE_H
+
+#define screenCount 2
 #define baseLineCount 2
 #define spineCount 5
 #define pointCountForOneSpine 4
@@ -11,9 +15,16 @@
 #define defaultBaseLineAPY 2800
 #define defaultBaseLineLATY 2876
 #define defaultBaseLineLATZ 1513
-#define screenCount 2
-//#define pelvisPointCount 2
-//#define tailbonePointCount 3
+#define pelvisPointCount 2
+#define tailbonePointCount 3
+
+#include <qgraphicsitem.h>
+#include <qpoint>
+#include <stack>
+#include <qpen.h>
+#include <qbrush.h>
+
+#include "BaseLineStatus.h"
 
 typedef struct {
   QGraphicsEllipseItem* item;
@@ -25,19 +36,45 @@ typedef enum Screen {
   LAT
 } SCR;
 
-//BaseLineStatus baseLineStatus[screenCount];
-//QGraphicsLineItem* baseLine[screenCount][baseLineCount];
-//
-//point spinePoint[screenCount][spineCount][pointCountForOneSpine];
-//QGraphicsLineItem* spineLine[screenCount][spineCount][pointCountForOneSpine];
-//QPointF spineCenter[screenCount][spineCount];
-//int currentSpine[screenCount];
-//int currentSpinePoint[screenCount];
-//std::stack<std::pair<int, int>> removedSpinePoint[screenCount];
-//point spinousProcessPoint[screenCount][spinousProcessPointCount];
-//int currentSpinousProcessPoint[screenCount];
-//std::stack<int> removedSpinousProcessPoint[screenCount];
-//
-//QPen* pen[screenCount];
-//QBrush* brush[screenCount];
+class GlobalState {
+public:
+  GlobalState* instance;
 
+  BaseLineStatus baseLineStatus[screenCount];
+  QGraphicsLineItem* baseLine[screenCount][baseLineCount];
+
+  point spinePoint[screenCount][spineCount][pointCountForOneSpine];
+  QGraphicsLineItem* spineLine[screenCount][spineCount][pointCountForOneSpine];
+  QPointF spineCenter[screenCount][spineCount];
+  int currentSpine[screenCount];
+  int currentSpinePoint[screenCount];
+  std::stack<std::pair<int, int>> removedSpinePoint[screenCount];
+  point spinousProcessPoint[screenCount][spinousProcessPointCount];
+  int currentSpinousProcessPoint[screenCount];
+  std::stack<int> removedSpinousProcessPoint[screenCount];
+
+  QPen* pen[screenCount];
+  QBrush* brush[screenCount];
+
+public:
+  static GlobalState& getIncetance() {
+    static GlobalState gs;
+    return gs;
+  }
+  void initPoint(point* p) {
+    p->position = { -FLT_MAX, -FLT_MAX };
+    p->item = nullptr;
+  }
+
+private:
+  GlobalState();
+  GlobalState(const GlobalState& ref) {}
+  GlobalState& operator=(const GlobalState& ref) {}
+  ~GlobalState() {
+    for (int scr = 0; scr < screenCount; ++scr) {
+      delete pen[scr];
+      delete brush[scr];
+    }
+  }
+};
+#endif

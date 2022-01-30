@@ -2,10 +2,7 @@
 
 ViewAP::ViewAP(QWidget* parent) : View(parent) {
   currentPelvisPoint = 0;
-
-  for (int i = 0; i < pelvisPointCount; ++i) initPoint(&pelvisPoint[i]);
-  for (int i = 0; i < spinousProcessPointCount; ++i)
-    initPoint(&spinousProcessPoint[i]);
+  for (int i = 0; i < pelvisPointCount; ++i) gs.initPoint(&pelvisPoint[i]);
   pelvisCenter = {-FLT_MAX, -FLT_MAX};
   pelvisLine = nullptr;
 }
@@ -37,12 +34,12 @@ void ViewAP::drawPelvisLine() {
     }
 
     // ¼± ±ß±â
-    pen->setWidth(7);
+    gs.pen[scr]->setWidth(7);
     pelvisLine = scene()->addLine(
         pelvisPoint[0].position.x() + clickCorrectionWidth,
         pelvisPoint[0].position.y() + clickCorrectionWidth,
         pelvisPoint[1].position.x() + clickCorrectionWidth,
-        pelvisPoint[1].position.y() + clickCorrectionWidth, *pen);
+        pelvisPoint[1].position.y() + clickCorrectionWidth, *gs.pen[scr]);
   }
 
   pelvisCenter = {
@@ -59,10 +56,10 @@ void ViewAP::drawPelvisPoint(QPointF pos, const Qt::MouseButton& btn) {
     if (currentPelvisPoint >= pelvisPointCount) return;
     if (clickRangedPelvisPointOrNull(pos, removePointIndex) != nullptr) return;
 
-    pen->setColor(Qt::blue);
+    gs.pen[scr]->setColor(Qt::blue);
     pelvisPoint[currentPelvisPoint] = {
-        scene()->addEllipse(pos.x(), pos.y(), pointRadius, pointRadius, *pen,
-                            *brush),
+        scene()->addEllipse(pos.x(), pos.y(), pointRadius, pointRadius,
+                            *gs.pen[scr], *gs.brush[scr]),
         pos};
 
     if (removedPelvisPoint.empty() == false) {
@@ -79,7 +76,7 @@ void ViewAP::drawPelvisPoint(QPointF pos, const Qt::MouseButton& btn) {
     currentPelvisPoint = removePointIndex;
 
     scene()->removeItem((QGraphicsItem*)p->item);
-    initPoint(p);
+    gs.initPoint(p);
   }
   drawPelvisLine();
   resetPenSetting();
