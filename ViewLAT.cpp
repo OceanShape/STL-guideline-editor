@@ -1,16 +1,10 @@
 #include "ViewLAT.h"
 
-ViewLAT::ViewLAT(QWidget* parent) : View(parent) {
-  currentTailbonePoint = 0;
-  for (int i = 0; i < tailbonePointCount; ++i) gs.initPoint(&tailbonePoint[i]);
-  for (int i = 0; i < tailbonePointCount; ++i) tailboneLine[i] = nullptr;
-}
-
 void ViewLAT::removeAllTailboneLine() {
   for (int i = 0; i < tailbonePointCount; ++i)
-    if (tailboneLine[i] != nullptr) {
-      scene()->removeItem(tailboneLine[i]);
-      tailboneLine[i] = nullptr;
+    if (gs.tailboneLine[i] != nullptr) {
+      scene()->removeItem(gs.tailboneLine[i]);
+      gs.tailboneLine[i] = nullptr;
     }
 }
 
@@ -19,7 +13,7 @@ void ViewLAT::drawTailboneLine() {
 
   bool isAllPointSet = true;
   for (int i = 0; i < tailbonePointCount; ++i) {
-    if (isPointInvalid(tailbonePoint[i])) {
+    if (isPointInvalid(gs.tailbonePoint[i])) {
       isAllPointSet = false;
     }
   }
@@ -27,11 +21,12 @@ void ViewLAT::drawTailboneLine() {
   if (isAllPointSet) {
     for (int i = 0; i < tailbonePointCount; ++i) {
       for (int j = 0; j < tailbonePointCount - (i + 1); ++j) {
-        if (tailbonePoint[j].position.y() > tailbonePoint[j + 1].position.y()) {
+        if (gs.tailbonePoint[j].position.y() >
+            gs.tailbonePoint[j + 1].position.y()) {
           point tmp;
-          tmp = tailbonePoint[j + 1];
-          tailbonePoint[j + 1] = tailbonePoint[j];
-          tailbonePoint[j] = tmp;
+          tmp = gs.tailbonePoint[j + 1];
+          gs.tailbonePoint[j + 1] = gs.tailbonePoint[j];
+          gs.tailbonePoint[j] = tmp;
         }
       }
     }
@@ -39,11 +34,11 @@ void ViewLAT::drawTailboneLine() {
     // ¼± ±ß±â
     gs.pen[scr]->setWidth(7);
     for (int i = 0; i < tailbonePointCount; ++i) {
-      tailboneLine[i] = scene()->addLine(
-          tailbonePoint[i].position.x() + clickCorrectionWidth,
-          tailbonePoint[i].position.y() + clickCorrectionWidth,
-          tailbonePoint[(i + 1) % 3].position.x() + clickCorrectionWidth,
-          tailbonePoint[(i + 1) % 3].position.y() + clickCorrectionWidth,
+      gs.tailboneLine[i] = scene()->addLine(
+          gs.tailbonePoint[i].position.x() + clickCorrectionWidth,
+          gs.tailbonePoint[i].position.y() + clickCorrectionWidth,
+          gs.tailbonePoint[(i + 1) % 3].position.x() + clickCorrectionWidth,
+          gs.tailbonePoint[(i + 1) % 3].position.y() + clickCorrectionWidth,
           *gs.pen[scr]);
     }
   }
@@ -55,28 +50,28 @@ void ViewLAT::drawTailbonePoint(QPointF pos, const Qt::MouseButton& btn) {
   pos.setY(pos.y() - clickCorrectionWidth);
 
   if (btn == Qt::LeftButton) {
-    if (currentTailbonePoint >= tailbonePointCount) return;
+    if (gs.currentTailbonePoint >= tailbonePointCount) return;
     if (clickRangedTailbonePointOrNull(pos, removePointIndex) != nullptr)
       return;
 
     gs.pen[scr]->setColor(Qt::blue);
-    tailbonePoint[currentTailbonePoint] = {
+    gs.tailbonePoint[gs.currentTailbonePoint] = {
         scene()->addEllipse(pos.x(), pos.y(), pointRadius, pointRadius,
                             *gs.pen[scr], *gs.brush[scr]),
         pos};
 
-    if (removedTailbonePoint.empty() == false) {
-      int t = removedTailbonePoint.top();
-      removedTailbonePoint.pop();
-      currentTailbonePoint = t;
+    if (gs.removedTailbonePoint.empty() == false) {
+      int t = gs.removedTailbonePoint.top();
+      gs.removedTailbonePoint.pop();
+      gs.currentTailbonePoint = t;
     } else {
-      ++currentTailbonePoint;
+      ++gs.currentTailbonePoint;
     }
   } else {
     point* p = clickRangedTailbonePointOrNull(pos, removePointIndex);
     if (p == nullptr) return;
-    removedTailbonePoint.push(currentTailbonePoint);
-    currentTailbonePoint = removePointIndex;
+    gs.removedTailbonePoint.push(gs.currentTailbonePoint);
+    gs.currentTailbonePoint = removePointIndex;
 
     scene()->removeItem((QGraphicsItem*)p->item);
     gs.initPoint(p);
@@ -88,12 +83,12 @@ void ViewLAT::drawTailbonePoint(QPointF pos, const Qt::MouseButton& btn) {
 point* ViewLAT::clickRangedTailbonePointOrNull(const QPointF& pos,
                                                int& outCurrentPoint) {
   for (int i = 0; i < tailbonePointCount; ++i) {
-    qreal x = tailbonePoint[i].position.x();
-    qreal y = tailbonePoint[i].position.y();
+    qreal x = gs.tailbonePoint[i].position.x();
+    qreal y = gs.tailbonePoint[i].position.y();
     if ((x - clickRangeWidth <= pos.x() && pos.x() <= x + clickRangeWidth) &&
         (y - clickRangeWidth <= pos.y() && pos.y() <= y + clickRangeWidth)) {
       outCurrentPoint = i;
-      return &tailbonePoint[i];
+      return &gs.tailbonePoint[i];
     }
   }
   return nullptr;

@@ -61,6 +61,10 @@ public:
   std::stack<int> removedPelvisPoint;
   
   // ViewLAT data
+  point tailbonePoint[tailbonePointCount];
+  QGraphicsItem* tailboneLine[tailbonePointCount];
+  int currentTailbonePoint;
+  std::stack<int> removedTailbonePoint;
 
   QPen* pen[screenCount];
   QBrush* brush[screenCount];

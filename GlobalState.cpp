@@ -35,4 +35,9 @@ GlobalState::GlobalState() {
   for (int i = 0; i < pelvisPointCount; ++i) initPoint(&pelvisPoint[i]);
   pelvisCenter = { -FLT_MAX, -FLT_MAX };
   pelvisLine = nullptr;
+
+  // ViewLAT
+  currentTailbonePoint = 0;
+  for (int i = 0; i < tailbonePointCount; ++i) initPoint(&tailbonePoint[i]);
+  for (int i = 0; i < tailbonePointCount; ++i) tailboneLine[i] = nullptr;
 }
