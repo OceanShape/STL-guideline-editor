@@ -62,20 +62,5 @@ class View : public QGraphicsView {
 
  public slots:
  protected:
-  //BaseLineStatus baseLineStatus;
-  //QGraphicsLineItem* baseLine[baseLineCount];
-
-  //point spinePoint[spineCount][pointCountForOneSpine];
-  //QGraphicsLineItem* spineLine[spineCount][pointCountForOneSpine];
-  //QPointF spineCenter[spineCount];
-  //int currentSpine;
-  //int currentSpinePoint;
-  //std::stack<std::pair<int, int>> removedSpinePoint;
-  //point spinousProcessPoint[spinousProcessPointCount];
-  //int currentSpinousProcessPoint;
-  //std::stack<int> removedSpinousProcessPoint;
-
-  //QPen* pen;
-  //QBrush* brush;
 };
 #endif  // VIEW_H
