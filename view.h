@@ -12,12 +12,13 @@
 
 #include "BaseLineStatus.h"
 #include "BaseLineType.h"
-#include "Mode.h"
 #include "GlobalState.h"
+#include "Mode.h"
 
 class View : public QGraphicsView {
   Q_OBJECT
  public:
+  Screen scr;
   Mode currentMode = Mode::BASE_LINE;
 
  public:

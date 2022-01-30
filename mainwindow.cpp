@@ -16,6 +16,9 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
   connect(ui.actionPelvis, SIGNAL(triggered()), this, SLOT(Pelvis()));
   connect(ui.actionTailbone, SIGNAL(triggered()), this, SLOT(Tailbone()));
 
+  ui.viewAP->scr = SCR::AP;
+  ui.viewLAT->scr = SCR::LAT;
+
   ui.viewAP->setScene(new QGraphicsScene);
   ui.viewLAT->setScene(new QGraphicsScene);
 
