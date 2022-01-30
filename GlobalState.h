@@ -53,6 +53,15 @@ public:
   int currentSpinousProcessPoint[screenCount];
   std::stack<int> removedSpinousProcessPoint[screenCount];
 
+  // ViewAP data
+  point pelvisPoint[pelvisPointCount];
+  QGraphicsItem* pelvisLine;
+  QPointF pelvisCenter;
+  int currentPelvisPoint;
+  std::stack<int> removedPelvisPoint;
+  
+  // ViewLAT data
+
   QPen* pen[screenCount];
   QBrush* brush[screenCount];
 

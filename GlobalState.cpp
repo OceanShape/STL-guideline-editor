@@ -29,4 +29,10 @@ GlobalState::GlobalState() {
     pen[scr]->setWidth(10);
     brush[scr] = new QBrush(Qt::white);
   }
+
+  // ViewAP
+  currentPelvisPoint = 0;
+  for (int i = 0; i < pelvisPointCount; ++i) initPoint(&pelvisPoint[i]);
+  pelvisCenter = { -FLT_MAX, -FLT_MAX };
+  pelvisLine = nullptr;
 }

@@ -19,7 +19,7 @@ class View : public QGraphicsView {
   Q_OBJECT
  public:
   GlobalState& gs = GlobalState::getIncetance();
-  Screen scr;
+  Screen scr = SCR::AP;
   Mode currentMode = Mode::BASE_LINE;
 
  public:
