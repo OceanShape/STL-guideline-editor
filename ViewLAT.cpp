@@ -74,7 +74,7 @@ void ViewLAT::drawTailbonePoint(QPointF pos, const Qt::MouseButton& btn) {
     gs.currentTailbonePoint = removePointIndex;
 
     scene()->removeItem((QGraphicsItem*)p->item);
-    gs.initPoint(p);
+    GlobalState::initPoint(p);
   }
   drawTailboneLine();
   resetPenSetting();

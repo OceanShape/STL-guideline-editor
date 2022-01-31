@@ -69,7 +69,7 @@ void ViewAP::drawPelvisPoint(QPointF pos, const Qt::MouseButton& btn) {
     gs.currentPelvisPoint = removePointIndex;
 
     scene()->removeItem((QGraphicsItem*)p->item);
-    gs.initPoint(p);
+    GlobalState::initPoint(p);
   }
   drawPelvisLine();
   resetPenSetting();

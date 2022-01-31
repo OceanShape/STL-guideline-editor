@@ -217,7 +217,7 @@ void View::drawSpinePoint(QPointF pos, const Qt::MouseButton& btn) {
     gs.currentSpinePoint[scr] = removePointIndex;
 
     scene()->removeItem((QGraphicsItem*)p->item);
-    gs.initPoint(p);
+    GlobalState::initPoint(p);
   }
   drawSpineLine();
   resetPenSetting();
@@ -306,7 +306,7 @@ void View::drawSpinousProcessPoint(QPointF pos, const Qt::MouseButton& btn) {
     gs.currentSpinousProcessPoint[scr] = removePointIndex;
 
     scene()->removeItem((QGraphicsItem*)p->item);
-    gs.initPoint(p);
+    GlobalState::initPoint(p);
   }
   sortSpinousProcessPoint();
   resetPenSetting();

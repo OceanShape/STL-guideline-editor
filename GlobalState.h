@@ -72,7 +72,7 @@ class GlobalState {
     static GlobalState gs;
     return gs;
   }
-  void initPoint(point* p) {
+  static void initPoint(point* p) {
     p->position = {-FLT_MAX, -FLT_MAX};
     p->item = nullptr;
   }
