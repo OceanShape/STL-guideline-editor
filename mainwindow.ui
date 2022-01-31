@@ -119,7 +119,7 @@ color:white;</string>
               <x>0</x>
               <y>0</y>
               <width>622</width>
-              <height>998</height>
+              <height>1161</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout">
@@ -140,385 +140,393 @@ color:white;</string>
              </property>
              <item>
               <widget class="QGroupBox" name="groupBox">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
                <property name="title">
                 <string>Status</string>
                </property>
                <layout class="QGridLayout" name="gridLayout_4">
-                <item row="10" column="0">
-                 <widget class="QLabel" name="label_18">
+                <property name="verticalSpacing">
+                 <number>9</number>
+                </property>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label">
                   <property name="text">
-                   <string>11</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="22" column="0">
-                 <widget class="QLabel" name="label_27">
-                  <property name="text">
-                   <string>23</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="44" column="0">
-                 <widget class="QLabel" name="label_49">
-                  <property name="text">
-                   <string>45</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="33" column="0">
-                 <widget class="QLabel" name="label_32">
-                  <property name="text">
-                   <string>34</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="29" column="0">
-                 <widget class="QLabel" name="label_44">
-                  <property name="text">
-                   <string>30</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QLabel" name="label_3">
-                  <property name="text">
-                   <string>2</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="0">
-                 <widget class="QLabel" name="label_5">
-                  <property name="text">
-                   <string>3</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="30" column="0">
-                 <widget class="QLabel" name="label_36">
-                  <property name="text">
-                   <string>31</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="20" column="0">
-                 <widget class="QLabel" name="label_31">
-                  <property name="text">
-                   <string>21</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="36" column="0">
-                 <widget class="QLabel" name="label_50">
-                  <property name="text">
-                   <string>37</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="23" column="0">
-                 <widget class="QLabel" name="label_28">
-                  <property name="text">
-                   <string>24</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="50" column="0">
-                 <widget class="QLabel" name="label_15">
-                  <property name="text">
-                   <string>51</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="45" column="0">
-                 <widget class="QLabel" name="label_43">
-                  <property name="text">
-                   <string>46</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="9" column="0">
-                 <widget class="QLabel" name="label_16">
-                  <property name="text">
-                   <string>10</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="21" column="0">
-                 <widget class="QLabel" name="label_35">
-                  <property name="text">
-                   <string>22</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="4" column="0">
-                 <widget class="QLabel" name="label_8">
-                  <property name="text">
-                   <string>5</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="35" column="0">
-                 <widget class="QLabel" name="label_40">
-                  <property name="text">
-                   <string>36</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="25" column="0">
-                 <widget class="QLabel" name="label_41">
-                  <property name="text">
-                   <string>26</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="5" column="0">
-                 <widget class="QLabel" name="label_9">
-                  <property name="text">
-                   <string>6</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="48" column="0">
-                 <widget class="QLabel" name="label_33">
-                  <property name="text">
-                   <string>49</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="18" column="0">
-                 <widget class="QLabel" name="label_25">
-                  <property name="text">
-                   <string>19</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="32" column="0">
-                 <widget class="QLabel" name="label_51">
-                  <property name="text">
-                   <string>33</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="7" column="0">
-                 <widget class="QLabel" name="label_11">
-                  <property name="text">
-                   <string>8</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="28" column="0">
-                 <widget class="QLabel" name="label_39">
-                  <property name="text">
-                   <string>29</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="27" column="0">
-                 <widget class="QLabel" name="label_30">
-                  <property name="text">
-                   <string>28</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="52" column="0">
-                 <widget class="QLabel" name="label_4">
-                  <property name="text">
-                   <string>53</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="11" column="0">
-                 <widget class="QLabel" name="label_17">
-                  <property name="text">
-                   <string>12</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="34" column="0">
-                 <widget class="QLabel" name="label_53">
-                  <property name="text">
-                   <string>35</string>
+                   <string>AP_BASE</string>
                   </property>
                  </widget>
                 </item>
                 <item row="12" column="0">
                  <widget class="QLabel" name="label_19">
                   <property name="text">
-                   <string>13</string>
+                   <string>AP_SPINE_3_3</string>
                   </property>
                  </widget>
                 </item>
-                <item row="19" column="0">
-                 <widget class="QLabel" name="label_29">
+                <item row="4" column="0">
+                 <widget class="QLabel" name="label_8">
                   <property name="text">
-                   <string>20</string>
+                   <string>AP_SPINE_1_3</string>
                   </property>
                  </widget>
                 </item>
-                <item row="13" column="0">
-                 <widget class="QLabel" name="label_20">
+                <item row="31" column="0">
+                 <widget class="QLabel" name="label_30">
                   <property name="text">
-                   <string>14</string>
+                   <string>LAT_SPINE_3_2</string>
                   </property>
                  </widget>
                 </item>
-                <item row="40" column="0">
-                 <widget class="QLabel" name="label_48">
+                <item row="38" column="0">
+                 <widget class="QLabel" name="label_53">
                   <property name="text">
-                   <string>41</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="17" column="0">
-                 <widget class="QLabel" name="label_13">
-                  <property name="text">
-                   <string>18</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label">
-                  <property name="text">
-                   <string>1</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="46" column="0">
-                 <widget class="QLabel" name="label_26">
-                  <property name="text">
-                   <string>47</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="42" column="0">
-                 <widget class="QLabel" name="label_38">
-                  <property name="text">
-                   <string>43</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="0">
-                 <widget class="QLabel" name="label_7">
-                  <property name="text">
-                   <string>4</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="51" column="0">
-                 <widget class="QLabel" name="label_2">
-                  <property name="text">
-                   <string>52</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="37" column="0">
-                 <widget class="QLabel" name="label_54">
-                  <property name="text">
-                   <string>38</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="14" column="0">
-                 <widget class="QLabel" name="label_21">
-                  <property name="text">
-                   <string>15</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="49" column="0">
-                 <widget class="QLabel" name="label_14">
-                  <property name="text">
-                   <string>50</string>
+                   <string>LAT_SPINE_5_1</string>
                   </property>
                  </widget>
                 </item>
                 <item row="15" column="0">
                  <widget class="QLabel" name="label_22">
                   <property name="text">
-                   <string>16</string>
+                   <string>AP_SPINE_4_2</string>
                   </property>
                  </widget>
                 </item>
-                <item row="41" column="0">
-                 <widget class="QLabel" name="label_45">
+                <item row="10" column="0">
+                 <widget class="QLabel" name="label_18">
                   <property name="text">
-                   <string>42</string>
+                   <string>AP_SPINE_3_1</string>
                   </property>
                  </widget>
                 </item>
-                <item row="47" column="0">
-                 <widget class="QLabel" name="label_24">
+                <item row="23" column="0">
+                 <widget class="QLabel" name="label_29">
                   <property name="text">
-                   <string>48</string>
+                   <string>LAT_SPINE_1_2</string>
                   </property>
                  </widget>
                 </item>
-                <item row="38" column="0">
-                 <widget class="QLabel" name="label_42">
+                <item row="46" column="0">
+                 <widget class="QLabel" name="label_38">
                   <property name="text">
-                   <string>39</string>
+                   <string>AP_PELVIS_1</string>
                   </property>
                  </widget>
                 </item>
-                <item row="26" column="0">
-                 <widget class="QLabel" name="label_34">
+                <item row="9" column="0">
+                 <widget class="QLabel" name="label_16">
                   <property name="text">
-                   <string>27</string>
+                   <string>AP_SPINE_2_4</string>
                   </property>
                  </widget>
                 </item>
-                <item row="43" column="0">
-                 <widget class="QLabel" name="label_46">
+                <item row="56" column="0">
+                 <widget class="QLabel" name="label_4">
                   <property name="text">
-                   <string>44</string>
+                   <string>SPINOUS_PROCESS_4</string>
                   </property>
                  </widget>
                 </item>
-                <item row="16" column="0">
-                 <widget class="QLabel" name="label_23">
+                <item row="57" column="0">
+                 <widget class="QLabel" name="label_6">
                   <property name="text">
-                   <string>17</string>
+                   <string>SPINOUS_PROCESS_5</string>
                   </property>
                  </widget>
                 </item>
-                <item row="39" column="0">
-                 <widget class="QLabel" name="label_52">
+                <item row="55" column="0">
+                 <widget class="QLabel" name="label_2">
                   <property name="text">
-                   <string>40</string>
+                   <string>SPINOUS_PROCESS_3</string>
                   </property>
                  </widget>
                 </item>
-                <item row="31" column="0">
-                 <widget class="QLabel" name="label_47">
+                <item row="22" column="0">
+                 <widget class="QLabel" name="label_25">
                   <property name="text">
-                   <string>32</string>
+                   <string>LAT_SPINE_1_1</string>
                   </property>
                  </widget>
                 </item>
-                <item row="24" column="0">
-                 <widget class="QLabel" name="label_37">
+                <item row="20" column="0">
+                 <widget class="QLabel" name="label_54">
                   <property name="text">
-                   <string>25</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="8" column="0">
-                 <widget class="QLabel" name="label_12">
-                  <property name="text">
-                   <string>9</string>
+                   <string>AP_SPINE_5_3</string>
                   </property>
                  </widget>
                 </item>
                 <item row="6" column="0">
                  <widget class="QLabel" name="label_10">
                   <property name="text">
-                   <string>7</string>
+                   <string>AP_SPINE_2_1</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="8" column="0">
+                 <widget class="QLabel" name="label_12">
+                  <property name="text">
+                   <string>AP_SPINE_2_3</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="44" column="0">
+                 <widget class="QLabel" name="label_48">
+                  <property name="text">
+                   <string>LAT_SPINE_5_3</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="50" column="0">
+                 <widget class="QLabel" name="label_26">
+                  <property name="text">
+                   <string>LAT_TAILBONE_2</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="32" column="0">
+                 <widget class="QLabel" name="label_39">
+                  <property name="text">
+                   <string>LAT_SPINE_3_3</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="16" column="0">
+                 <widget class="QLabel" name="label_23">
+                  <property name="text">
+                   <string>AP_SPINE_4_3</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="24" column="0">
+                 <widget class="QLabel" name="label_31">
+                  <property name="text">
+                   <string>LAT_SPINE_1_3</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="18" column="0">
+                 <widget class="QLabel" name="label_40">
+                  <property name="text">
+                   <string>AP_SPINE_5_1</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="45" column="0">
+                 <widget class="QLabel" name="label_45">
+                  <property name="text">
+                   <string>LAT_SPINE_5_4</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="33" column="0">
+                 <widget class="QLabel" name="label_44">
+                  <property name="text">
+                   <string>LAT_SPINE_3_4</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="label_5">
+                  <property name="text">
+                   <string>AP_SPINE_1_1</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="17" column="0">
+                 <widget class="QLabel" name="label_13">
+                  <property name="text">
+                   <string>AP_SPINE_4_4</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="48" column="0">
+                 <widget class="QLabel" name="label_49">
+                  <property name="text">
+                   <string>AP_PELVIS_ANGLE</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="14" column="0">
+                 <widget class="QLabel" name="label_21">
+                  <property name="text">
+                   <string>AP_SPINE_4_1</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="13" column="0">
+                 <widget class="QLabel" name="label_20">
+                  <property name="text">
+                   <string>AP_SPINE_3_4</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="0">
+                 <widget class="QLabel" name="label_9">
+                  <property name="text">
+                   <string>AP_SPINE_1_4</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="36" column="0">
+                 <widget class="QLabel" name="label_51">
+                  <property name="text">
+                   <string>LAT_SPINE_4_3</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="29" column="0">
+                 <widget class="QLabel" name="label_41">
+                  <property name="text">
+                   <string>LAT_SPINE_2_4</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="19" column="0">
+                 <widget class="QLabel" name="label_50">
+                  <property name="text">
+                   <string>AP_SPINE_5_2</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="30" column="0">
+                 <widget class="QLabel" name="label_34">
+                  <property name="text">
+                   <string>LAT_SPINE_3_1</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="49" column="0">
+                 <widget class="QLabel" name="label_43">
+                  <property name="text">
+                   <string>LAT_TAILBONE_1</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="28" column="0">
+                 <widget class="QLabel" name="label_37">
+                  <property name="text">
+                   <string>LAT_SPINE_2_3</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QLabel" name="label_7">
+                  <property name="text">
+                   <string>AP_SPINE_1_2</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_3">
+                  <property name="text">
+                   <string>LAT_BASE</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="34" column="0">
+                 <widget class="QLabel" name="label_36">
+                  <property name="text">
+                   <string>LAT_SPINE_4_1</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="51" column="0">
+                 <widget class="QLabel" name="label_24">
+                  <property name="text">
+                   <string>LAT_TAILBONE_3</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="54" column="0">
+                 <widget class="QLabel" name="label_15">
+                  <property name="text">
+                   <string>SPINOUS_PROCESS_2</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="26" column="0">
+                 <widget class="QLabel" name="label_27">
+                  <property name="text">
+                   <string>LAT_SPINE_2_1</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="7" column="0">
+                 <widget class="QLabel" name="label_11">
+                  <property name="text">
+                   <string>AP_SPINE_2_2</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="47" column="0">
+                 <widget class="QLabel" name="label_46">
+                  <property name="text">
+                   <string>AP_PELVIS_2</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="35" column="0">
+                 <widget class="QLabel" name="label_47">
+                  <property name="text">
+                   <string>LAT_SPINE_4_2</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="27" column="0">
+                 <widget class="QLabel" name="label_28">
+                  <property name="text">
+                   <string>LAT_SPINE_2_2</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="25" column="0">
+                 <widget class="QLabel" name="label_35">
+                  <property name="text">
+                   <string>LAT_SPINE_1_4</string>
                   </property>
                  </widget>
                 </item>
                 <item row="53" column="0">
-                 <widget class="QLabel" name="label_6">
+                 <widget class="QLabel" name="label_14">
                   <property name="text">
-                   <string>54</string>
+                   <string>SPINOUS_PROCESS_1</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="43" column="0">
+                 <widget class="QLabel" name="label_52">
+                  <property name="text">
+                   <string>LAT_SPINE_5_2</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="37" column="0">
+                 <widget class="QLabel" name="label_32">
+                  <property name="text">
+                   <string>LAT_SPINE_4_4</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="52" column="0">
+                 <widget class="QLabel" name="label_33">
+                  <property name="text">
+                   <string>LAT_TAILBONE_ANGLE</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="11" column="0">
+                 <widget class="QLabel" name="label_17">
+                  <property name="text">
+                   <string>AP_SPINE_3_2</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="21" column="0">
+                 <widget class="QLabel" name="label_42">
+                  <property name="text">
+                   <string>AP_SPINE_5_4</string>
                   </property>
                  </widget>
                 </item>
