@@ -33,11 +33,50 @@ void GlobalState::initState() {
   // ViewAP
   currentPelvisPoint = 0;
   for (int i = 0; i < pelvisPointCount; ++i) initPoint(&pelvisPoint[i]);
-  pelvisCenter = { -FLT_MAX, -FLT_MAX };
+  pelvisCenter = {-FLT_MAX, -FLT_MAX};
   pelvisLine = nullptr;
 
   // ViewLAT
   currentTailbonePoint = 0;
   for (int i = 0; i < tailbonePointCount; ++i) initPoint(&tailbonePoint[i]);
   for (int i = 0; i < tailbonePointCount; ++i) tailboneLine[i] = nullptr;
+}
+
+bool GlobalState::isAllDataSet() {
+  for (int scr = 0; scr < screenCount; ++scr) {
+    for (int i = 0; i < baseLineCount; ++i) {
+      if (baseLine[scr][i] == nullptr) return false;
+    }
+
+    for (int i = 0; i < spineCount; ++i) {
+      for (int j = 0; j < pointCountForOneSpine; ++j)
+        if (!isPointSet(&spinePoint[scr][i][j])) return false;
+
+      if (spineCenter[scr][i].x() == -FLT_MAX ||
+          spineCenter[scr][i].y() == -FLT_MAX)
+        return false;
+
+      for (int j = 0; j < pointCountForOneSpine; ++j)
+        if (spineLine[scr][i][j] == nullptr) return false;
+    }
+
+    for (int i = 0; i < spinousProcessPointCount; ++i) {
+      if (!isPointSet(&spinousProcessPoint[scr][i])) return false;
+    }
+  }
+
+  // ViewAP
+  for (int i = 0; i < pelvisPointCount; ++i)
+    if (!isPointSet(&pelvisPoint[i])) return false;
+  if (pelvisCenter.x() == -FLT_MAX || pelvisCenter.y() == -FLT_MAX)
+    return false;
+  if (pelvisLine == nullptr) return false;
+
+  // ViewLAT
+  for (int i = 0; i < tailbonePointCount; ++i)
+    if (!isPointSet(&tailbonePoint[i])) return false;
+  for (int i = 0; i < tailbonePointCount; ++i)
+    if (tailboneLine[i] == nullptr) return false;
+
+  return true;
 }

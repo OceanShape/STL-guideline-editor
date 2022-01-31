@@ -77,6 +77,8 @@ void MainWindow::Save() {
   ViewLAT* lat = ui.viewLAT;
   QGraphicsScene* s[2] = {ui.viewAP->scene(), ui.viewLAT->scene()};
 
+  if (!GlobalState::getIncetance().isAllDataSet()) return;
+
   QString patientNum;
   bool ok;
   patientNum = QInputDialog::getText(this, tr("Input patient number"),
