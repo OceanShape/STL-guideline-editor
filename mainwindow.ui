@@ -152,255 +152,33 @@ color:white;</string>
                 <property name="verticalSpacing">
                  <number>6</number>
                 </property>
-                <item row="55" column="0">
-                 <widget class="QLabel" name="SPINOUS_PROCESS_3">
-                  <property name="text">
-                   <string>SPINOUS_PROCESS_3</string>
+                <item row="44" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_41">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
                   </property>
                  </widget>
                 </item>
-                <item row="56" column="0">
-                 <widget class="QLabel" name="SPINOUS_PROCESS_4">
-                  <property name="text">
-                   <string>SPINOUS_PROCESS_4</string>
+                <item row="10" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_11">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
                   </property>
                  </widget>
                 </item>
-                <item row="34" column="0">
-                 <widget class="QLabel" name="LAT_SPINE_4_1">
-                  <property name="text">
-                   <string>LAT_SPINE_4_1</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="18" column="0">
-                 <widget class="QLabel" name="AP_SPINE_5_1">
-                  <property name="text">
-                   <string>AP_SPINE_5_1</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="45" column="0">
-                 <widget class="QLabel" name="LAT_SPINE_5_4">
-                  <property name="text">
-                   <string>LAT_SPINE_5_4</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="21" column="0">
-                 <widget class="QLabel" name="AP_SPINE_5_4">
-                  <property name="text">
-                   <string>AP_SPINE_5_4</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="31" column="0">
-                 <widget class="QLabel" name="LAT_SPINE_3_2">
-                  <property name="text">
-                   <string>LAT_SPINE_3_2</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="51" column="0">
-                 <widget class="QLabel" name="LAT_TAILBONE_3">
-                  <property name="text">
-                   <string>LAT_TAILBONE_3</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="50" column="0">
-                 <widget class="QLabel" name="LAT_TAILBONE_2">
-                  <property name="text">
-                   <string>LAT_TAILBONE_2</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="22" column="0">
-                 <widget class="QLabel" name="LAT_SPINE_1_1">
-                  <property name="text">
-                   <string>LAT_SPINE_1_1</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="44" column="0">
-                 <widget class="QLabel" name="LAT_SPINE_5_3">
-                  <property name="text">
-                   <string>LAT_SPINE_5_3</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="13" column="0">
-                 <widget class="QLabel" name="AP_SPINE_3_4">
-                  <property name="text">
-                   <string>AP_SPINE_3_4</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="38" column="0">
-                 <widget class="QLabel" name="LAT_SPINE_5_1">
-                  <property name="text">
-                   <string>LAT_SPINE_5_1</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="36" column="0">
-                 <widget class="QLabel" name="LAT_SPINE_4_3">
-                  <property name="text">
-                   <string>LAT_SPINE_4_3</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="15" column="0">
-                 <widget class="QLabel" name="AP_SPINE_4_2">
-                  <property name="text">
-                   <string>AP_SPINE_4_2</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="19" column="0">
-                 <widget class="QLabel" name="AP_SPINE_5_2">
-                  <property name="text">
-                   <string>AP_SPINE_5_2</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="47" column="0">
-                 <widget class="QLabel" name="AP_PELVIS_2">
-                  <property name="text">
-                   <string>AP_PELVIS_2</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="57" column="0">
-                 <widget class="QLabel" name="SPINOUS_PROCESS_5">
-                  <property name="text">
-                   <string>SPINOUS_PROCESS_5</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="17" column="0">
-                 <widget class="QLabel" name="AP_SPINE_4_4">
-                  <property name="text">
-                   <string>AP_SPINE_4_4</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="0">
-                 <widget class="QLabel" name="AP_SPINE_1_1">
-                  <property name="text">
-                   <string>AP_SPINE_1_1</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="32" column="0">
-                 <widget class="QLabel" name="LAT_SPINE_3_3">
-                  <property name="text">
-                   <string>LAT_SPINE_3_3</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="10" column="0">
-                 <widget class="QLabel" name="AP_SPINE_3_1">
-                  <property name="text">
-                   <string>AP_SPINE_3_1</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="0">
-                 <widget class="QLabel" name="AP_SPINE_1_2">
-                  <property name="text">
-                   <string>AP_SPINE_1_2</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="20" column="0">
-                 <widget class="QLabel" name="AP_SPINE_5_3">
-                  <property name="text">
-                   <string>AP_SPINE_5_3</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="24" column="0">
-                 <widget class="QLabel" name="LAT_SPINE_1_3">
-                  <property name="text">
-                   <string>LAT_SPINE_1_3</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="52" column="0">
-                 <widget class="QLabel" name="LAT_TAILBONE_ANGLE">
-                  <property name="text">
-                   <string>LAT_TAILBONE_ANGLE</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="35" column="0">
-                 <widget class="QLabel" name="LAT_SPINE_4_2">
-                  <property name="text">
-                   <string>LAT_SPINE_4_2</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="43" column="0">
-                 <widget class="QLabel" name="LAT_SPINE_5_2">
-                  <property name="text">
-                   <string>LAT_SPINE_5_2</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="7" column="0">
-                 <widget class="QLabel" name="AP_SPINE_2_2">
-                  <property name="text">
-                   <string>AP_SPINE_2_2</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="48" column="0">
-                 <widget class="QLabel" name="AP_PELVIS_ANGLE">
-                  <property name="text">
-                   <string>AP_PELVIS_ANGLE</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QLabel" name="LAT_BASE">
-                  <property name="text">
-                   <string>LAT_BASE</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="33" column="0">
-                 <widget class="QLabel" name="LAT_SPINE_3_4">
-                  <property name="text">
-                   <string>LAT_SPINE_3_4</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="49" column="0">
-                 <widget class="QLabel" name="LAT_TAILBONE_1">
-                  <property name="text">
-                   <string>LAT_TAILBONE_1</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="4" column="0">
-                 <widget class="QLabel" name="AP_SPINE_1_3">
-                  <property name="text">
-                   <string>AP_SPINE_1_3</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="AP_BASE">
-                  <property name="text">
-                   <string>AP_BASE</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="23" column="0">
-                 <widget class="QLabel" name="LAT_SPINE_1_2">
-                  <property name="text">
-                   <string>LAT_SPINE_1_2</string>
+                <item row="43" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_40">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
                   </property>
                  </widget>
                 </item>
@@ -411,38 +189,68 @@ color:white;</string>
                   </property>
                  </widget>
                 </item>
-                <item row="9" column="0">
-                 <widget class="QLabel" name="AP_SPINE_2_4">
-                  <property name="text">
-                   <string>AP_SPINE_2_4</string>
+                <item row="9" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_10">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
                   </property>
                  </widget>
                 </item>
-                <item row="6" column="0">
-                 <widget class="QLabel" name="AP_SPINE_2_1">
-                  <property name="text">
-                   <string>AP_SPINE_2_1</string>
+                <item row="18" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_19">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
                   </property>
                  </widget>
                 </item>
-                <item row="12" column="0">
-                 <widget class="QLabel" name="AP_SPINE_3_3">
+                <item row="49" column="0">
+                 <widget class="QLabel" name="LAT_TAILBONE_1">
                   <property name="text">
-                   <string>AP_SPINE_3_3</string>
+                   <string>LAT_TAILBONE_1</string>
                   </property>
                  </widget>
                 </item>
-                <item row="5" column="0">
-                 <widget class="QLabel" name="AP_SPINE_1_4">
+                <item row="21" column="0">
+                 <widget class="QLabel" name="AP_SPINE_5_4">
                   <property name="text">
-                   <string>AP_SPINE_1_4</string>
+                   <string>AP_SPINE_5_4</string>
                   </property>
                  </widget>
                 </item>
-                <item row="11" column="0">
-                 <widget class="QLabel" name="AP_SPINE_3_2">
+                <item row="15" column="0">
+                 <widget class="QLabel" name="AP_SPINE_4_2">
                   <property name="text">
-                   <string>AP_SPINE_3_2</string>
+                   <string>AP_SPINE_4_2</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="17" column="0">
+                 <widget class="QLabel" name="AP_SPINE_4_4">
+                  <property name="text">
+                   <string>AP_SPINE_4_4</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="34" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_35">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="38" column="0">
+                 <widget class="QLabel" name="LAT_SPINE_5_1">
+                  <property name="text">
+                   <string>LAT_SPINE_5_1</string>
                   </property>
                  </widget>
                 </item>
@@ -453,31 +261,88 @@ color:white;</string>
                   </property>
                  </widget>
                 </item>
-                <item row="26" column="0">
-                 <widget class="QLabel" name="LAT_SPINE_2_1">
+                <item row="55" column="0">
+                 <widget class="QLabel" name="SPINOUS_PROCESS_3">
                   <property name="text">
-                   <string>LAT_SPINE_2_1</string>
+                   <string>SPINOUS_PROCESS_3</string>
                   </property>
                  </widget>
                 </item>
-                <item row="8" column="0">
-                 <widget class="QLabel" name="AP_SPINE_2_3">
-                  <property name="text">
-                   <string>AP_SPINE_2_3</string>
+                <item row="6" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_7">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
                   </property>
                  </widget>
                 </item>
-                <item row="16" column="0">
-                 <widget class="QLabel" name="AP_SPINE_4_3">
-                  <property name="text">
-                   <string>AP_SPINE_4_3</string>
+                <item row="48" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_45">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
                   </property>
                  </widget>
                 </item>
-                <item row="25" column="0">
-                 <widget class="QLabel" name="LAT_SPINE_1_4">
+                <item row="53" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_50">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="23" column="0">
+                 <widget class="QLabel" name="LAT_SPINE_1_2">
                   <property name="text">
-                   <string>LAT_SPINE_1_4</string>
+                   <string>LAT_SPINE_1_2</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="38" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_39">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="3">
+                 <widget class="QLabel" name="label_2">
+                  <property name="text">
+                   <string>y(x-y)</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QLabel" name="label">
+                  <property name="text">
+                   <string>x(x-y)</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="19" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_20">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="51" column="0">
+                 <widget class="QLabel" name="LAT_TAILBONE_3">
+                  <property name="text">
+                   <string>LAT_TAILBONE_3</string>
                   </property>
                  </widget>
                 </item>
@@ -488,38 +353,145 @@ color:white;</string>
                   </property>
                  </widget>
                 </item>
-                <item row="29" column="0">
-                 <widget class="QLabel" name="LAT_SPINE_2_4">
+                <item row="36" column="0">
+                 <widget class="QLabel" name="LAT_SPINE_4_3">
                   <property name="text">
-                   <string>LAT_SPINE_2_4</string>
+                   <string>LAT_SPINE_4_3</string>
                   </property>
                  </widget>
                 </item>
-                <item row="54" column="0">
-                 <widget class="QLabel" name="SPINOUS_PROCESS_2">
+                <item row="16" column="0">
+                 <widget class="QLabel" name="AP_SPINE_4_3">
                   <property name="text">
-                   <string>SPINOUS_PROCESS_2</string>
+                   <string>AP_SPINE_4_3</string>
                   </property>
                  </widget>
                 </item>
-                <item row="37" column="0">
-                 <widget class="QLabel" name="LAT_SPINE_4_4">
-                  <property name="text">
-                   <string>LAT_SPINE_4_4</string>
+                <item row="54" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_51">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
                   </property>
                  </widget>
                 </item>
-                <item row="28" column="0">
-                 <widget class="QLabel" name="LAT_SPINE_2_3">
+                <item row="43" column="0">
+                 <widget class="QLabel" name="LAT_SPINE_5_2">
                   <property name="text">
-                   <string>LAT_SPINE_2_3</string>
+                   <string>LAT_SPINE_5_2</string>
                   </property>
                  </widget>
                 </item>
-                <item row="14" column="0">
-                 <widget class="QLabel" name="AP_SPINE_4_1">
+                <item row="27" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_28">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="51" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_48">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="34" column="0">
+                 <widget class="QLabel" name="LAT_SPINE_4_1">
                   <property name="text">
-                   <string>AP_SPINE_4_1</string>
+                   <string>LAT_SPINE_4_1</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_2">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="36" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_37">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="45" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_42">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_5">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="26" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_27">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_4">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="25" column="0">
+                 <widget class="QLabel" name="LAT_SPINE_1_4">
+                  <property name="text">
+                   <string>LAT_SPINE_1_4</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="52" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_49">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="47" column="0">
+                 <widget class="QLabel" name="AP_PELVIS_2">
+                  <property name="text">
+                   <string>AP_PELVIS_2</string>
                   </property>
                  </widget>
                 </item>
@@ -530,7 +502,424 @@ color:white;</string>
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="1">
+                <item row="18" column="0">
+                 <widget class="QLabel" name="AP_SPINE_5_1">
+                  <property name="text">
+                   <string>AP_SPINE_5_1</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_6">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="50" column="0">
+                 <widget class="QLabel" name="LAT_TAILBONE_2">
+                  <property name="text">
+                   <string>LAT_TAILBONE_2</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="25" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_26">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="57" column="0">
+                 <widget class="QLabel" name="SPINOUS_PROCESS_5">
+                  <property name="text">
+                   <string>SPINOUS_PROCESS_5</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="7" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_8">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="35" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_36">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="32" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_33">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="37" column="0">
+                 <widget class="QLabel" name="LAT_SPINE_4_4">
+                  <property name="text">
+                   <string>LAT_SPINE_4_4</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="LAT_BASE">
+                  <property name="text">
+                   <string>LAT_BASE</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="0">
+                 <widget class="QLabel" name="AP_SPINE_1_4">
+                  <property name="text">
+                   <string>AP_SPINE_1_4</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="AP_SPINE_1_1">
+                  <property name="text">
+                   <string>AP_SPINE_1_1</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="13" column="0">
+                 <widget class="QLabel" name="AP_SPINE_3_4">
+                  <property name="text">
+                   <string>AP_SPINE_3_4</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="26" column="0">
+                 <widget class="QLabel" name="LAT_SPINE_2_1">
+                  <property name="text">
+                   <string>LAT_SPINE_2_1</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="21" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_22">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="20" column="0">
+                 <widget class="QLabel" name="AP_SPINE_5_3">
+                  <property name="text">
+                   <string>AP_SPINE_5_3</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="20" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_21">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="8" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_9">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="16" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_17">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="47" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_44">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="50" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_47">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="31" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_32">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="46" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_43">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_3">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="29" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_30">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="24" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_25">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="48" column="0">
+                 <widget class="QLabel" name="AP_PELVIS_ANGLE">
+                  <property name="text">
+                   <string>AP_PELVIS_ANGLE</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="37" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_38">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="57" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_54">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="22" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_23">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="28" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_29">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="45" column="0">
+                 <widget class="QLabel" name="LAT_SPINE_5_4">
+                  <property name="text">
+                   <string>LAT_SPINE_5_4</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="19" column="0">
+                 <widget class="QLabel" name="AP_SPINE_5_2">
+                  <property name="text">
+                   <string>AP_SPINE_5_2</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="56" column="0">
+                 <widget class="QLabel" name="SPINOUS_PROCESS_4">
+                  <property name="text">
+                   <string>SPINOUS_PROCESS_4</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="28" column="0">
+                 <widget class="QLabel" name="LAT_SPINE_2_3">
+                  <property name="text">
+                   <string>LAT_SPINE_2_3</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="33" column="0">
+                 <widget class="QLabel" name="LAT_SPINE_3_4">
+                  <property name="text">
+                   <string>LAT_SPINE_3_4</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="13" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_14">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="15" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_16">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="33" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_34">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="11" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_12">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="49" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_46">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QLabel" name="AP_SPINE_1_2">
+                  <property name="text">
+                   <string>AP_SPINE_1_2</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="12" column="0">
+                 <widget class="QLabel" name="AP_SPINE_3_3">
+                  <property name="text">
+                   <string>AP_SPINE_3_3</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="31" column="0">
+                 <widget class="QLabel" name="LAT_SPINE_3_2">
+                  <property name="text">
+                   <string>LAT_SPINE_3_2</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="17" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_18">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="44" column="0">
+                 <widget class="QLabel" name="LAT_SPINE_5_3">
+                  <property name="text">
+                   <string>LAT_SPINE_5_3</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="9" column="0">
+                 <widget class="QLabel" name="AP_SPINE_2_4">
+                  <property name="text">
+                   <string>AP_SPINE_2_4</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="14" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_15">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="2">
                  <widget class="QTextBrowser" name="textBrowser">
                   <property name="maximumSize">
                    <size>
@@ -545,507 +934,7 @@ color:white;</string>
                   </property>
                  </widget>
                 </item>
-                <item row="1" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_2">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_3">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_4">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="4" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_5">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="5" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_6">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="6" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_7">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="7" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_8">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="8" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_9">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="9" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_10">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="10" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_11">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="11" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_12">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="12" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_13">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="13" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_14">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="14" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_15">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="15" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_16">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="16" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_17">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="17" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_18">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="18" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_19">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="19" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_20">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="20" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_21">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="21" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_22">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="22" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_23">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="23" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_24">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="24" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_25">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="25" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_26">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="26" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_27">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="27" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_28">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="28" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_29">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="29" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_30">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="30" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_31">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="31" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_32">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="32" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_33">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="33" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_34">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="34" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_35">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="35" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_36">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="36" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_37">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="37" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_38">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="38" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_39">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="43" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_40">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="44" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_41">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="45" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_42">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="46" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_43">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="47" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_44">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="48" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_45">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="49" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_46">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="50" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_47">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="51" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_48">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="52" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_49">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="53" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_50">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="54" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_51">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item row="55" column="1">
+                <item row="55" column="2">
                  <widget class="QTextBrowser" name="textBrowser_52">
                   <property name="maximumSize">
                    <size>
@@ -1055,7 +944,73 @@ color:white;</string>
                   </property>
                  </widget>
                 </item>
-                <item row="56" column="1">
+                <item row="32" column="0">
+                 <widget class="QLabel" name="LAT_SPINE_3_3">
+                  <property name="text">
+                   <string>LAT_SPINE_3_3</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="7" column="0">
+                 <widget class="QLabel" name="AP_SPINE_2_2">
+                  <property name="text">
+                   <string>AP_SPINE_2_2</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="35" column="0">
+                 <widget class="QLabel" name="LAT_SPINE_4_2">
+                  <property name="text">
+                   <string>LAT_SPINE_4_2</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="12" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_13">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="8" column="0">
+                 <widget class="QLabel" name="AP_SPINE_2_3">
+                  <property name="text">
+                   <string>AP_SPINE_2_3</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="24" column="0">
+                 <widget class="QLabel" name="LAT_SPINE_1_3">
+                  <property name="text">
+                   <string>LAT_SPINE_1_3</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="22" column="0">
+                 <widget class="QLabel" name="LAT_SPINE_1_1">
+                  <property name="text">
+                   <string>LAT_SPINE_1_1</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="6" column="0">
+                 <widget class="QLabel" name="AP_SPINE_2_1">
+                  <property name="text">
+                   <string>AP_SPINE_2_1</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="52" column="0">
+                 <widget class="QLabel" name="LAT_TAILBONE_ANGLE">
+                  <property name="text">
+                   <string>LAT_TAILBONE_ANGLE</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="56" column="2">
                  <widget class="QTextBrowser" name="textBrowser_53">
                   <property name="maximumSize">
                    <size>
@@ -1065,8 +1020,77 @@ color:white;</string>
                   </property>
                  </widget>
                 </item>
-                <item row="57" column="1">
-                 <widget class="QTextBrowser" name="textBrowser_54">
+                <item row="11" column="0">
+                 <widget class="QLabel" name="AP_SPINE_3_2">
+                  <property name="text">
+                   <string>AP_SPINE_3_2</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="AP_BASE">
+                  <property name="text">
+                   <string>AP_BASE</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="23" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_24">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="29" column="0">
+                 <widget class="QLabel" name="LAT_SPINE_2_4">
+                  <property name="text">
+                   <string>LAT_SPINE_2_4</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="14" column="0">
+                 <widget class="QLabel" name="AP_SPINE_4_1">
+                  <property name="text">
+                   <string>AP_SPINE_4_1</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="30" column="2">
+                 <widget class="QTextBrowser" name="textBrowser_31">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="10" column="0">
+                 <widget class="QLabel" name="AP_SPINE_3_1">
+                  <property name="text">
+                   <string>AP_SPINE_3_1</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="0">
+                 <widget class="QLabel" name="AP_SPINE_1_3">
+                  <property name="text">
+                   <string>AP_SPINE_1_3</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="54" column="0">
+                 <widget class="QLabel" name="SPINOUS_PROCESS_2">
+                  <property name="text">
+                   <string>SPINOUS_PROCESS_2</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="4">
+                 <widget class="QTextBrowser" name="textBrowser_55">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
