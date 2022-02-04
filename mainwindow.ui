@@ -88,6 +88,12 @@ color:white;</string>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
+         <property name="minimumSize">
+          <size>
+           <width>670</width>
+           <height>0</height>
+          </size>
+         </property>
         </widget>
        </item>
        <item>
@@ -97,6 +103,12 @@ color:white;</string>
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>670</width>
+           <height>0</height>
+          </size>
          </property>
         </widget>
        </item>
@@ -110,9 +122,15 @@ color:white;</string>
          </property>
          <item>
           <widget class="QScrollArea" name="scrollArea">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="maximumSize">
             <size>
-             <width>600</width>
+             <width>16777215</width>
              <height>16777215</height>
             </size>
            </property>
@@ -124,7 +142,7 @@ color:white;</string>
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>583</width>
+              <width>571</width>
               <height>1434</height>
              </rect>
             </property>
@@ -2656,7 +2674,7 @@ color:white;</string>
            </property>
            <property name="maximumSize">
             <size>
-             <width>600</width>
+             <width>16777215</width>
              <height>16777215</height>
             </size>
            </property>
@@ -2715,7 +2733,7 @@ color:white;</string>
            </property>
            <property name="maximumSize">
             <size>
-             <width>600</width>
+             <width>16777215</width>
              <height>16777215</height>
             </size>
            </property>
