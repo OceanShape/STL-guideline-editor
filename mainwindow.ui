@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1928</width>
-    <height>1100</height>
+    <width>1930</width>
+    <height>1104</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -110,6 +110,12 @@ color:white;</string>
          </property>
          <item>
           <widget class="QScrollArea" name="scrollArea">
+           <property name="maximumSize">
+            <size>
+             <width>600</width>
+             <height>16777215</height>
+            </size>
+           </property>
            <property name="widgetResizable">
             <bool>true</bool>
            </property>
@@ -118,7 +124,7 @@ color:white;</string>
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>624</width>
+              <width>583</width>
               <height>1434</height>
              </rect>
             </property>
@@ -2636,10 +2642,22 @@ color:white;</string>
          </item>
          <item>
           <widget class="QGroupBox" name="symptomBox">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="minimumSize">
             <size>
              <width>0</width>
              <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>600</width>
+             <height>16777215</height>
             </size>
            </property>
            <property name="font">
@@ -2683,10 +2701,22 @@ color:white;</string>
          </item>
          <item>
           <widget class="QGroupBox" name="remarksBox">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="minimumSize">
             <size>
              <width>0</width>
              <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>600</width>
+             <height>16777215</height>
             </size>
            </property>
            <property name="font">
@@ -2746,7 +2776,7 @@ color:white;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1928</width>
+     <width>1930</width>
      <height>22</height>
     </rect>
    </property>
