@@ -141,7 +141,7 @@ color:white;</string>
             <property name="geometry">
              <rect>
               <x>0</x>
-              <y>0</y>
+              <y>-686</y>
               <width>571</width>
               <height>1434</height>
              </rect>
@@ -191,7 +191,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="20" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_21">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE53_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -201,7 +201,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="31" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_32">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE32_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -225,7 +225,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="17" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_18">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE44_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -235,7 +235,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="34" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_35">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE41_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -259,7 +259,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="3" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_4">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE12_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -269,7 +269,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="7" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_8">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE22_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -293,7 +293,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="36" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_37">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE43_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -303,7 +303,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="16" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_17">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE43_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -313,7 +313,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="0" column="2">
-                 <widget class="QTextBrowser" name="textBrowser">
+                 <widget class="QTextBrowser" name="textBrowserAPBASE_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -335,7 +335,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="46" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_43">
+                 <widget class="QTextBrowser" name="textBrowserAPPELVIS1_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -345,7 +345,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="51" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_48">
+                 <widget class="QTextBrowser" name="textBrowserLATTAILBONE3_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -404,7 +404,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="32" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_33">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE33_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -435,7 +435,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="6" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_7">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE21_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -466,7 +466,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="8" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_9">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE23_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -476,7 +476,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="4" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_5">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE13_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -514,7 +514,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="55" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_52">
+                 <widget class="QTextBrowser" name="textBrowserSPINOUSPROCESS3_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -524,7 +524,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="56" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_53">
+                 <widget class="QTextBrowser" name="textBrowserSPINOUSPROCESS4_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -541,7 +541,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="15" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_16">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE42_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -558,7 +558,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="9" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_10">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE24_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -575,7 +575,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="24" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_25">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE13_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -655,7 +655,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="2" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_57">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE11_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -679,7 +679,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="1" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_56">
+                 <widget class="QTextBrowser" name="textBrowserLATBASE_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -717,7 +717,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="35" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_36">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE42_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -727,7 +727,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="43" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_40">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE52_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -758,7 +758,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="2" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_3">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE11_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -768,7 +768,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="27" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_28">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE22_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -813,7 +813,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="30" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_31">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE31_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -844,7 +844,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="23" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_24">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE12_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -854,7 +854,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="45" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_42">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE54_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -878,7 +878,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="21" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_22">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE54_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -888,7 +888,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="48" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_45">
+                 <widget class="QTextBrowser" name="textBrowserAPPELVISANGLE_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -905,7 +905,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="12" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_13">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE33_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -915,7 +915,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="28" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_29">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE23_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -925,7 +925,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="0" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_55">
+                 <widget class="QTextBrowser" name="textBrowserAPBASE_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -963,7 +963,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="33" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_34">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE34_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -980,7 +980,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="25" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_26">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE14_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1018,7 +1018,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="38" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_39">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE51_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1035,7 +1035,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="44" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_41">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE53_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1052,7 +1052,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="11" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_12">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE32_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1083,7 +1083,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="53" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_50">
+                 <widget class="QTextBrowser" name="textBrowserSPINOUSPROCESS1_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1121,7 +1121,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="29" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_30">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE24_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1131,7 +1131,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="22" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_23">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE11_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1148,7 +1148,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="50" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_47">
+                 <widget class="QTextBrowser" name="textBrowserLATTAILBONE2_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1158,7 +1158,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="52" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_49">
+                 <widget class="QTextBrowser" name="textBrowserLATTAILBONEANGLE_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1222,7 +1222,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="5" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_6">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE14_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1232,7 +1232,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="14" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_15">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE41_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1256,7 +1256,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="18" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_19">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE51_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1273,7 +1273,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="26" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_27">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE21_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1290,7 +1290,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="47" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_44">
+                 <widget class="QTextBrowser" name="textBrowserAPPELVIS2_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1398,7 +1398,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="13" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_14">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE34_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1429,7 +1429,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="54" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_51">
+                 <widget class="QTextBrowser" name="textBrowserSPINOUSPROCESS2_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1439,7 +1439,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="19" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_20">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE52_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1449,7 +1449,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="57" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_54">
+                 <widget class="QTextBrowser" name="textBrowserSPINOUSPROCESS5_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1487,7 +1487,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="10" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_11">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE31_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1497,7 +1497,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="49" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_46">
+                 <widget class="QTextBrowser" name="textBrowserLATTAILBONE1_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1514,7 +1514,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="37" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_38">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE44_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1524,7 +1524,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="1" column="2">
-                 <widget class="QTextBrowser" name="textBrowser_2">
+                 <widget class="QTextBrowser" name="textBrowserLATBASE_1">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1554,7 +1554,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="2" column="6">
-                 <widget class="QTextBrowser" name="textBrowser_58">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE11_3">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1914,7 +1914,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="3" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_59">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE12_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1924,7 +1924,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="4" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_60">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE13_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1934,7 +1934,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="5" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_61">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE14_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1944,7 +1944,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="6" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_62">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE21_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1954,7 +1954,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="7" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_63">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE22_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1964,7 +1964,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="8" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_64">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE23_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1974,7 +1974,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="9" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_65">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE24_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1984,7 +1984,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="10" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_66">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE31_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -1994,7 +1994,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="11" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_67">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE32_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2004,7 +2004,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="12" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_68">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE33_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2014,7 +2014,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="13" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_69">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE34_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2024,7 +2024,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="14" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_70">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE41_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2034,7 +2034,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="15" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_71">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE42_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2044,7 +2044,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="16" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_72">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE43_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2054,7 +2054,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="17" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_73">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE44_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2064,7 +2064,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="18" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_74">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE51_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2074,7 +2074,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="19" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_75">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE52_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2084,7 +2084,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="20" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_76">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE53_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2094,7 +2094,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="22" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_77">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE11_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2104,7 +2104,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="21" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_78">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE54_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2114,7 +2114,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="23" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_79">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE12_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2124,7 +2124,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="24" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_80">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE13_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2134,7 +2134,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="25" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_81">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE14_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2144,7 +2144,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="26" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_82">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE21_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2154,7 +2154,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="27" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_83">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE22_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2164,7 +2164,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="28" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_84">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE23_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2174,7 +2174,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="29" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_85">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE24_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2184,7 +2184,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="30" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_86">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE31_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2194,7 +2194,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="31" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_87">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE32_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2204,7 +2204,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="32" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_88">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE33_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2214,7 +2214,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="33" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_89">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE34_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2224,7 +2224,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="34" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_90">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE41_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2234,7 +2234,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="35" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_91">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE42_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2244,7 +2244,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="36" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_92">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE43_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2254,7 +2254,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="37" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_93">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE44_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2264,7 +2264,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="38" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_94">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE51_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2274,7 +2274,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="43" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_95">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE52_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2284,7 +2284,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="44" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_96">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE53_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2294,7 +2294,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="45" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_97">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE54_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2304,7 +2304,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="46" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_98">
+                 <widget class="QTextBrowser" name="textBrowserAPPELVIS1_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2314,7 +2314,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="47" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_99">
+                 <widget class="QTextBrowser" name="textBrowserAPPELVIS2_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2324,7 +2324,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="49" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_101">
+                 <widget class="QTextBrowser" name="textBrowserLATTAILBONE1_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2334,7 +2334,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="50" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_102">
+                 <widget class="QTextBrowser" name="textBrowserLATTAILBONE2_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2344,7 +2344,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="51" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_103">
+                 <widget class="QTextBrowser" name="textBrowserLATTAILBONE3_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2354,7 +2354,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="52" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_104">
+                 <widget class="QTextBrowser" name="textBrowserLATTAILBONEANGLE_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2364,7 +2364,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="53" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_105">
+                 <widget class="QTextBrowser" name="textBrowserSPINOUSPROCESS1_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2374,7 +2374,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="54" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_106">
+                 <widget class="QTextBrowser" name="textBrowserSPINOUSPROCESS2_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2384,7 +2384,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="55" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_107">
+                 <widget class="QTextBrowser" name="textBrowserSPINOUSPROCESS3_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2394,7 +2394,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="56" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_108">
+                 <widget class="QTextBrowser" name="textBrowserSPINOUSPROCESS4_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2404,7 +2404,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="57" column="4">
-                 <widget class="QTextBrowser" name="textBrowser_109">
+                 <widget class="QTextBrowser" name="textBrowserSPINOUSPROCESS5_2">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2421,7 +2421,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="6" column="6">
-                 <widget class="QTextBrowser" name="textBrowser_110">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE21_3">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2438,7 +2438,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="10" column="6">
-                 <widget class="QTextBrowser" name="textBrowser_111">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE31_3">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2455,7 +2455,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="14" column="6">
-                 <widget class="QTextBrowser" name="textBrowser_112">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE41_3">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2472,7 +2472,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="18" column="6">
-                 <widget class="QTextBrowser" name="textBrowser_113">
+                 <widget class="QTextBrowser" name="textBrowserAPSPINE51_3">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2489,7 +2489,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="53" column="6">
-                 <widget class="QTextBrowser" name="textBrowser_100">
+                 <widget class="QTextBrowser" name="textBrowserSPINOUSPROCESS1_3">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2506,7 +2506,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="54" column="6">
-                 <widget class="QTextBrowser" name="textBrowser_114">
+                 <widget class="QTextBrowser" name="textBrowserSPINOUSPROCESS2_3">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2523,7 +2523,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="57" column="6">
-                 <widget class="QTextBrowser" name="textBrowser_115">
+                 <widget class="QTextBrowser" name="textBrowserSPINOUSPROCESS5_3">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2540,7 +2540,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="56" column="6">
-                 <widget class="QTextBrowser" name="textBrowser_116">
+                 <widget class="QTextBrowser" name="textBrowserSPINOUSPROCESS4_3">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2557,7 +2557,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="55" column="6">
-                 <widget class="QTextBrowser" name="textBrowser_117">
+                 <widget class="QTextBrowser" name="textBrowserSPINOUSPROCESS3_3">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2574,7 +2574,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="22" column="6">
-                 <widget class="QTextBrowser" name="textBrowser_118">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE11_3">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2591,7 +2591,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="26" column="6">
-                 <widget class="QTextBrowser" name="textBrowser_119">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE21_3">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2608,7 +2608,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="30" column="6">
-                 <widget class="QTextBrowser" name="textBrowser_120">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE31_3">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2625,7 +2625,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="34" column="6">
-                 <widget class="QTextBrowser" name="textBrowser_121">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE41_3">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -2642,7 +2642,7 @@ color:white;</string>
                  </widget>
                 </item>
                 <item row="38" column="6">
-                 <widget class="QTextBrowser" name="textBrowser_122">
+                 <widget class="QTextBrowser" name="textBrowserLATSPINE51_3">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
