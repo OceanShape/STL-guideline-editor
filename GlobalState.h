@@ -76,6 +76,11 @@ public:
     p->position = { -FLT_MAX, -FLT_MAX };
     p->item = nullptr;
   }
+  static bool isDataValid(const point& p) {
+    if (p.position.x() == -FLT_MAX || p.position.y() == -FLT_MAX) return false;
+    if (p.item == nullptr) return false;
+    return true;
+  };
   bool isAllDataSet();
 
  private:
@@ -88,11 +93,6 @@ public:
       delete pen[scr];
       delete brush[scr];
     }
-  }
-  static bool isPointSet(const point& p) {
-    if (p.position.x() == -FLT_MAX || p.position.y() == -FLT_MAX) return false;
-    if (p.item == nullptr) return false;
-    return true;
   }
 };
 #endif
