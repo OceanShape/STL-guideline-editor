@@ -77,10 +77,12 @@ public:
     p->item = nullptr;
   }
   static bool isDataValid(const point& p) {
-    if (p.position.x() == -FLT_MAX || p.position.y() == -FLT_MAX) return false;
-    if (p.item == nullptr) return false;
-    return true;
+    return isDataValid(p.item) && isDataValid(p.position);
   };
+  static bool isDataValid(const QPointF& f) {
+    return f.x() != -FLT_MAX && f.y() != -FLT_MAX;
+  };
+  static bool isDataValid(const QGraphicsItem* i) { return i != nullptr; };
   bool isAllDataSet();
 
  private:
