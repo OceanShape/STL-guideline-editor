@@ -20,6 +20,7 @@ void View::mousePressEvent(QMouseEvent* event) {
     drawPelvisORTailbonePoint(pos, btn);
   }
   resetPenSetting();
+  emit updateSignal();
 }
 
 void View::mouseMoveEvent(QMouseEvent* event) {

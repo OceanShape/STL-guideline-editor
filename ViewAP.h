@@ -41,10 +41,6 @@ class ViewAP : public View {
     return -atan2(dY, dX) * 180 / M_PI;
   }
 
- signals:
-
- public slots:
-
  private:
   point* clickRangedPelvisPointOrNull(const QPointF& pos, int& outCurrentPoint);
   void drawPelvisPoint(QPointF pos, const Qt::MouseButton& btn);

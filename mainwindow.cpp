@@ -15,6 +15,8 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
   connect(ui.actionSpinousProcess, SIGNAL(triggered()), this, SLOT(SpinousProcess()));
   connect(ui.actionPelvis, SIGNAL(triggered()), this, SLOT(Pelvis()));
   connect(ui.actionTailbone, SIGNAL(triggered()), this, SLOT(Tailbone()));
+  connect(ui.viewAP, SIGNAL(updateSignal()), this, SLOT(Update()));
+  connect(ui.viewLAT, SIGNAL(updateSignal()), this, SLOT(Update()));
 
   ui.viewAP->scr = SCR::AP;
   ui.viewLAT->scr = SCR::LAT;
@@ -26,10 +28,6 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
 MainWindow::~MainWindow() {
   delete ui.viewAP->scene();
   delete ui.viewLAT->scene();
-}
-
-void MainWindow::update() {
-  // update ui.status
 }
 
 void MainWindow::New() {
@@ -70,6 +68,27 @@ void MainWindow::Open() {
     buf.push_back(OpenFile.readLine());
   }
   file.close();
+}
+
+void MainWindow::Close() {
+  QMessageBox msgBox;
+  msgBox.setText(tr("Save all changes?"));
+  msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No |
+    QMessageBox::Cancel);
+  msgBox.setDefaultButton(QMessageBox::Yes);
+
+  int msg = msgBox.exec();
+  if (msg == QMessageBox::Yes) {
+    Save();
+    this->close();
+  }
+  else if (msg == QMessageBox::No) {
+    this->close();
+  }
+}
+
+void MainWindow::Update() {
+  // update ui.status
 }
 
 void MainWindow::Save() {
@@ -180,22 +199,6 @@ void MainWindow::Save() {
 
   file.flush();
   file.close();
-}
-
-void MainWindow::Close() {
-  QMessageBox msgBox;
-  msgBox.setText(tr("Save all changes?"));
-  msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No |
-                            QMessageBox::Cancel);
-  msgBox.setDefaultButton(QMessageBox::Yes);
-
-  int msg = msgBox.exec();
-  if (msg == QMessageBox::Yes) {
-    Save();
-    this->close();
-  } else if (msg == QMessageBox::No) {
-    this->close();
-  }
 }
 
 void MainWindow::BaseLine() {

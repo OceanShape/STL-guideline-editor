@@ -22,7 +22,6 @@ class MainWindow : public QMainWindow {
  public:
   MainWindow(QWidget* parent = Q_NULLPTR);
   MainWindow::~MainWindow();
-  void update();
 
  private:
   Ui::MainWindowClass ui;
@@ -30,8 +29,9 @@ class MainWindow : public QMainWindow {
  private slots:
   void New();
   void Open();
-  void Save();
   void Close();
+  void Update();
+  void Save();
   void BaseLine();
   void Spine();
   void SpinousProcess();

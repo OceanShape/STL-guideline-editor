@@ -58,9 +58,8 @@ class View : public QGraphicsView {
                                               int& outCurrentPoint);
   void drawSpinousProcessPoint(QPointF pos, const Qt::MouseButton& btn);
 
- signals:
 
- public slots:
- protected:
+signals:
+  void updateSignal();
 };
 #endif  // VIEW_H
