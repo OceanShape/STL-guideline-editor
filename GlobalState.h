@@ -35,7 +35,7 @@ typedef struct {
 typedef enum Screen { AP, LAT } SCR;
 
 class GlobalState {
- public:
+public:
   GlobalState* instance;
 
   BaseLineStatus baseLineStatus[screenCount];
@@ -67,24 +67,19 @@ class GlobalState {
   QPen* pen[screenCount];
   QBrush* brush[screenCount];
 
- public:
+public:
   static GlobalState& getIncetance() {
     static GlobalState gs;
     return gs;
   }
   static void initPoint(point* p) {
-    p->position = {-FLT_MAX, -FLT_MAX};
+    p->position = { -FLT_MAX, -FLT_MAX };
     p->item = nullptr;
   }
   bool isAllDataSet();
 
  private:
   void initState();
-  bool isPointSet(point* p) {
-    if (p->position.x() == -FLT_MAX || p->position.y() == -FLT_MAX) return false;
-    if (p->item == nullptr) return false;
-    return true;
-  }
   GlobalState() { initState(); }
   GlobalState(const GlobalState& ref) { initState(); }
   GlobalState& operator=(const GlobalState& ref) {}
@@ -93,6 +88,11 @@ class GlobalState {
       delete pen[scr];
       delete brush[scr];
     }
+  }
+  static bool isPointSet(const point& p) {
+    if (p.position.x() == -FLT_MAX || p.position.y() == -FLT_MAX) return false;
+    if (p.item == nullptr) return false;
+    return true;
   }
 };
 #endif
