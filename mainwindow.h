@@ -37,6 +37,7 @@ class MainWindow : public QMainWindow {
                        const QGraphicsLineItem* baseLineY);
   void setAngleAPText(QTextBrowser* alpha);
   void setAngleLATText(QTextBrowser* alpha, QTextBrowser* beta);
+  void setSpineRotateText(QTextBrowser* tb, const int& spineIdx);
   void New();
   void Open();
   void Close();

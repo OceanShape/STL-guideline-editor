@@ -139,6 +139,18 @@ void MainWindow::setBaseLineText(QTextBrowser* tb1, QTextBrowser* tb2,
   tb2->setText(QString::number(baseLineY->line().p1().y()));
 }
 
+void MainWindow::setSpineRotateText(QTextBrowser* tb, const int& spineIdx) {
+  if (gs.isDataValid(gs.spinePoint[0][spineIdx][0]) &&
+      gs.isDataValid(gs.spinePoint[0][spineIdx][1]) &&
+      gs.isDataValid(gs.spinePoint[0][spineIdx][2]) &&
+      gs.isDataValid(gs.spinePoint[0][spineIdx][3])) {
+    tb->setText(QString::number(ui.viewAP->getSpineRotateZ(spineIdx)));
+  }
+  else {
+    tb->setText("invalid");
+  }
+}
+
 void MainWindow::Update() {
   // update ui.status
 
@@ -167,6 +179,13 @@ void MainWindow::Update() {
   setPointText(ui.textBrowserAPSPINE52_1, ui.textBrowserAPSPINE52_2, gs.spinePoint[0][4][1]);
   setPointText(ui.textBrowserAPSPINE53_1, ui.textBrowserAPSPINE53_2, gs.spinePoint[0][4][2]);
   setPointText(ui.textBrowserAPSPINE54_1, ui.textBrowserAPSPINE54_2, gs.spinePoint[0][4][3]);
+
+  // AP SPINE ROTATE
+  setSpineRotateText(ui.textBrowserAPSPINE11_3, 0);
+  setSpineRotateText(ui.textBrowserAPSPINE21_3, 1);
+  setSpineRotateText(ui.textBrowserAPSPINE31_3, 2);
+  setSpineRotateText(ui.textBrowserAPSPINE41_3, 3);
+  setSpineRotateText(ui.textBrowserAPSPINE51_3, 4);
 
   // LAT SPINE
   setPointText(ui.textBrowserLATSPINE11_1, ui.textBrowserLATSPINE11_2, gs.spinePoint[1][0][0]);
