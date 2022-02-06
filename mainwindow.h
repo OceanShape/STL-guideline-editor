@@ -26,7 +26,9 @@ class MainWindow : public QMainWindow {
  private:
   Ui::MainWindowClass ui;
   QString imageFileName[2];
+  GlobalState& gs = GlobalState::getIncetance();
  private slots:
+  void setPointText(QTextBrowser* tb1, QTextBrowser* tb2, const point& p);
   void New();
   void Open();
   void Close();
