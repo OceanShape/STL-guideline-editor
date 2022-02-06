@@ -98,8 +98,18 @@ void MainWindow::setPointText(QTextBrowser* tb1, QTextBrowser* tb2, const point&
   }
 }
 
+void MainWindow::setBaseLineText(QTextBrowser* tb1, QTextBrowser* tb2,
+  const QGraphicsLineItem* baseLineX,
+  const QGraphicsLineItem* baseLineY) {
+  tb1->setText(QString::number(baseLineX->line().p1().x()));
+  tb2->setText(QString::number(baseLineY->line().p1().y()));
+}
+
 void MainWindow::Update() {
   // update ui.status
+
+  setBaseLineText(ui.textBrowserAPBASE_1, ui.textBrowserAPBASE_2, gs.baseLine[0][0], gs.baseLine[0][1]);
+  setBaseLineText(ui.textBrowserLATBASE_2, ui.textBrowserLATBASE_1, gs.baseLine[1][0], gs.baseLine[1][1]);
 
   setPointText(ui.textBrowserAPSPINE11_1, ui.textBrowserAPSPINE11_2, gs.spinePoint[0][0][0]);
   setPointText(ui.textBrowserAPSPINE12_1, ui.textBrowserAPSPINE12_2, gs.spinePoint[0][0][1]);

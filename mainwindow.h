@@ -29,6 +29,9 @@ class MainWindow : public QMainWindow {
   GlobalState& gs = GlobalState::getIncetance();
  private slots:
   void setPointText(QTextBrowser* tb1, QTextBrowser* tb2, const point& p);
+  void setBaseLineText(QTextBrowser* tb1, QTextBrowser* tb2,
+                       const QGraphicsLineItem* baseLineX,
+                       const QGraphicsLineItem* baseLineY);
   void New();
   void Open();
   void Close();
