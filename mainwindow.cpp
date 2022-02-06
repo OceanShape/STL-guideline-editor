@@ -153,7 +153,12 @@ void MainWindow::Update() {
   setPointText(ui.textBrowserLATSPINE53_1, ui.textBrowserLATSPINE53_2, gs.spinePoint[1][4][2]);
   setPointText(ui.textBrowserLATSPINE54_1, ui.textBrowserLATSPINE54_2, gs.spinePoint[1][4][3]);
 
+  setPointText(ui.textBrowserAPPELVIS1_1, ui.textBrowserAPPELVIS1_2, gs.pelvisPoint[0]);
+  setPointText(ui.textBrowserAPPELVIS2_1, ui.textBrowserAPPELVIS2_2, gs.pelvisPoint[1]);
 
+  setPointText(ui.textBrowserLATTAILBONE1_1, ui.textBrowserLATTAILBONE1_2, gs.tailbonePoint[0]);
+  setPointText(ui.textBrowserLATTAILBONE2_1, ui.textBrowserLATTAILBONE2_2, gs.tailbonePoint[1]);
+  setPointText(ui.textBrowserLATTAILBONE3_1, ui.textBrowserLATTAILBONE3_2, gs.tailbonePoint[2]);
 
   //for (int scr = 0; scr < screenCount; ++scr) {
   //  for (int i = 0; i < spineCount; ++i) {
