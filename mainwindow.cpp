@@ -111,6 +111,27 @@ void MainWindow::setSpinousProcessPointText(QTextBrowser* tb1, QTextBrowser* tb2
   }
 }
 
+void MainWindow::setAngleAPText(QTextBrowser* alpha) {
+  if (gs.isDataValid(gs.pelvisPoint[0]) && gs.isDataValid(gs.pelvisPoint[1])) {
+    alpha->setText(QString::number(ui.viewAP->getPelvisAlpha()));
+  }
+  else {
+    alpha->setText("invalid");
+  }
+}
+
+void MainWindow::setAngleLATText(QTextBrowser* alpha, QTextBrowser* beta) {
+  if (gs.isDataValid(gs.tailbonePoint[0]) &&
+      gs.isDataValid(gs.tailbonePoint[1]) &&
+      gs.isDataValid(gs.tailbonePoint[2])) {
+    alpha->setText(QString::number(ui.viewLAT->getTailboneAlpha()));
+    beta->setText(QString::number(ui.viewLAT->getTailboneBeta()));
+  } else {
+    alpha->setText("invalid");
+    beta->setText("invalid");
+  }
+}
+
 void MainWindow::setBaseLineText(QTextBrowser* tb1, QTextBrowser* tb2,
   const QGraphicsLineItem* baseLineX,
   const QGraphicsLineItem* baseLineY) {
@@ -121,9 +142,11 @@ void MainWindow::setBaseLineText(QTextBrowser* tb1, QTextBrowser* tb2,
 void MainWindow::Update() {
   // update ui.status
 
+  // BaseLine
   setBaseLineText(ui.textBrowserAPBASE_1, ui.textBrowserAPBASE_2, gs.baseLine[0][0], gs.baseLine[0][1]);
   setBaseLineText(ui.textBrowserLATBASE_2, ui.textBrowserLATBASE_1, gs.baseLine[1][0], gs.baseLine[1][1]);
 
+  // AP SPINE
   setPointText(ui.textBrowserAPSPINE11_1, ui.textBrowserAPSPINE11_2, gs.spinePoint[0][0][0]);
   setPointText(ui.textBrowserAPSPINE12_1, ui.textBrowserAPSPINE12_2, gs.spinePoint[0][0][1]);
   setPointText(ui.textBrowserAPSPINE13_1, ui.textBrowserAPSPINE13_2, gs.spinePoint[0][0][2]);
@@ -145,6 +168,7 @@ void MainWindow::Update() {
   setPointText(ui.textBrowserAPSPINE53_1, ui.textBrowserAPSPINE53_2, gs.spinePoint[0][4][2]);
   setPointText(ui.textBrowserAPSPINE54_1, ui.textBrowserAPSPINE54_2, gs.spinePoint[0][4][3]);
 
+  // LAT SPINE
   setPointText(ui.textBrowserLATSPINE11_1, ui.textBrowserLATSPINE11_2, gs.spinePoint[1][0][0]);
   setPointText(ui.textBrowserLATSPINE12_1, ui.textBrowserLATSPINE12_2, gs.spinePoint[1][0][1]);
   setPointText(ui.textBrowserLATSPINE13_1, ui.textBrowserLATSPINE13_2, gs.spinePoint[1][0][2]);
@@ -170,10 +194,16 @@ void MainWindow::Update() {
   setPointText(ui.textBrowserAPPELVIS1_1, ui.textBrowserAPPELVIS1_2, gs.pelvisPoint[0]);
   setPointText(ui.textBrowserAPPELVIS2_1, ui.textBrowserAPPELVIS2_2, gs.pelvisPoint[1]);
 
+  // AP PELVIS ANGLE
+  setAngleAPText(ui.textBrowserAPPELVISANGLE_1);
+
   // LAT TAILBONE
   setPointText(ui.textBrowserLATTAILBONE1_1, ui.textBrowserLATTAILBONE1_2, gs.tailbonePoint[0]);
   setPointText(ui.textBrowserLATTAILBONE2_1, ui.textBrowserLATTAILBONE2_2, gs.tailbonePoint[1]);
   setPointText(ui.textBrowserLATTAILBONE3_1, ui.textBrowserLATTAILBONE3_2, gs.tailbonePoint[2]);
+
+  // LAT TAILBONE ANGLE
+  setAngleLATText(ui.textBrowserLATTAILBONEANGLE_1, ui.textBrowserLATTAILBONEANGLE_2);
 
   // SPINOUS PROCESS
   setSpinousProcessPointText(

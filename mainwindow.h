@@ -35,6 +35,8 @@ class MainWindow : public QMainWindow {
   void setBaseLineText(QTextBrowser* tb1, QTextBrowser* tb2,
                        const QGraphicsLineItem* baseLineX,
                        const QGraphicsLineItem* baseLineY);
+  void setAngleAPText(QTextBrowser* alpha);
+  void setAngleLATText(QTextBrowser* alpha, QTextBrowser* beta);
   void New();
   void Open();
   void Close();
