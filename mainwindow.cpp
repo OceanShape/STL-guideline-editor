@@ -98,6 +98,19 @@ void MainWindow::setPointText(QTextBrowser* tb1, QTextBrowser* tb2, const point&
   }
 }
 
+void MainWindow::setSpinousProcessPointText(QTextBrowser* tb1, QTextBrowser* tb2, QTextBrowser* tb3, const point& apPoint, const point& latPoint) {
+  if (gs.isDataValid(apPoint) && gs.isDataValid(latPoint)) {
+    tb1->setText(QString::number(apPoint.position.x()));
+    tb2->setText(QString::number(apPoint.position.y()));
+    tb3->setText(QString::number(latPoint.position.x()));
+  }
+  else {
+    tb1->setText("invalid");
+    tb2->setText("invalid");
+    tb3->setText("invalid");
+  }
+}
+
 void MainWindow::setBaseLineText(QTextBrowser* tb1, QTextBrowser* tb2,
   const QGraphicsLineItem* baseLineX,
   const QGraphicsLineItem* baseLineY) {
@@ -153,14 +166,38 @@ void MainWindow::Update() {
   setPointText(ui.textBrowserLATSPINE53_1, ui.textBrowserLATSPINE53_2, gs.spinePoint[1][4][2]);
   setPointText(ui.textBrowserLATSPINE54_1, ui.textBrowserLATSPINE54_2, gs.spinePoint[1][4][3]);
 
+  // AP PELVIS
   setPointText(ui.textBrowserAPPELVIS1_1, ui.textBrowserAPPELVIS1_2, gs.pelvisPoint[0]);
   setPointText(ui.textBrowserAPPELVIS2_1, ui.textBrowserAPPELVIS2_2, gs.pelvisPoint[1]);
 
+  // LAT TAILBONE
   setPointText(ui.textBrowserLATTAILBONE1_1, ui.textBrowserLATTAILBONE1_2, gs.tailbonePoint[0]);
   setPointText(ui.textBrowserLATTAILBONE2_1, ui.textBrowserLATTAILBONE2_2, gs.tailbonePoint[1]);
   setPointText(ui.textBrowserLATTAILBONE3_1, ui.textBrowserLATTAILBONE3_2, gs.tailbonePoint[2]);
 
-  //for (int scr = 0; scr < screenCount; ++scr) {
+  // SPINOUS PROCESS
+  setSpinousProcessPointText(
+      ui.textBrowserSPINOUSPROCESS1_1, ui.textBrowserSPINOUSPROCESS1_2,
+      ui.textBrowserSPINOUSPROCESS1_3, gs.spinousProcessPoint[0][0],
+      gs.spinousProcessPoint[1][0]);
+  setSpinousProcessPointText(
+      ui.textBrowserSPINOUSPROCESS2_1, ui.textBrowserSPINOUSPROCESS2_2,
+      ui.textBrowserSPINOUSPROCESS2_3, gs.spinousProcessPoint[0][1],
+      gs.spinousProcessPoint[1][1]);
+  setSpinousProcessPointText(
+      ui.textBrowserSPINOUSPROCESS3_1, ui.textBrowserSPINOUSPROCESS3_2,
+      ui.textBrowserSPINOUSPROCESS3_3, gs.spinousProcessPoint[0][2],
+      gs.spinousProcessPoint[1][2]);
+  setSpinousProcessPointText(
+      ui.textBrowserSPINOUSPROCESS4_1, ui.textBrowserSPINOUSPROCESS4_2,
+      ui.textBrowserSPINOUSPROCESS4_3, gs.spinousProcessPoint[0][3],
+      gs.spinousProcessPoint[1][3]);
+  setSpinousProcessPointText(
+      ui.textBrowserSPINOUSPROCESS5_1, ui.textBrowserSPINOUSPROCESS5_2,
+      ui.textBrowserSPINOUSPROCESS5_3, gs.spinousProcessPoint[0][4],
+      gs.spinousProcessPoint[1][4]);
+
+  // for (int scr = 0; scr < screenCount; ++scr) {
   //  for (int i = 0; i < spineCount; ++i) {
   //    for (int j = 0; j < pointCountForOneSpine; ++j)
 

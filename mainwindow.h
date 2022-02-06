@@ -29,6 +29,9 @@ class MainWindow : public QMainWindow {
   GlobalState& gs = GlobalState::getIncetance();
  private slots:
   void setPointText(QTextBrowser* tb1, QTextBrowser* tb2, const point& p);
+  void setSpinousProcessPointText(QTextBrowser* tb1, QTextBrowser* tb2,
+                                  QTextBrowser* tb3, const point& apPoint,
+                                  const point& latPoint);
   void setBaseLineText(QTextBrowser* tb1, QTextBrowser* tb2,
                        const QGraphicsLineItem* baseLineX,
                        const QGraphicsLineItem* baseLineY);
