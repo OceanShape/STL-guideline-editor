@@ -245,36 +245,6 @@ void MainWindow::Update() {
       ui.textBrowserSPINOUSPROCESS5_1, ui.textBrowserSPINOUSPROCESS5_2,
       ui.textBrowserSPINOUSPROCESS5_3, gs.spinousProcessPoint[0][4],
       gs.spinousProcessPoint[1][4]);
-
-  // for (int scr = 0; scr < screenCount; ++scr) {
-  //  for (int i = 0; i < spineCount; ++i) {
-  //    for (int j = 0; j < pointCountForOneSpine; ++j)
-
-  //    if (gs.spineCenter[scr][i].x() == -FLT_MAX ||
-  //      gs.spineCenter[scr][i].y() == -FLT_MAX)
-  //      return false;
-
-  //    for (int j = 0; j < pointCountForOneSpine; ++j)
-  //      if (gs.spineLine[scr][i][j] == nullptr) return false;
-  //  }
-
-  //  for (int i = 0; i < spinousProcessPointCount; ++i) {
-  //    if (gs.isDataValid(gs.spinousProcessPoint[scr][i])) return false;
-  //  }
-  //}
-
-  //// ViewAP
-  //for (int i = 0; i < pelvisPointCount; ++i)
-  //  if (gs.isDataValid(gs.pelvisPoint[i])) return false;
-  //if (gs.pelvisCenter.x() == -FLT_MAX || gs.pelvisCenter.y() == -FLT_MAX)
-  //  return false;
-  //if (gs.pelvisLine == nullptr) return false;
-
-  //// ViewLAT
-  //for (int i = 0; i < tailbonePointCount; ++i)
-  //  if (gs.isDataValid(gs.tailbonePoint[i])) return false;
-  //for (int i = 0; i < tailbonePointCount; ++i)
-  //  if (gs.tailboneLine[i] == nullptr) return false;
 }
 
 void MainWindow::Save() {
