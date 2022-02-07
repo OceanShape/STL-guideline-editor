@@ -15,6 +15,7 @@
 #define defaultBaseLineAPY 2800
 #define defaultBaseLineLATY 2876
 #define defaultBaseLineLATZ 1513
+#define imageHeight 4480
 #define pelvisPointCount 2
 #define tailbonePointCount 3
 
