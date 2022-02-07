@@ -27,6 +27,7 @@ class MainWindow : public QMainWindow {
   Ui::MainWindowClass ui;
   QString imageFileName[2];
   GlobalState& gs = GlobalState::getIncetance();
+  QPointF basePoint;
  private slots:
   void setPointText(QTextBrowser* tb1, QTextBrowser* tb2, const point& p);
   void setSpinousProcessPointText(QTextBrowser* tb1, QTextBrowser* tb2,
