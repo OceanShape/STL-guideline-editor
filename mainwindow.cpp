@@ -294,9 +294,9 @@ void MainWindow::Save() {
   out << imageFileName[0] << ',' << imageFileName[1] << ',' << currentTimeStr
       << ',' << ui.symptomEdit->text() << ',' << ui.remarksEdit->text() << ','
       << '\n';
-  out << ", x(x-y), y(x-y), y(y-z), z(y-z), y(rot), z(rot), x(x-y-z), "
-         "y(x-y-z), z(x-y-z), "
-         "alpha, beta"
+  out << ",x(x-y),y(x-y),y(y-z),z(y-z),y(rot),z(rot),x(x-y-z),"
+         "y(x-y-z),z(x-y-z),"
+         "alpha,beta"
       << endl;
   int baseAPx = ap->getBasePoint().x();
   int baseAPy = ap->getBasePoint().y();
