@@ -11,7 +11,7 @@ void ViewAP::drawPelvisLine() {
   removeAllPelvisLine();
 
   bool isAllPointSet = true;
-  for (int i = 0; i < pelvisPointCount; ++i) {
+  for (int i = 0; i < PELVIS_POINT_COUNT; ++i) {
     if (isPointInvalid(gs.pelvisPoint[i])) {
       isAllPointSet = false;
     }
@@ -29,10 +29,10 @@ void ViewAP::drawPelvisLine() {
     // ¼± ±ß±â
     gs.pen[scr]->setWidth(7);
     gs.pelvisLine = scene()->addLine(
-      gs.pelvisPoint[0].position.x() + clickCorrectionWidth,
-      gs.pelvisPoint[0].position.y() + clickCorrectionWidth,
-      gs.pelvisPoint[1].position.x() + clickCorrectionWidth,
-      gs.pelvisPoint[1].position.y() + clickCorrectionWidth, *gs.pen[scr]);
+      gs.pelvisPoint[0].position.x() + CLICK_CORRECTION_WIDTH,
+      gs.pelvisPoint[0].position.y() + CLICK_CORRECTION_WIDTH,
+      gs.pelvisPoint[1].position.x() + CLICK_CORRECTION_WIDTH,
+      gs.pelvisPoint[1].position.y() + CLICK_CORRECTION_WIDTH, *gs.pen[scr]);
   }
 
   gs.pelvisCenter = {
@@ -42,16 +42,16 @@ void ViewAP::drawPelvisLine() {
 
 void ViewAP::drawPelvisPoint(QPointF pos, const Qt::MouseButton& btn) {
   int removePointIndex;
-  pos.setX(pos.x() - clickCorrectionWidth);
-  pos.setY(pos.y() - clickCorrectionWidth);
+  pos.setX(pos.x() - CLICK_CORRECTION_WIDTH);
+  pos.setY(pos.y() - CLICK_CORRECTION_WIDTH);
 
   if (btn == Qt::LeftButton) {
-    if (gs.currentPelvisPoint >= pelvisPointCount) return;
+    if (gs.currentPelvisPoint >= PELVIS_POINT_COUNT) return;
     if (clickRangedPelvisPointOrNull(pos, removePointIndex) != nullptr) return;
 
     gs.pen[scr]->setColor(Qt::blue);
     gs.pelvisPoint[gs.currentPelvisPoint] = {
-        scene()->addEllipse(pos.x(), pos.y(), pointRadius, pointRadius,
+        scene()->addEllipse(pos.x(), pos.y(), POINT_RADIUS, POINT_RADIUS,
                             *gs.pen[scr], *gs.brush[scr]),
         pos};
 
@@ -77,11 +77,11 @@ void ViewAP::drawPelvisPoint(QPointF pos, const Qt::MouseButton& btn) {
 
 point* ViewAP::clickRangedPelvisPointOrNull(const QPointF& pos,
                                             int& outCurrentPoint) {
-  for (int i = 0; i < pelvisPointCount; ++i) {
+  for (int i = 0; i < PELVIS_POINT_COUNT; ++i) {
     qreal x = gs.pelvisPoint[i].position.x();
     qreal y = gs.pelvisPoint[i].position.y();
-    if ((x - clickRangeWidth <= pos.x() && pos.x() <= x + clickRangeWidth) &&
-        (y - clickRangeWidth <= pos.y() && pos.y() <= y + clickRangeWidth)) {
+    if ((x - CLICK_RANGE_WIDTH <= pos.x() && pos.x() <= x + CLICK_RANGE_WIDTH) &&
+        (y - CLICK_RANGE_WIDTH <= pos.y() && pos.y() <= y + CLICK_RANGE_WIDTH)) {
       outCurrentPoint = i;
       return &gs.pelvisPoint[i];
     }

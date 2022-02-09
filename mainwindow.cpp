@@ -33,8 +33,8 @@ MainWindow::~MainWindow() {
 void MainWindow::New() {
   View* view[2] = {ui.viewAP, ui.viewLAT};
   QPointF defaultBaseLinePoint[2] = {
-      {defaultBaseLineAPX, defaultBaseLineAPY},
-      {defaultBaseLineLATZ, defaultBaseLineLATY}};
+      {DEFAULT_BASELINE_AP_X, DEFAULT_BASELINE_AP_Y},
+      {DEFAULT_BASELINE_LAT_Z, DEFAULT_BASELINE_LAT_Y}};
   QGraphicsScene* scene[2] = {ui.viewAP->scene(), ui.viewLAT->scene()};
 
   for (int i = 0; i < 2; ++i) {
@@ -136,7 +136,7 @@ void MainWindow::setBaseLineText(QTextBrowser* tb1, QTextBrowser* tb2,
   const QGraphicsLineItem* baseLineX,
   const QGraphicsLineItem* baseLineY) {
   tb1->setText(QString::number(baseLineX->line().p1().x()));
-  tb2->setText(QString::number(imageHeight - baseLineY->line().p1().y()));
+  tb2->setText(QString::number(IMAGE_HEIGHT - baseLineY->line().p1().y()));
 }
 
 void MainWindow::setSpineRotateText(QTextBrowser* tb, const int& spineIdx) {
@@ -302,11 +302,11 @@ void MainWindow::Save() {
   int baseAPy = ap->getBasePoint().y();
   int baseLATy = lat->getBasePoint().y();
   int baseLATz = lat->getBasePoint().x();
-  out << dataType[0] << ',' << baseAPx << ", " << imageHeight - baseAPy << endl;
-  out << dataType[1] << ",,," << imageHeight - baseLATy << ", " << baseLATz << endl;
+  out << dataType[0] << ',' << baseAPx << ", " << IMAGE_HEIGHT - baseAPy << endl;
+  out << dataType[1] << ",,," << IMAGE_HEIGHT - baseLATy << ", " << baseLATz << endl;
 
-  for (int i = 0; i < spineCount; ++i) {
-    for (int j = 0; j < pointCountForOneSpine; ++j) {
+  for (int i = 0; i < SPINE_COUNT; ++i) {
+    for (int j = 0; j < POINT_COUNT_FOR_ONE_SPINE; ++j) {
       QPointF tmp = ap->getSpinePoint(i, j);
       int x = tmp.x() - baseAPx;
       int y = baseAPy - tmp.y();
@@ -320,8 +320,8 @@ void MainWindow::Save() {
     }
   }
 
-  for (int i = 0; i < spineCount; ++i) {
-    for (int j = 0; j < pointCountForOneSpine; ++j) {
+  for (int i = 0; i < SPINE_COUNT; ++i) {
+    for (int j = 0; j < POINT_COUNT_FOR_ONE_SPINE; ++j) {
       QPointF tmp = lat->getSpinePoint(i, j);
       int y = baseLATy - tmp.y();
       int z = tmp.x() - baseLATz;
@@ -330,7 +330,7 @@ void MainWindow::Save() {
     }
   }
 
-  for (int i = 0; i < pelvisPointCount; ++i) {
+  for (int i = 0; i < PELVIS_POINT_COUNT; ++i) {
     QPointF tmp = ap->getPelvisPoint(i);
     int x = tmp.x() - baseAPx;
     int y = baseAPy - tmp.y();
@@ -338,7 +338,7 @@ void MainWindow::Save() {
   }
   out << dataType[5] << ",,,,,,,,,," << ap->getPelvisAlpha() << endl;
 
-  for (int i = 0; i < tailbonePointCount; ++i) {
+  for (int i = 0; i < TAILBONE_POINT_COUNT; ++i) {
     QPointF tmp = lat->getTailbonePoint(i);
     int y = baseLATy - tmp.y();
     int z = tmp.x() - baseLATz;
@@ -347,7 +347,7 @@ void MainWindow::Save() {
   out << dataType[7] << ",,,,,,,,,," << lat->getTailboneAlpha() << ','
       << lat->getTailboneBeta() << endl;
 
-  for (int i = 0; i < spinousProcessPointCount; ++i) {
+  for (int i = 0; i < SPINOUS_PROCESS_POINT_COUNT; ++i) {
     QPointF tmpAP = ap->getSpinousProcessPoint(i);
     QPointF tmpLAT = lat->getSpinousProcessPoint(i);
     int x = tmpAP.x() - baseAPx;

@@ -3,21 +3,21 @@
 #ifndef GLOBALSTATE_H
 #define GLOBALSTATE_H
 
-#define screenCount 2
-#define baseLineCount 2
-#define spineCount 5
-#define pointCountForOneSpine 4
-#define spinousProcessPointCount 5
-#define clickCorrectionWidth 20
-#define clickRangeWidth 50
-#define pointRadius 50
-#define defaultBaseLineAPX 1920
-#define defaultBaseLineAPY 2800
-#define defaultBaseLineLATY 2876
-#define defaultBaseLineLATZ 1513
-#define imageHeight 4480
-#define pelvisPointCount 2
-#define tailbonePointCount 3
+#define SCREEN_COUNT 2
+#define BASELINE_COUNT 2
+#define SPINE_COUNT 5
+#define POINT_COUNT_FOR_ONE_SPINE 4
+#define SPINOUS_PROCESS_POINT_COUNT 5
+#define CLICK_CORRECTION_WIDTH 20
+#define CLICK_RANGE_WIDTH 50
+#define POINT_RADIUS 50
+#define DEFAULT_BASELINE_AP_X 1920
+#define DEFAULT_BASELINE_AP_Y 2800
+#define DEFAULT_BASELINE_LAT_Y 2876
+#define DEFAULT_BASELINE_LAT_Z 1513
+#define IMAGE_HEIGHT 4480
+#define PELVIS_POINT_COUNT 2
+#define TAILBONE_POINT_COUNT 3
 
 #include <qbrush.h>
 #include <qgraphicsitem.h>
@@ -39,34 +39,34 @@ class GlobalState {
 public:
   GlobalState* instance;
 
-  BaseLineStatus baseLineStatus[screenCount];
-  QGraphicsLineItem* baseLine[screenCount][baseLineCount];
+  BaseLineStatus baseLineStatus[SCREEN_COUNT];
+  QGraphicsLineItem* baseLine[SCREEN_COUNT][BASELINE_COUNT];
 
-  point spinePoint[screenCount][spineCount][pointCountForOneSpine];
-  QGraphicsLineItem* spineLine[screenCount][spineCount][pointCountForOneSpine];
-  QPointF spineCenter[screenCount][spineCount];
-  int currentSpine[screenCount];
-  int currentSpinePoint[screenCount];
-  std::stack<std::pair<int, int>> removedSpinePoint[screenCount];
-  point spinousProcessPoint[screenCount][spinousProcessPointCount];
-  int currentSpinousProcessPoint[screenCount];
-  std::stack<int> removedSpinousProcessPoint[screenCount];
+  point spinePoint[SCREEN_COUNT][SPINE_COUNT][POINT_COUNT_FOR_ONE_SPINE];
+  QGraphicsLineItem* spineLine[SCREEN_COUNT][SPINE_COUNT][POINT_COUNT_FOR_ONE_SPINE];
+  QPointF spineCenter[SCREEN_COUNT][SPINE_COUNT];
+  int currentSpine[SCREEN_COUNT];
+  int currentSpinePoint[SCREEN_COUNT];
+  std::stack<std::pair<int, int>> removedSpinePoint[SCREEN_COUNT];
+  point spinousProcessPoint[SCREEN_COUNT][SPINOUS_PROCESS_POINT_COUNT];
+  int currentSpinousProcessPoint[SCREEN_COUNT];
+  std::stack<int> removedSpinousProcessPoint[SCREEN_COUNT];
 
   // ViewAP data
-  point pelvisPoint[pelvisPointCount];
+  point pelvisPoint[PELVIS_POINT_COUNT];
   QGraphicsItem* pelvisLine;
   QPointF pelvisCenter;
   int currentPelvisPoint;
   std::stack<int> removedPelvisPoint;
 
   // ViewLAT data
-  point tailbonePoint[tailbonePointCount];
-  QGraphicsItem* tailboneLine[tailbonePointCount];
+  point tailbonePoint[TAILBONE_POINT_COUNT];
+  QGraphicsItem* tailboneLine[TAILBONE_POINT_COUNT];
   int currentTailbonePoint;
   std::stack<int> removedTailbonePoint;
 
-  QPen* pen[screenCount];
-  QBrush* brush[screenCount];
+  QPen* pen[SCREEN_COUNT];
+  QBrush* brush[SCREEN_COUNT];
 
 public:
   static GlobalState& getIncetance() {
@@ -92,7 +92,7 @@ public:
   GlobalState(const GlobalState& ref) { initState(); }
   GlobalState& operator=(const GlobalState& ref) {}
   ~GlobalState() {
-    for (int scr = 0; scr < screenCount; ++scr) {
+    for (int scr = 0; scr < SCREEN_COUNT; ++scr) {
       delete pen[scr];
       delete brush[scr];
     }
