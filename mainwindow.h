@@ -1,6 +1,7 @@
 #pragma once
 
 #define UTC_TIME_ASIA_SEOUL 9 * 60 * 60
+#define DATA_ROW_COUNT 57
 
 #include <QDateTime>
 #include <QFile>
