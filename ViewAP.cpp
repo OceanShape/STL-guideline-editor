@@ -29,10 +29,10 @@ void ViewAP::drawPelvisLine() {
     // ¼± ±ß±â
     gs.pen[scr]->setWidth(7);
     gs.pelvisLine = scene()->addLine(
-      gs.pelvisPoint[0].position.x() + CLICK_CORRECTION_WIDTH,
-      gs.pelvisPoint[0].position.y() + CLICK_CORRECTION_WIDTH,
-      gs.pelvisPoint[1].position.x() + CLICK_CORRECTION_WIDTH,
-      gs.pelvisPoint[1].position.y() + CLICK_CORRECTION_WIDTH, *gs.pen[scr]);
+        gs.pelvisPoint[0].position.x() + CLICK_CORRECTION_WIDTH,
+        gs.pelvisPoint[0].position.y() + CLICK_CORRECTION_WIDTH,
+        gs.pelvisPoint[1].position.x() + CLICK_CORRECTION_WIDTH,
+        gs.pelvisPoint[1].position.y() + CLICK_CORRECTION_WIDTH, *gs.pen[scr]);
   }
 
   gs.pelvisCenter = {
@@ -80,8 +80,10 @@ point* ViewAP::clickRangedPelvisPointOrNull(const QPointF& pos,
   for (int i = 0; i < PELVIS_POINT_COUNT; ++i) {
     qreal x = gs.pelvisPoint[i].position.x();
     qreal y = gs.pelvisPoint[i].position.y();
-    if ((x - CLICK_RANGE_WIDTH <= pos.x() && pos.x() <= x + CLICK_RANGE_WIDTH) &&
-        (y - CLICK_RANGE_WIDTH <= pos.y() && pos.y() <= y + CLICK_RANGE_WIDTH)) {
+    if ((x - CLICK_RANGE_WIDTH <= pos.x() &&
+         pos.x() <= x + CLICK_RANGE_WIDTH) &&
+        (y - CLICK_RANGE_WIDTH <= pos.y() &&
+         pos.y() <= y + CLICK_RANGE_WIDTH)) {
       outCurrentPoint = i;
       return &gs.pelvisPoint[i];
     }

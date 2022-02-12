@@ -36,14 +36,15 @@ typedef struct {
 typedef enum Screen { AP, LAT } SCR;
 
 class GlobalState {
-public:
+ public:
   GlobalState* instance;
 
   BaseLineStatus baseLineStatus[SCREEN_COUNT];
   QGraphicsLineItem* baseLine[SCREEN_COUNT][BASELINE_COUNT];
 
   point spinePoint[SCREEN_COUNT][SPINE_COUNT][POINT_COUNT_FOR_ONE_SPINE];
-  QGraphicsLineItem* spineLine[SCREEN_COUNT][SPINE_COUNT][POINT_COUNT_FOR_ONE_SPINE];
+  QGraphicsLineItem* spineLine[SCREEN_COUNT][SPINE_COUNT]
+                              [POINT_COUNT_FOR_ONE_SPINE];
   QPointF spineCenter[SCREEN_COUNT][SPINE_COUNT];
   int currentSpine[SCREEN_COUNT];
   int currentSpinePoint[SCREEN_COUNT];
@@ -68,13 +69,13 @@ public:
   QPen* pen[SCREEN_COUNT];
   QBrush* brush[SCREEN_COUNT];
 
-public:
+ public:
   static GlobalState& getIncetance() {
     static GlobalState gs;
     return gs;
   }
   static void initPoint(point* p) {
-    p->position = { -FLT_MAX, -FLT_MAX };
+    p->position = {-FLT_MAX, -FLT_MAX};
     p->item = nullptr;
   }
   static bool isDataValid(const point& p) {

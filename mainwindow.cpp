@@ -12,7 +12,8 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
   connect(ui.actionClose, SIGNAL(triggered()), this, SLOT(Close()));
   connect(ui.actionBaseLine, SIGNAL(triggered()), this, SLOT(BaseLine()));
   connect(ui.actionSpine, SIGNAL(triggered()), this, SLOT(Spine()));
-  connect(ui.actionSpinousProcess, SIGNAL(triggered()), this, SLOT(SpinousProcess()));
+  connect(ui.actionSpinousProcess, SIGNAL(triggered()), this,
+          SLOT(SpinousProcess()));
   connect(ui.actionPelvis, SIGNAL(triggered()), this, SLOT(Pelvis()));
   connect(ui.actionTailbone, SIGNAL(triggered()), this, SLOT(Tailbone()));
   connect(ui.viewAP, SIGNAL(updateSignal()), this, SLOT(Update()));
@@ -76,37 +77,42 @@ void MainWindow::Close() {
   QMessageBox msgBox;
   msgBox.setText(tr("Save all changes?"));
   msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No |
-    QMessageBox::Cancel);
+                            QMessageBox::Cancel);
   msgBox.setDefaultButton(QMessageBox::Yes);
 
   int msg = msgBox.exec();
   if (msg == QMessageBox::Yes) {
     Save();
     this->close();
-  }
-  else if (msg == QMessageBox::No) {
+  } else if (msg == QMessageBox::No) {
     this->close();
   }
 }
 
-void MainWindow::setPointText(QTextBrowser* tb1, QTextBrowser* tb2, const point& p) {
+void MainWindow::setPointText(QTextBrowser* tb1, QTextBrowser* tb2,
+                              const point& p) {
   if (gs.isDataValid(p)) {
     tb1->setText(QString::number(p.position.x() - basePoint.x()));
     tb2->setText(QString::number(basePoint.y() - p.position.y()));
-  }
-  else {
+  } else {
     tb1->setText("invalid");
     tb2->setText("invalid");
   }
 }
 
-void MainWindow::setSpinousProcessPointText(QTextBrowser* tb1, QTextBrowser* tb2, QTextBrowser* tb3, const point& apPoint, const point& latPoint) {
+void MainWindow::setSpinousProcessPointText(QTextBrowser* tb1,
+                                            QTextBrowser* tb2,
+                                            QTextBrowser* tb3,
+                                            const point& apPoint,
+                                            const point& latPoint) {
   if (gs.isDataValid(apPoint) && gs.isDataValid(latPoint)) {
-    tb1->setText(QString::number(apPoint.position.x() - ui.viewAP->getBasePoint().x()));
-    tb2->setText(QString::number(ui.viewAP->getBasePoint().y() - apPoint.position.y()));
-    tb3->setText(QString::number(latPoint.position.x() - ui.viewLAT->getBasePoint().x()));
-  }
-  else {
+    tb1->setText(
+        QString::number(apPoint.position.x() - ui.viewAP->getBasePoint().x()));
+    tb2->setText(
+        QString::number(ui.viewAP->getBasePoint().y() - apPoint.position.y()));
+    tb3->setText(QString::number(latPoint.position.x() -
+                                 ui.viewLAT->getBasePoint().x()));
+  } else {
     tb1->setText("invalid");
     tb2->setText("invalid");
     tb3->setText("invalid");
@@ -116,8 +122,7 @@ void MainWindow::setSpinousProcessPointText(QTextBrowser* tb1, QTextBrowser* tb2
 void MainWindow::setAngleAPText(QTextBrowser* alpha) {
   if (gs.isDataValid(gs.pelvisPoint[0]) && gs.isDataValid(gs.pelvisPoint[1])) {
     alpha->setText(QString::number(ui.viewAP->getPelvisAlpha()));
-  }
-  else {
+  } else {
     alpha->setText("invalid");
   }
 }
@@ -135,8 +140,8 @@ void MainWindow::setAngleLATText(QTextBrowser* alpha, QTextBrowser* beta) {
 }
 
 void MainWindow::setBaseLineText(QTextBrowser* tb1, QTextBrowser* tb2,
-  const QGraphicsLineItem* baseLineX,
-  const QGraphicsLineItem* baseLineY) {
+                                 const QGraphicsLineItem* baseLineX,
+                                 const QGraphicsLineItem* baseLineY) {
   tb1->setText(QString::number(baseLineX->line().p1().x()));
   tb2->setText(QString::number(IMAGE_HEIGHT - baseLineY->line().p1().y()));
 }
@@ -147,8 +152,7 @@ void MainWindow::setSpineRotateText(QTextBrowser* tb, const int& spineIdx) {
       gs.isDataValid(gs.spinePoint[0][spineIdx][2]) &&
       gs.isDataValid(gs.spinePoint[0][spineIdx][3])) {
     tb->setText(QString::number(ui.viewAP->getSpineRotateZ(spineIdx)));
-  }
-  else {
+  } else {
     tb->setText("invalid");
   }
 }
@@ -157,35 +161,59 @@ void MainWindow::Update() {
   // update ui.status
 
   // BaseLine
-  setBaseLineText(ui.textBrowserAPBASE_1, ui.textBrowserAPBASE_2, gs.baseLine[0][0], gs.baseLine[0][1]);
-  setBaseLineText(ui.textBrowserLATBASE_2, ui.textBrowserLATBASE_1, gs.baseLine[1][0], gs.baseLine[1][1]);
+  setBaseLineText(ui.textBrowserAPBASE_1, ui.textBrowserAPBASE_2,
+                  gs.baseLine[0][0], gs.baseLine[0][1]);
+  setBaseLineText(ui.textBrowserLATBASE_2, ui.textBrowserLATBASE_1,
+                  gs.baseLine[1][0], gs.baseLine[1][1]);
 
   // AP SPINE
   basePoint = {ui.viewAP->getBasePoint().x(), ui.viewAP->getBasePoint().y()};
-  setPointText(ui.textBrowserAPSPINE11_1, ui.textBrowserAPSPINE11_2, gs.spinePoint[0][0][0]);
-  setPointText(ui.textBrowserAPSPINE12_1, ui.textBrowserAPSPINE12_2, gs.spinePoint[0][0][1]);
-  setPointText(ui.textBrowserAPSPINE13_1, ui.textBrowserAPSPINE13_2, gs.spinePoint[0][0][2]);
-  setPointText(ui.textBrowserAPSPINE14_1, ui.textBrowserAPSPINE14_2, gs.spinePoint[0][0][3]);
-  setPointText(ui.textBrowserAPSPINE21_1, ui.textBrowserAPSPINE21_2, gs.spinePoint[0][1][0]);
-  setPointText(ui.textBrowserAPSPINE22_1, ui.textBrowserAPSPINE22_2, gs.spinePoint[0][1][1]);
-  setPointText(ui.textBrowserAPSPINE23_1, ui.textBrowserAPSPINE23_2, gs.spinePoint[0][1][2]);
-  setPointText(ui.textBrowserAPSPINE24_1, ui.textBrowserAPSPINE24_2, gs.spinePoint[0][1][3]);
-  setPointText(ui.textBrowserAPSPINE31_1, ui.textBrowserAPSPINE31_2, gs.spinePoint[0][2][0]);
-  setPointText(ui.textBrowserAPSPINE32_1, ui.textBrowserAPSPINE32_2, gs.spinePoint[0][2][1]);
-  setPointText(ui.textBrowserAPSPINE33_1, ui.textBrowserAPSPINE33_2, gs.spinePoint[0][2][2]);
-  setPointText(ui.textBrowserAPSPINE34_1, ui.textBrowserAPSPINE34_2, gs.spinePoint[0][2][3]);
-  setPointText(ui.textBrowserAPSPINE41_1, ui.textBrowserAPSPINE41_2, gs.spinePoint[0][3][0]);
-  setPointText(ui.textBrowserAPSPINE42_1, ui.textBrowserAPSPINE42_2, gs.spinePoint[0][3][1]);
-  setPointText(ui.textBrowserAPSPINE43_1, ui.textBrowserAPSPINE43_2, gs.spinePoint[0][3][2]);
-  setPointText(ui.textBrowserAPSPINE44_1, ui.textBrowserAPSPINE44_2, gs.spinePoint[0][3][3]);
-  setPointText(ui.textBrowserAPSPINE51_1, ui.textBrowserAPSPINE51_2, gs.spinePoint[0][4][0]);
-  setPointText(ui.textBrowserAPSPINE52_1, ui.textBrowserAPSPINE52_2, gs.spinePoint[0][4][1]);
-  setPointText(ui.textBrowserAPSPINE53_1, ui.textBrowserAPSPINE53_2, gs.spinePoint[0][4][2]);
-  setPointText(ui.textBrowserAPSPINE54_1, ui.textBrowserAPSPINE54_2, gs.spinePoint[0][4][3]);
+  setPointText(ui.textBrowserAPSPINE11_1, ui.textBrowserAPSPINE11_2,
+               gs.spinePoint[0][0][0]);
+  setPointText(ui.textBrowserAPSPINE12_1, ui.textBrowserAPSPINE12_2,
+               gs.spinePoint[0][0][1]);
+  setPointText(ui.textBrowserAPSPINE13_1, ui.textBrowserAPSPINE13_2,
+               gs.spinePoint[0][0][2]);
+  setPointText(ui.textBrowserAPSPINE14_1, ui.textBrowserAPSPINE14_2,
+               gs.spinePoint[0][0][3]);
+  setPointText(ui.textBrowserAPSPINE21_1, ui.textBrowserAPSPINE21_2,
+               gs.spinePoint[0][1][0]);
+  setPointText(ui.textBrowserAPSPINE22_1, ui.textBrowserAPSPINE22_2,
+               gs.spinePoint[0][1][1]);
+  setPointText(ui.textBrowserAPSPINE23_1, ui.textBrowserAPSPINE23_2,
+               gs.spinePoint[0][1][2]);
+  setPointText(ui.textBrowserAPSPINE24_1, ui.textBrowserAPSPINE24_2,
+               gs.spinePoint[0][1][3]);
+  setPointText(ui.textBrowserAPSPINE31_1, ui.textBrowserAPSPINE31_2,
+               gs.spinePoint[0][2][0]);
+  setPointText(ui.textBrowserAPSPINE32_1, ui.textBrowserAPSPINE32_2,
+               gs.spinePoint[0][2][1]);
+  setPointText(ui.textBrowserAPSPINE33_1, ui.textBrowserAPSPINE33_2,
+               gs.spinePoint[0][2][2]);
+  setPointText(ui.textBrowserAPSPINE34_1, ui.textBrowserAPSPINE34_2,
+               gs.spinePoint[0][2][3]);
+  setPointText(ui.textBrowserAPSPINE41_1, ui.textBrowserAPSPINE41_2,
+               gs.spinePoint[0][3][0]);
+  setPointText(ui.textBrowserAPSPINE42_1, ui.textBrowserAPSPINE42_2,
+               gs.spinePoint[0][3][1]);
+  setPointText(ui.textBrowserAPSPINE43_1, ui.textBrowserAPSPINE43_2,
+               gs.spinePoint[0][3][2]);
+  setPointText(ui.textBrowserAPSPINE44_1, ui.textBrowserAPSPINE44_2,
+               gs.spinePoint[0][3][3]);
+  setPointText(ui.textBrowserAPSPINE51_1, ui.textBrowserAPSPINE51_2,
+               gs.spinePoint[0][4][0]);
+  setPointText(ui.textBrowserAPSPINE52_1, ui.textBrowserAPSPINE52_2,
+               gs.spinePoint[0][4][1]);
+  setPointText(ui.textBrowserAPSPINE53_1, ui.textBrowserAPSPINE53_2,
+               gs.spinePoint[0][4][2]);
+  setPointText(ui.textBrowserAPSPINE54_1, ui.textBrowserAPSPINE54_2,
+               gs.spinePoint[0][4][3]);
 
   // AP PELVIS
-  setPointText(ui.textBrowserAPPELVIS1_1, ui.textBrowserAPPELVIS1_2, gs.pelvisPoint[0]);
-  setPointText(ui.textBrowserAPPELVIS2_1, ui.textBrowserAPPELVIS2_2, gs.pelvisPoint[1]);
+  setPointText(ui.textBrowserAPPELVIS1_1, ui.textBrowserAPPELVIS1_2,
+               gs.pelvisPoint[0]);
+  setPointText(ui.textBrowserAPPELVIS2_1, ui.textBrowserAPPELVIS2_2,
+               gs.pelvisPoint[1]);
 
   // AP PELVIS ANGLE
   setAngleAPText(ui.textBrowserAPPELVISANGLE_1);
@@ -197,38 +225,60 @@ void MainWindow::Update() {
   setSpineRotateText(ui.textBrowserAPSPINE41_3, 3);
   setSpineRotateText(ui.textBrowserAPSPINE51_3, 4);
 
-
   // LAT SPINE
-  basePoint = { ui.viewLAT->getBasePoint().x(), ui.viewLAT->getBasePoint().y() };
-  setPointText(ui.textBrowserLATSPINE11_2, ui.textBrowserLATSPINE11_1, gs.spinePoint[1][0][0]);
-  setPointText(ui.textBrowserLATSPINE12_2, ui.textBrowserLATSPINE12_1, gs.spinePoint[1][0][1]);
-  setPointText(ui.textBrowserLATSPINE13_2, ui.textBrowserLATSPINE13_1, gs.spinePoint[1][0][2]);
-  setPointText(ui.textBrowserLATSPINE14_2, ui.textBrowserLATSPINE14_1, gs.spinePoint[1][0][3]);
-  setPointText(ui.textBrowserLATSPINE21_2, ui.textBrowserLATSPINE21_1, gs.spinePoint[1][1][0]);
-  setPointText(ui.textBrowserLATSPINE22_2, ui.textBrowserLATSPINE22_1, gs.spinePoint[1][1][1]);
-  setPointText(ui.textBrowserLATSPINE23_2, ui.textBrowserLATSPINE23_1, gs.spinePoint[1][1][2]);
-  setPointText(ui.textBrowserLATSPINE24_2, ui.textBrowserLATSPINE24_1, gs.spinePoint[1][1][3]);
-  setPointText(ui.textBrowserLATSPINE31_2, ui.textBrowserLATSPINE31_1, gs.spinePoint[1][2][0]);
-  setPointText(ui.textBrowserLATSPINE32_2, ui.textBrowserLATSPINE32_1, gs.spinePoint[1][2][1]);
-  setPointText(ui.textBrowserLATSPINE33_2, ui.textBrowserLATSPINE33_1, gs.spinePoint[1][2][2]);
-  setPointText(ui.textBrowserLATSPINE34_2, ui.textBrowserLATSPINE34_1, gs.spinePoint[1][2][3]);
-  setPointText(ui.textBrowserLATSPINE41_2, ui.textBrowserLATSPINE41_1, gs.spinePoint[1][3][0]);
-  setPointText(ui.textBrowserLATSPINE42_2, ui.textBrowserLATSPINE42_1, gs.spinePoint[1][3][1]);
-  setPointText(ui.textBrowserLATSPINE43_2, ui.textBrowserLATSPINE43_1, gs.spinePoint[1][3][2]);
-  setPointText(ui.textBrowserLATSPINE44_2, ui.textBrowserLATSPINE44_1, gs.spinePoint[1][3][3]);
-  setPointText(ui.textBrowserLATSPINE51_2, ui.textBrowserLATSPINE51_1, gs.spinePoint[1][4][0]);
-  setPointText(ui.textBrowserLATSPINE52_2, ui.textBrowserLATSPINE52_1, gs.spinePoint[1][4][1]);
-  setPointText(ui.textBrowserLATSPINE53_2, ui.textBrowserLATSPINE53_1, gs.spinePoint[1][4][2]);
-  setPointText(ui.textBrowserLATSPINE54_2, ui.textBrowserLATSPINE54_1, gs.spinePoint[1][4][3]);
+  basePoint = {ui.viewLAT->getBasePoint().x(), ui.viewLAT->getBasePoint().y()};
+  setPointText(ui.textBrowserLATSPINE11_2, ui.textBrowserLATSPINE11_1,
+               gs.spinePoint[1][0][0]);
+  setPointText(ui.textBrowserLATSPINE12_2, ui.textBrowserLATSPINE12_1,
+               gs.spinePoint[1][0][1]);
+  setPointText(ui.textBrowserLATSPINE13_2, ui.textBrowserLATSPINE13_1,
+               gs.spinePoint[1][0][2]);
+  setPointText(ui.textBrowserLATSPINE14_2, ui.textBrowserLATSPINE14_1,
+               gs.spinePoint[1][0][3]);
+  setPointText(ui.textBrowserLATSPINE21_2, ui.textBrowserLATSPINE21_1,
+               gs.spinePoint[1][1][0]);
+  setPointText(ui.textBrowserLATSPINE22_2, ui.textBrowserLATSPINE22_1,
+               gs.spinePoint[1][1][1]);
+  setPointText(ui.textBrowserLATSPINE23_2, ui.textBrowserLATSPINE23_1,
+               gs.spinePoint[1][1][2]);
+  setPointText(ui.textBrowserLATSPINE24_2, ui.textBrowserLATSPINE24_1,
+               gs.spinePoint[1][1][3]);
+  setPointText(ui.textBrowserLATSPINE31_2, ui.textBrowserLATSPINE31_1,
+               gs.spinePoint[1][2][0]);
+  setPointText(ui.textBrowserLATSPINE32_2, ui.textBrowserLATSPINE32_1,
+               gs.spinePoint[1][2][1]);
+  setPointText(ui.textBrowserLATSPINE33_2, ui.textBrowserLATSPINE33_1,
+               gs.spinePoint[1][2][2]);
+  setPointText(ui.textBrowserLATSPINE34_2, ui.textBrowserLATSPINE34_1,
+               gs.spinePoint[1][2][3]);
+  setPointText(ui.textBrowserLATSPINE41_2, ui.textBrowserLATSPINE41_1,
+               gs.spinePoint[1][3][0]);
+  setPointText(ui.textBrowserLATSPINE42_2, ui.textBrowserLATSPINE42_1,
+               gs.spinePoint[1][3][1]);
+  setPointText(ui.textBrowserLATSPINE43_2, ui.textBrowserLATSPINE43_1,
+               gs.spinePoint[1][3][2]);
+  setPointText(ui.textBrowserLATSPINE44_2, ui.textBrowserLATSPINE44_1,
+               gs.spinePoint[1][3][3]);
+  setPointText(ui.textBrowserLATSPINE51_2, ui.textBrowserLATSPINE51_1,
+               gs.spinePoint[1][4][0]);
+  setPointText(ui.textBrowserLATSPINE52_2, ui.textBrowserLATSPINE52_1,
+               gs.spinePoint[1][4][1]);
+  setPointText(ui.textBrowserLATSPINE53_2, ui.textBrowserLATSPINE53_1,
+               gs.spinePoint[1][4][2]);
+  setPointText(ui.textBrowserLATSPINE54_2, ui.textBrowserLATSPINE54_1,
+               gs.spinePoint[1][4][3]);
 
   // LAT TAILBONE
-  setPointText(ui.textBrowserLATTAILBONE1_2, ui.textBrowserLATTAILBONE1_1, gs.tailbonePoint[0]);
-  setPointText(ui.textBrowserLATTAILBONE2_2, ui.textBrowserLATTAILBONE2_1, gs.tailbonePoint[1]);
-  setPointText(ui.textBrowserLATTAILBONE3_2, ui.textBrowserLATTAILBONE3_1, gs.tailbonePoint[2]);
+  setPointText(ui.textBrowserLATTAILBONE1_2, ui.textBrowserLATTAILBONE1_1,
+               gs.tailbonePoint[0]);
+  setPointText(ui.textBrowserLATTAILBONE2_2, ui.textBrowserLATTAILBONE2_1,
+               gs.tailbonePoint[1]);
+  setPointText(ui.textBrowserLATTAILBONE3_2, ui.textBrowserLATTAILBONE3_1,
+               gs.tailbonePoint[2]);
 
   // LAT TAILBONE ANGLE
-  setAngleLATText(ui.textBrowserLATTAILBONEANGLE_1, ui.textBrowserLATTAILBONEANGLE_2);
-
+  setAngleLATText(ui.textBrowserLATTAILBONEANGLE_1,
+                  ui.textBrowserLATTAILBONEANGLE_2);
 
   // SPINOUS PROCESS
   setSpinousProcessPointText(
@@ -304,8 +354,10 @@ void MainWindow::Save() {
   int baseAPy = ap->getBasePoint().y();
   int baseLATy = lat->getBasePoint().y();
   int baseLATz = lat->getBasePoint().x();
-  out << dataType[0] << ',' << baseAPx << ", " << IMAGE_HEIGHT - baseAPy << endl;
-  out << dataType[1] << ",,," << IMAGE_HEIGHT - baseLATy << ", " << baseLATz << endl;
+  out << dataType[0] << ',' << baseAPx << ", " << IMAGE_HEIGHT - baseAPy
+      << endl;
+  out << dataType[1] << ",,," << IMAGE_HEIGHT - baseLATy << ", " << baseLATz
+      << endl;
 
   for (int i = 0; i < SPINE_COUNT; ++i) {
     for (int j = 0; j < POINT_COUNT_FOR_ONE_SPINE; ++j) {

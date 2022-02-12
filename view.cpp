@@ -67,20 +67,20 @@ void View::drawDefaultBaseLine(const QPointF& pos) {
 
 void View::drawBaseLine(const QPointF& pos, const Qt::MouseButton& btn) {
   if (btn == Qt::LeftButton &&
-    gs.baseLineStatus[scr] == BaseLineStatus::NOT_SELECTED) {
+      gs.baseLineStatus[scr] == BaseLineStatus::NOT_SELECTED) {
     BaseLineType clickedBaseLineType = clickRangedBaseLine(pos);
     if (clickedBaseLineType != BaseLineType::NONE) {
       redrawBaseLine(pos, clickedBaseLineType);
       gs.baseLineStatus[scr] = (clickedBaseLineType == BaseLineType::VERTICAL)
-                                ? BaseLineStatus::MOVE_VERTICAL
-                                : BaseLineStatus::MOVE_HORIZONTAL;
+                                   ? BaseLineStatus::MOVE_VERTICAL
+                                   : BaseLineStatus::MOVE_HORIZONTAL;
     }
   }
 }
 
 void View::moveBaseLine(const QPointF& pos) {
   if (gs.baseLineStatus[scr] == BaseLineStatus::MOVE_VERTICAL ||
-    gs.baseLineStatus[scr] == BaseLineStatus::MOVE_HORIZONTAL) {
+      gs.baseLineStatus[scr] == BaseLineStatus::MOVE_HORIZONTAL) {
     BaseLineType baseLineType =
         (gs.baseLineStatus[scr] == BaseLineStatus::MOVE_VERTICAL)
             ? BaseLineType::VERTICAL
@@ -91,7 +91,7 @@ void View::moveBaseLine(const QPointF& pos) {
 
 void View::releaseBaseLine(const QPointF& pos) {
   if (gs.baseLineStatus[scr] == BaseLineStatus::MOVE_VERTICAL ||
-    gs.baseLineStatus[scr] == BaseLineStatus::MOVE_HORIZONTAL) {
+      gs.baseLineStatus[scr] == BaseLineStatus::MOVE_HORIZONTAL) {
     BaseLineType baseLineType =
         (gs.baseLineStatus[scr] == BaseLineStatus::MOVE_VERTICAL)
             ? BaseLineType::VERTICAL
@@ -139,10 +139,10 @@ void View::drawSpineLine() {
         for (int k = 0; k < POINT_COUNT_FOR_ONE_SPINE; ++k) {
           if (j == k) continue;
           if (gs.spinePoint[scr][i][j].position.x() <
-            gs.spinePoint[scr][i][k].position.x())
+              gs.spinePoint[scr][i][k].position.x())
             ++rightPointCount;
           if (gs.spinePoint[scr][i][j].position.y() <
-            gs.spinePoint[scr][i][k].position.y())
+              gs.spinePoint[scr][i][k].position.y())
             ++downPointCount;
         }
         if (rightPointCount >= 2) {
@@ -165,10 +165,12 @@ void View::drawSpineLine() {
       gs.pen[scr]->setWidth(7);
       for (int j = 0; j < POINT_COUNT_FOR_ONE_SPINE; ++j) {
         gs.spineLine[scr][i][j] = scene()->addLine(
-          gs.spinePoint[scr][i][j].position.x() + CLICK_CORRECTION_WIDTH,
-          gs.spinePoint[scr][i][j].position.y() + CLICK_CORRECTION_WIDTH,
-          gs.spinePoint[scr][i][(j + 1) % 4].position.x() + CLICK_CORRECTION_WIDTH,
-          gs.spinePoint[scr][i][(j + 1) % 4].position.y() + CLICK_CORRECTION_WIDTH,
+            gs.spinePoint[scr][i][j].position.x() + CLICK_CORRECTION_WIDTH,
+            gs.spinePoint[scr][i][j].position.y() + CLICK_CORRECTION_WIDTH,
+            gs.spinePoint[scr][i][(j + 1) % 4].position.x() +
+                CLICK_CORRECTION_WIDTH,
+            gs.spinePoint[scr][i][(j + 1) % 4].position.y() +
+                CLICK_CORRECTION_WIDTH,
             *gs.pen[scr]);
       }
 
@@ -213,7 +215,8 @@ void View::drawSpinePoint(QPointF pos, const Qt::MouseButton& btn) {
   } else {
     point* p = clickRangedPointOrNull(pos, removeSpineIndex, removePointIndex);
     if (p == nullptr) return;
-    gs.removedSpinePoint[scr].push({ gs.currentSpine[scr], gs.currentSpinePoint[scr]});
+    gs.removedSpinePoint[scr].push(
+        {gs.currentSpine[scr], gs.currentSpinePoint[scr]});
     gs.currentSpine[scr] = removeSpineIndex;
     gs.currentSpinePoint[scr] = removePointIndex;
 
@@ -230,8 +233,10 @@ point* View::clickRangedPointOrNull(const QPointF& pos, int& outCurrentSpine,
     for (int j = 0; j < POINT_COUNT_FOR_ONE_SPINE; ++j) {
       qreal x = gs.spinePoint[scr][i][j].position.x();
       qreal y = gs.spinePoint[scr][i][j].position.y();
-      if ((x - CLICK_RANGE_WIDTH <= pos.x() && pos.x() <= x + CLICK_RANGE_WIDTH) &&
-          (y - CLICK_RANGE_WIDTH <= pos.y() && pos.y() <= y + CLICK_RANGE_WIDTH)) {
+      if ((x - CLICK_RANGE_WIDTH <= pos.x() &&
+           pos.x() <= x + CLICK_RANGE_WIDTH) &&
+          (y - CLICK_RANGE_WIDTH <= pos.y() &&
+           pos.y() <= y + CLICK_RANGE_WIDTH)) {
         outCurrentSpine = i;
         outCurrentPoint = j;
         return &gs.spinePoint[scr][i][j];
@@ -247,7 +252,8 @@ BaseLineType View::clickRangedBaseLine(const QPointF& pos) {
 
   if (x - CLICK_RANGE_WIDTH <= pos.x() && pos.x() <= x + CLICK_RANGE_WIDTH) {
     return BaseLineType::VERTICAL;
-  } else if (y - CLICK_RANGE_WIDTH <= pos.y() && pos.y() <= y + CLICK_RANGE_WIDTH) {
+  } else if (y - CLICK_RANGE_WIDTH <= pos.y() &&
+             pos.y() <= y + CLICK_RANGE_WIDTH) {
     return BaseLineType::HORIZONTAL;
   }
 
@@ -266,7 +272,7 @@ void View::sortSpinousProcessPoint() {
     for (int i = 0; i < SPINOUS_PROCESS_POINT_COUNT; ++i) {
       for (int j = 0; j < SPINOUS_PROCESS_POINT_COUNT - (i + 1); ++j) {
         if (gs.spinousProcessPoint[scr][j].position.y() >
-          gs.spinousProcessPoint[scr][j + 1].position.y()) {
+            gs.spinousProcessPoint[scr][j + 1].position.y()) {
           point tmp;
           tmp = gs.spinousProcessPoint[scr][j + 1];
           gs.spinousProcessPoint[scr][j + 1] = gs.spinousProcessPoint[scr][j];
@@ -283,7 +289,8 @@ void View::drawSpinousProcessPoint(QPointF pos, const Qt::MouseButton& btn) {
   pos.setY(pos.y() - CLICK_CORRECTION_WIDTH);
 
   if (btn == Qt::LeftButton) {
-    if (gs.currentSpinousProcessPoint[scr] >= SPINOUS_PROCESS_POINT_COUNT) return;
+    if (gs.currentSpinousProcessPoint[scr] >= SPINOUS_PROCESS_POINT_COUNT)
+      return;
     if (clickRangedSpinousProcessPointOrNull(pos, removePointIndex) != nullptr)
       return;
 
@@ -318,8 +325,10 @@ point* View::clickRangedSpinousProcessPointOrNull(const QPointF& pos,
   for (int i = 0; i < SPINOUS_PROCESS_POINT_COUNT; ++i) {
     qreal x = gs.spinousProcessPoint[scr][i].position.x();
     qreal y = gs.spinousProcessPoint[scr][i].position.y();
-    if ((x - CLICK_RANGE_WIDTH <= pos.x() && pos.x() <= x + CLICK_RANGE_WIDTH) &&
-        (y - CLICK_RANGE_WIDTH <= pos.y() && pos.y() <= y + CLICK_RANGE_WIDTH)) {
+    if ((x - CLICK_RANGE_WIDTH <= pos.x() &&
+         pos.x() <= x + CLICK_RANGE_WIDTH) &&
+        (y - CLICK_RANGE_WIDTH <= pos.y() &&
+         pos.y() <= y + CLICK_RANGE_WIDTH)) {
       outCurrentPoint = i;
       return &gs.spinousProcessPoint[scr][i];
     }

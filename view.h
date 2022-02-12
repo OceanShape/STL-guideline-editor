@@ -23,12 +23,12 @@ class View : public QGraphicsView {
   Mode currentMode = Mode::BASE_LINE;
 
  public:
-   View::~View() {};
-   explicit View(QWidget* parent = nullptr) {};
+  View::~View(){};
+  explicit View(QWidget* parent = nullptr){};
   virtual void drawPelvisORTailbonePoint(const QPointF& pos,
                                          const Qt::MouseButton& btn){};
   QPointF getBasePoint() {
-    return { gs.baseLine[scr][BaseLineType::VERTICAL]->line().p1().x(),
+    return {gs.baseLine[scr][BaseLineType::VERTICAL]->line().p1().x(),
             gs.baseLine[scr][BaseLineType::HORIZONTAL]->line().p1().y()};
   }
   QPointF getSpinePoint(int spineIdx, int pointIdx) {
@@ -58,8 +58,7 @@ class View : public QGraphicsView {
                                               int& outCurrentPoint);
   void drawSpinousProcessPoint(QPointF pos, const Qt::MouseButton& btn);
 
-
-signals:
+ signals:
   void updateSignal();
 };
 #endif  // VIEW_H

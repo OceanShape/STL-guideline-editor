@@ -85,8 +85,10 @@ point* ViewLAT::clickRangedTailbonePointOrNull(const QPointF& pos,
   for (int i = 0; i < TAILBONE_POINT_COUNT; ++i) {
     qreal x = gs.tailbonePoint[i].position.x();
     qreal y = gs.tailbonePoint[i].position.y();
-    if ((x - CLICK_RANGE_WIDTH <= pos.x() && pos.x() <= x + CLICK_RANGE_WIDTH) &&
-        (y - CLICK_RANGE_WIDTH <= pos.y() && pos.y() <= y + CLICK_RANGE_WIDTH)) {
+    if ((x - CLICK_RANGE_WIDTH <= pos.x() &&
+         pos.x() <= x + CLICK_RANGE_WIDTH) &&
+        (y - CLICK_RANGE_WIDTH <= pos.y() &&
+         pos.y() <= y + CLICK_RANGE_WIDTH)) {
       outCurrentPoint = i;
       return &gs.tailbonePoint[i];
     }

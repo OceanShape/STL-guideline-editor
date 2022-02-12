@@ -20,8 +20,10 @@ class ViewAP : public View {
   }
 
   qreal getPelvisAlpha() {
-    return -atan2(gs.pelvisPoint[1].position.y() - gs.pelvisPoint[0].position.y(),
-      gs.pelvisPoint[1].position.x() - gs.pelvisPoint[0].position.x()) *
+    return -atan2(
+               gs.pelvisPoint[1].position.y() - gs.pelvisPoint[0].position.y(),
+               gs.pelvisPoint[1].position.x() -
+                   gs.pelvisPoint[0].position.x()) *
            180 / M_PI;
   }
 
