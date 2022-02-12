@@ -64,12 +64,11 @@ void MainWindow::Open() {
     return;
   }
   QTextStream OpenFile(&file);
-  QVector<QString> totalData[DATA_ROW_COUNT];
+  QVector<QString> totalData;
   for (int i = 0; !OpenFile.atEnd(); ++i) {
     if (i == 0 || i == 2) continue;
     totalData[i].push_back(OpenFile.readLine());
   }
-
   file.close();
 }
 
