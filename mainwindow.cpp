@@ -66,7 +66,7 @@ void MainWindow::Open() {
     QStringList lineData = totalData[line].split(',');
     lineData.removeAll("");
     QString tmpStr[2];
-    QPoint tmpPoint;
+    QPointF tmpPoint;
 
     if (line == 0) {
       tmpStr[0] = lineData[0];
@@ -75,10 +75,11 @@ void MainWindow::Open() {
       ui.symptomEdit->setText(lineData[3]);
       ui.remarksEdit->setText(lineData[4]);
     } else if (line == 1 || line == 2) {
-      tmpPoint.setX(lineData[1].toFloat());
-      tmpPoint.setY(IMAGE_HEIGHT - lineData[2].toFloat());
-      view[line - 1]->redrawBaseLine(tmpPoint, VERTICAL);
-      view[line - 1]->redrawBaseLine(tmpPoint, HORIZONTAL);
+      QPoint tmp;
+      tmp.setX(lineData[line].toInt());
+      tmp.setY(IMAGE_HEIGHT - lineData[3 - line].toInt());
+      view[line - 1]->redrawBaseLine(tmp, VERTICAL);
+      view[line - 1]->redrawBaseLine(tmp, HORIZONTAL);
     }
   }
 }
