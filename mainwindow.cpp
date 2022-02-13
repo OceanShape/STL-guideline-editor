@@ -61,6 +61,13 @@ void MainWindow::Open() {
     totalData.push_back(str);
   }
   file.close();
+
+  QStringList lineData = totalData[0].split(',');
+  lineData.removeAll("");
+  QString tmp[2];
+  tmp[0] = lineData[0];
+  tmp[1] = lineData[1];
+  if (!openImage(tmp)) return;
 }
 
 bool MainWindow::openImage(const QString dir[2]) {
