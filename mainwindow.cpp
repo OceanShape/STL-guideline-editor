@@ -56,8 +56,9 @@ void MainWindow::Open() {
   QTextStream OpenFile(&file);
   QVector<QString> totalData;
   for (int i = 0; !OpenFile.atEnd(); ++i) {
+    QString str = OpenFile.readLine();
     if (i == 0 || i == 2) continue;
-    totalData.push_back(OpenFile.readLine());
+    totalData.push_back(str);
   }
   file.close();
 }
