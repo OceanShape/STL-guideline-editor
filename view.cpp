@@ -25,10 +25,12 @@ void View::mousePressEvent(QMouseEvent* event) {
 
 void View::mouseMoveEvent(QMouseEvent* event) {
   moveBaseLine(mapToScene(event->pos()));
+  emit updateSignal();
 }
 
 void View::mouseReleaseEvent(QMouseEvent* event) {
   releaseBaseLine(mapToScene(event->pos()));
+  emit updateSignal();
 }
 
 void View::redrawBaseLine(const QPointF& pos,
