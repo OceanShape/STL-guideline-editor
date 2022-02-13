@@ -24,6 +24,12 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
 
   ui.viewAP->setScene(new QGraphicsScene);
   ui.viewLAT->setScene(new QGraphicsScene);
+
+  view[0] = ui.viewAP;
+  view[1] = ui.viewLAT;
+
+  scene[0] = ui.viewAP->scene();
+  scene[1] = ui.viewLAT->scene();
 }
 
 MainWindow::~MainWindow() {
@@ -32,28 +38,12 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::New() {
-  View* view[2] = {ui.viewAP, ui.viewLAT};
-  QPointF defaultBaseLinePoint[2] = {
-      {DEFAULT_BASELINE_AP_X, DEFAULT_BASELINE_AP_Y},
-      {DEFAULT_BASELINE_LAT_Z, DEFAULT_BASELINE_LAT_Y}};
-  QGraphicsScene* scene[2] = {ui.viewAP->scene(), ui.viewLAT->scene()};
-
+  QString dir[2];
   for (int i = 0; i < 2; ++i) {
-    QString dir = QFileDialog::getOpenFileName(
+    dir[i] = QFileDialog::getOpenFileName(
         this, "Select image", QDir::currentPath(), "*.jpg ;; *.jpeg ;; *.png");
-    if (dir == nullptr) return;
-    imageFileName[i] = QFileInfo(dir).fileName();
-    QImage* img = new QImage(dir);
-
-    delete scene[i];
-    scene[i] = new QGraphicsScene;
-    view[i]->setScene(scene[i]);
-    scene[i]->addPixmap(QPixmap::fromImage(*img));
-    view[i]->fitInView(QRectF(0, 0, scene[i]->sceneRect().width(),
-                              scene[i]->sceneRect().height()),
-                       Qt::KeepAspectRatio);
-    view[i]->drawDefaultBaseLine(defaultBaseLinePoint[i]);
   }
+  openImage(dir);
 }
 
 void MainWindow::Open() {
@@ -67,9 +57,27 @@ void MainWindow::Open() {
   QVector<QString> totalData;
   for (int i = 0; !OpenFile.atEnd(); ++i) {
     if (i == 0 || i == 2) continue;
-    totalData[i].push_back(OpenFile.readLine());
+    totalData.push_back(OpenFile.readLine());
   }
   file.close();
+}
+
+bool MainWindow::openImage(const QString dir[2]) {
+  for (int i = 0; i < 2; ++i) {
+    if (dir[i] == nullptr) return false;
+    imageFileName[i] = QFileInfo(dir[i]).fileName();
+    QImage* img = new QImage(dir[i]);
+
+    delete scene[i];
+    scene[i] = new QGraphicsScene;
+    view[i]->setScene(scene[i]);
+    scene[i]->addPixmap(QPixmap::fromImage(*img));
+    view[i]->fitInView(QRectF(0, 0, scene[i]->sceneRect().width(),
+      scene[i]->sceneRect().height()),
+      Qt::KeepAspectRatio);
+    view[i]->drawDefaultBaseLine(defaultBaseLinePoint[i]);
+  }
+  return true;
 }
 
 void MainWindow::Close() {

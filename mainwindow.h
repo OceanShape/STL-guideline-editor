@@ -28,6 +28,11 @@ class MainWindow : public QMainWindow {
   QString imageFileName[2];
   GlobalState& gs = GlobalState::getIncetance();
   QPointF basePoint;
+  View* view[2];
+  QPointF defaultBaseLinePoint[2] = {
+      {DEFAULT_BASELINE_AP_X, DEFAULT_BASELINE_AP_Y},
+      {DEFAULT_BASELINE_LAT_Z, DEFAULT_BASELINE_LAT_Y} };
+  QGraphicsScene* scene[2];
  private slots:
   void setPointText(QTextBrowser* tb1, QTextBrowser* tb2, const point& p);
   void setSpinousProcessPointText(QTextBrowser* tb1, QTextBrowser* tb2,
@@ -39,6 +44,7 @@ class MainWindow : public QMainWindow {
   void setAngleAPText(QTextBrowser* alpha);
   void setAngleLATText(QTextBrowser* alpha, QTextBrowser* beta);
   void setSpineRotateText(QTextBrowser* tb, const int& spineIdx);
+  bool openImage(const QString dir[2]);
   void New();
   void Open();
   void Close();
