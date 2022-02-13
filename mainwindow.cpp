@@ -325,9 +325,8 @@ void MainWindow::Update() {
 }
 
 void MainWindow::Save() {
-  ViewAP* ap = ui.viewAP;
-  ViewLAT* lat = ui.viewLAT;
-  QGraphicsScene* s[2] = {ui.viewAP->scene(), ui.viewLAT->scene()};
+  ViewAP* ap = (ViewAP*)view[0];
+  ViewLAT* lat = (ViewLAT*)view[1];
 
   if (!GlobalState::getIncetance().isAllDataSet()) return;
 
