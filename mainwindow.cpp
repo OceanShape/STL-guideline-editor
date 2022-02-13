@@ -172,8 +172,8 @@ void MainWindow::setAngleLATText(QTextBrowser* alpha, QTextBrowser* beta) {
 void MainWindow::setBaseLineText(QTextBrowser* tb1, QTextBrowser* tb2,
                                  const QGraphicsLineItem* baseLineX,
                                  const QGraphicsLineItem* baseLineY) {
-  tb1->setText(QString::number(baseLineX->line().p1().x()));
-  tb2->setText(QString::number(IMAGE_HEIGHT - baseLineY->line().p1().y()));
+  tb1->setText(QString::number((int)baseLineX->line().p1().x()));
+  tb2->setText(QString::number(IMAGE_HEIGHT - (int)baseLineY->line().p1().y()));
 }
 
 void MainWindow::setSpineRotateText(QTextBrowser* tb, const int& spineIdx) {
