@@ -78,8 +78,10 @@ void MainWindow::Open() {
       QPoint tmp;
       tmp.setX(lineData[line].toInt());
       tmp.setY(IMAGE_HEIGHT - lineData[3 - line].toInt());
-      view[line - 1]->redrawBaseLine(tmp, VERTICAL);
-      view[line - 1]->redrawBaseLine(tmp, HORIZONTAL);
+      gs.baseLineStatus[line - 1] = BaseLineStatus::MOVE_VERTICAL;
+      view[line - 1]->releaseBaseLine(tmp);
+      gs.baseLineStatus[line - 1] = BaseLineStatus::MOVE_HORIZONTAL;
+      view[line - 1]->releaseBaseLine(tmp);
     }
   }
 }
