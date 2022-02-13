@@ -74,16 +74,11 @@ void MainWindow::Open() {
       if (!openImage(tmpStr)) return;
       ui.symptomEdit->setText(lineData[3]);
       ui.remarksEdit->setText(lineData[4]);
-    } else if (line == 1) {
+    } else if (line == 1 || line == 2) {
       tmpPoint.setX(lineData[1].toFloat());
       tmpPoint.setY(IMAGE_HEIGHT - lineData[2].toFloat());
-      view[0]->redrawBaseLine(tmpPoint, VERTICAL);
-      view[0]->redrawBaseLine(tmpPoint, HORIZONTAL);
-    } else if (line == 2) {
-      tmpPoint.setX(lineData[1].toFloat());
-      tmpPoint.setY(IMAGE_HEIGHT - lineData[2].toFloat());
-      view[1]->redrawBaseLine(tmpPoint, VERTICAL);
-      view[1]->redrawBaseLine(tmpPoint, HORIZONTAL);
+      view[line - 1]->redrawBaseLine(tmpPoint, VERTICAL);
+      view[line - 1]->redrawBaseLine(tmpPoint, HORIZONTAL);
     }
   }
 }
