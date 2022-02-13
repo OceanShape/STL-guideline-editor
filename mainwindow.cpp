@@ -64,10 +64,15 @@ void MainWindow::Open() {
 
   QStringList lineData = totalData[0].split(',');
   lineData.removeAll("");
+  
+  // Line 0
   QString tmp[2];
   tmp[0] = lineData[0];
   tmp[1] = lineData[1];
   if (!openImage(tmp)) return;
+
+  ui.symptomEdit->setText(lineData[3]);
+  ui.remarksEdit->setText(lineData[4]);
 }
 
 bool MainWindow::openImage(const QString dir[2]) {
