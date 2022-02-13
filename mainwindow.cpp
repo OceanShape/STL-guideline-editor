@@ -62,32 +62,17 @@ void MainWindow::Open() {
   }
   file.close();
 
-  for (int line = 0; line < totalData.size(); ++line) {
-    QStringList lineData = totalData[line].split(',');
-    lineData.removeAll("");
-    QString tmpStr[2];
-    QPointF tmpPoint;
-
-    if (line == 0) {
-      tmpStr[0] = lineData[0];
-      tmpStr[1] = lineData[1];
-      if (!openImage(tmpStr)) return;
-      ui.symptomEdit->setText(lineData[3]);
-      ui.remarksEdit->setText(lineData[4]);
-    } else if (line == 1) {
-      tmpPoint.setX(lineData[1].toFloat());
-      tmpPoint.setY(IMAGE_HEIGHT - lineData[2].toFloat());
-      view[0]->redrawBaseLine(tmpPoint, VERTICAL);
-      view[0]->redrawBaseLine(tmpPoint, HORIZONTAL);
-    }
-    else if (line == 2) {
-      tmpPoint.setX(lineData[1].toFloat());
-      tmpPoint.setY(IMAGE_HEIGHT - lineData[2].toFloat());
-      view[1]->redrawBaseLine(tmpPoint, VERTICAL);
-      view[1]->redrawBaseLine(tmpPoint, HORIZONTAL);
-    }
-  }
+  QStringList lineData = totalData[0].split(',');
+  lineData.removeAll("");
   
+  // Line 0
+  QString tmp[2];
+  tmp[0] = lineData[0];
+  tmp[1] = lineData[1];
+  if (!openImage(tmp)) return;
+
+  ui.symptomEdit->setText(lineData[3]);
+  ui.remarksEdit->setText(lineData[4]);
 }
 
 bool MainWindow::openImage(const QString dir[2]) {
