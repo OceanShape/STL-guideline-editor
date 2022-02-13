@@ -65,16 +65,17 @@ void MainWindow::Open() {
 bool MainWindow::openImage(const QString dir[2]) {
   for (int i = 0; i < 2; ++i) {
     if (dir[i] == nullptr) return false;
+    QImage* img = new QImage();
+    if (!img->load(dir[i])) return false;
     imageFileName[i] = QFileInfo(dir[i]).fileName();
-    QImage* img = new QImage(dir[i]);
 
     delete scene[i];
     scene[i] = new QGraphicsScene;
     view[i]->setScene(scene[i]);
     scene[i]->addPixmap(QPixmap::fromImage(*img));
     view[i]->fitInView(QRectF(0, 0, scene[i]->sceneRect().width(),
-      scene[i]->sceneRect().height()),
-      Qt::KeepAspectRatio);
+                              scene[i]->sceneRect().height()),
+                       Qt::KeepAspectRatio);
     view[i]->drawDefaultBaseLine(defaultBaseLinePoint[i]);
   }
   return true;
