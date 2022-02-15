@@ -55,40 +55,41 @@ void MainWindow::Open() {
   }
   QTextStream OpenFile(&file);
   QVector<QString> totalData;
+  totalData.push_back("");
   for (int i = 0; !OpenFile.atEnd(); ++i) {
     QString str = OpenFile.readLine();
-    if (i == 0 || i == 2) continue;
     totalData.push_back(str);
   }
   file.close();
 
-  for (int line = 0; line < totalData.size(); ++line) {
+  for (int line = 2; line < totalData.size(); ++line) {
+    if (line == 3 || line == 48 || line == 52) continue;
     QStringList lineData = totalData[line].split(',');
     lineData.removeAll("");
     QString tmpStr[2];
     QPointF tmpPoint;
 
-    if (line == 0) {
+    if (line == 2) {
       tmpStr[0] = lineData[0];
       tmpStr[1] = lineData[1];
       if (!openImage(tmpStr)) return;
       ui.symptomEdit->setText(lineData[3]);
       ui.remarksEdit->setText(lineData[4]);
-    } else if (line == 1 || line == 2) {
+    } else if (line == 4 || line == 5) {
       QPoint tmp;
-      tmp.setX(lineData[line].toInt());
-      tmp.setY(IMAGE_HEIGHT - lineData[3 - line].toInt());
-      gs.baseLineStatus[line - 1] = BaseLineStatus::MOVE_VERTICAL;
-      view[line - 1]->releaseBaseLine(tmp);
-      gs.baseLineStatus[line - 1] = BaseLineStatus::MOVE_HORIZONTAL;
-      view[line - 1]->releaseBaseLine(tmp);
-    } else if (3 <= line && line <= 22) {
+      tmp.setX(lineData[line - 3].toInt());
+      tmp.setY(IMAGE_HEIGHT - lineData[6 - line].toInt());
+      gs.baseLineStatus[line - 4] = BaseLineStatus::MOVE_VERTICAL;
+      view[line - 4]->releaseBaseLine(tmp);
+      gs.baseLineStatus[line - 4] = BaseLineStatus::MOVE_HORIZONTAL;
+      view[line - 4]->releaseBaseLine(tmp);
+    } else if (6 <= line && line <= 25) {
       tmpPoint.setX(lineData[1].toInt() + view[0]->getBasePoint().x() +
                     CLICK_CORRECTION_WIDTH);
       tmpPoint.setY(view[0]->getBasePoint().y() - lineData[2].toInt() +
                     CLICK_CORRECTION_WIDTH);
       view[0]->drawSpinePoint(tmpPoint, Qt::MouseButton::LeftButton);
-    } else if (23 <= line && line <= 42) {
+    } else if (26 <= line && line <= 45) {
       // view[1]->getBasePoint().x() is z-axis value
       // view[1]->getBasePoint().y() is y-axis value
       tmpPoint.setX(view[1]->getBasePoint().x() + lineData[2].toInt() +
@@ -96,7 +97,7 @@ void MainWindow::Open() {
       tmpPoint.setY(view[1]->getBasePoint().y() - lineData[1].toInt() +
                     CLICK_CORRECTION_WIDTH);
       view[1]->drawSpinePoint(tmpPoint, Qt::MouseButton::LeftButton);
-    } else if (line == 43 || line == 44) {
+    } else if (line == 46 || line == 47) {
       tmpPoint.setX(lineData[1].toInt() + view[0]->getBasePoint().x() +
                     CLICK_CORRECTION_WIDTH);
       tmpPoint.setY(view[0]->getBasePoint().y() - lineData[2].toInt() +
