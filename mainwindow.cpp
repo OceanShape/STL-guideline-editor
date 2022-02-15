@@ -82,6 +82,12 @@ void MainWindow::Open() {
       view[line - 1]->releaseBaseLine(tmp);
       gs.baseLineStatus[line - 1] = BaseLineStatus::MOVE_HORIZONTAL;
       view[line - 1]->releaseBaseLine(tmp);
+    } else if (3 <= line && line <= 22) {
+      tmpPoint.setX(lineData[1].toInt() + view[0]->getBasePoint().x() +
+                    CLICK_CORRECTION_WIDTH);
+      tmpPoint.setY(view[0]->getBasePoint().y() - lineData[2].toInt() +
+                    CLICK_CORRECTION_WIDTH);
+      view[0]->drawSpinePoint(tmpPoint, Qt::MouseButton::LeftButton);
     }
   }
 }
@@ -124,8 +130,8 @@ void MainWindow::Close() {
 void MainWindow::setPointText(QTextBrowser* tb1, QTextBrowser* tb2,
                               const point& p) {
   if (gs.isDataValid(p)) {
-    tb1->setText(QString::number(p.position.x() - basePoint.x()));
-    tb2->setText(QString::number(basePoint.y() - p.position.y()));
+    tb1->setText(QString::number((int)p.position.x() - basePoint.x()));
+    tb2->setText(QString::number(basePoint.y() - (int)p.position.y()));
   } else {
     tb1->setText("invalid");
     tb2->setText("invalid");
