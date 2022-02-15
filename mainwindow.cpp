@@ -88,6 +88,14 @@ void MainWindow::Open() {
       tmpPoint.setY(view[0]->getBasePoint().y() - lineData[2].toInt() +
                     CLICK_CORRECTION_WIDTH);
       view[0]->drawSpinePoint(tmpPoint, Qt::MouseButton::LeftButton);
+    } else if (23 <= line && line <= 42) {
+      // view[1]->getBasePoint().x() is z-axis value
+      // view[1]->getBasePoint().y() is y-axis value
+      tmpPoint.setX(view[1]->getBasePoint().x() + lineData[2].toInt() +
+                    CLICK_CORRECTION_WIDTH);
+      tmpPoint.setY(view[1]->getBasePoint().y() - lineData[1].toInt() +
+                    CLICK_CORRECTION_WIDTH);
+      view[1]->drawSpinePoint(tmpPoint, Qt::MouseButton::LeftButton);
     }
   }
 }
