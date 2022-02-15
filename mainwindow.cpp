@@ -96,6 +96,12 @@ void MainWindow::Open() {
       tmpPoint.setY(view[1]->getBasePoint().y() - lineData[1].toInt() +
                     CLICK_CORRECTION_WIDTH);
       view[1]->drawSpinePoint(tmpPoint, Qt::MouseButton::LeftButton);
+    } else if (line == 43 || line == 44) {
+      tmpPoint.setX(lineData[1].toInt() + view[0]->getBasePoint().x() +
+                    CLICK_CORRECTION_WIDTH);
+      tmpPoint.setY(view[0]->getBasePoint().y() - lineData[2].toInt() +
+                    CLICK_CORRECTION_WIDTH);
+      view[0]->drawPelvisORTailbonePoint(tmpPoint, Qt::MouseButton::LeftButton);
     }
   }
 }
