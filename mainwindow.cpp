@@ -103,12 +103,23 @@ void MainWindow::Open() {
       tmpPoint.setY(view[0]->getBasePoint().y() - lineData[2].toInt() +
                     CLICK_CORRECTION_WIDTH);
       view[0]->drawPelvisORTailbonePoint(tmpPoint, Qt::MouseButton::LeftButton);
-    } else if (49 <= line || line <= 51) {
+    } else if (49 <= line && line <= 51) {
       tmpPoint.setX(view[1]->getBasePoint().x() + lineData[2].toInt() +
-        CLICK_CORRECTION_WIDTH);
+                    CLICK_CORRECTION_WIDTH);
       tmpPoint.setY(view[1]->getBasePoint().y() - lineData[1].toInt() +
-        CLICK_CORRECTION_WIDTH);
+                    CLICK_CORRECTION_WIDTH);
       view[1]->drawPelvisORTailbonePoint(tmpPoint, Qt::MouseButton::LeftButton);
+    } else if (53 <= line && line <= 57) {
+      tmpPoint.setX(lineData[1].toInt() + view[0]->getBasePoint().x() +
+                    CLICK_CORRECTION_WIDTH);
+      tmpPoint.setY(view[0]->getBasePoint().y() - lineData[2].toInt() +
+                    CLICK_CORRECTION_WIDTH);
+      view[0]->drawSpinousProcessPoint(tmpPoint, Qt::MouseButton::LeftButton);
+      tmpPoint.setX(view[1]->getBasePoint().x() + lineData[3].toInt() +
+                    CLICK_CORRECTION_WIDTH);
+      tmpPoint.setY(view[1]->getBasePoint().y() - lineData[2].toInt() +
+                    CLICK_CORRECTION_WIDTH);
+      view[1]->drawSpinousProcessPoint(tmpPoint, Qt::MouseButton::LeftButton);
     }
   }
 }
