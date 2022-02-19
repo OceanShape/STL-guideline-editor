@@ -31,7 +31,7 @@ void ViewLAT::drawTailboneLine() {
       }
     }
 
-    // ¼± ±ß±â
+    // Draw line
     gs.pen[scr]->setWidth(7);
     for (int i = 0; i < TAILBONE_POINT_COUNT; ++i) {
       gs.tailboneLine[i] = scene()->addLine(

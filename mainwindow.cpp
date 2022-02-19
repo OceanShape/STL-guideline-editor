@@ -228,7 +228,6 @@ void MainWindow::setSpineRotateText(QTextBrowser* tb, const int& spineIdx) {
 }
 
 void MainWindow::Update() {
-  // update ui.status
 
   // BaseLine
   setBaseLineText(ui.textBrowserAPBASE_1, ui.textBrowserAPBASE_2,

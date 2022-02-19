@@ -26,7 +26,7 @@ void ViewAP::drawPelvisLine() {
       gs.pelvisPoint[1] = tmp;
     }
 
-    // ¼± ±ß±â
+    // Draw line
     gs.pen[scr]->setWidth(7);
     gs.pelvisLine = scene()->addLine(
         gs.pelvisPoint[0].position.x() + CLICK_CORRECTION_WIDTH,

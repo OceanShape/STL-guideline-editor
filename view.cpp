@@ -119,10 +119,9 @@ bool View::isPointInvalid(const point& p) {
 }
 
 void View::drawSpineLine() {
-  // 선 모두 지우기
   removeAllSpineLine();
 
-  // 모든 선 다시 그리기
+  // Redraw all line
   for (int i = 0; i < SPINE_COUNT; ++i) {
     bool isAllPointSet = true;
     for (int j = 0; j < POINT_COUNT_FOR_ONE_SPINE; ++j) {
@@ -132,7 +131,7 @@ void View::drawSpineLine() {
     }
 
     if (isAllPointSet) {
-      // 점 정렬
+      // Sort all point
       point tmp[POINT_COUNT_FOR_ONE_SPINE];
 
       for (int j = 0; j < POINT_COUNT_FOR_ONE_SPINE; ++j) {
@@ -163,7 +162,7 @@ void View::drawSpineLine() {
       for (int j = 0; j < POINT_COUNT_FOR_ONE_SPINE; ++j)
         gs.spinePoint[scr][i][j] = tmp[j];
 
-      // 선 긋기
+      // Draw line
       gs.pen[scr]->setWidth(7);
       for (int j = 0; j < POINT_COUNT_FOR_ONE_SPINE; ++j) {
         gs.spineLine[scr][i][j] = scene()->addLine(
