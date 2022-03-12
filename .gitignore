@@ -7,6 +7,7 @@ LAT_sample.jpg
 
 # test output file
 *.csv
+!sample-2022-02-16.csv
 
 # Visual Studio generated files
 x64/
