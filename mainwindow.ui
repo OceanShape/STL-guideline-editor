@@ -2684,7 +2684,7 @@ color:white;</string>
             </font>
            </property>
            <property name="title">
-            <string>GroupBox</string>
+            <string>Symptom</string>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_3">
             <item>
