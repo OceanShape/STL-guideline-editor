@@ -3,6 +3,12 @@
 
 ![image](https://user-images.githubusercontent.com/42532724/201208906-560b3758-e14e-47f5-87d4-b3c6e0d5db02.png)
 
+### Environment
+- OS: Windows 10
+- Language: C++14/xml(Qt UI)
+- Framework: Qt(Core/Gui/Widgets)
+- IDE: Visual Studio 2019
+
 ### How to Build
 1. Install `Visual Studio 2019`
 2. Install `Qt` for `Windows`
