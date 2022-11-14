@@ -3,13 +3,13 @@
 
 ![image](https://user-images.githubusercontent.com/42532724/201208906-560b3758-e14e-47f5-87d4-b3c6e0d5db02.png)
 
-### Environment
+## Environment
 - OS: Windows 10
 - Language: C++14/xml(Qt UI)
 - Framework: Qt(Core/Gui/Widgets)
 - IDE: Visual Studio 2019
 
-### How to Build
+## How to Build
 1. Install `Visual Studio 2019`
 2. Install `Qt` for `Windows`
     - Download and run [Qt installer](https://www.qt.io/download-thank-you?hsLang=en).
@@ -24,7 +24,7 @@
     - Add `qmake.exe`(find `bin` folder in installed qt directory) to list in `add new Qt version`.
 4. Build and run
 
-### How to Use
+## How to Use
 - Left screen is AP image, and Right screen is LAT image.
 - After setting all the guidelines, you can save and create a `.csv` file.
 - There are four menus, and four guideline types.
