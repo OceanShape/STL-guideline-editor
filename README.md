@@ -23,3 +23,18 @@
     - Select `Extensions` → `QT VS Tools` → `Qt Versions`.
     - Add `qmake.exe`(find `bin` folder in installed qt directory) to list in `add new Qt version`.
 4. Build and run
+
+### How to Use
+- Left screen is AP image, and Right screen is LAT image.
+- After setting all the guidelines, you can save and create a `.csv` file.
+- There are four menus, and four guideline types.
+    - `New`/`Open`: Create new/different image set for data. Before setting a guideline, you must select two image(AP/LAT).
+    - `Save`: Convert data to `.csv`. Before converting data, you must set all guidelines.
+    - `Close`: Close current program.
+    - `baseline`: Change baseline mode for world coordinates.
+    - `spine`: Change spine mode for setting five spines per image. If you draw four dots, `guideline-editor` automatically creates a single bone.
+    - `spinous-process`: Change spinous process mode.
+    - `pelvis`: Change pelvis mode. This mode just for AP.
+    - `tailbone`: Change tailbone mode. This mode just for LAT.
+- You can add symptom/remarks by note in `Symptom`/`Remarks(proof)` 
+- If you want sample, download this [images](https://drive.google.com/file/d/1bRhkr-I-3SykoCC3AVjhxrdFI-JFAYOT/view?usp=share_link).
